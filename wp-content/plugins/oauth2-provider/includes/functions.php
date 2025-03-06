@@ -29,7 +29,7 @@ function wo_types() {
 		'menu_name' => _x( 'Clients', 'admin menu', 'wp-oauth' ),
 		'name_admin_bar' => _x( 'Client', 'add new on admin bar', 'wp-oauth' ),
 		'add_new' => _x( 'Add New', 'Client', 'wp-oauth' ),
-		'add_new_item' => __( 'Add New BoClientok', 'wp-oauth' ),
+		'add_new_item' => __( 'Add New Client', 'wp-oauth' ),
 		'new_item' => __( 'New Client', 'wp-oauth' ),
 		'edit_item' => __( 'Edit Client', 'wp-oauth' ),
 		'view_item' => __( 'View Client', 'wp-oauth' ),
@@ -242,7 +242,7 @@ function wo_gen_key( $length = 40 ) {
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$randomString = '';
 
-	for ( $i = 0; $i < $length; $i++ ) {
+	for ( $i = 0; $length > $i; $i++ ) {
 		$randomString .= $characters[ wp_rand( 0, strlen( $characters ) - 1 ) ];
 	}
 
@@ -262,7 +262,7 @@ function wo_gen_key( $length = 40 ) {
 function wo_crypt( $input, $rounds = 7 ) {
 	$salt = '';
 	$salt_chars = array_merge( range( 'A', 'Z' ), range( 'a', 'z' ), range( 0, 9 ) );
-	for ( $i = 0; $i < 22; $i++ ) {
+	for ( $i = 0; 22 > $i; $i++ ) {
 		$salt .= $salt_chars[ array_rand( $salt_chars ) ];
 	}
 
@@ -321,7 +321,7 @@ function client_ip() {
  * @return boolean [description]
  */
 function wo_os_is_win() {
-	if ( strtoupper( substr( PHP_OS, 0, 3 ) ) === 'WIN' ) {
+	if ( 'WIN' === strtoupper( substr( PHP_OS, 0, 3 ) ) ) {
 		return true;
 	}
 
@@ -373,13 +373,30 @@ function wp_oauth_generate_server_keys( $overwrite = false ) {
 				'private_key_type' => OPENSSL_KEYTYPE_RSA,
 			)
 		);
+
+		if ($res === false) {
+			// Handle the error when key generation fails
+			$error_message = openssl_error_string();
+			error_log("Failed to generate private key: $error_message");
+			return false;
+		}
+
 		openssl_pkey_export( $res, $privKey );
 		file_put_contents( $cert_locs['private'], $privKey );
+	} else {
+        $res = openssl_pkey_get_private(file_get_contents($cert_locs['private']));
 	}
 
 	if ( ! file_exists( $cert_locs['public'] ) || $overwrite ) {
 		$pubKey = openssl_pkey_get_details( $res );
-		$pubKey = $pubKey['key'];
+		if ($pubKey === false) {
+			// Handle the error when getting key details fails
+			$error_message = openssl_error_string();
+			error_log("Failed to get public key details: $error_message");
+			return false;
+		}
+		
+				$pubKey = $pubKey['key'];
 		file_put_contents( $cert_locs['public'], $pubKey );
 	}
 
