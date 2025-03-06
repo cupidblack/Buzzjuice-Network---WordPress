@@ -355,18 +355,19 @@ function wpoauth_get_server_certs() {
  *
  * @return bool
  */
-function wp_oauth_generate_server_keys( $overwrite = false ) {
+function wp_oauth_generate_server_keys($overwrite = false) 
+{
 	$upload_dir = wp_get_upload_dir();
 	$key_dir = $upload_dir['basedir'] . '/wo-keys/';
 
-	if ( ! file_exists( $key_dir ) ) {
-		wp_mkdir_p( $key_dir );
+	if (!file_exists($key_dir)) {
+		wp_mkdir_p($key_dir);
 	}
 
-	file_put_contents( $key_dir . '/.htaccess', 'deny from all' );
+	file_put_contents($key_dir . '/.htaccess', 'deny from all');
 	$cert_locs = wpoauth_get_server_certs();
 
-	if ( ! file_exists( $cert_locs['private'] ) || $overwrite ) {
+	if (!file_exists($cert_locs['private']) || $overwrite) {
 		$res = openssl_pkey_new(
 			array(
 				'private_key_bits' => 2048,
@@ -376,28 +377,32 @@ function wp_oauth_generate_server_keys( $overwrite = false ) {
 
 		if ($res === false) {
 			// Handle the error when key generation fails
-			$error_message = openssl_error_string();
-			error_log("Failed to generate private key: $error_message");
+			// $error_message = openssl_error_string();
+			error_log('Failed to generate private key.');
+			// error_log("Failed to generate private key: $error_message");
 			return false;
 		}
 
-		openssl_pkey_export( $res, $privKey );
-		file_put_contents( $cert_locs['private'], $privKey );
-	} else {
-        $res = openssl_pkey_get_private(file_get_contents($cert_locs['private']));
+		openssl_pkey_export($res, $privKey);
+		file_put_contents($cert_locs['private'], $privKey);
 	}
 
-	if ( ! file_exists( $cert_locs['public'] ) || $overwrite ) {
-		$pubKey = openssl_pkey_get_details( $res );
-		if ($pubKey === false) {
+	if (!file_exists($cert_locs['public']) || $overwrite) {
+		$pubKeyDetails = openssl_pkey_get_details($res);
+		//$pubKey = openssl_pkey_get_details($res);
+
+		if ($pubKeyDetails === false) {
+		// if ($pubKey === false) {
 			// Handle the error when getting key details fails
-			$error_message = openssl_error_string();
-			error_log("Failed to get public key details: $error_message");
+			// $error_message = openssl_error_string();
+			//error_log("Failed to get public key details: $error_message");
+			error_log('Failed to get public key details.');
 			return false;
 		}
-		
-				$pubKey = $pubKey['key'];
-		file_put_contents( $cert_locs['public'], $pubKey );
+
+		$pubKey = $pubKeyDetails['key'];
+		//$pubKey = $pubKey['key'];
+		file_put_contents($cert_locs['public'], $pubKey);
 	}
 
 	/*
@@ -405,7 +410,7 @@ function wp_oauth_generate_server_keys( $overwrite = false ) {
 	 * key per certificate so it makes sense that it is only ran and updated when the certificates are installed and or
 	 * regenerated.
 	 */
-	update_option( 'wp_oauth_activation_time', time() );
+	update_option('wp_oauth_activation_time', time());
 
 	return true;
 }
