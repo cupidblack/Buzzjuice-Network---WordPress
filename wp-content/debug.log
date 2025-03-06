@@ -1,0 +1,13 @@
+[06-Mar-2025 13:46:26 UTC] PHP Warning:  Undefined variable $res in C:\weblink\buzzjuice.net\wp-content\plugins\oauth2-provider\includes\functions.php on line 381
+[06-Mar-2025 13:46:26 UTC] PHP Fatal error:  Uncaught TypeError: openssl_pkey_get_details(): Argument #1 ($key) must be of type OpenSSLAsymmetricKey, null given in C:\weblink\buzzjuice.net\wp-content\plugins\oauth2-provider\includes\functions.php:381
+Stack trace:
+#0 C:\weblink\buzzjuice.net\wp-content\plugins\oauth2-provider\includes\functions.php(381): openssl_pkey_get_details(NULL)
+#1 C:\weblink\buzzjuice.net\wp-content\plugins\oauth2-provider\wp-oauth-main.php(344): wp_oauth_generate_server_keys()
+#2 C:\weblink\buzzjuice.net\wp-content\plugins\oauth2-provider\wp-oauth-main.php(229): WO_Server->install()
+#3 C:\weblink\buzzjuice.net\wp-includes\class-wp-hook.php(324): WO_Server->setup(false)
+#4 C:\weblink\buzzjuice.net\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#5 C:\weblink\buzzjuice.net\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#6 C:\weblink\buzzjuice.net\wp-admin\includes\plugin.php(703): do_action('activate_oauth2...', false)
+#7 C:\weblink\buzzjuice.net\wp-admin\plugins.php(60): activate_plugin('oauth2-provider...', 'http://weblink....', false)
+#8 {main}
+  thrown in C:\weblink\buzzjuice.net\wp-content\plugins\oauth2-provider\includes\functions.php on line 381
