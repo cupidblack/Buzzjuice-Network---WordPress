@@ -29,7 +29,7 @@ function wo_types() {
 		'menu_name' => _x( 'Clients', 'admin menu', 'wp-oauth' ),
 		'name_admin_bar' => _x( 'Client', 'add new on admin bar', 'wp-oauth' ),
 		'add_new' => _x( 'Add New', 'Client', 'wp-oauth' ),
-		'add_new_item' => __( 'Add New Client', 'wp-oauth' ),
+		'add_new_item' => __( 'Add New BoClientok', 'wp-oauth' ),
 		'new_item' => __( 'New Client', 'wp-oauth' ),
 		'edit_item' => __( 'Edit Client', 'wp-oauth' ),
 		'view_item' => __( 'View Client', 'wp-oauth' ),
@@ -242,7 +242,7 @@ function wo_gen_key( $length = 40 ) {
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$randomString = '';
 
-	for ( $i = 0; $length > $i; $i++ ) {
+	for ( $i = 0; $i < $length; $i++ ) {
 		$randomString .= $characters[ wp_rand( 0, strlen( $characters ) - 1 ) ];
 	}
 
@@ -262,7 +262,7 @@ function wo_gen_key( $length = 40 ) {
 function wo_crypt( $input, $rounds = 7 ) {
 	$salt = '';
 	$salt_chars = array_merge( range( 'A', 'Z' ), range( 'a', 'z' ), range( 0, 9 ) );
-	for ( $i = 0; 22 > $i; $i++ ) {
+	for ( $i = 0; $i < 22; $i++ ) {
 		$salt .= $salt_chars[ array_rand( $salt_chars ) ];
 	}
 
@@ -321,7 +321,7 @@ function client_ip() {
  * @return boolean [description]
  */
 function wo_os_is_win() {
-	if ( 'WIN' === strtoupper( substr( PHP_OS, 0, 3 ) ) ) {
+	if ( strtoupper( substr( PHP_OS, 0, 3 ) ) === 'WIN' ) {
 		return true;
 	}
 
@@ -357,62 +357,64 @@ function wpoauth_get_server_certs() {
  */
 function wp_oauth_generate_server_keys($overwrite = false) 
 {
-	$upload_dir = wp_get_upload_dir();
-	$key_dir = $upload_dir['basedir'] . '/wo-keys/';
+    $upload_dir = wp_get_upload_dir();
+    $key_dir = $upload_dir['basedir'] . '/wo-keys/';
 
-	if (!file_exists($key_dir)) {
-		wp_mkdir_p($key_dir);
-	}
+    if (!file_exists($key_dir)) {
+        wp_mkdir_p($key_dir);
+    }
 
-	file_put_contents($key_dir . '/.htaccess', 'deny from all');
-	$cert_locs = wpoauth_get_server_certs();
+    file_put_contents($key_dir . '/.htaccess', 'deny from all');
+    $cert_locs = wpoauth_get_server_certs();
 
-	if (!file_exists($cert_locs['private']) || $overwrite) {
-		$res = openssl_pkey_new(
-			array(
-				'private_key_bits' => 2048,
-				'private_key_type' => OPENSSL_KEYTYPE_RSA,
-			)
-		);
+    $res = null;
 
-		if ($res === false) {
-			// Handle the error when key generation fails
-			// $error_message = openssl_error_string();
-			error_log('Failed to generate private key.');
-			// error_log("Failed to generate private key: $error_message");
-			return false;
-		}
+    if (!file_exists($cert_locs['private']) || $overwrite) {
+        $res = openssl_pkey_new(
+            array(
+                'private_key_bits' => 2048,
+                'private_key_type' => OPENSSL_KEYTYPE_RSA,
+            )
+        );
 
-		openssl_pkey_export($res, $privKey);
-		file_put_contents($cert_locs['private'], $privKey);
-	}
+        if ($res === false) {
+            // Handle the error when key generation fails
+            error_log('Failed to generate private key: ' . openssl_error_string());
+            return false;
+        }
 
-	if (!file_exists($cert_locs['public']) || $overwrite) {
-		$pubKeyDetails = openssl_pkey_get_details($res);
-		//$pubKey = openssl_pkey_get_details($res);
+        openssl_pkey_export($res, $privKey);
+        file_put_contents($cert_locs['private'], $privKey);
+    }
 
-		if ($pubKeyDetails === false) {
-		// if ($pubKey === false) {
-			// Handle the error when getting key details fails
-			// $error_message = openssl_error_string();
-			//error_log("Failed to get public key details: $error_message");
-			error_log('Failed to get public key details.');
-			return false;
-		}
+    if (!file_exists($cert_locs['public']) || $overwrite) {
+        // Ensure the key generation was successful before using $res
+        if ($res === null) {
+            $res = openssl_pkey_get_private(file_get_contents($cert_locs['private']));
+            if ($res === false) {
+                error_log('Failed to retrieve private key for public key generation: ' . openssl_error_string());
+                return false;
+            }
+        }
 
-		$pubKey = $pubKeyDetails['key'];
-		//$pubKey = $pubKey['key'];
-		file_put_contents($cert_locs['public'], $pubKey);
-	}
+        $pubKeyDetails = openssl_pkey_get_details($res);
 
-	/*
-	 * Moved here from the setup function in 4.0.2. This is used for the KID paramters for OpenID. The KID is a unique
-	 * key per certificate so it makes sense that it is only ran and updated when the certificates are installed and or
-	 * regenerated.
-	 */
-	update_option('wp_oauth_activation_time', time());
+        if ($pubKeyDetails === false) {
+            // Handle the error when getting key details fails
+            error_log('Failed to get public key details: ' . openssl_error_string());
+            return false;
+        }
 
-	return true;
+        $pubKey = $pubKeyDetails['key'];
+        file_put_contents($cert_locs['public'], $pubKey);
+    }
+
+    // Moved here from the setup function in 4.0.2. This is used for the KID paramters for OpenID. The KID is a unique
+    // key per certificate so it makes sense that it is only ran and updated when the certificates are installed and or
+    // regenerated.
+    update_option('wp_oauth_activation_time', time());
+
+    return true;
 }
 
 /**
