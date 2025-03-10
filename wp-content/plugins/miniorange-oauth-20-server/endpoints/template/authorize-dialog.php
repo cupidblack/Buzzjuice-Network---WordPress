@@ -1,4 +1,29 @@
+
+
+
+
+
+
 <?php
+
+
+/**
+ * Automatically submit the consent form when the page loads.
+ */
+function mo_oauth_auto_submit_consent() {
+    ?>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let consentForm = document.querySelector('form[action=""][method="post"] input[name="mo_oauth_server_authorize"][value="allow"]');
+            if (consentForm) {
+                consentForm.closest("form").submit();
+            }
+        });
+    </script>
+    <?php
+}
+
+
 /**
  * Summary of authorize-dialog
  *
@@ -55,6 +80,9 @@ function mo_oauth_server_emit_css() {   ?>
  * @return void
  */
 function mo_oauth_server_emit_html( $client_credentials, $scope_message ) {
+
+	mo_oauth_auto_submit_consent();
+
 	mo_oauth_server_emit_css();
 
 	$oauth_client_list_json      = file_get_contents( dirname( dirname( dirname( __FILE__ ) ) ) . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'oauth-client-list.json' ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Using file_get_contents to fetch a local file, not a remote file.
@@ -106,7 +134,7 @@ function mo_oauth_server_emit_html( $client_credentials, $scope_message ) {
 							<?php wp_nonce_field( 'mo_oauth_server_authorize_dialog_allow_form', 'mo_oauth_server_authorize_dialog_allow_form_field' ); ?>
 							<input type="hidden" name="mo_oauth_server_authorize_dialog" value="1" />
 							<input type="hidden" name="mo_oauth_server_authorize" value="allow" />
-							<button class="button is-success is-fullwidth">Submit Consent</button>
+							<button class="button is-success is-fullwidth">Authorizing, please wait....</button>
 						</form>
 						<form action="" method="post">
 							<?php wp_nonce_field( 'mo_oauth_server_authorize_dialog_deny_form', 'mo_oauth_server_authorize_dialog_deny_form_field' ); ?>

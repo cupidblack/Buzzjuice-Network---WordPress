@@ -86,10 +86,36 @@ $table_prefix = 'wp_';
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
 
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
+// Set error handling
+set_error_handler(function() {
+    $log = "\r\n==========\r\nSTACK TRACE:";
+    foreach ( debug_backtrace() as $i => $item ) {
+        if ( 0 === $i ) {
+            $log .= "\r\n" . $item['args'][1];
+        } else {
+            $log .= "\r\n" . $item['file'] . ' -- line ' . $item['line'];
+        }
+    }
+    $log .= "\r\n==========";
+    error_log( $log );
+    return true;
+}, E_USER_NOTICE);
+
+// Enable WP_DEBUG mode
+define( 'WP_DEBUG', true );
+
+// Enable Debug logging to the /wp-content/debug.log file
+define( 'WP_DEBUG_LOG', true );
+
+// Disable display of errors and warnings 
 define('WP_DEBUG_DISPLAY', false);
-@ini_set('display_errors', 0);
+@ini_set('display_errors',0);
+
+// Use dev versions of core JS and CSS files (only needed if you are modifying these core files)
+define( 'SCRIPT_DEBUG', true );
+
+// Set error logging for debugging and performance monitoring
+define( 'SAVEQUERIES', true );
 /* Add any custom values between this line and the "stop editing" line. */
 
 
