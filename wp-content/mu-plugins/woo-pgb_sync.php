@@ -11,9 +11,6 @@ function create_virtual_product() {
         // Use the existing product
         $product = wc_get_product($existing_product_id);
     } else {
-        // Generate a unique SKU if the base SKU already exists
-        $unique_sku = $base_sku . '-' . uniqid();
-
         $product = new WC_Product_Simple();
         $product->set_name('Buzzjuice WoWonder Digital Payment');
         $product->set_status('publish');
@@ -23,7 +20,7 @@ function create_virtual_product() {
         $product->set_sale_price(0); // Sale price mapping
         $product->set_virtual(true);
         $product->set_downloadable(true);
-        $product->set_sku($unique_sku); // Set unique SKU
+        $product->set_sku($base_sku); // Set base SKU
         $product->set_manage_stock(false); // Inventory management
         $product->set_stock_status('instock'); // Stock status
         $product->set_sold_individually(true); // Sold individually
@@ -34,7 +31,9 @@ function create_virtual_product() {
 
     update_option('wo_wonder_digital_product_id', $product->get_id());
 }
-add_action('init', 'create_virtual_product');
+
+// Hook to run the create_virtual_product function only when the plugin is activated
+register_activation_hook(__FILE__, 'create_virtual_product');
 
 // Inject dynamic price for the virtual product
 function inject_dynamic_price($cart_object) {
@@ -45,4 +44,71 @@ function inject_dynamic_price($cart_object) {
     }
 }
 add_action('woocommerce_before_calculate_totals', 'inject_dynamic_price');
+
+// Redirect to WooCommerce Checkout
+function redirect_to_woocommerce_checkout($order_id, $user_id, $amount, $product_name, $product_price, $product_units, $product_owner_id) {
+    $woo_store_url = get_option('woo_store_url') ?? '';
+    $product_id = get_option('wo_wonder_digital_product_id');
+    
+    if (empty($woo_store_url) || empty($product_id)) {
+        error_log("WooCommerce Payment Init Error: Store URL or Product ID not set.");
+        http_response_code(500);
+        echo json_encode(['status' => 'error', 'message' => 'WooCommerce store URL or Product ID is not configured.']);
+        exit();
+    }
+
+    $redirect_url = sprintf(
+        "%s/checkout/?add-to-cart=%d&quantity=%d&woo_order_id=%s&amount=%.2f&user_id=%s&product_name=%s&product_price=%.2f&product_units=%d&product_owner_id=%d",
+        $woo_store_url,
+        $product_id,
+        $product_units, 
+        urlencode($order_id),
+        $amount,
+        $user_id,
+        $product_name,
+        $product_price,
+        $product_units,
+        $product_owner_id
+    );
+    header("Location: $redirect_url");
+    exit();
+}
+
+// Custom function to handle redirection for specific product
+function wowonder_redirect_after_purchase($order_id) {
+    $order = wc_get_order($order_id);
+    $product_id = get_option('wo_wonder_digital_product_id');
+
+    // Check if the order contains the 'Buzzjuice WoWonder Digital Payment' product
+    foreach ($order->get_items() as $item) {
+        if ($item->get_product_id() == $product_id) {
+            // Get necessary parameters
+            $amount = $order->get_total();
+            $user_id = $order->get_user_id();
+            $product_name = urlencode($item->get_name());
+            $product_price = $item->get_total();
+            $product_units = $item->get_quantity();
+            $product_owner_id = ''; // Add logic to get product owner ID if necessary
+            $woo_order_id = $order_id;
+
+            // Construct WoWonder URL
+            $wowonder_url = sprintf(
+                "%s/checkout-success?woo_order_id=%s&amount=%.2f&user_id=%s&product_name=%s&product_price=%.2f&product_units=%d&product_owner_id=%d",
+                get_option('wowonder_url'),
+                $woo_order_id,
+                $amount,
+                $user_id,
+                $product_name,
+                $product_price,
+                $product_units,
+                $product_owner_id
+            );
+
+            // Redirect to WoWonder
+            wp_redirect($wowonder_url);
+            exit();
+        }
+    }
+}
+add_action('woocommerce_thankyou', 'wowonder_redirect_after_purchase');
 ?>
