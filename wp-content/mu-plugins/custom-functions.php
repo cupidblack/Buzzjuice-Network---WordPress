@@ -14,7 +14,7 @@ function logout_without_confirm($action, $result) {
 
 
 function redirect_after_wp_logout() {
-    wp_safe_redirect('https://buzzjuice.net/streams/logout/?cabin=home');
+    wp_safe_redirect('https://127.0.0.1/buzzjuice.net/streams/logout/?cabin=home');
     exit(); // Ensure no further code execution after redirection
 }
 add_action('wp_logout', 'redirect_after_wp_logout');

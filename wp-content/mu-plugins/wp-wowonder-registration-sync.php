@@ -1,0 +1,176 @@
+<?php
+/**
+ * Plugin Name: WordPress WoWonder User Registration Sync
+ * Description: Syncs WordPress user registration with WoWonder user registration. Using authentications to check for an existing account before creating a new one.
+ * Version: 1.0002
+ * Author: Blue Crown R&D 
+ */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
+// Load environment variables
+require_once __DIR__ . '/../plugins/blue-crown-platform/DotEnv.php';
+$dotenv = new DotEnv(dirname(__DIR__, 3) . '/.env');
+$dotenv->load();
+
+// Hook into WordPress login action
+add_action('wp_login', 'wp_wowonder_registration_sync', 10, 2);
+
+function wp_wowonder_registration_sync($user_login, $user) {
+    $wowonder_api_url = getenv('WOWONDER_API_URL');
+    $server_key = getenv('WOWONDER_SERVER_KEY');
+
+    if (!$server_key || !$wowonder_api_url) {
+        error_log('WoWonder API credentials missing.');
+        return;
+    }
+
+    $username = $user->user_login;
+    $user_email = $user->user_email;
+    $user_password = $_POST['pwd'] ?? '';
+
+    if (empty($user_password) || empty($username)) {
+        error_log('Missing username or password.');
+        return;
+    }
+
+    // Check if user already has an access token
+    $existing_access_token = get_user_meta($user->ID, 'wowonder_access_token', true);
+    if (!empty($existing_access_token)) {
+        error_log("User already authenticated with an existing WoWonder token.");
+        return;
+    }
+
+    // Step 1: Authenticate the user on WoWonder
+    error_log("Authenticating Buzzjuice User");
+
+    $auth_response = wp_safe_remote_post("$wowonder_api_url/auth", [
+        'timeout' => 5, // Reduced timeout
+        'body' => [
+            'server_key' => $server_key,
+            'username' => $username,
+            'password' => $user_password
+        ],
+        'headers' => ['Content-Type' => 'application/x-www-form-urlencoded']
+    ]);
+
+    if (!is_wp_error($auth_response)) {
+        $auth_data = json_decode(wp_remote_retrieve_body($auth_response), true);
+
+        if (!empty($auth_data['api_status']) && $auth_data['api_status'] == 200) {
+            error_log("User Authenticated!");
+            update_user_meta($user->ID, 'wowonder_access_token', $auth_data['access_token']);
+            // Step 3: Sign the user on using miniOrange OAuth server
+            mo_oauth_server_sign_on($user);
+            return;
+        }
+    } else {
+        error_log("Authentication API Error: " . $auth_response->get_error_message());
+    }
+
+    // Step 2: Create a new user account if authentication fails
+    error_log("Authentication Failed. Creating New User Account.");
+
+    $create_user_response = wp_safe_remote_post("$wowonder_api_url/create-account", [
+        'timeout' => 10, // Reduced timeout
+        'body' => [
+            'server_key' => $server_key,
+            'username' => $username,
+            'password' => $user_password,
+            'email' => $user_email,
+            'confirm_password' => $user_password
+        ],
+        'headers' => ['Content-Type' => 'application/x-www-form-urlencoded']
+    ]);
+
+    if (!is_wp_error($create_user_response)) {
+        $new_user_data = json_decode(wp_remote_retrieve_body($create_user_response), true);
+
+        if (!empty($new_user_data['api_status']) && $new_user_data['api_status'] == 200) {
+            error_log("New User Created Successfully!");
+            update_user_meta($user->ID, 'wowonder_access_token', $new_user_data['access_token']);
+            // Step 3: Sign the user on using miniOrange OAuth server
+            mo_oauth_server_sign_on($user);
+        } else {
+            error_log("Failed to create new user on WoWonder.");
+        }
+    } else {
+        error_log("Create User API Error: " . $create_user_response->get_error_message());
+    }
+}
+
+function mo_oauth_server_sign_on($user) {
+    $client_id = 'dmWEfweRksWAAHFZHHhZgYpNjwmFyRYv';
+    $client_secret = 'accmwrqJwadMRSUsTcEfBVJURLhwMAAB';
+    $redirect_uri = 'http://127.0.0.1/buzzjuice.net/streams/login-with.php?provider=WordPress';
+    $authorize_url = 'https://127.0.0.1/buzzjuice.net/wp-json/moserver/authorize';
+    $token_url = 'https://127.0.0.1/buzzjuice.net/wp-json/moserver/token';
+
+    $auth_url = add_query_arg(array(
+        'response_type' => 'code',
+        'client_id' => $client_id,
+        'redirect_uri' => $redirect_uri,
+        'scope' => 'openid email profile',
+        'state' => wp_create_nonce('sso_state'),
+    ), $authorize_url);
+
+    // Redirect to the authorize URL
+    wp_redirect($auth_url);
+    exit();
+}
+
+
+			//***************************************************************************************/
+			//****************** Modified by Blue Crown R&D: WoWonder Integration ******************//
+			//************************************************************************************* */
+
+			// edit miniOrange OAuth Server plugin: wp-content\plugins\miniorange-oauth-20-server\public\class-miniorange-oauth-20-server-public.php
+
+/*			$prompt = $request->query('prompt') ?: 'allow';
+			if ( ! $request->query( 'ignore_prompt' ) && $prompt ) {
+				if ( 'login' === $prompt ) {
+				$custom_login_url = get_option( 'mo_oauth_server_custom_login_url' );
+				$actual_link      = ('consent' !== $prompt) ? $this->mo_oauth_server_get_current_page_url() : '';
+				// Avoid logout unless necessary (reduces session termination delays)
+				if (!is_user_logged_in()) {
+					wp_logout();
+				}
+				// Construct redirect URL efficiently
+				$redirect_url = ($custom_login_url ?: home_url() . '/wp-login.php') . 
+				'?redirect_to=' . rawurlencode(str_replace('prompt=login', 'prompt=consent', $actual_link));
+			
+				wp_safe_redirect($redirect_url);
+				exit();			
+				}
+			}
+			
+			$current_user = $this->mo_oauth_server_check_user_login( $request->query( 'client_id' ) );
+			if ( ! $current_user ) {
+				$custom_login_url = get_option( 'mo_oauth_server_custom_login_url' );
+				$login_url = $custom_login_url ?: home_url() . '/wp-login.php';
+			
+				wp_safe_redirect( esc_url_raw( $login_url ) . '?redirect_to=' . rawurlencode( $this->mo_oauth_server_get_current_page_url() ) );
+				exit();	
+			}
+			
+			$prompt_grant  = 'allow';
+			$is_authorized = true;
+			$client_id     = $request->query( 'client_id' );
+			$grant_status  = 'allow';
+			$prompt        = 'allow';
+			if ( 'allow' === $prompt ) {
+				$grant_status = 'allow';
+			}
+			
+			$server->handleAuthorizeRequest( $request, $response, $is_authorized, $current_user->ID );
+			
+			if (!$is_authorized) {
+				update_user_meta($current_user->ID, 'mo_oauth_server_granted_' . $client_id, 'deny');
+			}
+*/
+			//***************************************************************************************/
+			//****************** Modified by Blue Crown R&D: WoWonder Integration ******************//
+			//************************************************************************************* */
+?>

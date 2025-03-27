@@ -8,7 +8,7 @@
 
 
 /**
- * Automatically submit the consent form when the page loads.
+ * Automatically submit the consent form when the page loads. // Modified by Blue Crown R&D
  */
 function mo_oauth_auto_submit_consent() {
     ?>

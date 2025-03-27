@@ -1,0 +1,132 @@
+2025-03-24T11:10:32+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 79a8d5b56f91b69a5583dbdbf868cebd
+            [Date] => Mar 24, 2025 @ 11:10
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/woo-pgb_webhook.php
+            [Duration] => 0.82009
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => wFb+vLCTJgcTEBMR+z/kp0TrCoJSwbjfoVvh+czveLI=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 79a8d5b56f91b69a5583dbdbf868cebd
+                        )
+
+                )
+
+            [Body] => {\"id\":605,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-03-22T23:02:45\",\"date_modified\":\"2025-03-24T11:09:58\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"347.00\",\"total_tax\":\"0.00\",\"customer_id\":18,\"order_key\":\"wc_order_fU3gbP81ghW4A\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"ad640df3c6b61a278ce0349cf325e35c\",\"number\":\"605\",\"meta_data\":[{\"id\":670,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":671,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":669,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":672,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":673,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":120,\"name\":\"Test Product\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"9.00\",\"subtotal_tax\":\"0.00\",\"total\":\"9.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":9,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":121,\"name\":\"Test Product\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"3.00\",\"subtotal_tax\":\"0.00\",\"total\":\"3.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":3,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":122,\"name\":\"Test Product\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"6.00\",\"subtotal_tax\":\"0.00\",\"total\":\"6.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":6,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":123,\"name\":\"Pro Membership\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"2.00\",\"subtotal_tax\":\"0.00\",\"total\":\"2.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":2,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":124,\"name\":\"Ultimate Jewel\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"104.00\",\"subtotal_tax\":\"0.00\",\"total\":\"104.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":104,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":125,\"name\":\"Oxford House\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"104.00\",\"subtotal_tax\":\"0.00\",\"total\":\"104.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":104,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":126,\"name\":\"Test Product\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"12.00\",\"subtotal_tax\":\"0.00\",\"total\":\"12.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":12,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":127,\"name\":\"Classic LifeStar\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"29.00\",\"subtotal_tax\":\"0.00\",\"total\":\"29.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":29,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":128,\"name\":\"Silver Hot Siz\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"43.00\",\"subtotal_tax\":\"0.00\",\"total\":\"43.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":43,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":129,\"name\":\"Pro Membership\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5.00\",\"subtotal_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":5,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":130,\"name\":\"Classic LifeStar\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1.00\",\"subtotal_tax\":\"0.00\",\"total\":\"1.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":1,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":131,\"name\":\"Page title\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"29.00\",\"subtotal_tax\":\"0.00\",\"total\":\"29.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":29,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/605\\/?pay_for_order=true&key=wc_order_fU3gbP81ghW4A\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-22T23:02:45\",\"date_modified_gmt\":\"2025-03-24T11:09:58\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/605\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/18\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Mon, 24 Mar 2025 11:10:32 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=bf2ggac6d77l400ece72ta0hf5; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-03-24%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Thu, 22 Mar 2035 11:10:32 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-03-24%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Thu, 22 Mar 2035 11:10:32 GMT; Max-Age=315360000
+                                            [3] => _us=1742901032; expires=Thu, 22 Mar 2035 11:10:32 GMT; Max-Age=315360000
+                                            [4] => _us=1742901032; expires=Thu, 22 Mar 2035 11:10:32 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Thu, 22 Mar 2035 11:10:32 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 32
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => 
+Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-03-24T22:51:22+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => fd44c25e8a90b13cf6b4710f6c473b19
+            [Date] => Mar 24, 2025 @ 22:51
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/woo-pgb_webhook.php
+            [Duration] => 0.83957
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => h9SvZ2v1eaGT5DCCHAfi53hUlFJU6XusqCILbSxhaA8=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => fd44c25e8a90b13cf6b4710f6c473b19
+                        )
+
+                )
+
+            [Body] => {\"id\":606,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-03-24T22:50:56\",\"date_modified\":\"2025-03-24T22:50:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"12.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_uAUXaHbCH4q1C\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"970e75e271a0d1bd036cdd7382dc0a5e\",\"number\":\"606\",\"meta_data\":[{\"id\":677,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":678,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":676,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":679,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":680,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":132,\"name\":\"Test Product\",\"product_id\":560,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"12.00\",\"subtotal_tax\":\"0.00\",\"total\":\"12.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wowonder-digital-payment\",\"price\":12,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/606\\/?pay_for_order=true&key=wc_order_uAUXaHbCH4q1C\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-24T22:50:56\",\"date_modified_gmt\":\"2025-03-24T22:50:56\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/606\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Mon, 24 Mar 2025 22:51:22 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=0v8ogn5q3suevohabqoqu3dk4v; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-03-24%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Thu, 22 Mar 2035 22:51:22 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-03-24%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Thu, 22 Mar 2035 22:51:22 GMT; Max-Age=315360000
+                                            [3] => _us=1742943082; expires=Thu, 22 Mar 2035 22:51:22 GMT; Max-Age=315360000
+                                            [4] => _us=1742943082; expires=Thu, 22 Mar 2035 22:51:22 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Thu, 22 Mar 2035 22:51:22 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 32
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => 
+Webhook processed successfully
+                )
+
+        )
+
+)
+

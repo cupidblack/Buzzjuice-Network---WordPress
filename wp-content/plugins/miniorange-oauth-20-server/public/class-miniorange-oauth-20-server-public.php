@@ -158,7 +158,57 @@ class Miniorange_Oauth_20_Server_Public {
 				$response->send();
 				exit;
 			}
-			$prompt = $request->query( 'prompt' ) ? $request->query( 'prompt' ) : 'consent';
+
+
+
+			//***************************************************************************************/
+			//****************** Modified by Blue Crown R&D: WoWonder Integration ******************//
+			//************************************************************************************* */
+			$prompt = $request->query('prompt') ?: 'allow';
+			if ( ! $request->query( 'ignore_prompt' ) && $prompt ) {
+				if ( 'login' === $prompt ) {
+				$custom_login_url = get_option( 'mo_oauth_server_custom_login_url' );
+				$actual_link      = ('consent' !== $prompt) ? $this->mo_oauth_server_get_current_page_url() : '';
+				// Avoid logout unless necessary (reduces session termination delays)
+				if (!is_user_logged_in()) {
+					wp_logout();
+				}
+				// Construct redirect URL efficiently
+				$redirect_url = ($custom_login_url ?: home_url() . '/wp-login.php') . 
+				'?redirect_to=' . rawurlencode(str_replace('prompt=login', 'prompt=consent', $actual_link));
+			
+				wp_safe_redirect($redirect_url);
+				exit();			
+				}
+			}
+			
+			$current_user = $this->mo_oauth_server_check_user_login( $request->query( 'client_id' ) );
+			if ( ! $current_user ) {
+				$custom_login_url = get_option( 'mo_oauth_server_custom_login_url' );
+				$login_url = $custom_login_url ?: home_url() . '/wp-login.php';
+			
+				wp_safe_redirect( esc_url_raw( $login_url ) . '?redirect_to=' . rawurlencode( $this->mo_oauth_server_get_current_page_url() ) );
+				exit();	
+			}
+			
+			$prompt_grant  = 'allow';
+			$is_authorized = true;
+			$client_id     = $request->query( 'client_id' );
+			$grant_status  = 'allow';
+			$prompt        = 'allow';
+			if ( 'allow' === $prompt ) {
+				$grant_status = 'allow';
+			}
+			
+			$server->handleAuthorizeRequest( $request, $response, $is_authorized, $current_user->ID );
+			
+			if (!$is_authorized) {
+				update_user_meta($current_user->ID, 'mo_oauth_server_granted_' . $client_id, 'deny');
+			}
+			//***************************************************************************************/
+			//****************** Modified by Blue Crown R&D: WoWonder Integration ******************//
+			//************************************************************************************* */
+/*			$prompt = $request->query( 'prompt' ) ? $request->query( 'prompt' ) : 'consent';
 			if ( ! $request->query( 'ignore_prompt' ) && $prompt ) {
 				if ( 'login' === $prompt ) {
 					$actual_link      = $this->mo_oauth_server_get_current_page_url();
@@ -207,6 +257,7 @@ class Miniorange_Oauth_20_Server_Public {
 			$server->handleAuthorizeRequest( $request, $response, $is_authorized, $current_user->ID );
 
 			update_user_meta( $current_user->ID, 'mo_oauth_server_granted_' . $client_id, 'deny' );
+*/
 			$response->send();
 
 			MO_OAuth_Server_Debug::error_log( 'Authorization Endpoint execution done' );
