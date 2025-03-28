@@ -2,8 +2,9 @@
 /*
 Plugin Name: WooCommerce PGB Sync
 Description: Sync WooCommerce with WoWonder for digital payments.
-Version: 1.0006
-Author: Your Name
+Version: 1.0008
+Author: Blue Crown R&D
+Author URI: https://koware.org
 */
 
 // 🚀 Create Virtual WooCommerce Products on Plugin Activation
