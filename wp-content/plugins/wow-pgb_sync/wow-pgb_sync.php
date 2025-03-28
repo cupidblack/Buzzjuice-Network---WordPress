@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: WooCommerce PGB Sync
+Plugin Name: WoWonder Payment Gateway Bridge
 Description: Sync WooCommerce with WoWonder for digital payments.
-Version: 1.0008
+Version: 1.0013
 Author: Blue Crown R&D
 Author URI: https://koware.org
 */
@@ -53,11 +53,17 @@ function override_woo_product_metadata($cart) {
     foreach ($cart->get_cart() as $cart_item) {
         $product = $cart_item['data'];
         if (isset($product_ids[$product->get_sku()])) {
-            if (isset($cart_item['woo_dynamic_price'])) {
-                $product->set_price($cart_item['woo_dynamic_price']);
+            if (isset($cart_item['woo_dynamic_price']) && isset($cart_item['wow_currency_code'])) {
+                global $WOOCS;
+                $default_currency = get_option('woocommerce_currency');
+                $converted_price = $WOOCS->convert_from_to_currency($cart_item['woo_dynamic_price'], $cart_item['wow_currency_code'], $default_currency);
+                $product->set_price($converted_price);
             }
             if (isset($cart_item['woo_product_name'])) {
                 $product->set_name(htmlspecialchars_decode($cart_item['woo_product_name'], ENT_QUOTES)); // Decode the product name
+            }
+            if (isset($cart_item['wow_currency_code'])) {
+                update_post_meta($product->get_id(), '_currency', htmlspecialchars_decode($cart_item['wow_currency_code'], ENT_QUOTES)); // Update the currency code
             }
         }
     }
@@ -71,6 +77,7 @@ function set_dynamic_price_and_title_cart_item_data($cart_item_data, $product_id
     if (strpos($product->get_sku(), 'woo-pgb_') === 0) {
         $cart_item_data['woo_dynamic_price'] = isset($_GET['amount']) ? floatval($_GET['amount']) : 0;
         $cart_item_data['woo_product_name'] = isset($_GET['product_name']) ? htmlspecialchars_decode(sanitize_text_field($_GET['product_name']), ENT_QUOTES) : 'Buzzjuice WoWonder Digital Payment'; // Decode the product name
+        $cart_item_data['wow_currency_code'] = isset($_GET['wow_currency_code']) ? htmlspecialchars_decode(sanitize_text_field($_GET['wow_currency_code']), ENT_QUOTES) : ''; // Decode the currency code
     }
     return $cart_item_data;
 }
