@@ -1,0 +1,989 @@
+2025-04-01T01:53:12+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3a919872f22e22d95f7fabfdbe28dbca
+            [Date] => Apr 1, 2025 @ 1:53
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.7347
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => Fb+eKahUFZWJjfirS9CAR7lPWCxqyNnqtzSEZeeu8QY=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 3a919872f22e22d95f7fabfdbe28dbca
+                        )
+
+                )
+
+            [Body] => {\"id\":689,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-03-31T11:04:32\",\"date_modified\":\"2025-03-31T22:01:10\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"1818.18\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_XHl4ecwV7TedQ\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"7a1b96783d37bc2579c72afbe1c983aa\",\"number\":\"689\",\"meta_data\":[{\"id\":1947,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1948,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1946,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1949,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1945,\"key\":\"_wow_order_id\",\"value\":\"wow_67eae4d49016f\"},{\"id\":1950,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7829,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"727.27\",\"subtotal_tax\":\"0.00\",\"total\":\"727.27\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":727.272731,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7830,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1090.91\",\"subtotal_tax\":\"0.00\",\"total\":\"1090.91\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":1090.909097,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/689\\/?pay_for_order=true&key=wc_order_XHl4ecwV7TedQ\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-31T11:04:32\",\"date_modified_gmt\":\"2025-03-31T22:01:10\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/689\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 01:53:12 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=k8bs6sgq0boh00gf77181mfi6b; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 01:53:12 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 01:53:12 GMT; Max-Age=315360000
+                                            [3] => _us=1743558792; expires=Fri, 30 Mar 2035 01:53:12 GMT; Max-Age=315360000
+                                            [4] => _us=1743558792; expires=Fri, 30 Mar 2035 01:53:12 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 01:53:12 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T01:55:33+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 8e675a5b744bf38ae2c889d04b1f80e4
+            [Date] => Apr 1, 2025 @ 1:55
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.08986
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => DeTkv74en5NBh83Q9CpJGaDtIkkEJePNzdi+geHwv9c=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 8e675a5b744bf38ae2c889d04b1f80e4
+                        )
+
+                )
+
+            [Body] => {\"id\":689,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-03-31T11:04:32\",\"date_modified\":\"2025-04-01T01:53:15\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"1818.18\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_XHl4ecwV7TedQ\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"7a1b96783d37bc2579c72afbe1c983aa\",\"number\":\"689\",\"meta_data\":[{\"id\":1947,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1948,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1946,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1949,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1945,\"key\":\"_wow_order_id\",\"value\":\"wow_67eae4d49016f\"},{\"id\":1950,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7829,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"727.27\",\"subtotal_tax\":\"0.00\",\"total\":\"727.27\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":727.272731,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7830,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1090.91\",\"subtotal_tax\":\"0.00\",\"total\":\"1090.91\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":1090.909097,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/689\\/?pay_for_order=true&key=wc_order_XHl4ecwV7TedQ\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-31T11:04:32\",\"date_modified_gmt\":\"2025-04-01T01:53:15\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/689\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 01:55:33 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=ofbdm6ntsa3la6169fb8neu2a4; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 01:55:33 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 01:55:33 GMT; Max-Age=315360000
+                                            [3] => _us=1743558933; expires=Fri, 30 Mar 2035 01:55:33 GMT; Max-Age=315360000
+                                            [4] => _us=1743558933; expires=Fri, 30 Mar 2035 01:55:33 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 01:55:33 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T04:39:17+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => dbeb52507f003c6e6ec1df3009c54eb5
+            [Date] => Apr 1, 2025 @ 4:39
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.96681
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => NWs4cgT7wSUncHNzRqCBuFYsMM5OZ9mk/+6tafvx31g=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => dbeb52507f003c6e6ec1df3009c54eb5
+                        )
+
+                )
+
+            [Body] => {\"id\":689,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-03-31T11:04:32\",\"date_modified\":\"2025-04-01T03:33:15\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"2545.46\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_XHl4ecwV7TedQ\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"009860b4878f411ee36fda14369ada22\",\"number\":\"689\",\"meta_data\":[{\"id\":1947,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1948,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1946,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1949,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1945,\"key\":\"_wow_order_id\",\"value\":\"wow_67eb5e69dbacb\"},{\"id\":1950,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7831,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"727.27\",\"subtotal_tax\":\"0.00\",\"total\":\"727.27\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":727.272731,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7832,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1090.91\",\"subtotal_tax\":\"0.00\",\"total\":\"1090.91\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":1090.909097,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7833,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"363.64\",\"subtotal_tax\":\"0.00\",\"total\":\"363.64\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":363.636366,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7834,\"name\":\"New Cool Things\",\"product_id\":625,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"363.64\",\"subtotal_tax\":\"0.00\",\"total\":\"363.64\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_pro\",\"price\":363.636366,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/689\\/?pay_for_order=true&key=wc_order_XHl4ecwV7TedQ\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-31T11:04:32\",\"date_modified_gmt\":\"2025-04-01T03:33:15\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/689\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 04:39:17 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=s59qbnc8m7k4bhhftjhldqu0ca; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 04:39:17 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 04:39:17 GMT; Max-Age=315360000
+                                            [3] => _us=1743568757; expires=Fri, 30 Mar 2035 04:39:17 GMT; Max-Age=315360000
+                                            [4] => _us=1743568757; expires=Fri, 30 Mar 2035 04:39:17 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 04:39:17 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T04:40:28+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 90b84ced97c4d3e40f724676de4942e2
+            [Date] => Apr 1, 2025 @ 4:40
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.66691
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => LMniZRm7QfM9HGLdrYsd1JMjDegfkU2WPCvnevT0zRo=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 90b84ced97c4d3e40f724676de4942e2
+                        )
+
+                )
+
+            [Body] => {\"id\":689,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-03-31T11:04:32\",\"date_modified\":\"2025-04-01T04:39:19\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"2565.46\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_XHl4ecwV7TedQ\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"77ee356196deb3f7bbc29310b0016958\",\"number\":\"689\",\"meta_data\":[{\"id\":1947,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1948,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1946,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1949,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1945,\"key\":\"_wow_order_id\",\"value\":\"wow_67eb6dec8bc35\"},{\"id\":1950,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7835,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"727.27\",\"subtotal_tax\":\"0.00\",\"total\":\"727.27\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":727.272731,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7836,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1090.91\",\"subtotal_tax\":\"0.00\",\"total\":\"1090.91\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":1090.909097,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7837,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"363.64\",\"subtotal_tax\":\"0.00\",\"total\":\"363.64\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":363.636366,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7838,\"name\":\"New Cool Things\",\"product_id\":625,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"363.64\",\"subtotal_tax\":\"0.00\",\"total\":\"363.64\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_pro\",\"price\":363.636366,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7839,\"name\":\"Oxford House\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"20.00\",\"subtotal_tax\":\"0.00\",\"total\":\"20.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":20,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/689\\/?pay_for_order=true&key=wc_order_XHl4ecwV7TedQ\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-31T11:04:32\",\"date_modified_gmt\":\"2025-04-01T04:39:19\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/689\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 04:40:28 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=qbomm5tfjno5hlhhugip55mhd3; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 04:40:28 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 04:40:28 GMT; Max-Age=315360000
+                                            [3] => _us=1743568828; expires=Fri, 30 Mar 2035 04:40:28 GMT; Max-Age=315360000
+                                            [4] => _us=1743568828; expires=Fri, 30 Mar 2035 04:40:28 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 04:40:28 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T04:44:12+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 4b672e3eb6e15c37a67529c73d6b9ddb
+            [Date] => Apr 1, 2025 @ 4:44
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.746
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => UVieMECTlGHCIakF66rtU+PQN4G6Bw5CKQDL1WVRSMA=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 4b672e3eb6e15c37a67529c73d6b9ddb
+                        )
+
+                )
+
+            [Body] => {\"id\":689,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-03-31T11:04:32\",\"date_modified\":\"2025-04-01T04:44:10\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"2565.46\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_XHl4ecwV7TedQ\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"689_1743482622\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-04-01T04:43:58\",\"date_paid\":\"2025-04-01T04:43:58\",\"cart_hash\":\"77ee356196deb3f7bbc29310b0016958\",\"number\":\"689\",\"meta_data\":[{\"id\":1947,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1948,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1962,\"key\":\"_paystack_txn_ref\",\"value\":\"689_1743482622\"},{\"id\":1946,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1949,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1961,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":1954,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/streams\\/checkout\\/?nocache=1743174273001\"},{\"id\":1959,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"13\"},{\"id\":1956,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/?add-to-cart=626&quantity=1&wow_order_id=wow_67e6ba92cac6b&amount=20.00&userid=1&product_name=New Cool Things&product_price=20.00&product_units=1&product_owner_id=12&wow_currency_code=EUR\"},{\"id\":1958,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"1\"},{\"id\":1957,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-28 15:05:00\"},{\"id\":1953,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":1960,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":1955,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":1964,\"key\":\"_woocs_order_base_currency\",\"value\":\"GHS\"},{\"id\":1965,\"key\":\"_woocs_order_currency_changed_mannualy\",\"value\":\"0\"},{\"id\":1963,\"key\":\"_woocs_order_rate\",\"value\":\"1\"},{\"id\":1945,\"key\":\"_wow_order_id\",\"value\":\"wow_67eb6dec8bc35\"},{\"id\":1950,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7835,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"727.27\",\"subtotal_tax\":\"0.00\",\"total\":\"727.27\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":727.272731,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7836,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1090.91\",\"subtotal_tax\":\"0.00\",\"total\":\"1090.91\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":1090.909097,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7837,\"name\":\"New Cool Things\",\"product_id\":626,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"363.64\",\"subtotal_tax\":\"0.00\",\"total\":\"363.64\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_market\",\"price\":363.636366,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7838,\"name\":\"New Cool Things\",\"product_id\":625,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"363.64\",\"subtotal_tax\":\"0.00\",\"total\":\"363.64\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_pro\",\"price\":363.636366,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7839,\"name\":\"Oxford House\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"20.00\",\"subtotal_tax\":\"0.00\",\"total\":\"20.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":20,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/689\\/?pay_for_order=true&key=wc_order_XHl4ecwV7TedQ\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-31T11:04:32\",\"date_modified_gmt\":\"2025-04-01T04:44:10\",\"date_completed_gmt\":\"2025-04-01T04:43:58\",\"date_paid_gmt\":\"2025-04-01T04:43:58\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/689\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 04:44:12 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=478n2haf5nlhhij15pn6sdjhlj; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 04:44:12 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 04:44:12 GMT; Max-Age=315360000
+                                            [3] => _us=1743569052; expires=Fri, 30 Mar 2035 04:44:12 GMT; Max-Age=315360000
+                                            [4] => _us=1743569052; expires=Fri, 30 Mar 2035 04:44:12 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 04:44:12 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T11:25:00+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3d5aa28f0983075e9f2829ebe0f7a7f1
+            [Date] => Apr 1, 2025 @ 11:25
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.65654
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => LZqTuvfAxFezK8n1f2DgFSg4hawp3HQ7C687aP/GVko=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 3d5aa28f0983075e9f2829ebe0f7a7f1
+                        )
+
+                )
+
+            [Body] => {\"id\":690,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T11:24:13\",\"date_modified\":\"2025-04-01T11:24:13\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"2020.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_jT765GxaR8PMV\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"8b6317fe28752df49cba44c14b21f141\",\"number\":\"690\",\"meta_data\":[{\"id\":1968,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1969,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1967,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1970,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1966,\"key\":\"_wow_order_id\",\"value\":\"wow_67ebcccb159e5\"},{\"id\":1971,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7840,\"name\":\"Oxford House\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"20.00\",\"subtotal_tax\":\"0.00\",\"total\":\"20.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":20,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7841,\"name\":\"Oxford House\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"2000.00\",\"subtotal_tax\":\"0.00\",\"total\":\"2000.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":2000,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/690\\/?pay_for_order=true&key=wc_order_jT765GxaR8PMV\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T11:24:13\",\"date_modified_gmt\":\"2025-04-01T11:24:13\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/690\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 11:25:00 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=m4r22p0s14ujqjlkcas4du36cv; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 11:25:00 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 11:25:00 GMT; Max-Age=315360000
+                                            [3] => _us=1743593100; expires=Fri, 30 Mar 2035 11:25:00 GMT; Max-Age=315360000
+                                            [4] => _us=1743593100; expires=Fri, 30 Mar 2035 11:25:00 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 11:25:00 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T11:26:08+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 4aeb9a3c020527889a95b57a6861e604
+            [Date] => Apr 1, 2025 @ 11:26
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 3.41138
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => c+A/jCndyW3nOlxJDEjKrmyRUVmQUQgsuzbKKOyqkRg=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 4aeb9a3c020527889a95b57a6861e604
+                        )
+
+                )
+
+            [Body] => {\"id\":690,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T11:24:13\",\"date_modified\":\"2025-04-01T11:25:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"2020.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_jT765GxaR8PMV\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"690_1743506705\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-04-01T11:25:27\",\"date_paid\":\"2025-04-01T11:25:27\",\"cart_hash\":\"8b6317fe28752df49cba44c14b21f141\",\"number\":\"690\",\"meta_data\":[{\"id\":1968,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1969,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1983,\"key\":\"_paystack_txn_ref\",\"value\":\"690_1743506705\"},{\"id\":1967,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1970,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1982,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":1975,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/streams\\/checkout\\/?nocache=1743174273001\"},{\"id\":1980,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"14\"},{\"id\":1977,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/?add-to-cart=626&quantity=1&wow_order_id=wow_67e6ba92cac6b&amount=20.00&userid=1&product_name=New Cool Things&product_price=20.00&product_units=1&product_owner_id=12&wow_currency_code=EUR\"},{\"id\":1979,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"1\"},{\"id\":1978,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-28 15:05:00\"},{\"id\":1974,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":1981,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":1976,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":1985,\"key\":\"_woocs_order_base_currency\",\"value\":\"GHS\"},{\"id\":1986,\"key\":\"_woocs_order_currency_changed_mannualy\",\"value\":\"0\"},{\"id\":1984,\"key\":\"_woocs_order_rate\",\"value\":\"1\"},{\"id\":1966,\"key\":\"_wow_order_id\",\"value\":\"wow_67ebcccb159e5\"},{\"id\":1971,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7840,\"name\":\"Oxford House\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"20.00\",\"subtotal_tax\":\"0.00\",\"total\":\"20.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":20,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7841,\"name\":\"Oxford House\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"2000.00\",\"subtotal_tax\":\"0.00\",\"total\":\"2000.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":2000,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/690\\/?pay_for_order=true&key=wc_order_jT765GxaR8PMV\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T11:24:13\",\"date_modified_gmt\":\"2025-04-01T11:25:56\",\"date_completed_gmt\":\"2025-04-01T11:25:27\",\"date_paid_gmt\":\"2025-04-01T11:25:27\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/690\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 11:26:07 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=kq1k6e07bq8akg5dna459n70ra; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 11:26:08 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 11:26:08 GMT; Max-Age=315360000
+                                            [3] => _us=1743593168; expires=Fri, 30 Mar 2035 11:26:08 GMT; Max-Age=315360000
+                                            [4] => _us=1743593168; expires=Fri, 30 Mar 2035 11:26:08 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 11:26:08 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 400
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <br />
+<b>Fatal error</b>:  Uncaught mysqli_sql_exception: Table 'local_buzzjuice_streams.wo_crowdfunds' doesn't exist in C:\weblink\buzzjuice.net\streams\wow-pgb_webhook.php:149
+Stack trace:
+#0 C:\weblink\buzzjuice.net\streams\wow-pgb_webhook.php(149): mysqli-&gt;query('UPDATE wo_crowd...')
+#1 {main}
+  thrown in <b>C:\weblink\buzzjuice.net\streams\wow-pgb_webhook.php</b> on line <b>149</b><br />
+
+                )
+
+        )
+
+)
+
+2025-04-01T11:51:28+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 77e40eede01684ab26f89cfa9d716026
+            [Date] => Apr 1, 2025 @ 11:51
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.68515
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => sip9NwoIerc77beBZiFMOm8NyH/aORSDqlw2dzrofp8=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 77e40eede01684ab26f89cfa9d716026
+                        )
+
+                )
+
+            [Body] => {\"id\":691,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T11:50:55\",\"date_modified\":\"2025-04-01T11:50:55\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"50.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_qXAfPr7DQcuZi\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"29274a9e111df86c797eb4dec9ec1e6d\",\"number\":\"691\",\"meta_data\":[{\"id\":1989,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1990,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1988,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1991,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1987,\"key\":\"_wow_order_id\",\"value\":\"wow_67ebd3173658b\"},{\"id\":1992,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7842,\"name\":\"Oxford House\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"50.00\",\"subtotal_tax\":\"0.00\",\"total\":\"50.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":50,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/691\\/?pay_for_order=true&key=wc_order_qXAfPr7DQcuZi\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T11:50:55\",\"date_modified_gmt\":\"2025-04-01T11:50:55\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/691\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 11:51:28 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=rkd6df8g84fllcfo0aavffl322; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 11:51:28 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 11:51:28 GMT; Max-Age=315360000
+                                            [3] => _us=1743594688; expires=Fri, 30 Mar 2035 11:51:28 GMT; Max-Age=315360000
+                                            [4] => _us=1743594688; expires=Fri, 30 Mar 2035 11:51:28 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 11:51:28 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T11:53:09+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => cba425e33937897066878f2ad1c50157
+            [Date] => Apr 1, 2025 @ 11:53
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.68407
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => u44wjA2jO7KOQQ+3jKm9qoAngnFyFepb+T2eT5Z0ve4=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => cba425e33937897066878f2ad1c50157
+                        )
+
+                )
+
+            [Body] => {\"id\":691,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T11:50:55\",\"date_modified\":\"2025-04-01T11:51:58\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"50.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_qXAfPr7DQcuZi\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"691_1743508294\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-04-01T11:51:48\",\"date_paid\":\"2025-04-01T11:51:48\",\"cart_hash\":\"29274a9e111df86c797eb4dec9ec1e6d\",\"number\":\"691\",\"meta_data\":[{\"id\":1989,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":1990,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2004,\"key\":\"_paystack_txn_ref\",\"value\":\"691_1743508294\"},{\"id\":1988,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":1991,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2003,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":1996,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/streams\\/checkout\\/?nocache=1743174273001\"},{\"id\":2001,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"14\"},{\"id\":1998,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/?add-to-cart=626&quantity=1&wow_order_id=wow_67e6ba92cac6b&amount=20.00&userid=1&product_name=New Cool Things&product_price=20.00&product_units=1&product_owner_id=12&wow_currency_code=EUR\"},{\"id\":2000,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"3\"},{\"id\":1999,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-28 15:05:00\"},{\"id\":1995,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":2002,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":1997,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":2006,\"key\":\"_woocs_order_base_currency\",\"value\":\"GHS\"},{\"id\":2007,\"key\":\"_woocs_order_currency_changed_mannualy\",\"value\":\"0\"},{\"id\":2005,\"key\":\"_woocs_order_rate\",\"value\":\"1\"},{\"id\":1987,\"key\":\"_wow_order_id\",\"value\":\"wow_67ebd3173658b\"},{\"id\":1992,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7842,\"name\":\"Oxford House\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"50.00\",\"subtotal_tax\":\"0.00\",\"total\":\"50.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":50,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/691\\/?pay_for_order=true&key=wc_order_qXAfPr7DQcuZi\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T11:50:55\",\"date_modified_gmt\":\"2025-04-01T11:51:58\",\"date_completed_gmt\":\"2025-04-01T11:51:48\",\"date_paid_gmt\":\"2025-04-01T11:51:48\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/691\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 11:53:09 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=p0l0mkpuc9gfj7c0nmib9sm395; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 11:53:09 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 11:53:09 GMT; Max-Age=315360000
+                                            [3] => _us=1743594789; expires=Fri, 30 Mar 2035 11:53:09 GMT; Max-Age=315360000
+                                            [4] => _us=1743594789; expires=Fri, 30 Mar 2035 11:53:09 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 11:53:09 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T13:22:22+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => e22cf2c0934ca6b7e1d2d12a5850f8db
+            [Date] => Apr 1, 2025 @ 13:22
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.22644
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => t4NciSnDcG/l+f8HuNFs1OXv6MDTYgYnQrzUSwtVKko=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => e22cf2c0934ca6b7e1d2d12a5850f8db
+                        )
+
+                )
+
+            [Body] => {\"id\":692,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T13:21:58\",\"date_modified\":\"2025-04-01T13:21:58\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_fwc4UeG8aVyHL\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"02137f4b5dde59037bdf4e043c5d017d\",\"number\":\"692\",\"meta_data\":[{\"id\":2011,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2012,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2010,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2013,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2008,\"key\":\"_wow_order_id\",\"value\":\"wow_67ebe86eb964a\"},{\"id\":2009,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2014,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7843,\"name\":\"WooPGB-Donate\",\"product_id\":624,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"woo-pgb_donate\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/692\\/?pay_for_order=true&key=wc_order_fwc4UeG8aVyHL\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T13:21:58\",\"date_modified_gmt\":\"2025-04-01T13:21:58\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/692\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 13:22:21 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=l68i5pmj5o8nu0vdscphi913k6; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 13:22:22 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 13:22:22 GMT; Max-Age=315360000
+                                            [3] => _us=1743600142; expires=Fri, 30 Mar 2035 13:22:22 GMT; Max-Age=315360000
+                                            [4] => _us=1743600142; expires=Fri, 30 Mar 2035 13:22:22 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 13:22:22 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T15:11:44+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 6589c310728491ac11191b251799020a
+            [Date] => Apr 1, 2025 @ 15:11
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.26847
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => h8Cqj78C6ND6jCFQzbBpMjDmKJCNm74RwLZ+0wIdu8U=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 6589c310728491ac11191b251799020a
+                        )
+
+                )
+
+            [Body] => {\"id\":697,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T15:10:14\",\"date_modified\":\"2025-04-01T15:11:04\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"94.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_nHbbcyBmtqmnM\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"697_1743520234\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-04-01T15:10:51\",\"date_paid\":\"2025-04-01T15:10:51\",\"cart_hash\":\"d79da4da921acfc9a99e86182e95f2cc\",\"number\":\"697\",\"meta_data\":[{\"id\":2020,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2021,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2035,\"key\":\"_paystack_txn_ref\",\"value\":\"697_1743520234\"},{\"id\":2019,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2022,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2034,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":2027,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/streams\\/checkout\\/?nocache=1743174273001\"},{\"id\":2032,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"16\"},{\"id\":2029,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/?add-to-cart=626&quantity=1&wow_order_id=wow_67e6ba92cac6b&amount=20.00&userid=1&product_name=New Cool Things&product_price=20.00&product_units=1&product_owner_id=12&wow_currency_code=EUR\"},{\"id\":2031,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"2\"},{\"id\":2030,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-28 15:05:00\"},{\"id\":2026,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":2033,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":2028,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":2037,\"key\":\"_woocs_order_base_currency\",\"value\":\"GHS\"},{\"id\":2038,\"key\":\"_woocs_order_currency_changed_mannualy\",\"value\":\"0\"},{\"id\":2036,\"key\":\"_woocs_order_rate\",\"value\":\"1\"},{\"id\":2017,\"key\":\"_wow_order_id\",\"value\":\"wow_67ec01ca98bb2\"},{\"id\":2018,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2023,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7844,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"94.00\",\"subtotal_tax\":\"0.00\",\"total\":\"94.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":94,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/697\\/?pay_for_order=true&key=wc_order_nHbbcyBmtqmnM\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T15:10:14\",\"date_modified_gmt\":\"2025-04-01T15:11:04\",\"date_completed_gmt\":\"2025-04-01T15:10:51\",\"date_paid_gmt\":\"2025-04-01T15:10:51\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/697\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 15:11:44 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=ve3c0jm505r3a2eicgipmmib51; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 15:11:44 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 15:11:44 GMT; Max-Age=315360000
+                                            [3] => _us=1743606704; expires=Fri, 30 Mar 2035 15:11:44 GMT; Max-Age=315360000
+                                            [4] => _us=1743606704; expires=Fri, 30 Mar 2035 15:11:44 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 15:11:44 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 506
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <br />
+<b>Warning</b>:  Undefined variable $wow_post_id in <b>C:\weblink\buzzjuice.net\streams\wow-pgb_webhook.php</b> on line <b>157</b><br />
+<br />
+<b>Fatal error</b>:  Uncaught mysqli_sql_exception: Column 'funding_id' cannot be null in C:\weblink\buzzjuice.net\streams\wow-pgb_webhook.php:167
+Stack trace:
+#0 C:\weblink\buzzjuice.net\streams\wow-pgb_webhook.php(167): mysqli_stmt-&gt;execute()
+#1 {main}
+  thrown in <b>C:\weblink\buzzjuice.net\streams\wow-pgb_webhook.php</b> on line <b>167</b><br />
+
+                )
+
+        )
+
+)
+
+2025-04-01T15:15:52+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => b830da955a041afb4dafd54fe82e93a4
+            [Date] => Apr 1, 2025 @ 15:15
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.42011
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => ZYfqDvTLmw5rMVmzGI7an+bgmA4aBUHlk9SHZG1PmJ0=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => b830da955a041afb4dafd54fe82e93a4
+                        )
+
+                )
+
+            [Body] => {\"id\":698,\"parent_id\":0,\"status\":\"pending\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T15:15:10\",\"date_modified\":\"2025-04-01T15:15:35\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"57.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_fzS238u2egw3i\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"26d56d7d4542e48f4dc37b56c980be58\",\"number\":\"698\",\"meta_data\":[{\"id\":2042,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2043,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2057,\"key\":\"_paystack_txn_ref\",\"value\":\"698_1743520535\"},{\"id\":2041,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2044,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2056,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":2049,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/streams\\/checkout\\/?nocache=1743174273001\"},{\"id\":2054,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"16\"},{\"id\":2051,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/?add-to-cart=626&quantity=1&wow_order_id=wow_67e6ba92cac6b&amount=20.00&userid=1&product_name=New Cool Things&product_price=20.00&product_units=1&product_owner_id=12&wow_currency_code=EUR\"},{\"id\":2053,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"4\"},{\"id\":2052,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-28 15:05:00\"},{\"id\":2048,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":2055,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":2050,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":2039,\"key\":\"_wow_order_id\",\"value\":\"wow_67ec02eec4dc7\"},{\"id\":2040,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2045,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7845,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"57.00\",\"subtotal_tax\":\"0.00\",\"total\":\"57.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":57,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/698\\/?pay_for_order=true&key=wc_order_fzS238u2egw3i\",\"is_editable\":true,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T15:15:10\",\"date_modified_gmt\":\"2025-04-01T15:15:35\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/698\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 15:15:52 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=04oeuudgmt9n3im9ho8oapc61g; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 15:15:52 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 15:15:52 GMT; Max-Age=315360000
+                                            [3] => _us=1743606952; expires=Fri, 30 Mar 2035 15:15:52 GMT; Max-Age=315360000
+                                            [4] => _us=1743606952; expires=Fri, 30 Mar 2035 15:15:52 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 15:15:52 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T15:17:31+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => c49fa7c057081d2bdd02a0038506219d
+            [Date] => Apr 1, 2025 @ 15:17
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 2.06514
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => IigXqDiPnMSnAsWl62ChKT7947xvuUxR8HG45hKQd80=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => c49fa7c057081d2bdd02a0038506219d
+                        )
+
+                )
+
+            [Body] => {\"id\":698,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T15:15:10\",\"date_modified\":\"2025-04-01T15:16:14\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"57.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_fzS238u2egw3i\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"698_1743520535\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-04-01T15:15:57\",\"date_paid\":\"2025-04-01T15:15:57\",\"cart_hash\":\"26d56d7d4542e48f4dc37b56c980be58\",\"number\":\"698\",\"meta_data\":[{\"id\":2042,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2043,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2057,\"key\":\"_paystack_txn_ref\",\"value\":\"698_1743520535\"},{\"id\":2041,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2044,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2056,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":2049,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/streams\\/checkout\\/?nocache=1743174273001\"},{\"id\":2054,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"16\"},{\"id\":2051,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/?add-to-cart=626&quantity=1&wow_order_id=wow_67e6ba92cac6b&amount=20.00&userid=1&product_name=New Cool Things&product_price=20.00&product_units=1&product_owner_id=12&wow_currency_code=EUR\"},{\"id\":2053,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"4\"},{\"id\":2052,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-28 15:05:00\"},{\"id\":2048,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":2055,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":2050,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":2059,\"key\":\"_woocs_order_base_currency\",\"value\":\"GHS\"},{\"id\":2060,\"key\":\"_woocs_order_currency_changed_mannualy\",\"value\":\"0\"},{\"id\":2058,\"key\":\"_woocs_order_rate\",\"value\":\"1\"},{\"id\":2039,\"key\":\"_wow_order_id\",\"value\":\"wow_67ec02eec4dc7\"},{\"id\":2040,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2045,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7845,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"57.00\",\"subtotal_tax\":\"0.00\",\"total\":\"57.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":57,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/698\\/?pay_for_order=true&key=wc_order_fzS238u2egw3i\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T15:15:10\",\"date_modified_gmt\":\"2025-04-01T15:16:14\",\"date_completed_gmt\":\"2025-04-01T15:15:57\",\"date_paid_gmt\":\"2025-04-01T15:15:57\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/698\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 15:17:31 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=rr1s6sld6tqa1oqichpg2dpquq; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 15:17:31 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 15:17:31 GMT; Max-Age=315360000
+                                            [3] => _us=1743607051; expires=Fri, 30 Mar 2035 15:17:31 GMT; Max-Age=315360000
+                                            [4] => _us=1743607051; expires=Fri, 30 Mar 2035 15:17:31 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 15:17:31 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T23:05:56+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 96588ce642918a05f21bc10cf0a387b7
+            [Date] => Apr 1, 2025 @ 23:05
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.7861
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => NOI0WTK6ovE/mMQ9rVz2aEIDn9rtG8CS84VpplDtGg0=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 96588ce642918a05f21bc10cf0a387b7
+                        )
+
+                )
+
+            [Body] => {\"id\":699,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T21:11:53\",\"date_modified\":\"2025-04-01T21:11:53\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"8.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_eTGEnQ89jLKlH\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"7e26d83cb11dd0ef9551c2707a41625f\",\"number\":\"699\",\"meta_data\":[{\"id\":2064,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2065,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2063,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2066,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2061,\"key\":\"_wow_order_id\",\"value\":\"wow_67ec568aac37d\"},{\"id\":2062,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2067,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7846,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"8.00\",\"subtotal_tax\":\"0.00\",\"total\":\"8.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":8,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/699\\/?pay_for_order=true&key=wc_order_eTGEnQ89jLKlH\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T21:11:53\",\"date_modified_gmt\":\"2025-04-01T21:11:53\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/699\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 23:05:56 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=85nm6c76fidi9u70efarc61bjd; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 23:05:56 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 23:05:56 GMT; Max-Age=315360000
+                                            [3] => _us=1743635156; expires=Fri, 30 Mar 2035 23:05:56 GMT; Max-Age=315360000
+                                            [4] => _us=1743635156; expires=Fri, 30 Mar 2035 23:05:56 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 23:05:56 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-01T23:08:09+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 0aa1291c1e6058666e6cf740d4478d23
+            [Date] => Apr 1, 2025 @ 23:08
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.81032
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => CGlsaNPzaaHiL1A2CAeVBinnxqis3z46zNRPim3SmUI=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 0aa1291c1e6058666e6cf740d4478d23
+                        )
+
+                )
+
+            [Body] => {\"id\":699,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-01T21:11:53\",\"date_modified\":\"2025-04-01T23:05:57\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"38.00\",\"total_tax\":\"0.00\",\"customer_id\":1,\"order_key\":\"wc_order_eTGEnQ89jLKlH\",\"billing\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"admin@koware.org\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"Enka\",\"last_name\":\"BY\",\"company\":\"\",\"address_1\":\"DT801 SSNIT FLATS\",\"address_2\":\"\",\"city\":\"ACCRA\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"a115fb2b445dfd3d54647bf2adcb943b\",\"number\":\"699\",\"meta_data\":[{\"id\":2064,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2065,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2063,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2066,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2061,\"key\":\"_wow_order_id\",\"value\":\"wow_67ec7149457d8\"},{\"id\":2062,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2067,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7847,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"8.00\",\"subtotal_tax\":\"0.00\",\"total\":\"8.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":8,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7848,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"30.00\",\"subtotal_tax\":\"0.00\",\"total\":\"30.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":30,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/699\\/?pay_for_order=true&key=wc_order_eTGEnQ89jLKlH\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-01T21:11:53\",\"date_modified_gmt\":\"2025-04-01T23:05:57\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/699\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/1\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 01 Apr 2025 23:08:09 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=01tjhful9tgdcun879u2qd31tp; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 23:08:09 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-01%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 30 Mar 2035 23:08:09 GMT; Max-Age=315360000
+                                            [3] => _us=1743635289; expires=Fri, 30 Mar 2035 23:08:09 GMT; Max-Age=315360000
+                                            [4] => _us=1743635289; expires=Fri, 30 Mar 2035 23:08:09 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 30 Mar 2035 23:08:09 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+

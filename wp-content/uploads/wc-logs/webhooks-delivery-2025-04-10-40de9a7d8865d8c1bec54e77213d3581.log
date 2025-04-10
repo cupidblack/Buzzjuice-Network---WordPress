@@ -1,0 +1,1300 @@
+2025-04-10T14:42:54+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 49fffd640c7c9af6e98da076f92fc068
+            [Date] => Apr 10, 2025 @ 14:42
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.28503
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => iZ7y/85aLg3S9EVkBGn0jizQiDxcVS1tc33FT9AoCKI=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 49fffd640c7c9af6e98da076f92fc068
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T14:41:38\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"0d7e24e6a544340cf253bde6bea96c59\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7856,\"name\":\"Buzzjuice WoWonder Digital Payment\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T14:41:38\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 14:42:53 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=qepruhjdmh7h3ekopmm2v7t5f5; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 14:42:54 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 14:42:54 GMT; Max-Age=315360000
+                                            [3] => _us=1744382574; expires=Sun, 08 Apr 2035 14:42:54 GMT; Max-Age=315360000
+                                            [4] => _us=1744382574; expires=Sun, 08 Apr 2035 14:42:54 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 14:42:54 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T18:36:11+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => c63a81ee5fe6a71a2d41b7fd304cca28
+            [Date] => Apr 10, 2025 @ 18:36
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.66312
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => hsdwT33DVtOO/U0t9WbtmcDXeDBvr6r1OLPKZIABCe4=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => c63a81ee5fe6a71a2d41b7fd304cca28
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T18:34:55\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"2c9b56f9971db170b290dc8c5ba2da87\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7857,\"name\":\"Buzzjuice WoWonder Digital Payment\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7858,\"name\":\"Social RockStar\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T18:34:55\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 18:36:11 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=u04d5p8knbogh3abpghqu1v1rr; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:36:11 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:36:11 GMT; Max-Age=315360000
+                                            [3] => _us=1744396571; expires=Sun, 08 Apr 2035 18:36:11 GMT; Max-Age=315360000
+                                            [4] => _us=1744396571; expires=Sun, 08 Apr 2035 18:36:11 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 18:36:11 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T18:41:18+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => bd9e59254711f001aefff5a48541ac3f
+            [Date] => Apr 10, 2025 @ 18:41
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.79264
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => i0hiErLsiOvUsGL+sRZT7Do67ece4ic04G+pz2WcJ+w=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => bd9e59254711f001aefff5a48541ac3f
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T18:40:06\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"6914a923ec2aa97d5d2f587fcaaf0667\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7859,\"name\":\"Buzzjuice WoWonder Digital Payment\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7860,\"name\":\"Social RockStar\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7861,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T18:40:06\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 18:41:18 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=jf6eheefn3me8vtk4jjm2o48bi; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:41:18 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:41:18 GMT; Max-Age=315360000
+                                            [3] => _us=1744396878; expires=Sun, 08 Apr 2035 18:41:18 GMT; Max-Age=315360000
+                                            [4] => _us=1744396878; expires=Sun, 08 Apr 2035 18:41:18 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 18:41:18 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T18:42:38+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 5d4277be1dc7e7a9ad08de507a2448ab
+            [Date] => Apr 10, 2025 @ 18:42
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 3.29342
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => kwqktIIAeasLACc0QBskAqgI3Jna3H+ocMowI+YfHIs=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 5d4277be1dc7e7a9ad08de507a2448ab
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T18:41:21\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"7b757b9a72bc1e0be19bd07a1643811e\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7862,\"name\":\"Silver Social (Lifetime)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T18:41:21\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 18:42:37 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=6p52hiqbjlhgn158u8b7g8r1dn; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:42:37 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:42:37 GMT; Max-Age=315360000
+                                            [3] => _us=1744396957; expires=Sun, 08 Apr 2035 18:42:37 GMT; Max-Age=315360000
+                                            [4] => _us=1744396957; expires=Sun, 08 Apr 2035 18:42:37 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 18:42:37 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T18:44:07+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => f84b6d5d9a0e7bde1df9f32a4926f57e
+            [Date] => Apr 10, 2025 @ 18:44
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.38157
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => qvmEjN023+O9QX2bybsZfxFM5v6UypRTzCbOttKFAMU=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => f84b6d5d9a0e7bde1df9f32a4926f57e
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T18:43:16\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"8d5a221473d16100222820499ad0e218\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7863,\"name\":\"Silver Social (Lifetime)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7864,\"name\":\"Classic Social (Weekly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T18:43:16\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 18:44:07 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=se0ireh6v5a6d4ftedborug8rp; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:44:07 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:44:07 GMT; Max-Age=315360000
+                                            [3] => _us=1744397047; expires=Sun, 08 Apr 2035 18:44:07 GMT; Max-Age=315360000
+                                            [4] => _us=1744397047; expires=Sun, 08 Apr 2035 18:44:07 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 18:44:07 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T18:45:22+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => df8bd7dba9433adde391897d4c61803f
+            [Date] => Apr 10, 2025 @ 18:45
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.09992
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => MOsttrgyrkMnCBqCadhBC1qIGzQZeWBS/P+yhOKCpFM=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => df8bd7dba9433adde391897d4c61803f
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T18:44:09\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"1caa98588b73caa04a128fe9b2e7bda4\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7865,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T18:44:09\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 18:45:22 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=64nt5okuv7cdg2jblhgvcflaa8; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:45:22 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 18:45:22 GMT; Max-Age=315360000
+                                            [3] => _us=1744397122; expires=Sun, 08 Apr 2035 18:45:22 GMT; Max-Age=315360000
+                                            [4] => _us=1744397122; expires=Sun, 08 Apr 2035 18:45:22 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 18:45:22 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T20:16:28+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 2c5a501c96cb6a94c388b27c5994fbf7
+            [Date] => Apr 10, 2025 @ 20:16
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.36943
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => zb7kQ9uNojA+zbhH/ZeBKGcSIlBT92+b4fcDPZ10yxM=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 2c5a501c96cb6a94c388b27c5994fbf7
+                        )
+
+                )
+
+            [Body] => {\"id\":702,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T20:16:13\",\"date_modified\":\"2025-04-10T20:16:13\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_JI8DmUtcTybYx\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"688a7f96a93a4f56a46fd089d4c3ae39\",\"number\":\"702\",\"meta_data\":[{\"id\":2089,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2090,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2088,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2091,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2086,\"key\":\"_wow_order_id\",\"value\":\"wow_67f826fe5a777\"},{\"id\":2087,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2092,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7866,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5.00\",\"subtotal_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":5,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/702\\/?pay_for_order=true&key=wc_order_JI8DmUtcTybYx\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T20:16:13\",\"date_modified_gmt\":\"2025-04-10T20:16:13\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/702\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 20:16:28 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=lqfm80vjnq6c3n65dova43l1qa; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 20:16:28 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 20:16:28 GMT; Max-Age=315360000
+                                            [3] => _us=1744402588; expires=Sun, 08 Apr 2035 20:16:28 GMT; Max-Age=315360000
+                                            [4] => _us=1744402588; expires=Sun, 08 Apr 2035 20:16:28 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 20:16:28 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T20:35:35+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 7a944c81bb70d3d4f5f9bf9ed8e0db8f
+            [Date] => Apr 10, 2025 @ 20:35
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.55568
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => iVSZLSnAi7k2aKoBi7HjB0f5GEsTZCHxiLO1Osj3L/Q=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 7a944c81bb70d3d4f5f9bf9ed8e0db8f
+                        )
+
+                )
+
+            [Body] => {\"id\":702,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T20:16:13\",\"date_modified\":\"2025-04-10T20:35:33\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_JI8DmUtcTybYx\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"688a7f96a93a4f56a46fd089d4c3ae39\",\"number\":\"702\",\"meta_data\":[{\"id\":2089,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2090,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2088,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2091,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2086,\"key\":\"_wow_order_id\",\"value\":\"wow_67f826fe5a777\"},{\"id\":2087,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2092,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7866,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5.00\",\"subtotal_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":5,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/702\\/?pay_for_order=true&key=wc_order_JI8DmUtcTybYx\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T20:16:13\",\"date_modified_gmt\":\"2025-04-10T20:35:33\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/702\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 20:35:35 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=a6gejeol1odj2ujlur7cn2jijo; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 20:35:35 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 20:35:35 GMT; Max-Age=315360000
+                                            [3] => _us=1744403735; expires=Sun, 08 Apr 2035 20:35:35 GMT; Max-Age=315360000
+                                            [4] => _us=1744403735; expires=Sun, 08 Apr 2035 20:35:35 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 20:35:35 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T20:36:40+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => b8ef531484ba926e94b69ceed961ef8d
+            [Date] => Apr 10, 2025 @ 20:36
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.79578
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => nu4Mi6ReBvt4weXg8ngdlFIhYNnbEzeACN2wH1YyLXs=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => b8ef531484ba926e94b69ceed961ef8d
+                        )
+
+                )
+
+            [Body] => {\"id\":702,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T20:16:13\",\"date_modified\":\"2025-04-10T20:35:47\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_JI8DmUtcTybYx\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"688a7f96a93a4f56a46fd089d4c3ae39\",\"number\":\"702\",\"meta_data\":[{\"id\":2089,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2090,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2088,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2091,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2086,\"key\":\"_wow_order_id\",\"value\":\"wow_67f826fe5a777\"},{\"id\":2087,\"key\":\"_wow_post_id\",\"value\":\"1\"},{\"id\":2092,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7866,\"name\":\"Oxford House\",\"product_id\":693,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5.00\",\"subtotal_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_donate\",\"price\":5,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/702\\/?pay_for_order=true&key=wc_order_JI8DmUtcTybYx\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T20:16:13\",\"date_modified_gmt\":\"2025-04-10T20:35:47\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/702\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 20:36:40 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=c46tt23met83ssjl5jvgopv3rm; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 20:36:40 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 20:36:40 GMT; Max-Age=315360000
+                                            [3] => _us=1744403800; expires=Sun, 08 Apr 2035 20:36:40 GMT; Max-Age=315360000
+                                            [4] => _us=1744403800; expires=Sun, 08 Apr 2035 20:36:40 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 20:36:40 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T20:55:33+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => f60275bed37eb3056023a8543b6420ec
+            [Date] => Apr 10, 2025 @ 20:55
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.2536
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => laX/nS4peA0npUYHCNQibLxYf2Zf19bVYk8zxfgfrww=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => f60275bed37eb3056023a8543b6420ec
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T20:54:20\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"40.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"b5d44371f167259f8022b1dbac5d2a15\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7867,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7868,\"name\":\"Social RockStar (Monthly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"40.00\",\"subtotal_tax\":\"0.00\",\"total\":\"40.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":40,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T20:54:20\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 20:55:33 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=c4i3ep3gm6ak9n2agfkukma3ft; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 20:55:33 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 20:55:33 GMT; Max-Age=315360000
+                                            [3] => _us=1744404933; expires=Sun, 08 Apr 2035 20:55:33 GMT; Max-Age=315360000
+                                            [4] => _us=1744404933; expires=Sun, 08 Apr 2035 20:55:33 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 20:55:33 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T21:25:03+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 4875bc250dbf7b541fe4f397038966e4
+            [Date] => Apr 10, 2025 @ 21:25
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.7161
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => 0UyeLhT38aziM8DX1mIoD621QmIlt5nyjIbHHvp2RHI=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 4875bc250dbf7b541fe4f397038966e4
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T21:24:23\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"1700.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"134ba0a1247bd7519c783de6b04bf200\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7869,\"name\":\"Silver Social (Lifetime)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1700.00\",\"subtotal_tax\":\"0.00\",\"total\":\"1700.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":1700,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T21:24:23\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 21:25:03 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=ar0qk3doblbo1oiste7gcc4d9e; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:25:03 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:25:03 GMT; Max-Age=315360000
+                                            [3] => _us=1744406703; expires=Sun, 08 Apr 2035 21:25:03 GMT; Max-Age=315360000
+                                            [4] => _us=1744406703; expires=Sun, 08 Apr 2035 21:25:03 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 21:25:03 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T21:28:18+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => e49768d84ea09875438fa4799a7595f1
+            [Date] => Apr 10, 2025 @ 21:28
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 2.46065
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => SFYgvkbLe4kJAV2ejCKQ6ameMAT9vZCp5EqPh7ZnfpQ=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => e49768d84ea09875438fa4799a7595f1
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T21:27:22\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"1700.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"134ba0a1247bd7519c783de6b04bf200\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7869,\"name\":\"Silver Social (Lifetime)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1700.00\",\"subtotal_tax\":\"0.00\",\"total\":\"1700.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":1700,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T21:27:22\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 21:28:17 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=eq1ufkkl1kj0i8p6fuu2uqes8m; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:28:18 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:28:18 GMT; Max-Age=315360000
+                                            [3] => _us=1744406898; expires=Sun, 08 Apr 2035 21:28:18 GMT; Max-Age=315360000
+                                            [4] => _us=1744406898; expires=Sun, 08 Apr 2035 21:28:18 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 21:28:18 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T21:34:03+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => ccc576baaeee0bfbba8c65207817ca86
+            [Date] => Apr 10, 2025 @ 21:34
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.63028
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => nNn32huAoZnj5JzaGU3vS8AhNTp/kXGXvfvDEhWSQAk=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => ccc576baaeee0bfbba8c65207817ca86
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T21:33:48\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"cf3e2ac33053d60cb80e2591c9ecedf6\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7870,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"340.00\",\"subtotal_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":340,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T21:33:48\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 21:34:03 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=946dr5nopv64io3cvo3vinn19m; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:34:03 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:34:03 GMT; Max-Age=315360000
+                                            [3] => _us=1744407243; expires=Sun, 08 Apr 2035 21:34:03 GMT; Max-Age=315360000
+                                            [4] => _us=1744407243; expires=Sun, 08 Apr 2035 21:34:03 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 21:34:03 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T21:34:31+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 43d5f559657ac03ee4acc1dcbce3e003
+            [Date] => Apr 10, 2025 @ 21:34
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.62475
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => UR/AbV8pmQxYLfTOduSmMuS0yaCIfhPxXBHJxkJmWHk=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 43d5f559657ac03ee4acc1dcbce3e003
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T21:34:28\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"017694725bf6eabb295a3438acfec76e\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7871,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"340.00\",\"subtotal_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":340,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7872,\"name\":\"Buzzjuice WoWonder Digital Payment\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T21:34:28\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 21:34:30 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=a2kbrpjvbfs6dn6feddc6t1dor; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:34:30 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:34:30 GMT; Max-Age=315360000
+                                            [3] => _us=1744407270; expires=Sun, 08 Apr 2035 21:34:30 GMT; Max-Age=315360000
+                                            [4] => _us=1744407270; expires=Sun, 08 Apr 2035 21:34:30 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 21:34:30 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T21:35:05+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 799fb3180a49c19f894713c008f81fac
+            [Date] => Apr 10, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.37015
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => kiSwH+CLfbXH1i1o3qn9YxMGT/sm7r3X5ZvuI81dG24=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 799fb3180a49c19f894713c008f81fac
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T21:35:02\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"017694725bf6eabb295a3438acfec76e\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7871,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"340.00\",\"subtotal_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":340,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7872,\"name\":\"Buzzjuice WoWonder Digital Payment\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T21:35:02\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 21:35:05 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=nsgob17qgnivrqop2oukoo54a5; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:35:05 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:35:05 GMT; Max-Age=315360000
+                                            [3] => _us=1744407305; expires=Sun, 08 Apr 2035 21:35:05 GMT; Max-Age=315360000
+                                            [4] => _us=1744407305; expires=Sun, 08 Apr 2035 21:35:05 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 21:35:05 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T21:35:23+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => fa9ae642fafd577f3727d5dd355c2e65
+            [Date] => Apr 10, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.57034
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => pEgOcYbhd9L7Gi+dMV563yUywNTgTJq2m/x3EQbDgw0=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => fa9ae642fafd577f3727d5dd355c2e65
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T21:35:17\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"480.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"b8534ac9a0c8c0387bea535f4adcf5a8\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7873,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"340.00\",\"subtotal_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":340,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7874,\"name\":\"Buzzjuice WoWonder Digital Payment\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7875,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"140.00\",\"subtotal_tax\":\"0.00\",\"total\":\"140.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":140,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T21:35:17\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 21:35:23 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=fgg74e1rs4snf2btd9m0p3lnq3; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:35:23 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:35:23 GMT; Max-Age=315360000
+                                            [3] => _us=1744407323; expires=Sun, 08 Apr 2035 21:35:23 GMT; Max-Age=315360000
+                                            [4] => _us=1744407323; expires=Sun, 08 Apr 2035 21:35:23 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 21:35:23 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T21:36:03+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 292205ec0c5999ae018230c1433473f4
+            [Date] => Apr 10, 2025 @ 21:36
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.59361
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => FiU67qLosfLQ2jSX7y8X8vsvPvWjVfQDk+km3zPqR10=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 292205ec0c5999ae018230c1433473f4
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T21:35:35\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"481.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"e331360c28117d07ef45819f01512e1b\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7876,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"340.00\",\"subtotal_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":340,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7877,\"name\":\"Buzzjuice WoWonder Digital Payment\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7878,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"140.00\",\"subtotal_tax\":\"0.00\",\"total\":\"140.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":140,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7879,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1.00\",\"subtotal_tax\":\"0.00\",\"total\":\"1.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":1,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T21:35:35\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 21:36:03 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=p2utefe7bshc6sba3mv9b8pnds; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:36:03 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:36:03 GMT; Max-Age=315360000
+                                            [3] => _us=1744407363; expires=Sun, 08 Apr 2035 21:36:03 GMT; Max-Age=315360000
+                                            [4] => _us=1744407363; expires=Sun, 08 Apr 2035 21:36:03 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 21:36:03 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T21:59:34+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 62109e6507dbdf00532a532a52efa8aa
+            [Date] => Apr 10, 2025 @ 21:59
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 6.00946
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => qSVh/98CySXaDwTPxR17j3eA/ZBpNgH4P+pEjsyH68U=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 62109e6507dbdf00532a532a52efa8aa
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T21:58:27\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"481.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"e331360c28117d07ef45819f01512e1b\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7876,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"340.00\",\"subtotal_tax\":\"0.00\",\"total\":\"340.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":340,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7877,\"name\":\"Buzzjuice WoWonder Digital Payment\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"0.00\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7878,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"140.00\",\"subtotal_tax\":\"0.00\",\"total\":\"140.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":140,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7879,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1.00\",\"subtotal_tax\":\"0.00\",\"total\":\"1.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":1,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T21:58:27\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 21:59:34 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=nrr156lqbjtmf331jpsjisffj5; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:59:34 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 21:59:34 GMT; Max-Age=315360000
+                                            [3] => _us=1744408774; expires=Sun, 08 Apr 2035 21:59:34 GMT; Max-Age=315360000
+                                            [4] => _us=1744408774; expires=Sun, 08 Apr 2035 21:59:34 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 21:59:34 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T22:03:36+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => cb19a2b9f46f2d1c536ec5ea2205e2be
+            [Date] => Apr 10, 2025 @ 22:03
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.09859
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => 6wjmwzTMUt6Ah9VZTJ4ZFXcOHycaOgYjPM7oSok6Yu0=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => cb19a2b9f46f2d1c536ec5ea2205e2be
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T22:02:30\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"141.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"0d938099937bef5b149683445ea1f8b9\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7880,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"140.00\",\"subtotal_tax\":\"0.00\",\"total\":\"140.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":140,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":7881,\"name\":\"Premium Social (Yearly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1.00\",\"subtotal_tax\":\"0.00\",\"total\":\"1.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":1,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T22:02:30\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 22:03:36 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=eki5ujuu30pht9n7onvip2ktn7; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 22:03:36 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 22:03:36 GMT; Max-Age=315360000
+                                            [3] => _us=1744409016; expires=Sun, 08 Apr 2035 22:03:36 GMT; Max-Age=315360000
+                                            [4] => _us=1744409016; expires=Sun, 08 Apr 2035 22:03:36 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 22:03:36 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-10T22:18:08+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 8c646e9c737c6c37ae6ee81c3acc129d
+            [Date] => Apr 10, 2025 @ 22:18
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.84769
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => sWLmgaZ8f81Xzlgd382x6BbsQC9rERkGOi8gWdyjwPE=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 8c646e9c737c6c37ae6ee81c3acc129d
+                        )
+
+                )
+
+            [Body] => {\"id\":701,\"parent_id\":0,\"status\":\"checkout-draft\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-10T14:41:38\",\"date_modified\":\"2025-04-10T22:17:39\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"18.00\",\"total_tax\":\"0.00\",\"customer_id\":19,\"order_key\":\"wc_order_wmZ2XvreyVXTD\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"AA\",\"postcode\":\"\",\"country\":\"GH\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"127.0.0.1\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/134.0.0.0 Safari\\/537.36\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"36964fe695f033cd37daafc93c627818\",\"number\":\"701\",\"meta_data\":[{\"id\":2080,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2081,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2079,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":2082,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":2083,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7882,\"name\":\"Classic Social (Weekly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"18.00\",\"subtotal_tax\":\"0.00\",\"total\":\"18.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":18,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/701\\/?pay_for_order=true&key=wc_order_wmZ2XvreyVXTD\",\"is_editable\":false,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-10T14:41:38\",\"date_modified_gmt\":\"2025-04-10T22:17:39\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/701\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/19\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 10 Apr 2025 22:18:08 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=85q0pt5p96i7monlfi1b0q2ail; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 22:18:08 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-10%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Sun, 08 Apr 2035 22:18:08 GMT; Max-Age=315360000
+                                            [3] => _us=1744409888; expires=Sun, 08 Apr 2035 22:18:08 GMT; Max-Age=315360000
+                                            [4] => _us=1744409888; expires=Sun, 08 Apr 2035 22:18:08 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Sun, 08 Apr 2035 22:18:08 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
