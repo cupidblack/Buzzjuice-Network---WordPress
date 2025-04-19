@@ -11,13 +11,13 @@ Author URI: https://koware.org
 function create_wow_pgb_virtual_products() {
     $products = [
         'WoWPGB-Fund' => 'wow-pgb_fund',
-        'WoWPGB-Pro' => 'wow-pgb_pro',
         'WoWPGB-Market' => 'wow-pgb_market',
         'WoWPGB-Wallet' => 'wow-pgb_wallet'
     ];
 
     $product_ids = get_option('wow_pgb_product_ids', []);
 
+    // Create simple products
     foreach ($products as $name => $sku) {
         $existing_product_id = wc_get_product_id_by_sku($sku);
 
@@ -38,6 +38,56 @@ function create_wow_pgb_virtual_products() {
             $product_ids[$sku] = $product->get_id();
         } else {
             $product_ids[$sku] = $existing_product_id;
+        }
+        update_option("wow_pgb_product_id_$sku", $product_ids[$sku]);
+    }
+
+    // Create variable product for WoWPGB-Pro
+    $parent_sku = 'wow-pgb_pro';
+    $parent_product_id = wc_get_product_id_by_sku($parent_sku);
+
+    if (!$parent_product_id) {
+        // Create parent variable product
+        $parent_product = new WC_Product_Variable();
+        $parent_product->set_name('WoWPGB-Pro');
+        $parent_product->set_status('publish');
+        $parent_product->set_catalog_visibility('hidden'); // Hide from catalog
+        $parent_product->set_sku($parent_sku);
+        $parent_product->set_stock_status('instock');
+        $parent_product->save();
+
+        $parent_product_id = $parent_product->get_id();
+        $product_ids[$parent_sku] = $parent_product_id;
+        update_option("wow_pgb_product_id_$parent_sku", $parent_product_id);
+    }
+
+    // Create variations for WoWPGB-Pro
+    $variations = [
+        'wow-pgb_pro_1' => 'Pro Package 1',
+        'wow-pgb_pro_2' => 'Pro Package 2',
+        'wow-pgb_pro_3' => 'Pro Package 3',
+        'wow-pgb_pro_4' => 'Pro Package 4'
+    ];
+
+    foreach ($variations as $sku => $name) {
+        $existing_variation_id = wc_get_product_id_by_sku($sku);
+
+        if (!$existing_variation_id) {
+            $variation = new WC_Product_Variation();
+            $variation->set_parent_id($parent_product_id);
+            $variation->set_name($name);
+            $variation->set_status('publish');
+            $variation->set_virtual(true);
+            $variation->set_downloadable(true);
+            $variation->set_price(0);
+            $variation->set_regular_price(0);
+            $variation->set_sku($sku);
+            $variation->set_stock_status('instock');
+            $variation->save();
+
+            $product_ids[$sku] = $variation->get_id();
+        } else {
+            $product_ids[$sku] = $existing_variation_id;
         }
         update_option("wow_pgb_product_id_$sku", $product_ids[$sku]);
     }
@@ -82,7 +132,7 @@ function wowonder_redirect_after_purchase($order_id) {
                     wp_redirect($redirect_url);
                     exit();
                 }
-            } elseif ($product_sku === 'wow-pgb_pro') {
+            } elseif (strpos($product_sku, 'wow-pgb_pro_') === 0) {
                 // Authenticate to WoWonder to obtain an access token
                 $wowonder_api_url = 'http://127.0.0.1/buzzjuice.net/streams/api';
                 $server_key = 'd2c99a2e27e91439e54bdfc48c143119'; // Replace with your actual server key
@@ -201,7 +251,7 @@ function wowonder_redirect_after_purchase($order_id) {
             } elseif ($product_sku === 'wow-pgb_wallet') {
                 // Redirect to the WoWonder wallet page
                 $redirect_url = sprintf(
-                    "%swallet/?nocache=%d",
+                    "%s/wallet/?nocache=%d",
                     esc_url($wowonder_url),
                     time() // Add a cache-busting parameter
                 );

@@ -1,0 +1,21 @@
+2025-04-19T13:41:19+00:00 NOTICE 3.1.0 - No subscription webhooks found using API version 3. No updates needed. CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE 8.2.0 upgrade complete from Subscriptions v0 while WooCommerce WC_VERSION 9.7.1 and database version 9.7.1 was active. CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE Environment info: CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     WordPress Version : 6.7.2 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE Active Plugins: CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     Blue Crown Platform by Blue Crown R&D – 1.0 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     BuddyBoss Platform Pro by BuddyBoss – 2.6.80 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     BuddyBoss Platform by BuddyBoss – 2.8.00 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     Simple Custom CSS and JS PRO by SilkyPress.com – 4.28 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     Elementor Pro by Elementor.com – 3.27.4 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     Elementor by Elementor.com – 3.28.0 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     LearnDash LMS - WooCommerce Integration by LearnDash – 2.0.1 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     miniOrange OAuth 2.0 Server/Provider by miniOrange – 6.1.0 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     LearnDash LMS by LearnDash – 4.21.2 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     Paystack WooCommerce Payment Gateway by Tunbosun Ayinla – 5.8.2 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     FOX - Currency Switcher Professional for WooCommerce by realmag777 – 2.4.2.3 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     WooCommerce Subscriptions by WooCommerce – 7.4.0 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     WooCommerce by Automattic – 9.7.1 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     WoWonder Payment Gateway Bridge by Blue Crown R&D – 1.0014 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE     WP Mail SMTP Pro by WPForms – 3.6.1 CONTEXT: {"_legacy":true}
+2025-04-19T13:41:19+00:00 NOTICE      by Unknown – Unknown version CONTEXT: {"_legacy":true}

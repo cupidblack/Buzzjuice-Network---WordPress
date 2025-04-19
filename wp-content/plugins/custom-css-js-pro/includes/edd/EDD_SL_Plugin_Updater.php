@@ -21,6 +21,8 @@ class EDD_SL_Plugin_Updater_CCS {
 	private $version = '';
 	private $wp_override = false;
 	private $cache_key = '';
+//BlueCrownR&D: Added this line to declare the $beta property
+	private $beta = false; // Explicitly declare the $beta property
 	
 	/**
 	 * Class constructor.
@@ -42,7 +44,8 @@ class EDD_SL_Plugin_Updater_CCS {
 		$this->slug        = basename( $_plugin_file, '.php' );
 		$this->version     = $_api_data['version'];
 		$this->wp_override = isset( $_api_data['wp_override'] ) ? (bool) $_api_data['wp_override'] : false;
-		$this->beta        = ! empty( $this->api_data['beta'] ) ? true : false;
+//BlueCrownR&D: Added this line to declare the $beta property
+		$this->beta        = ! empty( $this->api_data['beta'] ) ? true : false; // Assign value to the declared property
 		$this->cache_key   = md5( serialize( $this->slug . $this->api_data['license'] . $this->beta ) );
 		
 		$edd_plugin_data[ $this->slug ] = $this->api_data;
