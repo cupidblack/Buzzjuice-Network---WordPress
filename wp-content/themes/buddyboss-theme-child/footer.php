@@ -29,9 +29,9 @@
 
 <?php wp_footer(); ?>
 
-/************ Modified by Blue Crown R&D: Footer Menu ************/
+<!--BlueCrownR&D: Footer Menu -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://koware.org/footer-menu/footer-menu.css">
+<link rel="stylesheet" href="http://127.0.0.1/footer-menu/footer-menu.css">
 
 <div class="bottom-footer-menu">
     <ul>

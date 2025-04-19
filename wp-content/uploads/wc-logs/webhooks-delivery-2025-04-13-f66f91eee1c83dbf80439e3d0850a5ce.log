@@ -1,0 +1,123 @@
+2025-04-13T16:07:32+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 73156879b95ae9b7a3a5c9f69a4b18c4
+            [Date] => Apr 13, 2025 @ 16:07
+            [URL] => http://127.0.0.1/buzzjuice.net/social/qdwpgb_callback.php
+            [Duration] => 1.24683
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => 841Ci+9lXYNO9xwU1s1algnM7ph5Cwy4UmcayTArAf0=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 73156879b95ae9b7a3a5c9f69a4b18c4
+                        )
+
+                )
+
+            [Body] => {\"id\":740,\"parent_id\":0,\"status\":\"pending\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-13T16:07:30\",\"date_modified\":\"2025-04-13T16:07:30\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"80.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_R0mNAadf9Pl4Y\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"qdw_payment\",\"payment_method_title\":\"QuickDate WooCommerce Payment\",\"transaction_id\":\"\",\"customer_ip_address\":\"\",\"customer_user_agent\":\"\",\"created_via\":\"rest-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"\",\"number\":\"740\",\"meta_data\":[{\"id\":2304,\"key\":\"qdw_order_id\",\"value\":\"qdw_67fbe13b710ac\"},{\"id\":2305,\"key\":\"userid\",\"value\":\"17\"}],\"line_items\":[{\"id\":7918,\"name\":\"Social RockStar(Quarterly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"80.00\",\"subtotal_tax\":\"0.00\",\"total\":\"80.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":80,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/740\\/?pay_for_order=true&key=wc_order_R0mNAadf9Pl4Y\",\"is_editable\":true,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-13T16:07:30\",\"date_modified_gmt\":\"2025-04-13T16:07:30\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/740\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 13 Apr 2025 16:07:32 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [access-control-allow-origin] => *
+                                    [access-control-max-age] => 3600
+                                    [access-control-allow-headers] => Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+                                    [set-cookie] => PHPSESSID=ma5qkkk05tm6kld0k7nb9aeu5p; path=/
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
+2025-04-13T16:07:32+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => dbecab8bbd5207e0747379b430734442
+            [Date] => Apr 13, 2025 @ 16:07
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.25537
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => 8BsCYVKrruVZMDd+9Z5+qVcUaA9YlV9eXDwGEHP6KhI=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => dbecab8bbd5207e0747379b430734442
+                        )
+
+                )
+
+            [Body] => {\"id\":740,\"parent_id\":0,\"status\":\"pending\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-13T16:07:30\",\"date_modified\":\"2025-04-13T16:07:30\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"80.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_R0mNAadf9Pl4Y\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"qdw_payment\",\"payment_method_title\":\"QuickDate WooCommerce Payment\",\"transaction_id\":\"\",\"customer_ip_address\":\"\",\"customer_user_agent\":\"\",\"created_via\":\"rest-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"\",\"number\":\"740\",\"meta_data\":[{\"id\":2304,\"key\":\"qdw_order_id\",\"value\":\"qdw_67fbe13b710ac\"},{\"id\":2305,\"key\":\"userid\",\"value\":\"17\"}],\"line_items\":[{\"id\":7918,\"name\":\"Social RockStar(Quarterly)\",\"product_id\":694,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"80.00\",\"subtotal_tax\":\"0.00\",\"total\":\"80.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"wow-pgb_pro\",\"price\":80,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/740\\/?pay_for_order=true&key=wc_order_R0mNAadf9Pl4Y\",\"is_editable\":true,\"needs_payment\":true,\"needs_processing\":false,\"date_created_gmt\":\"2025-04-13T16:07:30\",\"date_modified_gmt\":\"2025-04-13T16:07:30\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/740\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 13 Apr 2025 16:07:32 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=8hghq3f1r59k9jn8renkupptvs; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-13%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Wed, 11 Apr 2035 16:07:32 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-13%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Wed, 11 Apr 2035 16:07:32 GMT; Max-Age=315360000
+                                            [3] => _us=1744646852; expires=Wed, 11 Apr 2035 16:07:32 GMT; Max-Age=315360000
+                                            [4] => _us=1744646852; expires=Wed, 11 Apr 2035 16:07:32 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Wed, 11 Apr 2035 16:07:32 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+

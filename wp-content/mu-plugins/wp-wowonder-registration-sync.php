@@ -111,6 +111,7 @@ function mo_oauth_server_sign_on($user) {
     $auth_url = add_query_arg(array(
         'response_type' => 'code',
         'client_id' => $client_id,
+        'client_secret' => $client_secret,
         'redirect_uri' => $redirect_uri,
         'scope' => 'openid email profile',
         'state' => wp_create_nonce('sso_state'),
@@ -121,14 +122,10 @@ function mo_oauth_server_sign_on($user) {
     exit();
 }
 
+/*BlueCrownR&D: WoWonder Integration
+	// edit miniOrange OAuth Server plugin: wp-content\plugins\miniorange-oauth-20-server\public\class-miniorange-oauth-20-server-public.php
 
-			//***************************************************************************************/
-			//****************** Modified by Blue Crown R&D: WoWonder Integration ******************//
-			//************************************************************************************* */
-
-			// edit miniOrange OAuth Server plugin: wp-content\plugins\miniorange-oauth-20-server\public\class-miniorange-oauth-20-server-public.php
-
-/*			$prompt = $request->query('prompt') ?: 'allow';
+		$prompt = $request->query('prompt') ?: 'allow';
 			if ( ! $request->query( 'ignore_prompt' ) && $prompt ) {
 				if ( 'login' === $prompt ) {
 				$custom_login_url = get_option( 'mo_oauth_server_custom_login_url' );
@@ -170,7 +167,4 @@ function mo_oauth_server_sign_on($user) {
 				update_user_meta($current_user->ID, 'mo_oauth_server_granted_' . $client_id, 'deny');
 			}
 */
-			//***************************************************************************************/
-			//****************** Modified by Blue Crown R&D: WoWonder Integration ******************//
-			//************************************************************************************* */
 ?>

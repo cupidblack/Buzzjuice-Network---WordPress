@@ -22,7 +22,7 @@ add_action('wp_logout', 'redirect_after_wp_logout');
 
 
 
-/************ Modified by Blue Crown R&D: WordPress REST API ************/
+/*Blue Crown R&D: WordPress REST API*/
 add_filter( 'rest_user_query', 'prefix_remove_has_published_posts_from_wp_api_user_query', 10, 2 );
 /**
  * Removes `has_published_posts` from the query args so even users who have not
@@ -65,5 +65,9 @@ add_action('woocommerce_checkout_update_order_meta', function ($order_id) {
         update_post_meta($order_id, '_wowonder_username', sanitize_text_field($_GET['username']));
     }
 });
+
+
+
+
 
 ?>

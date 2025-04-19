@@ -159,11 +159,7 @@ class Miniorange_Oauth_20_Server_Public {
 				exit;
 			}
 
-
-
-			//***************************************************************************************/
-			//****************** Modified by Blue Crown R&D: WoWonder Integration ******************//
-			//************************************************************************************* */
+//BlueCrownR&D: WoWonder Integration
 			$prompt = $request->query('prompt') ?: 'allow';
 			if ( ! $request->query( 'ignore_prompt' ) && $prompt ) {
 				if ( 'login' === $prompt ) {
@@ -205,10 +201,9 @@ class Miniorange_Oauth_20_Server_Public {
 			if (!$is_authorized) {
 				update_user_meta($current_user->ID, 'mo_oauth_server_granted_' . $client_id, 'deny');
 			}
-			//***************************************************************************************/
-			//****************** Modified by Blue Crown R&D: WoWonder Integration ******************//
-			//************************************************************************************* */
-/*			$prompt = $request->query( 'prompt' ) ? $request->query( 'prompt' ) : 'consent';
+
+/*BlueCrownR&D: WoWonder Integration
+		$prompt = $request->query( 'prompt' ) ? $request->query( 'prompt' ) : 'consent';
 			if ( ! $request->query( 'ignore_prompt' ) && $prompt ) {
 				if ( 'login' === $prompt ) {
 					$actual_link      = $this->mo_oauth_server_get_current_page_url();
@@ -339,7 +334,7 @@ class Miniorange_Oauth_20_Server_Public {
 			'refresh_token'      => new RefreshToken(
 				$storage,
 				array(
-					'always_issue_new_refresh_token' => true,
+					'always_issue_new_refresh_token' => false,
 				)
 			),
 		);
@@ -354,8 +349,8 @@ class Miniorange_Oauth_20_Server_Public {
 			'enforce_state'          => ( 'on' === $enforce_state ),
 			'allow_implicit'         => false,
 			'use_openid_connect'     => ( 'on' === $enable_oidc ),
-			'access_lifetime'        => get_option( 'mo_oauth_expiry_time' ) ? get_option( 'mo_oauth_expiry_time' ) : 3600,
-			'refresh_token_lifetime' => get_option( 'mo_oauth_refresh_expiry_time' ) ? get_option( 'mo_oauth_refresh_expiry_time' ) : 1209600,
+			'access_lifetime'        => get_option( 'mo_oauth_expiry_time' ) ? get_option( 'mo_oauth_expiry_time' ) : 14400,
+			'refresh_token_lifetime' => get_option( 'mo_oauth_refresh_expiry_time' ) ? get_option( 'mo_oauth_refresh_expiry_time' ) : 1296000,
 			'issuer'                 => $moos_home_url_plus_rest_prefix . '/moserver',
 		);
 		$server = new OAuth2Server( $storage, $config, $grant_types );
@@ -374,7 +369,8 @@ class Miniorange_Oauth_20_Server_Public {
 		ob_end_clean();
 		if ( isset( $_POST['grant_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification -- This is a REST endpoint and is called from external platform
 			$grant          = sanitize_text_field( wp_unslash( $_POST['grant_type'] ) ); // phpcs:ignore WordPress.Security.NonceVerification -- This is a REST endpoint and is called from external platform
-			$allowed_grants = array( 'authorization_code' );
+//BlueCrownR&D
+			$allowed_grants = array( 'authorization_code', 'refresh_token' );
 			if ( ! in_array( $grant, $allowed_grants, true ) ) {
 
 				MO_OAuth_Server_Debug::error_log( 'Token Endpoint - Grant requested not in allowed grants: ' );

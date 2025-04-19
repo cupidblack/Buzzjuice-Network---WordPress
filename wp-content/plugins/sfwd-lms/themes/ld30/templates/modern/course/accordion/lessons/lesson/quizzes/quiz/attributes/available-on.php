@@ -1,0 +1,44 @@
+<?php
+/**
+ * View: Course Accordion Lesson Quiz Attribute - Available On.
+ *
+ * @since 4.21.0
+ * @version 4.21.0
+ *
+ * @var Quiz     $quiz The quiz object.
+ * @var Template $this Current Instance of template engine rendering this template.
+ *
+ * @package LearnDash\Core
+ */
+
+use LearnDash\Core\Models\Quiz;
+use LearnDash\Core\Template\Template;
+
+$available_on = $quiz->get_available_on_date();
+
+if ( is_null( $available_on ) ) {
+	return;
+}
+
+$tooltip = sprintf(
+	// translators: %s: Date when a lesson will be available.
+	esc_html_x( 'Available %s', '%s: Date when a lesson will be available', 'learndash' ),
+	esc_html( learndash_adjust_date_time_display( $available_on ) )
+);
+
+?>
+<div
+	class="ld-accordion__item-attribute ld-accordion__item-attribute--available-on ld-accordion__item-attribute--collapsed"
+	data-ld-tooltip-text="<?php echo esc_attr( $tooltip ); ?>"
+	tabindex="0"
+>
+	<?php
+	$this->template(
+		'components/icons/clock',
+		[
+			'classes'        => [ 'ld-accordion__item-attribute-icon ld-accordion__item-attribute-icon--available-on' ],
+			'is_aria_hidden' => true,
+		]
+	);
+	?>
+</div>
