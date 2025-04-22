@@ -1,0 +1,845 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Customer Verification pro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-12 05:32+0000\n"
+"PO-Revision-Date: 2024-12-09 09:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: French (France)\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1\n"
+"X-Domain: customer-email-verification-pro"
+
+#: includes/views/admin_tools_tab.php:46
+msgid " days"
+msgstr "Votre email est vérifié!"
+
+#: includes/customizer/verification-popup-message.php:115
+#| msgid "Login now"
+msgid " Login now"
+msgstr "Connecte-toi maintenant"
+
+#: includes/customizer/cev-verification-email-content.php:103
+msgid ""
+" To complete your order on {site_title}, please confirm your email address. "
+"This ensures we have the right email in case we need to contact you.<p>Your "
+"verification code: {cev_user_verification_pin}</p><p>Or, verify your account "
+"clicking on the button below:"
+msgstr ""
+" Pour terminer votre commande sur {site_title}, veuillez confirmer votre "
+"adresse e-mail. Cela garantit que nous avons le bon e-mail au cas où nous "
+"aurions besoin de vous contacter.<p>Votre code de vérification : "
+"{cev_user_verification_pin}</p><p>Ou, vérifiez votre compte en cliquant sur "
+"le bouton ci-dessous :"
+
+#: includes/class-wc-customer-email-verification-admin.php:786
+msgid "1 Hours"
+msgstr "1 heure"
+
+#: includes/class-wc-customer-email-verification-admin.php:783
+msgid "10 min"
+msgstr "10 minutes"
+
+#: includes/class-wc-customer-email-verification-admin.php:784
+msgid "15 min"
+msgstr "15 minutes"
+
+#: includes/class-wc-customer-email-verification-admin.php:787
+msgid "24 Hours"
+msgstr "24 heures"
+
+#: includes/class-wc-customer-email-verification-admin.php:785
+msgid "30 min"
+msgstr "30 minutes"
+
+#: includes/class-wc-customer-email-verification-admin.php:776
+msgid "4-digits"
+msgstr "4 chiffres"
+
+#: includes/cev-pro-email-settings.php:643
+#: includes/views/cev_admin_endpoint_popup_template.php:47
+#: includes/views/verify_checkout_guest_user.php:108
+#: includes/views/front/preview_cev_popup_page.php:62
+#: includes/views/front/preview_cev_popup_page.php:66
+msgid "4-digits code"
+msgstr "4 chiffres"
+
+#: includes/class-wc-customer-email-verification-admin.php:777
+msgid "6-digits"
+msgstr "6 chiffres"
+
+#: includes/class-wc-customer-email-verification-admin.php:788
+msgid "72 Hours"
+msgstr "72 heures"
+
+#: includes/class-wc-customer-email-verification-admin.php:778
+msgid "9-digits"
+msgstr "9 chiffres"
+
+#. %1$s: Replace with Recipent, %2$s: Replace with verification pin,  %3$s: Replace with verification link
+#: includes/cev-pro-email-settings.php:803
+#, php-format
+#| msgid ""
+#| "<p> Please confirm <strong>%s</strong> as your new email address. The "
+#| "change will not take effect until you verify this email address.</p><p> "
+#| "Your verification code: <strong>%s</strong> </p> <p> Or, verify your "
+#| "account by clicking on the verification link: <strong>%s</strong> </p>"
+msgid ""
+"<p> Please confirm <strong>%1$s</strong> as your new email address. The "
+"change will not take effect until you verify this email address.</p><p> Your "
+"verification code: <strong>%2$s</strong> </p> <p> Or, verify your account by "
+"clicking on the verification link: <strong>%3$s</strong> </p>"
+msgstr ""
+"<p> Veuillez confirmer <strong>%1$s</strong> comme votre nouvelle adresse e-"
+"mail. La modification ne prendra effet que lorsque vous aurez vérifié cette "
+"adresse e-mail.</p><p> Votre code de vérification : <strong>%2$s</strong> "
+"</p> <p> Ou, vérifiez votre compte en cliquant sur le lien de vérification : "
+"<strong>%3$s</strong> </p>"
+
+#: includes/class-wc-customer-email-verification-admin.php:978
+msgid "Actions"
+msgstr "Actions"
+
+#: includes/customizer/cev-verification-email-content.php:341
+#: includes/customizer/cev-verification-email-content.php:363
+msgid "Addition footer content"
+msgstr "Ajout du contenu du pied de page"
+
+#: includes/class-wc-customer-email-verification-admin.php:791
+msgid "Allow 1 Attempt"
+msgstr "Autoriser 1 tentative"
+
+#: includes/class-wc-customer-email-verification-admin.php:792
+msgid "Allow 3 Attempt"
+msgstr ""
+"Allow 3 Attempt\n"
+
+#: includes/class-wc-customer-email-verification-admin.php:676
+msgid "Allow first login after registration without email verification"
+msgstr ""
+"Autoriser la première connexion après l'enregistrement sans vérification par "
+"e-mail"
+
+#: includes/class-wc-customer-email-verification-admin.php:677
+#: includes/class-wc-customer-email-verification-admin.php:697
+msgid ""
+"Allow your customers to access their account for the first time after "
+"registration before they verify the email address"
+msgstr ""
+"Autorisez vos clients à accéder à leur compte pour la première fois après "
+"l'inscription avant de vérifier l'adresse e-mail"
+
+#: includes/customizer/verification-popup-message.php:115
+msgid "Already have an account?"
+msgstr "Vous avez déjà un compte?"
+
+#: includes/views/verify_checkout_guest_user.php:71
+msgid "Already have verification code?"
+msgstr "Vous avez déjà un compte?"
+
+#: includes/views/admin_tools_tab.php:45
+msgid "Automatically delete customers with unverified email after  "
+msgstr "Supprimer automatiquement les clients avec un e-mail non vérifié après"
+
+#: includes/customizer/verification-popup-message.php:236
+#: includes/customizer/verification-popup-message.php:324
+#: includes/customizer/cev-verification-email-content.php:307
+msgid "Available variables"
+msgstr "Variables disponibles"
+
+#: includes/customizer/cev-verification-email-style.php:211
+msgid "background Color"
+msgstr "Couleur de l'arrière plan"
+
+#: includes/customizer/cev-verification-email-style.php:230
+msgid "Border Color"
+msgstr "Couleur de la bordure"
+
+#: includes/customizer/cev-verification-email-style.php:362
+msgid "Button"
+msgstr ""
+"Button\n"
+
+#: includes/customizer/verification-popup-style.php:347
+#: includes/customizer/cev-verification-email-style.php:423
+msgid "Button color"
+msgstr "Couleur du bouton"
+
+#: includes/customizer/verification-popup-style.php:363
+#: includes/customizer/cev-verification-email-style.php:460
+msgid "Button Font Color"
+msgstr "Couleur du bouton"
+
+#: includes/customizer/verification-popup-style.php:380
+#: includes/customizer/cev-verification-email-style.php:403
+msgid "Button size"
+msgstr "Taille du bouton"
+
+#: includes/customizer/verification-popup-style.php:195
+#: includes/customizer/cev-verification-email-style.php:172
+msgid "Center"
+msgstr "Centre"
+
+#: includes/customizer/verification-popup-message.php:151
+#: includes/customizer/cev-verification-email-content.php:151
+msgid "Checkout workflow"
+msgstr "Flux de travail de paiement"
+
+#: includes/class-wc-customer-email-verification-admin.php:837
+msgid ""
+"choose if you wish to set expiry time to the verification code / link - "
+"Never, 10 min, 30 min, 1 Hour, 24 Hours, 72 Hours (defaults to Never expires)"
+msgstr ""
+"choisissez si vous souhaitez définir l'heure d'expiration sur le code / lien "
+"de vérification - Jamais, 10 min, 30 min, 1 heure, 24 heures, 72 heures (par "
+"défaut sur Jamais expire)"
+
+#: includes/customizer/verification-popup-style.php:234
+#: includes/customizer/cev-verification-email-style.php:189
+msgid "Content Padding"
+msgstr "Remplissage de contenu"
+
+#: includes/customizer/verification-popup-style.php:212
+#: includes/customizer/cev-verification-email-style.php:145
+msgid "Content width"
+msgstr "Largeur du contenu"
+
+#. Name of the plugin
+#| msgid "Customer Email Verification PRO"
+msgid "Customer Email Verification"
+msgstr "Vérification des e-mails du client PRO"
+
+#: includes/views/admin_options_settings.php:13
+msgid "Customer email verification"
+msgstr "Vérification de l'adresse e-mail du client"
+
+#: includes/class-wc-customer-email-verification-admin.php:1151
+#| msgid ""
+#| "Customer verification\n"
+msgid "Customer verification"
+msgstr "Vérification du client"
+
+#: includes/class-wc-customer-email-verification-admin.php:244
+#: includes/class-wc-customer-email-verification-admin.php:250
+msgid "Customize"
+msgstr "Personnaliser"
+
+#: includes/class-wc-customer-email-verification-admin.php:680
+msgid "Delay the new account email to after email verification"
+msgstr "Retardez l'e-mail du nouveau compte après vérification de l'e-mail"
+
+#: includes/class-wc-customer-email-verification-admin.php:681
+msgid ""
+"Delay the wooCommerce new account email and send it to the customer only "
+"after successful verification."
+msgstr ""
+"Retardez l'e-mail du nouveau compte wooCommerce et envoyez-le au client "
+"uniquement après une vérification réussie."
+
+#: includes/customizer/verification-popup-message.php:112
+msgid "Didn't receive an email? <strong>{cev_resend_verification}</strong>"
+msgstr ""
+"Vous n'avez pas reçu d'e-mail ? <strong>{cev_resend_verification}</strong>"
+
+#. %s: search for footer customer resend link
+#: includes/views/front/preview_cev_popup_page.php:94
+#, php-format
+msgid "Didn’t receive an email? <strong>%s</strong>"
+msgstr "Vous n'avez pas reçu d'e-mail? % s"
+
+#: includes/class-wc-customer-email-verification-admin.php:793
+msgid "Disable Resend"
+msgstr "Désactiver le renvoi"
+
+#: includes/views/verify_checkout_guest_user.php:35
+msgid "Email address"
+msgstr "Adresse e-mail"
+
+#: customer-email-verification.php:265 includes/cev-pro-email-settings.php:1082
+msgid "Email address verified"
+msgstr "Adresse e-mail vérifiée"
+
+#: includes/customizer/class-cev-customizer.php:54
+msgid "Email Content"
+msgstr "Contenu de l'e-mail"
+
+#: includes/customizer/cev-verification-email-content.php:191
+#: includes/customizer/cev-verification-email-content.php:262
+msgid "Email Heading"
+msgstr "Adresse e-mail"
+
+#: includes/customizer/class-cev-customizer.php:45
+msgid "Email Style"
+msgstr "Style d'e-mail"
+
+#: includes/class-wc-customer-email-verification-admin.php:240
+#: includes/class-wc-customer-email-verification-admin.php:977
+msgid "Email verification"
+msgstr "Vérification de l'E-mail"
+
+#: customer-email-verification.php:261 includes/cev-pro-email-settings.php:1006
+#: includes/cev-pro-email-settings.php:1023
+msgid "Email verification code"
+msgstr "Code de vérification de l'e-mail"
+
+#: includes/cev-pro-email-settings.php:556
+#: includes/class-wc-customer-email-verification-email-common.php:240
+msgid "Email Verification Link"
+msgstr "Vérification de l'E-mail"
+
+#: includes/views/admin_options_settings.php:18
+msgid "Email verification settings"
+msgstr "Lien de vérification des e-mails"
+
+#: includes/class-wc-customer-email-verification-admin.php:1157
+msgid "Email verification status:"
+msgstr "État de vérification des e-mails:"
+
+#: includes/class-wc-customer-email-verification-admin.php:807
+msgid "Email verification success message"
+msgstr "Message de réussite de vérification par e-mail"
+
+#: includes/class-wc-customer-email-verification-admin.php:735
+msgid "Enable email verification before Checkout"
+msgstr "Activer la vérification des e-mails avant le paiement"
+
+#: includes/class-wc-customer-email-verification-admin.php:688
+msgid "Enable email verification for new customer accounts"
+msgstr "Activer la vérification des e-mails pour les nouveaux comptes clients"
+
+#: includes/class-wc-customer-email-verification-admin.php:721
+msgid "Enable the email verification on the cart page"
+msgstr "Activer la vérification des e-mails sur la page du panier"
+
+#: includes/views/verify_checkout_guest_user.php:113
+msgid "Enter"
+msgstr "Entrer"
+
+#: includes/views/verify_checkout_guest_user.php:70
+msgid "Enter your email address"
+msgstr "Entrez votre adresse email"
+
+#: includes/customizer/verification-popup-style.php:397
+msgid "Expand Button"
+msgstr "Bouton Développer"
+
+#: includes/customizer/cev-verification-email-style.php:249
+#: includes/customizer/cev-verification-email-style.php:441
+msgid "Font Color"
+msgstr "Couleur de la police"
+
+#: includes/customizer/verification-popup-message.php:215
+#: includes/customizer/verification-popup-message.php:305
+#: includes/customizer/cev-verification-email-content.php:324
+msgid "Footer content"
+msgstr "Contenu du pied de page"
+
+#: includes/customizer/verification-popup-style.php:312
+#: includes/customizer/cev-verification-email-style.php:324
+msgid "Header font size"
+msgstr "Taille de la police de l'en-tête"
+
+#: includes/customizer/verification-popup-style.php:273
+#: includes/customizer/cev-verification-email-style.php:285
+msgid "Header image"
+msgstr "Image d'en-tête"
+
+#: includes/customizer/verification-popup-message.php:167
+#: includes/customizer/verification-popup-message.php:256
+msgid "Header text"
+msgstr "En-tête"
+
+#. URI of the plugin
+msgid "http://woocommerce.com/products/customer-email-verification/"
+msgstr "http://woocommerce.com/products/customer-email-verification/"
+
+#. Author URI of the plugin
+msgid "https://www.zorem.com"
+msgstr "https://www.zorem.com"
+
+#: includes/class-wc-customer-email-verification-admin.php:736
+msgid ""
+"if you enable this option, registered customers that are flagged as "
+"Unverified Email or guest customers will not be able to checkout without "
+"verifying their email address"
+msgstr ""
+"si vous activez cette option, les clients enregistrés qui sont signalés "
+"comme e-mail non vérifié ou les clients invités ne pourront pas passer à la "
+"caisse sans vérifier leur adresse e-mail"
+
+#: includes/customizer/verification-popup-style.php:290
+msgid "Image Width"
+msgstr "Largeur de l'image"
+
+#: includes/customizer/cev-verification-email-style.php:302
+msgid "image Width"
+msgstr "Largeur de l'image"
+
+#: includes/class-wc-customer-email-verification-admin.php:728
+msgid "Inline"
+msgstr "En ligne"
+
+#: includes/cev-pro-email-settings.php:653
+msgid "Invalid PIN Code"
+msgstr "Code PIN invalide"
+
+#: includes/customizer/verification-popup-style.php:384
+#: includes/customizer/cev-verification-email-style.php:407
+msgid "Large"
+msgstr "Grand"
+
+#: includes/customizer/verification-popup-style.php:196
+#: includes/customizer/cev-verification-email-style.php:173
+msgid "Left"
+msgstr "La gauche"
+
+#: includes/class-wc-customer-email-verification-admin.php:853
+msgid ""
+"limit the amount of times the user can resend the verification email. This "
+"option allows you to avoid multiple bounced emails in case the user tries to "
+"send verifications multiple times to email that does not exist"
+msgstr ""
+"limiter le nombre de fois où l'utilisateur peut renvoyer l'e-mail de "
+"vérification. Cette option vous permet d'éviter plusieurs e-mails rejetés au "
+"cas où l'utilisateur essaie d'envoyer plusieurs fois des vérifications à des "
+"e-mails qui n'existent pas."
+
+#: includes/views/admin_tools_tab.php:14
+msgid ""
+"Manually verify the emails of all customers with unverified email address"
+msgstr ""
+"Vérifier manuellement les e-mails de tous les clients avec une adresse e-"
+"mail non vérifiée"
+
+#: includes/customizer/verification-popup-message.php:192
+msgid "Message"
+msgstr "Un message"
+
+#: includes/class-wc-customer-email-verification-admin.php:782
+msgid "Never"
+msgstr "Jamais"
+
+#: includes/customizer/verification-popup-style.php:383
+#: includes/customizer/cev-verification-email-style.php:406
+msgid "Normal"
+msgstr "Normal"
+
+#: includes/customizer/verification-popup-style.php:153
+msgid "Overlay background Color"
+msgstr "Couleur d'arrière-plan de la superposition"
+
+#: includes/class-wc-customer-email-verification-admin.php:798
+msgid "Page to redirect after successful verification"
+msgstr "Page à rediriger après une vérification réussie"
+
+#. %s: search Customer Email Verification PRO plugin link
+#: customer-email-verification.php:118
+#, php-format
+#| msgid ""
+#| "Please install and activate %sWooCommerce%s plugin for the Customer Email "
+#| "Verification PRO to work."
+msgid ""
+"Please install and activate %1$sWooCommerce%2$s plugin for the Customer "
+"Email Verification PRO to work."
+msgstr ""
+"Veuillez installer et activer le plugin %1$sWooCommerce%2$s pour que "
+"Customer Email Verification PRO fonctionne."
+
+#: includes/customizer/cev-verification-email-content.php:100
+#: includes/customizer/cev-verification-email-content.php:101
+msgid "Please Verify Your Email Address on {site_title}"
+msgstr "Veuillez vérifier votre adresse e-mail"
+
+#: includes/customizer/verification-popup-message.php:114
+msgid "Please verify your email address to proceed to checkout."
+msgstr "Veuillez vérifier votre adresse e-mail pour procéder au paiement."
+
+#: includes/class-wc-customer-email-verification-admin.php:727
+msgid "Popup"
+msgstr "Veuillez vérifier votre adresse e-mail sur {site_title}"
+
+#: includes/customizer/class-cev-customizer.php:36
+msgid "Popup Content"
+msgstr "Contenu contextuel"
+
+#: includes/customizer/verification-popup-style.php:256
+msgid "Popup Header"
+msgstr "En-tête contextuel"
+
+#: includes/customizer/class-cev-customizer.php:27
+msgid "Popup Style"
+msgstr "Style de fenêtre contextuelle"
+
+#: includes/customizer/verification-popup-message.php:150
+#: includes/customizer/cev-verification-email-content.php:150
+msgid "Registration workflow"
+msgstr "Flux d'inscription"
+
+#: includes/class-wc-customer-email-verification-admin.php:716
+msgid "Require checkout verification only for free orders"
+msgstr ""
+"Exiger la vérification du paiement uniquement pour les commandes gratuites"
+
+#: includes/class-wc-customer-email-verification-email-common.php:248
+#: includes/class-wc-customer-email-verification-email-common.php:362
+msgid "Resend Confirmation Email"
+msgstr "Renvoyer un courriel de confirmation"
+
+#: includes/views/verify_checkout_guest_user.php:16
+msgid "resend email"
+msgstr "ré-envoyer l'email"
+
+#: includes/class-wc-customer-email-verification-admin.php:851
+msgid "Resend limit message"
+msgstr "Renvoyer le message de limite"
+
+#: customer-email-verification.php:264 includes/cev-pro-email-settings.php:657
+#: includes/cev-pro-email-settings.php:657
+#: includes/cev-pro-email-settings.php:1009
+#: includes/cev-pro-email-settings.php:1026
+#: includes/views/admin_tools_tab.php:33
+msgid "Resend verification code"
+msgstr "Renvoyer le code de vérification"
+
+#: includes/views/admin_tools_tab.php:28
+msgid "Resend verification code to all customers with unverified email address"
+msgstr ""
+"Renvoyer le code de vérification à tous les clients avec une adresse e-mail "
+"non vérifiée"
+
+#: includes/class-wc-customer-email-verification-admin.php:1123
+#: includes/class-wc-customer-email-verification-admin.php:1186
+msgid "Resend verification email"
+msgstr "Renvoyer l'e-mail de vérification"
+
+#: includes/views/admin_options_settings.php:21
+msgid "Save changes"
+msgstr "Sauvegarder les modifications"
+
+#: includes/customizer/verification-popup-style.php:136
+#: includes/customizer/cev-verification-email-style.php:128
+#: includes/customizer/cev-verification-email-content.php:124
+msgid "Select"
+msgstr "Sélectionner"
+
+#: includes/class-wc-customer-email-verification-admin.php:801
+msgid ""
+"select a page to redirect users after successful verification. In case the "
+"email verification was during checkout, the user will be directed to checkout"
+msgstr ""
+"sélectionnez une page pour rediriger les utilisateurs après une vérification "
+"réussie. Dans le cas où la vérification de l'e-mail a eu lieu lors du "
+"paiement, l'utilisateur sera dirigé vers le paiement"
+
+#: includes/class-wc-customer-email-verification-admin.php:1269
+msgid "Send verification email"
+msgstr "Envoyer email de vérification"
+
+#: includes/class-wc-customer-email-verification-admin.php:236
+msgid "Settings"
+msgstr "Paramètres"
+
+#: customer-email-verification.php:375
+msgid "Sign up email verification"
+msgstr "S'inscrire à la vérification des e-mails"
+
+#: includes/customizer/cev-verification-email-style.php:363
+msgid "Simple Link"
+msgstr "Lien simple"
+
+#: includes/cev-pro-email-settings.php:564
+#: includes/class-wc-customer-email-verification-email-common.php:256
+msgid "Site Title"
+msgstr "Titre du site"
+
+#: includes/class-wc-customer-email-verification-admin.php:818
+msgid "Skip email verification for the selected user roles:"
+msgstr ""
+"Ignorer la vérification des e-mails pour les rôles utilisateur sélectionnés:"
+
+#: includes/customizer/cev-verification-email-style.php:381
+msgid "Text"
+msgstr "Texte"
+
+#: includes/customizer/cev-verification-email-content.php:102
+msgid ""
+"Thank you for signing up for {site_title}, to activate your account, we need "
+"to verify your email address.<p>Your verification code: <strong>"
+"{cev_user_verification_pin}</strong></p><p>Or, verify your account clicking "
+"on the button below:{cev_user_verification_link}"
+msgstr ""
+"Merci de vous être inscrit sur {site_title}, pour activer votre compte, nous "
+"devons vérifier votre adresse e-mail.<p>Votre code de vérification : <strong>"
+"{cev_user_verification_pin}</strong></p><p>Ou, vérifiez votre compte en "
+"cliquant sur le bouton ci-dessous :{cev_user_verification_link}"
+
+#. Description of the plugin
+msgid ""
+"The Customer Email Verification helps WooCommerce store owners to reduce "
+"registration and orders spam by requiring customers to verify their email "
+"address when they register an account or before they can checkout on your "
+"store."
+msgstr ""
+"La vérification des e-mails du client aide les propriétaires de magasins "
+"WooCommerce à réduire les inscriptions et les commandes de spam en obligeant "
+"les clients à vérifier leur adresse e-mail lorsqu'ils créent un compte ou "
+"avant de pouvoir payer sur votre boutique."
+
+#: includes/class-wc-customer-email-verification-admin.php:809
+msgid ""
+"the message that will appear on the top of the my-account or checkout page "
+"after successful email verification"
+msgstr ""
+"le message qui apparaîtra en haut de la page mon-compte ou de paiement après "
+"la vérification réussie de l'e-mail"
+
+#: includes/class-wc-customer-email-verification-admin.php:855
+msgid "Too many attempts, please contact us</a> for further assistance"
+msgstr "Trop de tentatives, veuillez nous contacter pour obtenir de l'aide"
+
+#: includes/class-wc-customer-email-verification-admin.php:254
+#: includes/class-wc-customer-email-verification-admin.php:258
+#: includes/views/admin_tools_tab.php:7
+msgid "Tools"
+msgstr "Outils"
+
+#: includes/class-wc-customer-email-verification-email-common.php:260
+#: includes/class-wc-customer-email-verification-email-common.php:422
+#: includes/class-wc-customer-email-verification-email-common.php:429
+msgid "Try Again"
+msgstr "Réessayer"
+
+#: includes/views/front/preview_cev_popup_page.php:7
+msgid "Try again"
+msgstr "Réessayer"
+
+#: includes/customizer/cev-verification-email-style.php:358
+msgid "Type"
+msgstr "Taper"
+
+#: includes/class-wc-customer-email-verification-admin.php:1188
+msgid "Un-verify email"
+msgstr "Annuler la vérification de l'e-mail"
+
+#: includes/class-wc-customer-email-verification-email-common.php:232
+msgid "User display name"
+msgstr "Nom d'affichage de l'utilisateur"
+
+#: includes/class-wc-customer-email-verification-email-common.php:236
+msgid "User email"
+msgstr "E-mail de l'utilisateur"
+
+#: includes/class-wc-customer-email-verification-email-common.php:228
+msgid "User login"
+msgstr "Utilisateur en ligne"
+
+#: includes/class-wc-customer-email-verification-admin.php:1114
+msgid "User unverified."
+msgstr "Utilisateur non vérifié."
+
+#: includes/class-wc-customer-email-verification-admin.php:1106
+msgid "User verified successfully."
+msgstr "L'utilisateur a été vérifié avec succès."
+
+#. %s: search and replace with send_verification_emails
+#: includes/class-wc-customer-email-verification-admin.php:1337
+#, php-format
+msgid "Varification email sent to %s user."
+msgid_plural "Varification email sent to %s users."
+msgstr[0] "E-mail de vérification envoyé à l'utilisateur %s."
+msgstr[1] "E-mail de vérification envoyé à %s utilisateurs."
+
+#. %s: search and replace with verify_users_emails
+#: includes/class-wc-customer-email-verification-admin.php:1322
+#, php-format
+msgid "Varification Status updated for %s user."
+msgid_plural "Varification Status updated for %s users."
+msgstr[0] "État de la vérification mis à jour pour l'utilisateur %s."
+msgstr[1] "État de la vérification mis à jour pour %s utilisateurs."
+
+#: includes/customizer/verification-popup-style.php:330
+#: includes/customizer/cev-verification-email-style.php:342
+msgid "Verification Button"
+msgstr "Bouton de vérification"
+
+#: includes/customizer/verification-popup-message.php:343
+#: includes/customizer/verification-popup-message.php:396
+#| msgid "Verification button"
+msgid "Verification Button Text"
+msgstr "Bouton de vérification"
+
+#: customer-email-verification.php:262 includes/cev-pro-email-settings.php:1007
+#: includes/cev-pro-email-settings.php:1024
+#: includes/views/cev_admin_endpoint_popup_template.php:59
+#: includes/views/verify_checkout_guest_user.php:118
+#: includes/views/front/preview_cev_popup_page.php:71
+msgid "Verification code does not match"
+msgstr "Le code de vérification ne correspond pas"
+
+#: includes/class-wc-customer-email-verification-admin.php:834
+msgid "Verification code expiration"
+msgstr "Expiration du code de vérification"
+
+#: includes/class-wc-customer-email-verification-admin.php:826
+msgid "Verification code length"
+msgstr "Longueur du code de vérification"
+
+#: includes/class-wc-customer-email-verification-admin.php:844
+msgid "Verification email resend limit"
+msgstr "Limite de renvoi des e-mails de vérification"
+
+#: includes/class-wc-customer-email-verification-admin.php:1098
+msgid "Verification email successfully sent."
+msgstr "L'e-mail de vérification a bien été envoyé."
+
+#: includes/class-wc-customer-email-verification-email-common.php:244
+msgid "Verification Link"
+msgstr "lien de vérification"
+
+#: includes/customizer/cev-verification-email-content.php:215
+#: includes/customizer/cev-verification-email-content.php:286
+msgid "Verification Message"
+msgstr "Message de vérification"
+
+#: includes/cev-pro-email-settings.php:560
+#: includes/class-wc-customer-email-verification-email-common.php:252
+msgid "Verification Pin"
+msgstr "Pin de vérification"
+
+#: includes/class-wc-customer-email-verification-admin.php:743
+msgid "Verification type"
+msgstr "Type de vérification"
+
+#: includes/customizer/verification-popup-message.php:370
+msgid "Verification Your Email Button Text"
+msgstr "Vérification du texte du bouton de votre e-mail"
+
+#: customer-email-verification.php:263 includes/cev-pro-email-settings.php:655
+#: includes/cev-pro-email-settings.php:655
+#: includes/cev-pro-email-settings.php:1008
+#: includes/cev-pro-email-settings.php:1025
+msgid "Verify"
+msgstr "Vérifier"
+
+#: includes/views/admin_tools_tab.php:22
+msgid "Verify all emails"
+msgstr "Vérifier tous les e-mails"
+
+#: includes/customizer/verification-popup-message.php:116
+#: includes/customizer/verification-popup-message.php:118
+#: includes/views/cev_admin_endpoint_popup_template.php:74
+#: includes/views/verify_checkout_guest_user.php:125
+#: includes/views/front/preview_cev_popup_page.php:79
+msgid "Verify Code"
+msgstr "Vérifier le code"
+
+#: includes/class-wc-customer-email-verification-admin.php:1184
+msgid "Verify email manually"
+msgstr "Vérifier les e-mails manuellement"
+
+#: includes/customizer/verification-popup-message.php:110
+#: includes/customizer/verification-popup-message.php:113
+#: includes/views/cev_admin_endpoint_popup_template.php:24
+#: includes/views/verify_checkout_guest_user.php:29
+#: includes/views/front/preview_cev_popup_page.php:39
+msgid "Verify its you."
+msgstr "Vérifiez que c'est vous."
+
+#: includes/class-wc-customer-email-verification-admin.php:1268
+msgid "Verify users email"
+msgstr ""
+"Verify users email\n"
+
+#: includes/cev-pro-email-settings.php:587
+#: includes/cev-pro-email-settings.php:589
+#: includes/customizer/verification-popup-message.php:117
+#: includes/customizer/cev-verification-email-style.php:107
+#: includes/views/verify_checkout_guest_user.php:79
+msgid "Verify Your Email"
+msgstr "Vérifiez votre e-mail"
+
+#: includes/cev-pro-email-settings.php:857
+#: includes/cev-pro-email-settings.php:859
+#: includes/class-wc-customer-email-verification-email-common.php:310
+#: includes/class-wc-customer-email-verification-email-common.php:312
+#| msgid "Verify your email"
+msgid "Verify your Email"
+msgstr "Vérifiez votre e-mail"
+
+#: includes/cev-pro-email-settings.php:645
+#: includes/customizer/cev-verification-email-content.php:98
+#: includes/customizer/cev-verification-email-content.php:99
+msgid "Verify Your Email Address"
+msgstr "Vérifiez votre adresse e-mail"
+
+#: customer-email-verification.php:260
+msgid "We sent a verification code to your email"
+msgstr "Nous avons envoyé un code de vérification à votre adresse e-mail"
+
+#: includes/customizer/verification-popup-message.php:111
+msgid ""
+"We sent verification code to  {customer_email}. To verify your email address,"
+" please check your inbox and enter the code below."
+msgstr ""
+"Nous avons envoyé le code de vérification à {customer_email}. Pour vérifier "
+"votre adresse e-mail, veuillez vérifier votre boîte de réception et saisir "
+"le code ci-dessous."
+
+#. %s: search send verification code
+#: includes/views/verify_checkout_guest_user.php:96
+#, php-format
+msgid ""
+"We sent verification code to <span>%s</span>. To verify your email address, "
+"please check your inbox and enter the code below."
+msgstr ""
+"Nous avons envoyé le code de vérification à <span>%s</span>. Pour vérifier "
+"votre adresse e-mail, veuillez vérifier votre boîte de réception et entrez "
+"le code ci-dessous."
+
+#. %s: search send verification code
+#. %s: search customer email
+#: includes/views/cev_admin_endpoint_popup_template.php:36
+#: includes/views/front/preview_cev_popup_page.php:51
+#, php-format
+msgid ""
+"We sent verification code to <strong>%s</strong>. To verify your email "
+"address, please check your inbox and enter the code below."
+msgstr ""
+"Nous avons envoyé le code de vérification à% s. Pour vérifier votre adresse "
+"e-mail, veuillez vérifier votre boîte de réception et saisir le code ci-"
+"dessous."
+
+#: includes/customizer/verification-popup-style.php:171
+msgid "Widget background Color"
+msgstr "Couleur d'arrière-plan du widget"
+
+#: includes/customizer/verification-popup-message.php:281
+msgid "Widget Content"
+msgstr "Contenu du widget"
+
+#: includes/customizer/cev-verification-email-style.php:268
+msgid "Widget Header"
+msgstr "En-tête de widget"
+
+#: includes/class-wc-customer-email-verification-admin.php:856
+msgid "you can use HTML tags &lt;a&gt;,&lt;p&gt;, etc"
+msgstr "vous pouvez utiliser des balises HTML <a>, <p>, etc."
+
+#: includes/cev-pro-email-settings.php:799
+msgid "You recently changed the email address {site_title}"
+msgstr "Vous avez récemment modifié l'adresse e-mail {site_title}"
+
+#: includes/cev-pro-email-settings.php:731
+#: includes/class-wc-customer-email-verification-admin.php:810
+#: includes/class-wc-customer-email-verification-admin.php:812
+msgid "Your email is verified!"
+msgstr "Votre email est vérifié!"
+
+#. Author of the plugin
+msgid "zorem"
+msgstr "zorem"

@@ -1,0 +1,143 @@
+*** Customer Email Verification Changelog ***
+2025-03-12 - version 2.7.5
+* Enhancements - Added a "Back" option in the Signup Verification popup.
+* Fix - Fixed an issue where the Email Verification email was sent even if Checkout Verification was disabled.
+* Fix  - Fixed PHP deprecated warnings related to json_decode().
+* Fix - Fixed the "Already have verification code?" link not working – now displayed only after a guest user enters their email, sends the verification code, and refreshes the page.
+* Dev - tested with WooCommerce 9.7.1
+
+2025-02-21 - version 2.7.4
+* Fix - Signup Email Verification Issue - Verification Code Doesn't Match
+* Dev - tested with WooCommerce 9.6.2
+* Dev - tested with WordPress 6.7.2
+
+2025-01-02 - version 2.7.3
+* Fix - inline verification on checkout, but never received the email
+* Improvement - Improve guest email checkout verification workflow
+* Fix - PHP Notice:  Function _load_textdomain_just_in_time was called incorrectly
+* Dev - tested with WooCommerce 9.5.1
+* Dev - tested with WordPress 6.7.1
+
+2024-10-30 - version 2.7.2
+* Fix - Cannot create new accounts while "sent password setup link" option is enable
+* Fix - Disable signup verification is not working
+
+2024-10-22 - version 2.7.1
+* Fix - Fatal error: Uncaught TypeError: call_user_func_array
+
+2024-10-22 - version 2.7
+* Dev - Created new signup verification flow where users cannot create an account without verifying their email.
+* Dev - Update New Design of Admin Page According new signup verification.
+* Dev - Add UTM link for all the external links to zorem.com.
+* Dev - Update Customizer According to New signup Verification Flow.
+* Dev - Test with WPML 4.7 and update the documentation
+* Dev - tested with WooCommerce 9.3.3
+* Dev - tested with WordPress 6.6.2
+
+2024-03-13 - version 2.6.2
+* Fix - When login authentication is enabled and a user is unverified, there are too many redirects occurring, resulting in a 302 error.
+* Fix - Missing email subject and heading in Edit email verification email
+* Fix - User Verification Filter Not Working in User Table
+* Dev - tested with WooCommerce 8.6.1
+
+2024-02-12 - version 2.6.1
+* Dev - add filter for change email address content
+* Fix - PHP Fatal error: Uncaught TypeError: Cannot access offset of type string on string
+* Fix - Undefined constant "AFWC_AJAX_SECURITY"
+* Dev - tested with WooCommerce 8.5.2
+* Dev - tested with WordPress 6.4.3
+
+2023-11-23 - version 2.6
+* Dev - Compatibility with PHP 8.2
+* Dev - tested with WooCommerce 8.3.0
+* Dev - tested with WordPress 6.4.1
+
+2023-09-25 - version 2.5
+* Dev - Test the email verification with WooCommerce API
+* Dev - Improve the Checkout email verification email template
+* Dev - Reload the checkout page when customer change their email
+* Dev – Tested with WooCommerce 8.1.1
+* Dev – Tested with WordPress 6.3.1
+
+2023-08-09 - version 2.4
+* Dev - Add the compatibility with HPOS
+* Dev – Tested with WooCommerce 8.0.0
+
+2023-03-27  - version 2.2
+* Enhancement - On the email verification popup on My Account page, you should be able to cancel the verification process and logout
+* Dev - Add functionality to check if the user has already a verified account on the checkout page
+* Fix - Customizers do not load in staging URLs with subfolders
+* Fix - New account email Issue with social login
+
+2022-12-01 - version 2.1
+* Enhancement - Added an option in Popup Content customizer to remove OTP section
+* Fix -Delay the new account email to after email verification
+* Fix - Already have verification code? button not working on the cart and checkout popup
+
+2022-10-06 - version 2.0
+* Enhancement - Added new functionality for Login Authentication for logging in from a new device, logging in from a new location, and the Last login more than certain days
+* Enhancement - Updated the settings page design
+* Enhancement - Updated the customizer design
+* Fix - Make the "Please verify your email address" string translatable
+* Fix - Undefined variable $user_id in cev-pro-email-settings.php on line 808
+* Fix - Undefined property: stdClass::$user_email in cev-pro-email-settings.php on line 63
+* Fix - Uncaught ValueError: Unknown format specifier " " in cev-pro-email-settings.php:819
+
+2022-01-22 - version 1.1.3
+* Dev - Added compatibility with Essential Addons for Elementor
+* Fix - Mispelled Varification in popup Woocommerce message
+* Fix - Warning - Undefined variable: cev_verification_popup_message in customer-email-verification/includes/views/verify_checkout_guest_user.php on line 36
+
+2021-12-30 - version 1.1.2
+* Dev - Add Email verification link variable in default email verification content
+* Dev - Tested with WooCommerce 6.0.0
+
+2021-12-08 - version 1.1.1
+* Fix - Fixed issue with email verification on checkout page for free orders
+
+2021-12-03 - version 1.1
+* Fix - Fixed Delay the new account email issue, password was not added in new account email
+
+2021-11-02 - version 1.0.9
+* Fix - Fixed My Account email verification popup issue with WPML
+
+2021-10-25 - version 1.0.8
+* Fix - Fixed translatble string for front checkout verification
+* Dev - Improve the Selected user roles settings save functionality
+
+2021-09-14 - version 1.0.7
+* Fix - Verification issue in checkout page for logged in customer
+* Fix - Save the "Automatically delete customers with unverified email after x days" setting returns a 403
+
+2021-09-03 - version 1.0.6
+* Fix - Checkout page inline verification fix browser back button issue
+* Enhancement - Updated email verified message display on checkout page verification
+
+2021-09-02 - version 1.0.5
+* Enhancement - Improve design of customizer settings panel
+* Enhancement - Update verification popup design for different themes
+* Fixed - If I disable email verification before Checkout option still in checkout page it's adding inline email verification
+* Fixed - Fix duplicate verification msg in checkout inline verification
+
+2021-08-31 - version 1.0.4
+* Fixed - Fix issue with verification email link, only one time send new account email if open verification link multiple times
+* Fixed - Fix new account email issue if delay option is enabled
+* Fixed - Fix design issue in verification popup and email with header image and spacing
+* Dev - Added a debounce feature in front js for inline verification in checkout
+
+2021-07-29 - version 1.0.3
+* Enhancement - Updated settings page and tools page design
+* Enhancement - Updated design of verification popup
+* Dev - Verify all emails tools set the maximun user limit to 1000 
+
+2021-07-22 - version 1.0.2
+* Fixed - Actual email on checkout page verification popup when enter email and send verification code and also click on "Already have verification code?" display the actual email
+* Fixed - broken image on the pop-up screen
+
+2021-06-25 - version 1.0.1
+* Fixed resend email not working on Email verification popup on My Account and checkout page
+* Fixed fatal error when email send by AutomateWoo
+
+2021-06-24 - version 1.0
+* Launch it!
+

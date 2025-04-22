@@ -1,0 +1,829 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Customer Verification pro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-27 04:49+0000\n"
+"PO-Revision-Date: 2024-12-09 09:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: Latvian\n"
+"Language: lv\n"
+"Plural-Forms: nplurals=3; plural=n % 10 == 1 && n % 100 != 11 ? 0 : n != 0 ? "
+"1 : 2;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1\n"
+"X-Domain: customer-email-verification-pro"
+
+#: includes/views/admin_tools_tab.php:46
+msgid " days"
+msgstr " dienas"
+
+#: includes/customizer/verification-popup-message.php:115
+#| msgid "Login now"
+msgid " Login now"
+msgstr "Piesakieties tūlīt"
+
+#: includes/customizer/cev-verification-email-content.php:103
+msgid ""
+" To complete your order on {site_title}, please confirm your email address. "
+"This ensures we have the right email in case we need to contact you.<p>Your "
+"verification code: {cev_user_verification_pin}</p><p>Or, verify your account "
+"clicking on the button below:"
+msgstr ""
+" Lai pabeigtu pasūtījumu vietnē {site_title}, lūdzu, apstipriniet savu e-"
+"pasta adresi. Tas nodrošina pareizo e-pasta adresi, ja mums ir jāsazinās ar "
+"jums. <p> Jūsu verifikācijas kods: {cev_user_verification_pin} </p> <p> Vai "
+"arī pārbaudiet savu kontu, noklikšķinot uz tālāk redzamās pogas:"
+
+#: includes/class-wc-customer-email-verification-admin.php:786
+msgid "1 Hours"
+msgstr "1 Stundas"
+
+#: includes/class-wc-customer-email-verification-admin.php:783
+msgid "10 min"
+msgstr "10 min"
+
+#: includes/class-wc-customer-email-verification-admin.php:784
+msgid "15 min"
+msgstr "15 min"
+
+#: includes/class-wc-customer-email-verification-admin.php:787
+msgid "24 Hours"
+msgstr "24 stundas"
+
+#: includes/class-wc-customer-email-verification-admin.php:785
+msgid "30 min"
+msgstr "30 min"
+
+#: includes/class-wc-customer-email-verification-admin.php:776
+msgid "4-digits"
+msgstr "4 cipari"
+
+#: includes/cev-pro-email-settings.php:643
+#: includes/views/cev_admin_endpoint_popup_template.php:47
+#: includes/views/verify_checkout_guest_user.php:108
+#: includes/views/front/preview_cev_popup_page.php:62
+#: includes/views/front/preview_cev_popup_page.php:66
+msgid "4-digits code"
+msgstr "4 ciparu kods"
+
+#: includes/class-wc-customer-email-verification-admin.php:777
+msgid "6-digits"
+msgstr "6 cipari"
+
+#: includes/class-wc-customer-email-verification-admin.php:788
+msgid "72 Hours"
+msgstr "72 stundas"
+
+#: includes/class-wc-customer-email-verification-admin.php:778
+msgid "9-digits"
+msgstr "9 cipari"
+
+#. %1$s: Replace with Recipent, %2$s: Replace with verification pin,  %3$s: Replace with verification link
+#: includes/cev-pro-email-settings.php:803
+#, php-format
+#| msgid ""
+#| "<p> Please confirm <strong>%s</strong> as your new email address. The "
+#| "change will not take effect until you verify this email address.</p><p> "
+#| "Your verification code: <strong>%s</strong> </p> <p> Or, verify your "
+#| "account by clicking on the verification link: <strong>%s</strong> </p>"
+msgid ""
+"<p> Please confirm <strong>%1$s</strong> as your new email address. The "
+"change will not take effect until you verify this email address.</p><p> Your "
+"verification code: <strong>%2$s</strong> </p> <p> Or, verify your account by "
+"clicking on the verification link: <strong>%3$s</strong> </p>"
+msgstr ""
+"<p> Lūdzu, apstipriniet <strong>%1$s</strong> kā savu jauno e-pasta adresi. "
+"Izmaiņas stāsies spēkā tikai tad, kad verificēsit šo e-pasta adresi.</p><p> "
+"Jūsu verifikācijas kods: <strong>%2$s</strong> </p> <p> Vai arī verificējiet "
+"savu kontu, noklikšķinot uz verifikācijas saite: <strong>%3$s</strong> </p>"
+
+#: includes/class-wc-customer-email-verification-admin.php:978
+msgid "Actions"
+msgstr "Darbības"
+
+#: includes/customizer/cev-verification-email-content.php:341
+#: includes/customizer/cev-verification-email-content.php:363
+msgid "Addition footer content"
+msgstr "Papildinājuma kājenes saturs"
+
+#: includes/class-wc-customer-email-verification-admin.php:791
+msgid "Allow 1 Attempt"
+msgstr "Atļaut 1 mēģinājumu"
+
+#: includes/class-wc-customer-email-verification-admin.php:792
+msgid "Allow 3 Attempt"
+msgstr "Atļaut 3 mēģinājumus"
+
+#: includes/class-wc-customer-email-verification-admin.php:676
+msgid "Allow first login after registration without email verification"
+msgstr "Atļaut pirmo pieteikšanos pēc reģistrēšanās bez e-pasta verifikācijas"
+
+#: includes/class-wc-customer-email-verification-admin.php:677
+#: includes/class-wc-customer-email-verification-admin.php:697
+msgid ""
+"Allow your customers to access their account for the first time after "
+"registration before they verify the email address"
+msgstr ""
+"Ļaujiet klientiem pēc reģistrēšanās pirmo reizi piekļūt savam kontam, pirms "
+"viņi verificē e-pasta adresi"
+
+#: includes/customizer/verification-popup-message.php:115
+msgid "Already have an account?"
+msgstr "Jau ir konts?"
+
+#: includes/views/verify_checkout_guest_user.php:71
+msgid "Already have verification code?"
+msgstr "Vai jums jau ir verifikācijas kods?"
+
+#: includes/views/admin_tools_tab.php:45
+msgid "Automatically delete customers with unverified email after  "
+msgstr "Automātiski dzēst klientus ar nepārbaudītu e-pastu pēc"
+
+#: includes/customizer/verification-popup-message.php:236
+#: includes/customizer/verification-popup-message.php:324
+#: includes/customizer/cev-verification-email-content.php:307
+msgid "Available variables"
+msgstr "Pieejamie mainīgie"
+
+#: includes/customizer/cev-verification-email-style.php:211
+msgid "background Color"
+msgstr "fona krāsa"
+
+#: includes/customizer/cev-verification-email-style.php:230
+msgid "Border Color"
+msgstr "Apmales krāsa"
+
+#: includes/customizer/cev-verification-email-style.php:362
+msgid "Button"
+msgstr "Poga"
+
+#: includes/customizer/verification-popup-style.php:347
+#: includes/customizer/cev-verification-email-style.php:423
+msgid "Button color"
+msgstr "Pogas krāsa"
+
+#: includes/customizer/verification-popup-style.php:363
+#: includes/customizer/cev-verification-email-style.php:460
+msgid "Button Font Color"
+msgstr "Pogas fonta krāsa"
+
+#: includes/customizer/verification-popup-style.php:380
+#: includes/customizer/cev-verification-email-style.php:403
+msgid "Button size"
+msgstr "Pogas izmērs"
+
+#: includes/customizer/verification-popup-style.php:195
+#: includes/customizer/cev-verification-email-style.php:172
+msgid "Center"
+msgstr "Centrs"
+
+#: includes/customizer/verification-popup-message.php:151
+#: includes/customizer/cev-verification-email-content.php:151
+msgid "Checkout workflow"
+msgstr "Checkout darbplūsma"
+
+#: includes/class-wc-customer-email-verification-admin.php:837
+msgid ""
+"choose if you wish to set expiry time to the verification code / link - "
+"Never, 10 min, 30 min, 1 Hour, 24 Hours, 72 Hours (defaults to Never expires)"
+msgstr ""
+"izvēlieties, vai verifikācijas kodam / saitei vēlaties iestatīt derīguma "
+"termiņu - Nekad, 10 min, 30 min, 1 stunda, 24 stundas, 72 stundas (pēc "
+"noklusējuma iestatījums Nekad nebeidzas)"
+
+#: includes/customizer/verification-popup-style.php:234
+#: includes/customizer/cev-verification-email-style.php:189
+msgid "Content Padding"
+msgstr "Satura polsterējums"
+
+#: includes/customizer/verification-popup-style.php:212
+#: includes/customizer/cev-verification-email-style.php:145
+msgid "Content width"
+msgstr "Satura platums"
+
+#. Name of the plugin
+msgid "Customer Email Verification"
+msgstr "Klienta e-pasta verifikācija"
+
+#: includes/views/admin_options_settings.php:13
+msgid "Customer email verification"
+msgstr "Klienta e-pasta pārbaude"
+
+#: includes/class-wc-customer-email-verification-admin.php:1151
+msgid "Customer verification"
+msgstr "Klienta verifikācija"
+
+#: includes/class-wc-customer-email-verification-admin.php:244
+#: includes/class-wc-customer-email-verification-admin.php:250
+msgid "Customize"
+msgstr "Pielāgot"
+
+#: includes/class-wc-customer-email-verification-admin.php:680
+msgid "Delay the new account email to after email verification"
+msgstr "Pēc e-pasta verifikācijas aizkavējiet jauno konta e-pasta adresi"
+
+#: includes/class-wc-customer-email-verification-admin.php:681
+msgid ""
+"Delay the wooCommerce new account email and send it to the customer only "
+"after successful verification."
+msgstr ""
+"Atlikt wooCommerce jaunā konta e-pastu un nosūtīt to klientam tikai pēc "
+"veiksmīgas verifikācijas."
+
+#: includes/customizer/verification-popup-message.php:112
+msgid "Didn't receive an email? <strong>{cev_resend_verification}</strong>"
+msgstr "Vai nesaņēmāt e-pastu? <strong> {cev_resend_verification} </strong>"
+
+#. %s: search for footer customer resend link
+#: includes/views/front/preview_cev_popup_page.php:94
+#, php-format
+msgid "Didn’t receive an email? <strong>%s</strong>"
+msgstr "Vai nesaņēmāt e-pastu? <strong>%s </strong>"
+
+#: includes/class-wc-customer-email-verification-admin.php:793
+msgid "Disable Resend"
+msgstr "Atspējot sūtīt atkārtoti"
+
+#: includes/views/verify_checkout_guest_user.php:35
+msgid "Email address"
+msgstr "Epasta adrese"
+
+#: customer-email-verification.php:265 includes/cev-pro-email-settings.php:1082
+msgid "Email address verified"
+msgstr "E-pasta adrese ir pārbaudīta"
+
+#: includes/customizer/class-cev-customizer.php:54
+msgid "Email Content"
+msgstr "E-pasta saturs"
+
+#: includes/customizer/cev-verification-email-content.php:191
+#: includes/customizer/cev-verification-email-content.php:262
+msgid "Email Heading"
+msgstr "E-pasta virsraksts"
+
+#: includes/customizer/class-cev-customizer.php:45
+msgid "Email Style"
+msgstr "E-pasta stils"
+
+#: includes/class-wc-customer-email-verification-admin.php:240
+#: includes/class-wc-customer-email-verification-admin.php:977
+msgid "Email verification"
+msgstr "E-pasta verifikācija"
+
+#: customer-email-verification.php:261 includes/cev-pro-email-settings.php:1006
+#: includes/cev-pro-email-settings.php:1023
+msgid "Email verification code"
+msgstr "E-pasta verifikācijas kods"
+
+#: includes/cev-pro-email-settings.php:556
+#: includes/class-wc-customer-email-verification-email-common.php:240
+msgid "Email Verification Link"
+msgstr "E-pasta verifikācijas saite"
+
+#: includes/views/admin_options_settings.php:18
+msgid "Email verification settings"
+msgstr "E-pasta verifikācijas iestatījumi"
+
+#: includes/class-wc-customer-email-verification-admin.php:1157
+msgid "Email verification status:"
+msgstr "E-pasta verifikācijas statuss:"
+
+#: includes/class-wc-customer-email-verification-admin.php:807
+msgid "Email verification success message"
+msgstr "E-pasta verifikācijas veiksmes ziņojums"
+
+#: includes/class-wc-customer-email-verification-admin.php:735
+msgid "Enable email verification before Checkout"
+msgstr "Iespējojiet e-pasta verifikāciju pirms Checkout"
+
+#: includes/class-wc-customer-email-verification-admin.php:688
+msgid "Enable email verification for new customer accounts"
+msgstr "Iespējot e-pasta verifikāciju jauniem klientu kontiem"
+
+#: includes/class-wc-customer-email-verification-admin.php:721
+msgid "Enable the email verification on the cart page"
+msgstr "Iespējojiet e-pasta verifikāciju groza lapā"
+
+#: includes/views/verify_checkout_guest_user.php:113
+msgid "Enter"
+msgstr "Ievadiet"
+
+#: includes/views/verify_checkout_guest_user.php:70
+msgid "Enter your email address"
+msgstr "ievadiet savu e-pasta adresi"
+
+#: includes/customizer/verification-popup-style.php:397
+msgid "Expand Button"
+msgstr "Izvērst pogu"
+
+#: includes/customizer/cev-verification-email-style.php:249
+#: includes/customizer/cev-verification-email-style.php:441
+msgid "Font Color"
+msgstr "Fonta krāsa"
+
+#: includes/customizer/verification-popup-message.php:215
+#: includes/customizer/verification-popup-message.php:305
+#: includes/customizer/cev-verification-email-content.php:324
+msgid "Footer content"
+msgstr "Kājenes saturs"
+
+#: includes/customizer/verification-popup-style.php:312
+#: includes/customizer/cev-verification-email-style.php:324
+msgid "Header font size"
+msgstr "Galvenes fonta lielums"
+
+#: includes/customizer/verification-popup-style.php:273
+#: includes/customizer/cev-verification-email-style.php:285
+msgid "Header image"
+msgstr "Galvenes attēls"
+
+#: includes/customizer/verification-popup-message.php:167
+#: includes/customizer/verification-popup-message.php:256
+msgid "Header text"
+msgstr "Galvenes teksts"
+
+#. URI of the plugin
+msgid "http://woocommerce.com/products/customer-email-verification/"
+msgstr "http://woocommerce.com/products/customer-email-verification/"
+
+#. Author URI of the plugin
+msgid "https://www.zorem.com"
+msgstr "https://www.zorem.com"
+
+#: includes/class-wc-customer-email-verification-admin.php:736
+msgid ""
+"if you enable this option, registered customers that are flagged as "
+"Unverified Email or guest customers will not be able to checkout without "
+"verifying their email address"
+msgstr ""
+"ja iespējosit šo opciju, reģistrētie klienti, kas atzīmēti kā Nepārbaudīts e-"
+"pasts, vai viesa klienti nevarēs norēķināties, nepārbaudot savu e-pasta "
+"adresi"
+
+#: includes/customizer/verification-popup-style.php:290
+msgid "Image Width"
+msgstr "Attēla platums"
+
+#: includes/customizer/cev-verification-email-style.php:302
+msgid "image Width"
+msgstr "attēla platums"
+
+#: includes/class-wc-customer-email-verification-admin.php:728
+msgid "Inline"
+msgstr "Rindā"
+
+#: includes/cev-pro-email-settings.php:653
+msgid "Invalid PIN Code"
+msgstr "Nederīgs PIN kods"
+
+#: includes/customizer/verification-popup-style.php:384
+#: includes/customizer/cev-verification-email-style.php:407
+msgid "Large"
+msgstr "Liels"
+
+#: includes/customizer/verification-popup-style.php:196
+#: includes/customizer/cev-verification-email-style.php:173
+msgid "Left"
+msgstr "Pa kreisi"
+
+#: includes/class-wc-customer-email-verification-admin.php:853
+msgid ""
+"limit the amount of times the user can resend the verification email. This "
+"option allows you to avoid multiple bounced emails in case the user tries to "
+"send verifications multiple times to email that does not exist"
+msgstr ""
+"ierobežot to, cik reizes lietotājs var nosūtīt atkārtoti verifikācijas e-"
+"pastu. Šī opcija ļauj izvairīties no vairākiem atlēcošiem e-pasta ziņojumiem,"
+" ja lietotājs mēģina vairākas reizes nosūtīt verifikācijas uz e-pastu, kas "
+"neeksistē"
+
+#: includes/views/admin_tools_tab.php:14
+msgid ""
+"Manually verify the emails of all customers with unverified email address"
+msgstr ""
+"Manuāli pārbaudiet visu klientu e-pastus ar nepārbaudītu e-pasta adresi"
+
+#: includes/customizer/verification-popup-message.php:192
+msgid "Message"
+msgstr "Ziņojums"
+
+#: includes/class-wc-customer-email-verification-admin.php:782
+msgid "Never"
+msgstr "Nekad"
+
+#: includes/customizer/verification-popup-style.php:383
+#: includes/customizer/cev-verification-email-style.php:406
+msgid "Normal"
+msgstr "Normāls"
+
+#: includes/customizer/verification-popup-style.php:153
+msgid "Overlay background Color"
+msgstr "Pārklājoša fona krāsa"
+
+#: includes/class-wc-customer-email-verification-admin.php:798
+msgid "Page to redirect after successful verification"
+msgstr "Lapa, kas jāpāradresē pēc veiksmīgas verifikācijas"
+
+#. %s: search Customer Email Verification PRO plugin link
+#: customer-email-verification.php:118
+#, php-format
+msgid ""
+"Please install and activate %1$sWooCommerce%2$s plugin for the Customer "
+"Email Verification PRO to work."
+msgstr ""
+"Lūdzu, instalējiet un aktivizējiet %1$sWooCommerce%2$s spraudni, lai "
+"Customer Email Verification PRO darbotos."
+
+#: includes/customizer/cev-verification-email-content.php:100
+#: includes/customizer/cev-verification-email-content.php:101
+msgid "Please Verify Your Email Address on {site_title}"
+msgstr "Lūdzu, pārbaudiet savu e-pasta adresi vietnē {site_title}"
+
+#: includes/customizer/verification-popup-message.php:114
+msgid "Please verify your email address to proceed to checkout."
+msgstr "Lūdzu, apstipriniet savu e-pasta adresi, lai turpinātu norēķināties."
+
+#: includes/class-wc-customer-email-verification-admin.php:727
+msgid "Popup"
+msgstr "Uznirstošais logs"
+
+#: includes/customizer/class-cev-customizer.php:36
+msgid "Popup Content"
+msgstr "Uznirstošā loga saturs"
+
+#: includes/customizer/verification-popup-style.php:256
+msgid "Popup Header"
+msgstr "Uznirstošo logu galvene"
+
+#: includes/customizer/class-cev-customizer.php:27
+msgid "Popup Style"
+msgstr "Uznirstošā stila"
+
+#: includes/customizer/verification-popup-message.php:150
+#: includes/customizer/cev-verification-email-content.php:150
+msgid "Registration workflow"
+msgstr "Reģistrācijas darbplūsma"
+
+#: includes/class-wc-customer-email-verification-admin.php:716
+msgid "Require checkout verification only for free orders"
+msgstr "Pieprasiet kases verifikāciju tikai bezmaksas pasūtījumiem"
+
+#: includes/class-wc-customer-email-verification-email-common.php:248
+#: includes/class-wc-customer-email-verification-email-common.php:362
+msgid "Resend Confirmation Email"
+msgstr "Pārsūtīt apstiprinājuma e-pastu"
+
+#: includes/views/verify_checkout_guest_user.php:16
+msgid "resend email"
+msgstr "atkārtoti nosūtīt e-pastu"
+
+#: includes/class-wc-customer-email-verification-admin.php:851
+msgid "Resend limit message"
+msgstr "Atkārtoti nosūtīt ierobežojuma ziņojumu"
+
+#: customer-email-verification.php:264 includes/cev-pro-email-settings.php:657
+#: includes/cev-pro-email-settings.php:657
+#: includes/cev-pro-email-settings.php:1009
+#: includes/cev-pro-email-settings.php:1026
+#: includes/views/admin_tools_tab.php:33
+msgid "Resend verification code"
+msgstr "Nosūtīt atkārtoti verifikācijas kodu"
+
+#: includes/views/admin_tools_tab.php:28
+msgid "Resend verification code to all customers with unverified email address"
+msgstr ""
+"Atkārtoti nosūtiet verifikācijas kodu visiem klientiem ar nepārbaudītu e-"
+"pasta adresi"
+
+#: includes/class-wc-customer-email-verification-admin.php:1123
+#: includes/class-wc-customer-email-verification-admin.php:1186
+msgid "Resend verification email"
+msgstr "Sūtīt verifikācijas e-pastu atkārtoti"
+
+#: includes/views/admin_options_settings.php:21
+msgid "Save changes"
+msgstr "Saglabāt izmaiņas"
+
+#: includes/customizer/verification-popup-style.php:136
+#: includes/customizer/cev-verification-email-style.php:128
+#: includes/customizer/cev-verification-email-content.php:124
+msgid "Select"
+msgstr "Atlasiet"
+
+#: includes/class-wc-customer-email-verification-admin.php:801
+msgid ""
+"select a page to redirect users after successful verification. In case the "
+"email verification was during checkout, the user will be directed to checkout"
+msgstr ""
+"atlasiet lapu, lai pēc veiksmīgas verifikācijas novirzītu lietotājus. "
+"Gadījumā, ja e-pasta pārbaude notika norēķināšanās laikā, lietotājs tiks "
+"novirzīts uz izrakstīšanos"
+
+#: includes/class-wc-customer-email-verification-admin.php:1269
+msgid "Send verification email"
+msgstr "Nosūtīt verifikācijas e-pastu"
+
+#: includes/class-wc-customer-email-verification-admin.php:236
+msgid "Settings"
+msgstr "Iestatījumi"
+
+#: customer-email-verification.php:375
+msgid "Sign up email verification"
+msgstr "Reģistrējieties e-pasta verifikācijā"
+
+#: includes/customizer/cev-verification-email-style.php:363
+msgid "Simple Link"
+msgstr "Vienkārša saite"
+
+#: includes/cev-pro-email-settings.php:564
+#: includes/class-wc-customer-email-verification-email-common.php:256
+msgid "Site Title"
+msgstr "Mājas lapas nosaukums"
+
+#: includes/class-wc-customer-email-verification-admin.php:818
+msgid "Skip email verification for the selected user roles:"
+msgstr "Izlaist e-pasta verifikāciju atlasītajām lietotāju lomām:"
+
+#: includes/customizer/cev-verification-email-style.php:381
+msgid "Text"
+msgstr "Teksts"
+
+#: includes/customizer/cev-verification-email-content.php:102
+msgid ""
+"Thank you for signing up for {site_title}, to activate your account, we need "
+"to verify your email address.<p>Your verification code: <strong>"
+"{cev_user_verification_pin}</strong></p><p>Or, verify your account clicking "
+"on the button below:{cev_user_verification_link}"
+msgstr ""
+"Paldies, ka reģistrējāties vietnē {site_title}. Lai aktivizētu jūsu kontu, "
+"mums ir jāpārbauda jūsu e-pasta adrese. <p> Jūsu verifikācijas kods: <strong>"
+"{cev_user_verification_pin}</ </strong></p> <p> Vai arī pārbaudiet savā "
+"kontā noklikšķinot uz tālāk redzamās pogas: {cev_user_verification_link}"
+
+#. Description of the plugin
+msgid ""
+"The Customer Email Verification helps WooCommerce store owners to reduce "
+"registration and orders spam by requiring customers to verify their email "
+"address when they register an account or before they can checkout on your "
+"store."
+msgstr ""
+"Klienta e-pasta verifikācija palīdz WooCommerce veikala īpašniekiem "
+"samazināt reģistrāciju un pasūtīt surogātpastu, pieprasot klientiem "
+"pārbaudīt savu e-pasta adresi, reģistrējot kontu vai pirms viņi var "
+"norēķināties jūsu veikalā."
+
+#: includes/class-wc-customer-email-verification-admin.php:809
+msgid ""
+"the message that will appear on the top of the my-account or checkout page "
+"after successful email verification"
+msgstr ""
+"ziņojums, kas parādīsies mana konta vai norēķinu lapas augšdaļā pēc "
+"veiksmīgas e-pasta pārbaudes"
+
+#: includes/class-wc-customer-email-verification-admin.php:855
+msgid "Too many attempts, please contact us</a> for further assistance"
+msgstr ""
+"Pārāk daudz mēģinājumu, lūdzu, sazinieties ar mums </a>, lai saņemtu papildu "
+"palīdzību"
+
+#: includes/class-wc-customer-email-verification-admin.php:254
+#: includes/class-wc-customer-email-verification-admin.php:258
+#: includes/views/admin_tools_tab.php:7
+msgid "Tools"
+msgstr "Rīki"
+
+#: includes/class-wc-customer-email-verification-email-common.php:260
+#: includes/class-wc-customer-email-verification-email-common.php:422
+#: includes/class-wc-customer-email-verification-email-common.php:429
+msgid "Try Again"
+msgstr "Mēģini vēlreiz"
+
+#: includes/views/front/preview_cev_popup_page.php:7
+msgid "Try again"
+msgstr "Mēģini vēlreiz"
+
+#: includes/customizer/cev-verification-email-style.php:358
+msgid "Type"
+msgstr "Tips"
+
+#: includes/class-wc-customer-email-verification-admin.php:1188
+msgid "Un-verify email"
+msgstr "Noņemiet e-pasta verifikāciju"
+
+#: includes/class-wc-customer-email-verification-email-common.php:232
+msgid "User display name"
+msgstr "Lietotāja parādītais vārds"
+
+#: includes/class-wc-customer-email-verification-email-common.php:236
+msgid "User email"
+msgstr "Lietotāja e-pasts"
+
+#: includes/class-wc-customer-email-verification-email-common.php:228
+msgid "User login"
+msgstr "Lietotāja pieteikšanās"
+
+#: includes/class-wc-customer-email-verification-admin.php:1114
+msgid "User unverified."
+msgstr "Lietotājs nav verificēts."
+
+#: includes/class-wc-customer-email-verification-admin.php:1106
+msgid "User verified successfully."
+msgstr "Lietotājs ir veiksmīgi verificēts."
+
+#. %s: search and replace with send_verification_emails
+#: includes/class-wc-customer-email-verification-admin.php:1337
+#, php-format
+msgid "Varification email sent to %s user."
+msgid_plural "Varification email sent to %s users."
+msgstr[0] "Variācijas e-pasts nosūtīts %s lietotājam."
+msgstr[1] "% S lietotājiem nosūtīts e-pasta ziņojums par izmaiņām."
+msgstr[2] ""
+
+#. %s: search and replace with verify_users_emails
+#: includes/class-wc-customer-email-verification-admin.php:1322
+#, php-format
+msgid "Varification Status updated for %s user."
+msgid_plural "Varification Status updated for %s users."
+msgstr[0] "%S lietotāja modifikācijas statuss ir atjaunināts."
+msgstr[1] "% S lietotājiem atjaunināts izmaiņas statuss."
+msgstr[2] ""
+
+#: includes/customizer/verification-popup-style.php:330
+#: includes/customizer/cev-verification-email-style.php:342
+msgid "Verification Button"
+msgstr "Pārbaudes poga"
+
+#: includes/customizer/verification-popup-message.php:343
+#: includes/customizer/verification-popup-message.php:396
+msgid "Verification Button Text"
+msgstr "Pārbaudes pogas teksts"
+
+#: customer-email-verification.php:262 includes/cev-pro-email-settings.php:1007
+#: includes/cev-pro-email-settings.php:1024
+#: includes/views/cev_admin_endpoint_popup_template.php:59
+#: includes/views/verify_checkout_guest_user.php:118
+#: includes/views/front/preview_cev_popup_page.php:71
+msgid "Verification code does not match"
+msgstr "Verifikācijas kods neatbilst"
+
+#: includes/class-wc-customer-email-verification-admin.php:834
+msgid "Verification code expiration"
+msgstr "Verifikācijas koda derīguma termiņš"
+
+#: includes/class-wc-customer-email-verification-admin.php:826
+msgid "Verification code length"
+msgstr "Verifikācijas koda garums"
+
+#: includes/class-wc-customer-email-verification-admin.php:844
+msgid "Verification email resend limit"
+msgstr "Verifikācijas e-pasta ziņojuma atkārtotas nosūtīšanas ierobežojums"
+
+#: includes/class-wc-customer-email-verification-admin.php:1098
+msgid "Verification email successfully sent."
+msgstr "Verifikācijas e-pasts ir veiksmīgi nosūtīts."
+
+#: includes/class-wc-customer-email-verification-email-common.php:244
+msgid "Verification Link"
+msgstr "Verifikācijas saite"
+
+#: includes/customizer/cev-verification-email-content.php:215
+#: includes/customizer/cev-verification-email-content.php:286
+msgid "Verification Message"
+msgstr "Pārbaudes ziņojums"
+
+#: includes/cev-pro-email-settings.php:560
+#: includes/class-wc-customer-email-verification-email-common.php:252
+msgid "Verification Pin"
+msgstr "Verifikācijas tapa"
+
+#: includes/class-wc-customer-email-verification-admin.php:743
+msgid "Verification type"
+msgstr "Pārbaudes veids"
+
+#: includes/customizer/verification-popup-message.php:370
+msgid "Verification Your Email Button Text"
+msgstr "E-pasta pogas teksta pārbaude"
+
+#: customer-email-verification.php:263 includes/cev-pro-email-settings.php:655
+#: includes/cev-pro-email-settings.php:655
+#: includes/cev-pro-email-settings.php:1008
+#: includes/cev-pro-email-settings.php:1025
+msgid "Verify"
+msgstr "Pārbaudiet"
+
+#: includes/views/admin_tools_tab.php:22
+msgid "Verify all emails"
+msgstr "Pārbaudiet visus e-pasta ziņojumus"
+
+#: includes/customizer/verification-popup-message.php:116
+#: includes/customizer/verification-popup-message.php:118
+#: includes/views/cev_admin_endpoint_popup_template.php:74
+#: includes/views/verify_checkout_guest_user.php:125
+#: includes/views/front/preview_cev_popup_page.php:79
+msgid "Verify Code"
+msgstr "Pārbaudīt kodu"
+
+#: includes/class-wc-customer-email-verification-admin.php:1184
+msgid "Verify email manually"
+msgstr "Pārbaudiet e-pastu manuāli"
+
+#: includes/customizer/verification-popup-message.php:110
+#: includes/customizer/verification-popup-message.php:113
+#: includes/views/cev_admin_endpoint_popup_template.php:24
+#: includes/views/verify_checkout_guest_user.php:29
+#: includes/views/front/preview_cev_popup_page.php:39
+msgid "Verify its you."
+msgstr "Pārbaudiet to jūs."
+
+#: includes/class-wc-customer-email-verification-admin.php:1268
+msgid "Verify users email"
+msgstr "Pārbaudiet lietotāju e-pastu"
+
+#: includes/cev-pro-email-settings.php:587
+#: includes/cev-pro-email-settings.php:589
+#: includes/customizer/verification-popup-message.php:117
+#: includes/customizer/cev-verification-email-style.php:107
+#: includes/views/verify_checkout_guest_user.php:79
+msgid "Verify Your Email"
+msgstr "Pārbaudiet savu e-pastu"
+
+#: includes/cev-pro-email-settings.php:857
+#: includes/cev-pro-email-settings.php:859
+#: includes/class-wc-customer-email-verification-email-common.php:310
+#: includes/class-wc-customer-email-verification-email-common.php:312
+msgid "Verify your Email"
+msgstr "Pārbaudiet savu e-pastu"
+
+#: includes/cev-pro-email-settings.php:645
+#: includes/customizer/cev-verification-email-content.php:98
+#: includes/customizer/cev-verification-email-content.php:99
+msgid "Verify Your Email Address"
+msgstr "Pārbaudiet savu e-pasta adresi"
+
+#: customer-email-verification.php:260
+msgid "We sent a verification code to your email"
+msgstr "Mēs nosūtījām verifikācijas kodu uz jūsu e-pastu"
+
+#: includes/customizer/verification-popup-message.php:111
+msgid ""
+"We sent verification code to  {customer_email}. To verify your email address,"
+" please check your inbox and enter the code below."
+msgstr ""
+"Mēs nosūtījām verifikācijas kodu uz adresi {customer_email}. Lai pārbaudītu "
+"savu e-pasta adresi, lūdzu, pārbaudiet iesūtni un ievadiet kodu zemāk."
+
+#. %s: search send verification code
+#: includes/views/verify_checkout_guest_user.php:96
+#, php-format
+msgid ""
+"We sent verification code to <span>%s</span>. To verify your email address, "
+"please check your inbox and enter the code below."
+msgstr ""
+"Mēs nosūtījām verifikācijas kodu adresātam <span>% s </span>. Lai pārbaudītu "
+"savu e-pasta adresi, lūdzu, pārbaudiet iesūtni un zemāk ievadiet kodu."
+
+#. %s: search send verification code
+#. %s: search customer email
+#: includes/views/cev_admin_endpoint_popup_template.php:36
+#: includes/views/front/preview_cev_popup_page.php:51
+#, php-format
+msgid ""
+"We sent verification code to <strong>%s</strong>. To verify your email "
+"address, please check your inbox and enter the code below."
+msgstr ""
+"Mēs nosūtījām verifikācijas kodu uz adresi <strong>%s </strong>. Lai "
+"pārbaudītu savu e-pasta adresi, lūdzu, pārbaudiet iesūtni un ievadiet kodu "
+"zemāk."
+
+#: includes/customizer/verification-popup-style.php:171
+msgid "Widget background Color"
+msgstr "Logrīka fona krāsa"
+
+#: includes/customizer/verification-popup-message.php:281
+msgid "Widget Content"
+msgstr "Logrīka saturs"
+
+#: includes/customizer/cev-verification-email-style.php:268
+msgid "Widget Header"
+msgstr "Logrīka galvene"
+
+#: includes/class-wc-customer-email-verification-admin.php:856
+msgid "you can use HTML tags &lt;a&gt;,&lt;p&gt;, etc"
+msgstr "varat izmantot HTML tagus &lt;a&gt;, &lt;p&gt; utt"
+
+#: includes/cev-pro-email-settings.php:799
+msgid "You recently changed the email address {site_title}"
+msgstr "Jūs nesen mainījāt e-pasta adresi {site_title}"
+
+#: includes/cev-pro-email-settings.php:731
+#: includes/class-wc-customer-email-verification-admin.php:810
+#: includes/class-wc-customer-email-verification-admin.php:812
+msgid "Your email is verified!"
+msgstr "Jūsu e-pasts ir pārbaudīts!"
+
+#. Author of the plugin
+msgid "zorem"
+msgstr "zorem"

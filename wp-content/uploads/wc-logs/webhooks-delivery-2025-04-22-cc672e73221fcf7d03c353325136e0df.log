@@ -4613,3 +4613,68 @@
 
 )
 
+2025-04-22T12:46:21+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => b36bfb1cc7e4b06041739c99e23152c0
+            [Date] => Apr 22, 2025 @ 12:46
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 1.11613
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.7.1 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => dfO6hWNn2TIeqxgWEoA5gFuVZHmJ9pJmfFxqjSiqTB4=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => b36bfb1cc7e4b06041739c99e23152c0
+                        )
+
+                )
+
+            [Body] => {\"id\":1803,\"parent_id\":0,\"status\":\"pending\",\"currency\":\"GHS\",\"version\":\"9.7.1\",\"prices_include_tax\":false,\"date_created\":\"2025-04-22T12:46:18\",\"date_modified\":\"2025-04-22T12:46:18\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"43.00\",\"total_tax\":\"0.00\",\"customer_id\":60,\"order_key\":\"wc_order_7wpGiWTNLyAgO\",\"billing\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"cupidblack@yandex.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"\",\"customer_user_agent\":\"\",\"created_via\":\"rest-api\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"\",\"number\":\"1803\",\"meta_data\":[{\"id\":4619,\"key\":\"userid\",\"value\":\"38\"},{\"id\":4617,\"key\":\"wow_order_id\",\"value\":\"wow_68078f94dcd55\"},{\"id\":4618,\"key\":\"wow_post_id\",\"value\":\"2\"}],\"line_items\":[{\"id\":8158,\"name\":\"Silver\",\"product_id\":694,\"variation_id\":1649,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"43.00\",\"subtotal_tax\":\"0.00\",\"total\":\"43.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[{\"id\":95530,\"key\":\"subscription\",\"value\":\"4 Weeks (Monthly)\",\"display_key\":\"Subscription\",\"display_value\":\"4 Weeks (Monthly)\"}],\"sku\":\"wow-pgb_pro_2\",\"price\":43,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":\"WoWPGB-Pro\"}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/1803\\/?pay_for_order=true&key=wc_order_7wpGiWTNLyAgO\",\"is_editable\":true,\"needs_payment\":true,\"needs_processing\":true,\"date_created_gmt\":\"2025-04-22T12:46:18\",\"date_modified_gmt\":\"2025-04-22T12:46:18\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/1803\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/customers\\/60\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Tue, 22 Apr 2025 12:46:20 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => PHPSESSID=5i663ebph5u2muhmg51fgcss3v; path=/; HttpOnly
+                                            [1] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-22%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 20 Apr 2035 12:46:21 GMT; Max-Age=315360000
+                                            [2] => ad-con=%7B%26quot%3Bdate%26quot%3B%3A%26quot%3B2025-04-22%26quot%3B%2C%26quot%3Bads%26quot%3B%3A%5B%5D%7D; expires=Fri, 20 Apr 2035 12:46:21 GMT; Max-Age=315360000
+                                            [3] => _us=1745412381; expires=Fri, 20 Apr 2035 12:46:21 GMT; Max-Age=315360000
+                                            [4] => _us=1745412381; expires=Fri, 20 Apr 2035 12:46:21 GMT; Max-Age=315360000
+                                            [5] => mode=day; expires=Fri, 20 Apr 2035 12:46:21 GMT; Max-Age=315360000; path=/
+                                        )
+
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 30
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => Webhook processed successfully
+                )
+
+        )
+
+)
+
