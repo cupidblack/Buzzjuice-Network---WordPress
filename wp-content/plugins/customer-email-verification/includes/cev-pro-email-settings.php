@@ -591,13 +591,16 @@ class Customer_Email_Verification_Email_Settings {
 			$need_inline_verification = true;
 		}
 		if ( '1' == get_option( 'cev_enable_email_verification_checkout' ) && $need_inline_verification ) {
-			$cev_user_verification_data_raw = WC()->session->get( 'cev_user_verified_data' );
+			$cev_user_verification_data_raw = WC()->session->get( 'cev_user_verification_data' );
 			$cev_user_verified_data = ! is_null( $cev_user_verification_data_raw ) ? json_decode( $cev_user_verification_data_raw ) : null;
 			if ( !is_user_logged_in() ) {
 				if ( !isset($cev_user_verified_data->email) || $cev_user_verified_data->email != $fields[ 'billing_email' ] || 1 != $cev_user_verified_data->verified ) {
 					$message = __( 'Please verify your email address.', 'customer-email-verification' );
 					$errors->add( 'validation', $message );
 					echo '<input type="hidden" name="validation_error" value="1">';
+					?>
+						
+					<?php
 					
 				}
 			}
@@ -1062,7 +1065,7 @@ class Customer_Email_Verification_Email_Settings {
 			if ( isset( $cev_user_verified_data->email ) ) {
 				$verified_email = $cev_user_verified_data->email;
 				if ( $verified_email == $email && true == $cev_user_verified_data->verified ) {
-					echo json_encode( array( 'mail_sent' => false, 'verify' => true, 'checkoutWC' => $checkoutWC ) );
+					echo json_encode( array( 'mail_sent' => true, 'verify' => true, 'checkoutWC' => $checkoutWC ) );
 					die();
 				}
 			}
@@ -1070,7 +1073,7 @@ class Customer_Email_Verification_Email_Settings {
 			if ( isset( $cev_user_verification_data->email ) ) {
 			$session_email = $cev_user_verification_data->email;
 				if ( $session_email == $email ) {
-					echo json_encode( array( 'mail_sent' => false, 'verify' => false, 'checkoutWC' => $checkoutWC ) );
+					echo json_encode( array( 'mail_sent' => true, 'verify' => false, 'checkoutWC' => $checkoutWC ) );
 					die();
 				}
 			}

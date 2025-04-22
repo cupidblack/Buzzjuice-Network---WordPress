@@ -1,7 +1,4 @@
 *** Customer Email Verification Changelog ***
-2025-03-17 - version 2.7.6
-* Fix - Issue where customers were repeatedly prompted for email verification at checkout, even after successful verification.
-
 2025-03-12 - version 2.7.5
 * Enhancements - Added a "Back" option in the Signup Verification popup.
 * Fix - Fixed an issue where the Email Verification email was sent even if Checkout Verification was disabled.

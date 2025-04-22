@@ -72,7 +72,7 @@ jQuery(document).on("blur", "#billing_email", _.debounce(function () {
                     dataType: "json",
                     data : ajax_data,
                     success : function ( response ) {
-						console.log('response',response);
+						
 						if (response.mail_sent == false && response.verify == false ) {
                             
 							jQuery(".cev_pro_append").remove();
