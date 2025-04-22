@@ -50,8 +50,8 @@ class Miniorange_Oauth_20_Server_Customer_Handler {
 		$fname            = '';
 		$lname            = '';
 		$company          = '';
-		$username          = ''; // Modified by Blue Crown R&D
-		if ( ! isset( $_POST['email'] ) || ! isset( $_POST['password'] ) || ! isset( $_POST['confirm_password'] ) || ! isset( $_POST['username'] )) { //Modified by Blue Crown R&D
+		$username         = ''; //BlueCrownR&D
+		if ( ! isset( $_POST['email'] ) || ! isset( $_POST['password'] ) || ! isset( $_POST['confirm_password'] ) || ! isset( $_POST['username'] )) { //BlueCrownR&D
 			update_option( 'message', 'All the fields are required. Please enter valid entries.', false );
 			$this->utils->mo_oauth_show_error_message();
 			return;
@@ -67,7 +67,7 @@ class Miniorange_Oauth_20_Server_Customer_Handler {
 			$fname            = isset( $_POST['fname'] ) ? sanitize_text_field( wp_unslash( $_POST['fname'] ) ) : '';
 			$lname            = isset( $_POST['lname'] ) ? sanitize_text_field( wp_unslash( $_POST['lname'] ) ) : '';
 			$company          = isset( $_POST['company'] ) ? sanitize_text_field( wp_unslash( $_POST['company'] ) ) : '';
-			$username         = sanitize_text_field( wp_unslash( $_POST['username'] ) ); // Modified by Blue Crown R&D
+			$username         = sanitize_text_field( wp_unslash( $_POST['username'] ) ); //BlueCrownR&D
 		}
 
 			update_option( 'mo_oauth_admin_email', $email, false );
@@ -85,7 +85,7 @@ class Miniorange_Oauth_20_Server_Customer_Handler {
 			$content  = json_decode( $customer->check_customer(), true );
 
 			if ( strcasecmp( $content['status'], 'CUSTOMER_NOT_FOUND' ) === 0 ) {
-				$response = json_decode( $customer->create_customer( $password, $username ), true ); // Modified by Blue Crown R&D
+				$response = json_decode( $customer->create_customer( $password, $username ), true ); //BlueCrownR&D
 				if ( strcasecmp( $response['status'], 'SUCCESS' ) === 0 ) {
 					$content      = $customer->get_customer_key( $password );
 					$customer_key = json_decode( $content, true );

@@ -8,7 +8,7 @@
 
 
 /**
- * Automatically submit the consent form when the page loads. // Modified by Blue Crown R&D
+ * Automatically submit the consent form when the page loads. //BlueCrownR&D: WoWonder Integration
  */
 function mo_oauth_auto_submit_consent() {
     ?>

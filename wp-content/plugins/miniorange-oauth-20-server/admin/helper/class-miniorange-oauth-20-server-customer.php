@@ -54,11 +54,11 @@ class Mo_Oauth_Server_Customer {
 	 * Creates customer in miniOrange database using /customer/add API.
 	 *
 	 * @param string $password for registeration or login with miniOrange.
-	 * * @param string $username for registering with miniOrange. // Modified by Blue Crown R&D
+	 * * @param string $username for registering with miniOrange. //BlueCrownR&D
 	 * 
 	 * @return mixed
 	 */
-	public function create_customer( $password = '', $username = '' ) { // Modified by Blue Crown R&D
+	public function create_customer( $password = '', $username = '' ) { //BlueCrownR&D
 		$url         = get_option( 'host_name' ) . '/moas/rest/customer/add';
 		$this->email = get_option( 'mo_oauth_admin_email' );
 		$this->phone = get_option( 'mo_oauth_server_admin_phone' );
@@ -74,7 +74,7 @@ class Mo_Oauth_Server_Customer {
 			'email'          => $this->email,
 			'phone'          => $this->phone,
 			'password'       => $password,
-			'username'       => $username, // Modified by Blue Crown R&D
+			'username'       => $username, //BlueCrownR&D
 		);
 		$field_string = wp_json_encode( $fields );
 		$headers      = array(
