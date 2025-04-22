@@ -2,7 +2,7 @@
 /*
 Plugin Name: WoWonder Payment Gateway Bridge
 Description: Sync WooCommerce with WoWonder for digital payments.
-Version: 1.0014
+Version: 1.00.15
 Author: Blue Crown R&D
 Author URI: https://koware.org
 */
