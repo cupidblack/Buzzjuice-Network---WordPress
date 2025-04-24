@@ -1,0 +1,65 @@
+/* purgecss start ignore */
+@tailwind base;
+
+.page-numbers {
+	@apply -ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 transition ease-in-out duration-150;
+}
+
+.page-numbers:hover {
+	@apply text-gray-500;
+}
+
+.page-numbers:focus {
+	@apply z-10 outline-none border-blue-300 shadow-outline-blue;
+}
+
+.page-numbers:active {
+	@apply bg-gray-100 text-gray-700;
+}
+
+.page-numbers:first-child {
+	@apply rounded-l-md;
+}
+
+.page-numbers:last-child {
+	@apply rounded-r-md;
+}
+
+.next.page-numbers {
+	@apply px-2 py-2;
+}
+
+.next.page-numbers:hover {
+	@apply text-gray-400;
+}
+
+.prev.page-numbers {
+	@apply px-2 py-2;
+}
+
+.prev.page-numbers:hover {
+	@apply text-gray-400;
+}
+
+.page-numbers.disabled,
+.page-numbers.disabled:hover,
+.page-numbers.disabled:active,
+.page-numbers.disabled:focus,
+.page-numbers.disabled:focus-within,
+button[disabled="disabled"],
+button[disabled="disabled"]:hover,
+button[disabled="disabled"]:active,
+button[disabled="disabled"]:focus,
+button[disabled="disabled"]:focus-within {
+	@apply cursor-default;
+	@apply text-gray-300;
+	@apply bg-gray-100;
+}
+
+.prose a.text-white {
+	color: white;
+}
+
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;

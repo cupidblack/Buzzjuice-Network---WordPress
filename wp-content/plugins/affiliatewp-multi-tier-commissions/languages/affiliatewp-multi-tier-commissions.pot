@@ -1,0 +1,303 @@
+# Copyright (C) 2024 AffiliateWP
+# This file is distributed under the same license as the AffiliateWP - Multi-Tier Commissions plugin.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: https://affiliatewp.com/support\n"
+"Last-Translator: AffiliateWP <support@affiliatewp.com>\n"
+"Language-Team: AffiliateWP <support@affiliatewp.com>\n"
+"Project-Id-Version: AffiliateWP - Multi-Tier Commissions 1.4.4\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-12T05:05:50+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: affiliatewp-multi-tier-commissions\n"
+
+#. Plugin Name of the plugin
+#: affiliatewp-multi-tier-commissions.php
+msgid "AffiliateWP - Multi-Tier Commissions"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: affiliatewp-multi-tier-commissions.php
+msgid "https://affiliatewp.com/addons/multi-tier-commissions/"
+msgstr ""
+
+#. Description of the plugin
+#: affiliatewp-multi-tier-commissions.php
+msgid "Enables your affiliates to grow their networks and boost earnings through recruit sales, improving overall sales and benefiting both your business and your affiliates."
+msgstr ""
+
+#. Author of the plugin
+#: affiliatewp-multi-tier-commissions.php
+#: includes/lib/affwp/class-affiliatewp-activation.php:118
+msgid "AffiliateWP"
+msgstr ""
+
+#. Author URI of the plugin
+#: affiliatewp-multi-tier-commissions.php
+msgid "https://affiliatewp.com/"
+msgstr ""
+
+#: affiliatewp-multi-tier-commissions.php:150
+msgid "AffiliateWP - Multi-Tier Commissions Requirements"
+msgstr ""
+
+#: includes/admin/class-admin.php:102
+#: includes/admin/class-admin.php:331
+msgid "Select an affiliate"
+msgstr ""
+
+#: includes/admin/class-admin.php:217
+msgid "Nonce check failed."
+msgstr ""
+
+#: includes/admin/class-admin.php:260
+msgid "None"
+msgstr ""
+
+#: includes/admin/class-admin.php:324
+#: includes/admin/class-admin.php:378
+msgid "Parent Affiliate"
+msgstr ""
+
+#: includes/admin/class-admin.php:336
+msgid "Select the parent affiliate for multi-tier commission linkage."
+msgstr ""
+
+#: includes/admin/class-settings.php:98
+msgid "Compensation Plan"
+msgstr ""
+
+#: includes/admin/class-settings.php:101
+msgid "Unilevel"
+msgstr ""
+
+#: includes/admin/class-settings.php:102
+msgid "Forced Matrix"
+msgstr ""
+
+#: includes/admin/class-settings.php:111
+msgid "Unilevel:"
+msgstr ""
+
+#: includes/admin/class-settings.php:112
+msgid "Allows unlimited direct recruits per affiliate, offering flexibility in network width and depth."
+msgstr ""
+
+#: includes/admin/class-settings.php:113
+msgid "Forced Matrix:"
+msgstr ""
+
+#: includes/admin/class-settings.php:114
+msgid "Limits the number of direct recruits each affiliate can have, creating a fixed structure that promotes balanced team growth."
+msgstr ""
+
+#: includes/admin/class-settings.php:116
+msgid "Learn More"
+msgstr ""
+
+#. translators: Hidden accessibility text.
+#: includes/admin/class-settings.php:120
+#: includes/admin/class-settings.php:190
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: includes/admin/class-settings.php:125
+msgid "Width"
+msgstr ""
+
+#: includes/admin/class-settings.php:145
+msgid "Maximum number of direct affiliates each affiliate can have in the forced matrix structure."
+msgstr ""
+
+#: includes/admin/class-settings.php:148
+msgid "Depth"
+msgstr ""
+
+#: includes/admin/class-settings.php:168
+msgid "Maximum depth of the forced matrix structure."
+msgstr ""
+
+#: includes/admin/class-settings.php:171
+msgid "Tiers"
+msgstr ""
+
+#: includes/admin/class-settings.php:181
+msgid "Define commission rates for each tier. Tier 1 affiliates earn commissions on their own sales. Affiliates in Tiers 2 and above earn from sales made by their directly recruited affiliates. Choose either a percentage or a flat rate for each tier's commission."
+msgstr ""
+
+#. translators: 1: Link to the doc page on tiers. 2: Additional link attributes. 3: Accessibility text.
+#: includes/admin/class-settings.php:184
+msgid "<a href=\"%1$s\" %2$s>Learn more about tiers%3$s</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:196
+msgid "Tier Calculation Method"
+msgstr ""
+
+#: includes/admin/class-settings.php:199
+msgid "Calculate subsequent tiers' commissions based on tier 1's earnings."
+msgstr ""
+
+#: includes/admin/class-settings.php:200
+msgid "Calculate all tiers' commissions based on the total sale amount."
+msgstr ""
+
+#: includes/admin/class-settings.php:208
+msgid "This method calculates commissions for Tiers 2 and above as a percentage of what Tier 1 earns. Applicable only when tiers are set to Percentage (%)."
+msgstr ""
+
+#: includes/admin/class-settings.php:209
+msgid "This method calculates commissions for each tier directly from the total sale amount, independent of other tiers' earnings. Use this when tiers are set to Percentage (%)."
+msgstr ""
+
+#: includes/admin/class-settings.php:259
+msgid "Percentage (%)"
+msgstr ""
+
+#. translators: the currency.
+#: includes/admin/class-settings.php:262
+msgid "Flat %s Per Product"
+msgstr ""
+
+#. translators: the currency.
+#: includes/admin/class-settings.php:267
+msgid "Flat %s Per Order"
+msgstr ""
+
+#: includes/admin/class-settings.php:314
+msgid "Remove Tier"
+msgstr ""
+
+#: includes/admin/class-settings.php:404
+msgid "Tier"
+msgstr ""
+
+#: includes/admin/class-settings.php:407
+msgid "Commission"
+msgstr ""
+
+#: includes/admin/class-settings.php:449
+msgid "Add Tier"
+msgstr ""
+
+#: includes/class-controller.php:122
+msgid "Sale (Tiered)"
+msgstr ""
+
+#: includes/class-frontend.php:117
+msgid "Network"
+msgstr ""
+
+#: includes/class-frontend.php:154
+msgid "Your Network Link"
+msgstr ""
+
+#: includes/class-frontend.php:157
+msgid "Invite other affiliates to your network using this link."
+msgstr ""
+
+#: includes/class-frontend.php:164
+msgid "Share this link to expand your network. New affiliates who join through your link can help boost your earnings by generating more referrals. Promote it on social media, in emails, or on your website."
+msgstr ""
+
+#: includes/class-frontend.php:190
+msgid "Copy Link"
+msgstr ""
+
+#: includes/class-frontend.php:244
+msgid "Your Network"
+msgstr ""
+
+#: includes/class-frontend.php:247
+msgid "Connections between you and your recruited affiliates."
+msgstr ""
+
+#: includes/class-frontend.php:254
+msgid "The network diagram shows the connections between you and your recruited affiliates, forming a branching, tree-like structure. It updates automatically as new affiliates join through your network link or the links of other affiliates in your network."
+msgstr ""
+
+#: includes/class-frontend.php:255
+msgid "Click and drag to explore, and hover over any affiliate to view additional details."
+msgstr ""
+
+#: includes/class-frontend.php:282
+msgid "Display Expanded Network"
+msgstr ""
+
+#: includes/class-frontend.php:288
+msgid "Display Direct Network Only"
+msgstr ""
+
+#: includes/class-multi-tier-commissions.php:165
+#: includes/class-multi-tier-commissions.php:176
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: includes/class-network.php:429
+msgid "User deleted"
+msgstr ""
+
+#: includes/class-network.php:462
+msgid "Visits"
+msgstr ""
+
+#: includes/class-network.php:471
+msgid "Total Referrals"
+msgstr ""
+
+#. translators: 1: Paid referrals, 2: Unpaid referrals.
+#. translators: 1: Paid earnings, 2: Unpaid earnings.
+#: includes/class-network.php:482
+#: includes/class-network.php:514
+msgid "%1$s paid, %2$s unpaid"
+msgstr ""
+
+#: includes/class-network.php:494
+msgid "Conversion Rate"
+msgstr ""
+
+#: includes/class-network.php:503
+msgid "Total Earnings"
+msgstr ""
+
+#: includes/class-network.php:633
+msgid "You"
+msgstr ""
+
+#. translators: Referral count.
+#: includes/class-network.php:646
+msgid "Referrals <span>%1$s</span> "
+msgstr ""
+
+#. translators: Referral totals.
+#: includes/class-network.php:658
+msgid "Earnings <span>%1$s</span> "
+msgstr ""
+
+#: includes/class-network.php:885
+msgid "Great job! Your network is fully complete. Focus on supporting your network to maximize earnings."
+msgstr ""
+
+#: includes/class-network.php:892
+msgid "Great job! You have reached your network's limit. New recruits will now be assigned to your downline affiliates."
+msgstr ""
+
+#: includes/lib/affwp/class-affiliatewp-activation.php:84
+msgid "This plugin"
+msgstr ""
+
+#. translators: 1: AffiliateWP link, 2: Action verb
+#: includes/lib/affwp/class-affiliatewp-activation.php:123
+msgid "AffiliateWP Multi-Tier Commissions requires %1$s. Please %2$s to continue."
+msgstr ""
+
+#: includes/lib/affwp/class-affiliatewp-activation.php:125
+msgid "activate it"
+msgstr ""
+
+#: includes/lib/affwp/class-affiliatewp-activation.php:125
+msgid "install it"
+msgstr ""

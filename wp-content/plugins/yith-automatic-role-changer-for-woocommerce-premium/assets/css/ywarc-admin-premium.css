@@ -1,0 +1,18 @@
+.ywarc_force_apply_rules_row, .ywarc_force_apply_rules_dates {
+    float: right;
+}
+
+.ywarc_force_apply_rules_dates {
+    display: none;
+}
+
+a#ywarc_force_apply_rules {
+    vertical-align: inherit;
+}
+
+.ywarc_force_apply_rules_set_date_type {
+    margin: 0 15px;
+}
+
+
+

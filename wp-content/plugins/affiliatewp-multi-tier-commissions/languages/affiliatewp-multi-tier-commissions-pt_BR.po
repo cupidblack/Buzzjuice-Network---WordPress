@@ -1,0 +1,241 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://affiliatewp.com/support\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-04-25T11:44:33+00:00\n"
+"PO-Revision-Date: 2024-04-25 08:51-0300\n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ../Local Sites/affiliatewp/app/public/wp-content/plugins/affiliatewp-multi-tier-commissions\n"
+"X-Poedit-KeywordsList: __;_e;_n;esc_html_e;_x;esc_html__;esc_attr__;esc_attr_e;esc_html_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#. Plugin Name of the plugin
+msgid "AffiliateWP - Multi-Tier Commissions"
+msgstr "AffiliateWP - Comissões Multiníveis"
+
+#. Plugin URI of the plugin
+msgid "https://affiliatewp.com/addons/multi-tier-commissions/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Enables your affiliates to grow their networks and boost earnings through recruit sales, improving overall sales and benefiting both your business and your affiliates."
+msgstr "Permite que seus afiliados expandam suas redes e aumentem os ganhos por meio de vendas de recrutamento, melhorando as vendas gerais e beneficiando tanto sua empresa quanto seus afiliados."
+
+#. Author of the plugin
+#: includes/lib/affwp/class-affiliatewp-activation.php:118
+msgid "AffiliateWP"
+msgstr "AffiliateWP"
+
+#. Author URI of the plugin
+msgid "https://affiliatewp.com/"
+msgstr ""
+
+#: affiliatewp-multi-tier-commissions.php:150
+msgid "AffiliateWP - Multi-Tier Commissions Requirements"
+msgstr "AffiliateWP - Requisitos de Comissões Multiníveis"
+
+#: includes/admin/class-admin.php:102
+#: includes/admin/class-admin.php:331
+msgid "Select an affiliate"
+msgstr "Selecione um afiliado"
+
+#: includes/admin/class-admin.php:217
+msgid "Nonce check failed."
+msgstr "A verificação de Nonce falhou."
+
+#: includes/admin/class-admin.php:260
+msgid "None"
+msgstr "Nenhum"
+
+#: includes/admin/class-admin.php:324
+#: includes/admin/class-admin.php:378
+msgid "Parent Affiliate"
+msgstr "Afiliado Pai"
+
+#: includes/admin/class-admin.php:336
+msgid "Select the parent affiliate for multi-tier commission linkage."
+msgstr "Selecione o afiliado principal para a vinculação de comissão em multiníveis."
+
+#: includes/admin/class-settings.php:95
+msgid "Tiers"
+msgstr "Níveis"
+
+#: includes/admin/class-settings.php:106
+msgid "Define commission rates for each tier. Tier 1 affiliates earn commissions on their own sales. Affiliates in Tiers 2 and above earn from sales made by their directly recruited affiliates. Choose either a percentage or a flat rate for each tier's commission."
+msgstr "Defina taxas de comissão para cada nível. Os afiliados de nível 1 ganham comissões sobre suas próprias vendas. Os afiliados nos níveis 2 e superiores ganham com as vendas feitas por seus afiliados recrutados diretamente. Escolha uma porcentagem ou uma taxa fixa para a comissão de cada nível."
+
+#. translators: 1: Link to the doc page on tiers. 2: Additional link attributes. 3: Accessibility text.
+#: includes/admin/class-settings.php:109
+msgid "<a href=\"%1$s\" %2$s>Learn more about tiers%3$s</a>"
+msgstr "<a href=“%1$s” %2$s>Saiba mais sobre os níveis%3$s</a>"
+
+#. translators: Hidden accessibility text.
+#: includes/admin/class-settings.php:115
+msgid "(opens in a new tab)"
+msgstr "(abre em uma nova aba)"
+
+#: includes/admin/class-settings.php:121
+msgid "Tier Calculation Method"
+msgstr "Método de cálculo por nível"
+
+#: includes/admin/class-settings.php:124
+msgid "Calculate subsequent tiers' commission based on tier 1's earnings"
+msgstr "Calcule a comissão dos níveis subsequentes com base nos ganhos do nível 1"
+
+#: includes/admin/class-settings.php:125
+msgid "Calculate all tier's commissions based on the total sale amount"
+msgstr "Calcule todas as comissões do nível com base no valor total da venda"
+
+#: includes/admin/class-settings.php:134
+msgid "This method calculates commissions for Tiers 2 and above as a percentage of what Tier 1 earns. Applicable only when tiers are set to Percentage (%)."
+msgstr "Este método calcula as comissões para os níveis 2 e superiores como uma porcentagem do que o nível 1 ganha. Aplicável somente quando os níveis estão definidos como Porcentagem (%)."
+
+#: includes/admin/class-settings.php:135
+msgid "This method calculates commissions for each tier directly from the total sale amount, independent of other tiers' earnings. Use this when tiers are set to Percentage (%)."
+msgstr "Este método calcula as comissões para cada nível diretamente do valor total da venda, independente dos ganhos de outros níveis. Use isto quando as camadas estiverem definidas como Porcentagem (%)."
+
+#: includes/admin/class-settings.php:186
+msgid "Percentage (%)"
+msgstr "Porcentagem (%)"
+
+#. translators: the currency.
+#: includes/admin/class-settings.php:189
+msgid "Flat %s Per Product"
+msgstr "Fixo %s Por Produto"
+
+#. translators: the currency.
+#: includes/admin/class-settings.php:194
+msgid "Flat %s Per Order"
+msgstr "Fixo %s Por Pedido"
+
+#: includes/admin/class-settings.php:237
+msgid "Remove Tier"
+msgstr "Remover nível"
+
+#: includes/admin/class-settings.php:325
+msgid "Tier"
+msgstr "Nível"
+
+#: includes/admin/class-settings.php:328
+msgid "Commission"
+msgstr "Comissão"
+
+#: includes/admin/class-settings.php:369
+msgid "Add Tier"
+msgstr "Adicionar nível"
+
+#: includes/class-controller.php:121
+msgid "Sale (Tiered)"
+msgstr "Venda (Em níveis)"
+
+#: includes/class-frontend.php:115
+msgid "Network"
+msgstr "Rede"
+
+#: includes/class-frontend.php:147
+msgid "Your Network Link"
+msgstr "Seu Link de Rede"
+
+#: includes/class-frontend.php:150
+msgid "Invite other affiliates to your network using this link."
+msgstr "Convide outros afiliados para sua rede usando este link."
+
+#: includes/class-frontend.php:165
+msgid "Copy Link"
+msgstr "Copiar Link"
+
+#: includes/class-frontend.php:194
+msgid "Your Network"
+msgstr "Sua Rede"
+
+#: includes/class-multi-tier-commissions.php:165
+#: includes/class-multi-tier-commissions.php:176
+msgid "Cheatin&#8217; huh?"
+msgstr "Cheatin&#8217; huh?"
+
+#: includes/class-network.php:396
+msgid "User deleted"
+msgstr "Usuário removido"
+
+#: includes/class-network.php:429
+msgid "Visits"
+msgstr "Visitas"
+
+#: includes/class-network.php:438
+msgid "Total Referrals"
+msgstr "Total de Indicações"
+
+#. translators: 1: Paid referrals, 2: Unpaid referrals.
+#. translators: 1: Paid earnings, 2: Unpaid earnings.
+#: includes/class-network.php:449
+#: includes/class-network.php:481
+msgid "%1$s paid, %2$s unpaid"
+msgstr "%1$s pago, %2$s não pago"
+
+#: includes/class-network.php:461
+msgid "Conversion Rate"
+msgstr "Taxa de Conversão"
+
+#: includes/class-network.php:470
+msgid "Total Earnings"
+msgstr "Rendimentos Totais"
+
+#: includes/class-network.php:577
+msgid "You"
+msgstr "Você"
+
+#. translators: Referral count.
+#: includes/class-network.php:588
+msgid "Referrals %1$s "
+msgstr "Indicações %1$s "
+
+#. translators: Referral totals.
+#: includes/class-network.php:594
+msgid "Earnings %1$s "
+msgstr "Rendimentos %1$s "
+
+#: includes/lib/affwp/class-affiliatewp-activation.php:84
+msgid "This plugin"
+msgstr "Este plugin"
+
+#. translators: 1: AffiliateWP link, 2: Action verb
+#: includes/lib/affwp/class-affiliatewp-activation.php:123
+msgid "AffiliateWP Multi-Tier Commissions requires %1$s. Please %2$s to continue."
+msgstr "As Comissões Multiníveis do AffiliateWP exigem %1$s. Por favor, %2$s para continuar."
+
+#: includes/lib/affwp/class-affiliatewp-activation.php:125
+msgid "activate it"
+msgstr "ative"
+
+#: includes/lib/affwp/class-affiliatewp-activation.php:125
+msgid "install it"
+msgstr "instale"
+
+#~ msgid "Multi-Tier Commissions reward affiliates for their own sales (Tier 1) and the sales made by the affiliates they have successfully recruited."
+#~ msgstr "As Comissões Multiníveis recompensam os afiliados por suas próprias vendas (Nível 1) e pelas vendas feitas pelos afiliados que eles recrutaram com sucesso."
+
+#~ msgid "When an affiliate (Tier 1) makes a sale, the affiliate who recruited them (Tier 2) earns a commission based on that sale's \"Tier 1\" commission amount. This ensures affiliates are rewarded for building a productive team."
+#~ msgstr "Quando um afiliado (Nível 1) faz uma venda, o afiliado que o recrutou (Nível 2) ganha uma comissão com base no valor da comissão do “Nível 1” dessa venda. Isso garante que os afiliados sejam recompensados por construir uma equipe produtiva."
+
+#~ msgid "This plugin is not fully active."
+#~ msgstr "Este plugin não está totalmente ativo."
+
+#, php-format
+#~ msgid "Requires %s (%s), but (%s) is installed."
+#~ msgstr "Requer %s (%s), mas (%s) está instalado."
+
+#, php-format
+#~ msgid "Requires %s (%s), but it appears to be missing."
+#~ msgstr "Requer %s (%s), mas parece estar faltando."
+
+#~ msgid "Requirements"
+#~ msgstr "Requisitos"
+
+#~ msgid "AffiliateWP Requirements"
+#~ msgstr "Requisitos do AffiliateWP"

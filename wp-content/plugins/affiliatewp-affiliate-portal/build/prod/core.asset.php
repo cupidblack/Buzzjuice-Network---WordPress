@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('affwp-portal-storage', 'wp-api-fetch', 'wp-i18n', 'wp-polyfill', 'wp-url'), 'version' => 'ef454f3852db60ae332007e273a55abd');

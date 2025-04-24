@@ -1,0 +1,85 @@
+.portal-menu-links-draghandle-anchor {
+  cursor: move;
+  display: block;
+  margin-right: 10px;
+}
+.portal-menu-links-draghandle-anchor span {
+  margin-top: 15px;
+  color: #ccc;
+}
+.portal-menu-links-draghandle-anchor:hover span {
+  color: #24282d;
+}
+.portal_menu_links_repeatable_row {
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+.portal-menu-links-repeatable-row-header {
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.portal-menu-links-repeatable-row-title {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  cursor: pointer;
+}
+.portal-menu-links-repeatable-row-title,
+.portal-menu-links-repeatable-row-standard-fields {
+  padding: 15px;
+}
+.dashicons-arrow-down,
+.dashicons-arrow-up {
+  color: #72777c;
+}
+.dashicons-arrow-down:hover,
+.dashicons-arrow-up:hover {
+  color: #24282d;
+}
+.affiliate-area-tabs-title {
+  font-weight: bold;
+  display: inline-block;
+}
+.default-tab {
+  font-style: italic;
+}
+.description {
+  display: block;
+}
+#affiliatewp-tabs th {
+  padding-left: 10px;
+}
+.affiliate-area-tabs-edit {
+  font-size: 12px;
+}
+.form-table .portal-menu-links-repeatable-row-standard-fields p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+.portal-menu-links-repeatable-row-standard-fields {
+  padding-top: 0;
+}
+.form-table .portal-menu-links-repeatable-row-standard-fields p:last-child {
+  margin-bottom: 0;
+}
+.form-table .portal-menu-links-repeatable-row-standard-fields .description {
+  margin-bottom: 5px;
+}
+.portal-menu-links-link-number {
+  font-style: italic;
+  font-size: 12px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-left: auto;
+  margin-right: 10px;
+}
+.portal-menu-links-add-repeatable-row .portal-menu-links-add-repeatable {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.portal-menu-links-add-repeatable-row .no-menu-links {
+  margin-left:  0px;
+}

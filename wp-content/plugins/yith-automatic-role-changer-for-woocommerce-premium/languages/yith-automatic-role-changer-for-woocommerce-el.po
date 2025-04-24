@@ -1,0 +1,570 @@
+# Translation of YITH Automatic Role Changer for WooCommerce in Greek
+# This file is distributed under the same license as the YITH Automatic Role Changer for WooCommerce package.
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH Automatic Role Changer for WooCommerce\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yith-woocommerce-"
+"automatic-role-changer.premium\n"
+"POT-Creation-Date: 2024-01-16 15:27:25+00:00\n"
+"PO-Revision-Date: 2021-02-03 18:54:58+0000\n"
+"Language: el_GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+
+#: includes/class-yith-role-changer-admin-premium.php:143
+msgid "User purchases a specific product"
+msgstr "Ο χρήστης αγοράζει συγκεκριμένο προϊόν"
+
+#: includes/class-yith-role-changer-admin-premium.php:161
+msgid "Order total is within the following price range"
+msgstr "Το σύνολο παραγγελίας βρίσκεται εντός του ακόλουθου εύρους τιμής"
+
+#: includes/class-yith-role-changer-admin-premium.php:179
+msgid "Customer's total spend falls within the following price range"
+msgstr "Το σύνολο εξόδων πελάτη βρίσκεται εντός του ακόλουθου εύρους τιμής"
+
+#: includes/class-yith-role-changer-admin-premium.php:197
+msgid "User purchases products from specific categories or tags"
+msgstr "Ο χρήστης αγοράζει προϊόντα από συγκεκριμένες κατηγορίες ή ετικέτες"
+
+#: includes/class-yith-role-changer-admin-premium.php:222
+msgid "Select a price range: "
+msgstr "Επιλογή εύρους τιμής: "
+
+#: includes/class-yith-role-changer-admin-premium.php:223
+msgid "Fill at least one"
+msgstr "Συμπληρώστε τουλάχιστον ένα"
+
+#: includes/class-yith-role-changer-admin-premium.php:235
+#: includes/class-yith-role-changer-admin-premium.php:245
+msgid "Amount&hellip;"
+msgstr "Ποσό&hellip;"
+
+#: includes/class-yith-role-changer-admin-premium.php:246
+msgid "\"To\" field must be greather than \"From\" field"
+msgstr "Το πεδίο “Έως” πρέπει να είναι μεγαλύτερο από το πεδίο “Από”"
+
+#: includes/class-yith-role-changer-admin-premium.php:252
+msgid "Select a taxonomy: "
+msgstr "Επιλογή ταξινομίας: "
+
+#: includes/class-yith-role-changer-admin-premium.php:268
+msgid "Category"
+msgstr "Κατηγορία"
+
+#: includes/class-yith-role-changer-admin-premium.php:283
+msgid "Tag"
+msgstr "Ετικέτα"
+
+#: includes/class-yith-role-changer-admin-premium.php:305
+msgid "Search for a category&hellip;"
+msgstr "Αναζήτηση κατηγορίας&hellip;"
+
+#: includes/class-yith-role-changer-admin-premium.php:334
+msgid "Search for a tag&hellip;"
+msgstr "Αναζήτηση ετικέτας&hellip;"
+
+#: includes/class-yith-role-changer-admin-premium.php:349
+msgid "Set a date range: "
+msgstr "Ορισμός εύρους ημερομηνίας: "
+
+#: includes/class-yith-role-changer-admin-premium.php:351
+#: includes/class-yith-role-changer-admin-premium.php:397
+#: includes/class-yith-role-changer-admin-premium.php:431
+msgid "(Optional)"
+msgstr "(Προαιρετικό)"
+
+#: includes/class-yith-role-changer-admin-premium.php:355
+msgid ""
+"Note: If you do not either enter any end date or a duration in days, this "
+"role will be valid forever"
+msgstr ""
+"Σημείωση: Αν δεν εισάγετε ημερομηνία τερματισμού αλλά ούτε διάρκεια σε "
+"ημέρες, αυτός ο ρόλος θα είναι έγκυρος για πάντα"
+
+#: includes/class-yith-role-changer-admin-premium.php:389
+msgid "Set a duration for the roles (days): "
+msgstr "Ορίστε διάρκεια για τους ρόλους (ημέρες): "
+
+#: includes/class-yith-role-changer-admin-premium.php:402
+msgid ""
+"Note: This role will last as long as specified in these settings, even "
+"though an end date for this rule has been already specified. If the rule has "
+"no end date, and you leave this field empty, the role will never be removed."
+msgstr ""
+"Σημείωση: Αυτός ο ρόλος θα διαρκέσει όσο έχει οριστεί στις ρυθμίσεις, ακόμη "
+"κι αν έχει οριστεί ημερομηνία τερματισμού για αυτόν τον κανόνα. Αν ο κανόνας "
+"δεν έχει ημερομηνία τερματισμού, και αφήσετε το πεδίο κενό, ο ρόλος δεν θα "
+"αφαιρεθεί ποτέ."
+
+#: includes/class-yith-role-changer-admin-premium.php:423
+msgid "Do not apply this rule to users with the following role(s):"
+msgstr ""
+"Να μην εφαρμόζεται αυτός ο κανόνας σε χρήστες με τον ακόλουθο ρόλο(ους):"
+
+#: includes/class-yith-role-changer-admin-premium.php:585
+#: includes/class-yith-role-changer-admin.php:522
+msgid "Please, name this rule."
+msgstr "Παρακαλώ, ορίστε όνομα κανόνα."
+
+#: includes/class-yith-role-changer-admin-premium.php:586
+#: includes/class-yith-role-changer-admin.php:523
+msgid ""
+"This name already exists and is used to identify another rule. Please, try "
+"name."
+msgstr ""
+"Αυτό το όνομα υπάρχει ήδη και χρησιμοποιείται για την αναγνώριση άλλου "
+"κανόνα. Παρακαλώ, δοκιμάστε άλλο όνομα."
+
+#: includes/class-yith-role-changer-admin-premium.php:587
+#: includes/class-yith-role-changer-admin.php:524
+msgid "Are you sure you want to delete this rule?"
+msgstr "Είστε σίγουρος ότι θέλετε να διαγράψετε αυτό τον κανόνα;"
+
+#: includes/class-yith-role-changer-admin-premium.php:588
+#: includes/class-yith-role-changer-admin.php:525
+msgid "Are you sure you want to delete all the rules? This cannot be undone."
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να διαγράψετε όλους τους κανόνες; Αυτή η ενέργεια "
+"δεν θα μπορεί να αλλάξει."
+
+#: includes/class-yith-role-changer-admin-premium.php:590
+msgid "Are you sure you want to apply this action? This cannot be undone."
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να εφαρμόσετε αυτή την ενέργεια; Αυτή η ενέργεια "
+"δεν θα μπορεί να αλλάξει."
+
+#: includes/class-yith-role-changer-admin-premium.php:591
+msgid ""
+"All the orders with valid rules will be processed and assign/switch user "
+"roles automatically."
+msgstr ""
+"Όλες οι παραγγελίες με έγκυρους κανόνες θα επεξεργάζονται και αναθέτουν/"
+"αλλάζουν ρόλους χρήστη αυτόματα."
+
+#: includes/class-yith-role-changer-admin-premium.php:592
+msgid ""
+"All orders with valid rules between {date_from} and {date_to} will be "
+"processed and will assign/switch user roles automatically."
+msgstr ""
+"Όλες οι παραγγελίες με έγκυρους κανόνες μεταξύ {date_from} και {date_to} θα "
+"επεξεργάζονται και αναθέτουν/αλλάζουν ρόλους χρήστη αυτόματα."
+
+#: includes/class-yith-role-changer-admin-premium.php:593
+msgid ""
+"All the orders with valid rules since {date_from} will be processed and will "
+"assign/switch user roles automatically."
+msgstr ""
+"Όλες οι παραγγελίες με έγκυρους κανόνες από {date_from} θα επεξεργάζονται "
+"και αναθέτουν/αλλάζουν ρόλους χρήστη αυτόματα."
+
+#: includes/class-yith-role-changer-admin-premium.php:594
+msgid ""
+"All the orders with valid rules until {date_to} will be processed and will "
+"assign/switch user roles automatically."
+msgstr ""
+"Όλες οι παραγγελίες με έγκυρους κανόνες έως {date_to} θα επεξεργάζονται και "
+"αναθέτουν/αλλάζουν ρόλους αυτόματα."
+
+#: includes/class-yith-role-changer-admin-premium.php:595
+msgid "Warning: \"From\" field must not be greater than \"To\" field"
+msgstr ""
+"Προειδοποίηση: Το πεδίο “Από” δεν πρέπει να είναι μεγαλύτερο από το πεδίο "
+"“Έως”"
+
+#: includes/class-yith-role-changer-admin.php:146
+msgid "Rules"
+msgstr "Κανόνες"
+
+#: includes/class-yith-role-changer-admin.php:151
+msgid "Premium Version"
+msgstr "Premium Έκδοση"
+
+#: includes/class-yith-role-changer-admin.php:233
+msgid "Plugin documentation"
+msgstr "Εγχειρίδιο χρήσης προσθέτου"
+
+#: includes/class-yith-role-changer-admin.php:237
+msgid "Help Center"
+msgstr "Κέντρο Βοήθειας"
+
+#: includes/class-yith-role-changer-admin.php:244
+msgid "Discover the premium version"
+msgstr "Ανακαλύψτε την premium έκδοση"
+
+#: includes/class-yith-role-changer-admin.php:249
+msgid "Free vs Premium"
+msgstr "Free vs Premium"
+
+#: includes/class-yith-role-changer-admin.php:254
+msgid "Premium live demo"
+msgstr "Premium live demo"
+
+#: includes/class-yith-role-changer-admin.php:259
+msgid "WordPress support forum"
+msgstr "Φόρουμ υποστήριξης WordPress"
+
+#: includes/class-yith-role-changer-admin.php:264
+#: includes/class-yith-role-changer-admin.php:276
+msgid "Changelog"
+msgstr "Σύνοψη αλλαγών"
+
+#: includes/class-yith-role-changer-admin.php:264
+#: includes/class-yith-role-changer-admin.php:276
+msgid "current version"
+msgstr "τρέχουσα έκδοση"
+
+#: includes/class-yith-role-changer-admin.php:271
+msgid "Support platform"
+msgstr "Πλατφόρμα υποστύριξης"
+
+#: includes/class-yith-role-changer-admin.php:385
+msgid "Automatic role changer"
+msgstr "Automatic role changer"
+
+#: includes/class-yith-role-changer-admin.php:418
+msgid "Customer gains the following role: "
+msgid_plural "Customer gains the following roles: "
+msgstr[0] "Ο πελάτης κερδίζει τον ακόλουθο ρόλο: "
+msgstr[1] "Ο πελάτης κερδίζει τους ακόλουθους ρόλους: "
+
+#. translators: %s is replaced with number of roles.
+#: includes/class-yith-role-changer-admin.php:472
+msgid "%d new role gained with this order"
+msgid_plural "%d new roles gained with this order"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-yith-role-changer-roles-manager.php:69
+msgid "Roles"
+msgstr "Ρόλοι"
+
+#: includes/class-yith-role-changer-roles-manager.php:74
+msgid "User Roles"
+msgstr "Ρόλοι Χρήστη"
+
+#: includes/class-yith-role-changer-set-roles-premium.php:523
+#: includes/class-yith-role-changer-set-roles-premium.php:527
+msgid "Activation date: "
+msgstr "Ημερομηνία ενεργοποίησης: "
+
+#: includes/class-yith-role-changer-set-roles-premium.php:530
+msgid "Activated at the time of purchase"
+msgstr "Ενεργοποιήθηκε την στιγμή της αγοράς"
+
+#: includes/class-yith-role-changer-set-roles-premium.php:536
+#: includes/class-yith-role-changer-set-roles-premium.php:540
+msgid "Valid until: "
+msgstr "Έγκυρο έως: "
+
+#: includes/class-yith-role-changer-set-roles-premium.php:543
+msgid "Permanent role"
+msgstr "Μόνιμος ρόλος"
+
+#: includes/emails/class-yith-role-changer-admin-email.php:39
+msgid "Automatic Role Changer email for Admin"
+msgstr "Email Αυτόματης Αλλαγής Ρόλου για Διαχειριστή"
+
+#: includes/emails/class-yith-role-changer-admin-email.php:40
+msgid ""
+"The administrator will receive an email when a order with roles to be \n"
+"\t\t\t\tgranted passes to \"Completed\" or \"Processing\" status."
+msgstr ""
+
+#: includes/emails/class-yith-role-changer-admin-email.php:46
+#: includes/emails/class-yith-role-changer-admin-email.php:47
+msgid "New roles will be added to user"
+msgstr "Θα προστεθούν νέοι ρόλοι στον χρήστη"
+
+#: includes/emails/class-yith-role-changer-admin-email.php:133
+#: includes/emails/class-yith-role-changer-user-email.php:150
+msgid "Enable/Disable"
+msgstr "Ενεργοποίηση/Απενεργοποίηση"
+
+#: includes/emails/class-yith-role-changer-admin-email.php:135
+#: includes/emails/class-yith-role-changer-user-email.php:152
+msgid "Enable this email notification"
+msgstr "Ενεργοποιήστε αυτή την ειδοποίηση email"
+
+#: includes/emails/class-yith-role-changer-admin-email.php:139
+msgid "Recipient(s)"
+msgstr "Παραλήπτης(ες)"
+
+#. translators: %s is replaced with default recipients.
+#: includes/emails/class-yith-role-changer-admin-email.php:142
+msgid "Enter recipients (comma separated) for this email. Defaults to %s."
+msgstr ""
+"Εισάγετε παραλήπτες (διαχωρίστε με κόμμα) για αυτό το email. Προεπιλεγμένα "
+"σε %s."
+
+#: includes/emails/class-yith-role-changer-admin-email.php:148
+#: includes/emails/class-yith-role-changer-user-email.php:156
+msgid "Subject"
+msgstr "Θέμα"
+
+#. translators: %s is replaced with default subject
+#. translators: %s is replaced with default subject.
+#: includes/emails/class-yith-role-changer-admin-email.php:151
+#: includes/emails/class-yith-role-changer-user-email.php:159
+msgid ""
+"This controls the email subject line. Leave blank to use the default "
+"subject: <code>%s</code>."
+msgstr ""
+"Ελέγχει την γραμμή θέματος email. Διατηρήστε κενό για να χρησιμοποιήσετε το "
+"προεπιλεγμένο θέμα: <code>%s</code>."
+
+#: includes/emails/class-yith-role-changer-admin-email.php:157
+#: includes/emails/class-yith-role-changer-user-email.php:165
+msgid "Email Heading"
+msgstr "Επικεφαλίδα Email"
+
+#. translators: %s is replaced with default heading
+#. translators: %s is replaced with default heading.
+#: includes/emails/class-yith-role-changer-admin-email.php:160
+#: includes/emails/class-yith-role-changer-user-email.php:168
+msgid ""
+"This controls the main heading included in the email notification. Leave "
+"blank to use the default heading: <code>%s</code>."
+msgstr ""
+"Ελέγχει την κύρια επικεφαλίδα που περιλαμβάνεται στην ειδοποίηση email. "
+"Διατηρήστε κενό για να χρησιμοποιήσετε την προεπιλεγμένη επικεφαλίδα: "
+"<code>%s</code>."
+
+#: includes/emails/class-yith-role-changer-user-email.php:40
+msgid "Automatic Role Changer email for User"
+msgstr "Email Αυτόματης Αλλαγής Ρόλου για Χρήστη"
+
+#: includes/emails/class-yith-role-changer-user-email.php:41
+msgid ""
+"The user will receive an email when a order with roles to be \n"
+"\t\t\t\tgranted passes to \"Completed\" or \"Processing\" status."
+msgstr ""
+
+#: includes/emails/class-yith-role-changer-user-email.php:47
+#: includes/emails/class-yith-role-changer-user-email.php:48
+msgid "You've earned roles"
+msgstr "Έχετε κερδίσει ρόλους"
+
+#: includes/emails/class-yith-role-changer-user-email.php:174
+msgid "Email type"
+msgstr "Τύπος email"
+
+#. translators: %s is replaced with default email type.
+#: includes/emails/class-yith-role-changer-user-email.php:177
+msgid "Choose which format of email to send."
+msgstr "Επιλέξτε ποια μορφή email να στέλνεται."
+
+#: init.php:85
+msgid ""
+"YITH Automatic Role Changer for WooCommerce is enabled but not effective. It "
+"requires WooCommerce in order to work."
+msgstr ""
+"Το YITH Automatic Role Changer for WooCommerce είναι ενεργοποιημένο αλλά "
+"αναποτελεσματικό. Για σωστή λειτουργία απαιτείται WooCommerce."
+
+#: templates/admin/add-rule.php:36
+msgid "The user will:"
+msgstr "Ο χρήστης θα:"
+
+#: templates/admin/add-rule.php:97
+msgid "Choose a product: "
+msgstr "Επιλογή προϊόντος: "
+
+#: templates/admin/add-rule.php:126
+msgid "Search for a product&hellip;"
+msgstr "Αναζήτηση για προϊόν&hellip;"
+
+#: templates/admin/add-rule.php:143
+msgid "Save rule"
+msgstr "Αποθήκευση κανόνα"
+
+#: templates/admin/add-rule.php:147
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: templates/admin/load-rules.php:29
+msgid "MY RULES"
+msgstr "ΟΙ ΚΑΝΟΝΕΣ ΜΟΥ"
+
+#: templates/admin/rules-tab-premium.php:22 templates/admin/rules-tab.php:22
+msgid ""
+"Here you can create and configure your own rules for automatic role switch."
+msgstr ""
+"Εδώ μπορείτε να δημιουργήσετε και ρυθμίσετε τους δικούς σας κανόνες για την "
+"εναλλαγή αυτόματου ρόλου."
+
+#: templates/admin/rules-tab-premium.php:32 templates/admin/rules-tab.php:32
+msgid ""
+"To start, click on 'Add new rule', name your rule and set it up as you wish. "
+"Don't forget to save the settings when you're finished."
+msgstr ""
+
+#: templates/admin/rules-tab-premium.php:44 templates/admin/rules-tab.php:45
+msgid "Name the rule..."
+msgstr "Ορισμός ονόματος κανόνα…"
+
+#: templates/admin/rules-tab-premium.php:47 templates/admin/rules-tab.php:48
+msgid "Add new rule"
+msgstr "Προσθήκη νέου κανόνα"
+
+#: templates/admin/rules-tab-premium.php:52
+msgid ""
+"This will check all your current orders and search for those matching your "
+"current rules. This will set as many user roles as many that it will find. "
+"This procedure cannot be undone. Use with caution."
+msgstr ""
+"Αυτή η επιλογή θα ελέγξει όλες τις τρέχουσες παραγγελίες σας και θα γίνει "
+"αναζήτηση αυτών που αντιστοιχούν με τους τρέχοντες κανόνες σας. Θα ορίσει "
+"όσους ρόλους χρήστη βρει. Αυτή η διαδικασία δεν μπορεί να αναιρεθεί. "
+"Χρησιμοποιήστε την με προσοχή."
+
+#: templates/admin/rules-tab-premium.php:55
+msgid "Force apply rules"
+msgstr "Επιβολή εφαρμογής κανόνων"
+
+#: templates/admin/rules-tab-premium.php:58
+msgid "Set a date range to filter the search"
+msgstr "Ορισμός εύρους ημερομηνίας για την ταξινόμηση αναζήτησης"
+
+#: templates/admin/rules-tab-premium.php:59
+msgid "Set dates"
+msgstr "Ορισμός ημερομηνιών"
+
+#: templates/admin/rules-tab-premium.php:68
+msgid "Search for orders by:"
+msgstr "Αναζήτηση παραγγελιών κατα:"
+
+#: templates/admin/rules-tab-premium.php:71
+msgid "Created date"
+msgstr "Ημερομηνία που δημιουργήθηκε"
+
+#: templates/admin/rules-tab-premium.php:75
+msgid "Completed date"
+msgstr "Ημερομηνία που ολοκληρώθηκε"
+
+#: templates/admin/rules-tab-premium.php:79
+msgid "Paid date"
+msgstr "Ημερομηνία που πληρώθηκε"
+
+#: templates/admin/rules-tab-premium.php:91
+msgid "From:"
+msgstr "Από:"
+
+#: templates/admin/rules-tab-premium.php:96
+msgid "To:"
+msgstr "Σε:"
+
+#. translators: %1$s is replaced with user,  %2$s is replaced with Roles_count
+#: templates/emails/role-changer-admin.php:41
+msgid "The user %1$s gained the following role with the order %2$s: "
+msgid_plural "The user %1$s gained the following roles with the order %2$s: "
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/emails/role-changer-user.php:40
+msgid "Hi, thanks for your purchase."
+msgstr "Γεια σας, ευχαριστούμε για την αγορά σας."
+
+#. translators: %1$s is replaced with curent order
+#: templates/emails/role-changer-user.php:44
+msgid "You've earned the following role with your order %s: "
+msgid_plural "You've earned the following roles with your order %s: "
+msgstr[0] "Έχετε κερδίσει τον ακόλουθο ρόλο με την παραγγελία σας %s: "
+msgstr[1] "Έχετε κερδίσει τους ακόλουθους ρόλους με την παραγγελία σας %s: "
+
+#: templates/myaccount/ywarc-gained-roles.php:33
+msgid "Roles gained"
+msgstr "Κερδισμένοι ρόλοι"
+
+#. Description of the plugin/theme
+msgid ""
+"<code><strong>YITH Automatic Role Changer for WooCommerce Premium</strong></"
+"code> assigns a new or a different role to your shop customers automatically "
+"based on what they have bought. <a href=\"https://yithemes.com/\" "
+"target=\"_blank\">Get more plugins for your e-commerce on <strong>YITH</"
+"strong></a>."
+msgstr ""
+"Το <code><strong>YITH Automatic Role Changer for WooCommerce Premium</"
+"strong></code> αναθέτει ένα νέο ή διαφορετικό ρόλο στους πελάτες του "
+"καταστήματός σας αυτόματα βάσει των αγορών τους. <a href=\"https://yithemes."
+"com/\" target=\"_blank\">Βρείτε περισσότερα πρόσθετα για το ηλεκτρονικό σας "
+"κατάστημα στο <strong>YITH</strong></a>."
+
+#: includes/class-yith-role-changer-admin-premium.php:122
+msgctxt ""
+"As used in the following sentence: \"The user will adquire the role WHEN\": "
+msgid "When:"
+msgstr "Όταν:"
+
+#: includes/class-yith-role-changer-admin-premium.php:227
+#: includes/class-yith-role-changer-admin-premium.php:362
+msgctxt "start date"
+msgid "From: "
+msgstr "Από: "
+
+#: includes/class-yith-role-changer-admin-premium.php:237
+#: includes/class-yith-role-changer-admin-premium.php:372
+msgctxt "end date"
+msgid "To: "
+msgstr "Έως: "
+
+#: includes/class-yith-role-changer-admin-premium.php:370
+msgctxt "placeholder"
+msgid "From&hellip;"
+msgstr "Από&hellip;"
+
+#: includes/class-yith-role-changer-admin-premium.php:380
+msgctxt "placeholder"
+msgid "To&hellip;"
+msgstr "Έως&hellip;"
+
+#: templates/admin/add-rule.php:51
+msgctxt "Complete sentence: The user will gain the role"
+msgid "gain the role"
+msgstr "κερδίσει τον ρόλο"
+
+#: templates/admin/add-rule.php:65
+msgctxt "Complete sentence: The user will switch from this role to this one"
+msgid "switch"
+msgstr "αλλάξει"
+
+#: templates/admin/add-rule.php:77
+msgctxt "Complete sentence: The user will switch from this role to this one"
+msgid "from this role:"
+msgstr "από αυτόν τον ρόλο:"
+
+#: templates/admin/add-rule.php:83
+msgctxt "Complete sentence: The user will switch from this role to this one"
+msgid "to this one:"
+msgstr "σε αυτόν:"
+
+#: templates/admin/load-rules.php:32
+msgctxt "toggle button label."
+msgid "Show"
+msgstr "Εμφάνιση"
+
+#: templates/admin/load-rules.php:34
+msgctxt "toggle button label."
+msgid "Hide"
+msgstr "Απόκρυψη"
+
+#: templates/admin/load-rules.php:36
+msgctxt "toggle button label."
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#. translators: %1$s,  %2$s, %3$s is replaced with show/hide/delete
+#: templates/admin/load-rules.php:43
+msgctxt "\"Show\" / \"Hide\" / \"Delete\" all rules"
+msgid "( %1$s / %2$s / %3$s all rules )"
+msgstr ""
+
+#: templates/admin/rules-tab-premium.php:84
+msgctxt ""
+"Date format. (Do not change the format to local format, the format must be "
+"YYYY-MM-DD always)"
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"

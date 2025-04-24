@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('affwp-portal-sdk', 'moment', 'wp-i18n', 'wp-polyfill'), 'version' => '5081522517ac101e854ad937bf672d69');

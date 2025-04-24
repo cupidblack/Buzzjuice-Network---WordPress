@@ -1,0 +1,259 @@
+# Copyright (C) 2022 Sandhills Development, LLC
+# This file is distributed under the same license as the AffiliateWP - Lifetime Commissions plugin.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AffiliateWP - Lifetime Commissions 1.6.1\n"
+"Report-Msgid-Bugs-To: https://affiliatewp.com/support\n"
+"POT-Creation-Date: 2022-04-06 22:17+0100\n"
+"PO-Revision-Date: 2022-04-06 22:17+0100\n"
+"Last-Translator: AffiliateWP <support@affiliatewp.com>\n"
+"Language-Team: AffiliateWP <support@affiliatewp.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Domain: affiliate-wp-lifetime-commissions\n"
+
+#. Plugin Name of the plugin
+msgid "AffiliateWP - Lifetime Commissions"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "http://affiliatewp.com/addons/lifetime-commissions/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Allow your affiliates to receive a commission on all future purchases by the customer"
+msgstr ""
+
+#. Author of the plugin
+msgid "Sandhills Development, LLC"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://sandhillsdev.com"
+msgstr ""
+
+#: affiliate-wp-lifetime-commissions.php:159
+msgid "AffiliateWP - Lifetime Commissions Requirements"
+msgstr ""
+
+#: includes/class-admin.php:95 includes/class-admin.php:184
+#: includes/class-admin.php:222 includes/class-admin.php:309
+msgid "Lifetime Commissions"
+msgstr ""
+
+#: includes/class-admin.php:100
+msgid "Linked Affiliate"
+msgstr ""
+
+#: includes/class-admin.php:106
+msgid "The affiliate linked to this customer."
+msgstr ""
+
+#: includes/class-admin.php:109
+msgid "View Affiliate"
+msgstr ""
+
+#: includes/class-admin.php:199 includes/class-dashboard.php:77
+#: includes/class-dashboard.php:99 includes/class-dashboard.php:102
+msgid "Lifetime Referral"
+msgstr ""
+
+#: includes/class-admin.php:243
+msgid "Enable For All Affiliates?"
+msgstr ""
+
+#: includes/class-admin.php:244
+msgid "Check this box to enable lifetime commissions for all affiliates.<br /><em>Leave unchecked to enable lifetime commissions on a per-affiliate basis only.</em>"
+msgstr ""
+
+#: includes/class-admin.php:248 includes/class-admin.php:356
+msgid "Lifetime Customers Access"
+msgstr ""
+
+#: includes/class-admin.php:249
+msgid "Check this box to allow all affiliates to see their lifetime customers."
+msgstr ""
+
+#: includes/class-admin.php:253
+msgid "Lifetime Customers Hide Emails"
+msgstr ""
+
+#: includes/class-admin.php:258
+msgid "Enable Lifetime Referral Rates"
+msgstr ""
+
+#: includes/class-admin.php:259
+msgid "Check this box to enable lifetime referral rates."
+msgstr ""
+
+#: includes/class-admin.php:263 includes/class-admin.php:383
+msgid "Lifetime Referral Rate"
+msgstr ""
+
+#: includes/class-admin.php:264
+msgid "Referral rate used for lifetime referrals, for all affiliates. The lifetime referral rate will take priority unless it is set to 0, or a per-affiliate lifetime referral rate is set."
+msgstr ""
+
+#: includes/class-admin.php:271
+msgid "Lifetime Referral Rate Type"
+msgstr ""
+
+#: includes/class-admin.php:272
+msgid "Should lifetime referrals be based on a percentage or flat rate amounts?"
+msgstr ""
+
+#: includes/class-admin.php:274
+msgid "Site Default"
+msgstr ""
+
+#: includes/class-admin.php:277 includes/class-admin.php:428
+msgid "Lifetime Length"
+msgstr ""
+
+#: includes/class-admin.php:278
+msgid "The number of days lifetime commissions will be generated from a referral for all affiliates. The lifetime length will always be used unless a per-affiliate lifetime length is set. Set to 0 for infinite."
+msgstr ""
+
+#: includes/class-admin.php:285
+msgid "Link Customers To Affiliates On User Registration"
+msgstr ""
+
+#: includes/class-admin.php:286
+msgid "Check this box if you would like to automatically link customers to affiliates on user registration."
+msgstr ""
+
+#: includes/class-admin.php:290
+msgid "Remove Data When Deleted?"
+msgstr ""
+
+#: includes/class-admin.php:291
+msgid "Check this box if you would like Lifetime Commissions to completely remove all of its data when the plugin is deleted."
+msgstr ""
+
+#: includes/class-admin.php:327
+msgid "Enable Lifetime Commissions"
+msgstr ""
+
+#: includes/class-admin.php:333
+msgid "Allow this affiliate to receive lifetime commissions."
+msgstr ""
+
+#: includes/class-admin.php:362
+msgid "Allow affiliate to see their lifetime customers."
+msgstr ""
+
+#: includes/class-admin.php:388
+msgid "The affiliate&#8217;s lifetime referral rate. This rate takes priority over the <a href=\"%s\">Lifetime Referral Rate</a> set in the Lifetime Commissions settings tab."
+msgstr ""
+
+#: includes/class-admin.php:408
+msgid "The affiliate&#8217;s lifetime referral rate type. This rate type takes priority over the <a href=\"%s\">Lifetime Referral Rate Type</a> set in the Lifetime Commissions settings tab."
+msgstr ""
+
+#: includes/class-admin.php:433
+msgid "The number of days this affiliate can earn lifetime commissions from a referral. This length takes priority over the <a href=\"%s\">Lifetime Length</a> set in the Lifetime Commissions settings tab."
+msgstr ""
+
+#: includes/class-admin.php:442
+#: includes/class-affiliatewp-lifetime-commissions.php:351
+#: includes/class-affiliatewp-lifetime-commissions.php:377
+#: includes/class-dashboard.php:48 includes/class-dashboard.php:54
+#: templates/dashboard-tab-lifetime-customers.php:9
+msgid "Lifetime Customers"
+msgstr ""
+
+#: includes/class-admin.php:451 includes/class-admin.php:708
+msgid "Customers linked to this affiliate."
+msgstr ""
+
+#: includes/class-admin.php:453
+msgid "No customers are linked to this affiliate."
+msgstr ""
+
+#: includes/class-admin.php:487
+msgid "Add New Customer Email"
+msgstr ""
+
+#: includes/class-admin.php:491
+msgid "Enter an email address"
+msgstr ""
+
+#: includes/class-admin.php:493
+msgid "Add Email"
+msgstr ""
+
+#: includes/class-admin.php:494
+msgid "Enter an email to link a new customer to this affiliate."
+msgstr ""
+
+#: includes/class-admin.php:655
+msgid "Error"
+msgstr ""
+
+#: includes/class-admin.php:667
+msgid "Customer unlinked successfully"
+msgstr ""
+
+#: includes/class-admin.php:775 includes/class-admin.php:832
+msgid "Customer has been linked to this affiliate."
+msgstr ""
+
+#: includes/class-admin.php:784 includes/class-admin.php:841
+#: includes/class-admin.php:851
+msgid "Unable to link customer to this affiliate."
+msgstr ""
+
+#: includes/class-admin.php:794
+msgid "Customer is already linked to an affiliate."
+msgstr ""
+
+#: includes/class-admin.php:938
+msgid "Unlink"
+msgstr ""
+
+#: includes/class-affiliatewp-lifetime-commissions.php:112
+#: includes/class-affiliatewp-lifetime-commissions.php:124
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: includes/class-batch-migrate-lifetime-customers.php:145
+msgid "%d customer was updated successfully."
+msgid_plural "%d customers were updated successfully."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-batch-migrate-meta.php:213
+msgid "%d affiliate was updated successfully."
+msgid_plural "%d affiliates were updated successfully."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-upgrades.php:113 includes/class-upgrades.php:135
+msgid "Your database needs to be upgraded following the latest AffiliateWP - Lifetime Commissions update. Depending on the size of your database, this upgrade could take some time."
+msgstr ""
+
+#: includes/class-upgrades.php:117 includes/class-upgrades.php:139
+msgid "Upgrade Database"
+msgstr ""
+
+#: templates/dashboard-tab-lifetime-customers.php:16
+#: templates/dashboard-tab-lifetime-customers.php:30
+msgid "First Name"
+msgstr ""
+
+#: templates/dashboard-tab-lifetime-customers.php:17
+#: templates/dashboard-tab-lifetime-customers.php:31
+msgid "Last Name"
+msgstr ""
+
+#: templates/dashboard-tab-lifetime-customers.php:19
+#: templates/dashboard-tab-lifetime-customers.php:33
+msgid "Email"
+msgstr ""
+
+#: templates/dashboard-tab-lifetime-customers.php:44
+msgid "You don't have any lifetime customers yet."
+msgstr ""

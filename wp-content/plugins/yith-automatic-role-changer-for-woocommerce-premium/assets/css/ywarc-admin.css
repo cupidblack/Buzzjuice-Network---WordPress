@@ -1,0 +1,166 @@
+div.rule_block {
+    margin-bottom: 15px;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+    background: #fff;
+}
+
+div.rule_head {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 12px;
+    margin: 0;
+    line-height: 1.4;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    background: #fafafa;
+}
+
+div.rule_options {
+    display: none;
+    padding: 10px;
+}
+
+.arrow_button {
+    margin: 0;
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    float: right;
+    width: 36px;
+}
+
+.toggle-indicator:before {
+    width: 20px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-indent: -1px;
+    content: "\f140";
+    display: inline-block;
+    font: normal 20px/1 dashicons;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none !important;
+}
+
+.delete_rule {
+    margin-left: 15px;
+    vertical-align: -8px;
+}
+
+.delete_rule:hover, #delete_all_rules:hover {
+    color: #f00;
+    text-decoration: none;
+    border: none;
+}
+
+.ywarc_creating_rule {
+    display: inline-block;
+    width: 100px;
+}
+
+.no_rules {
+    display: none;
+}
+
+.block {
+    margin-top: 20px;
+}
+
+.range {
+    max-width: 160px;
+    margin-right: 20px;
+}
+
+#my_rules_header {
+    margin-bottom: 20px;
+}
+
+.my_rules_text {
+    font-weight: bold;
+    font-size: 1.3em;
+    text-decoration: underline;
+}
+
+.my_rules_show_hide_rules {
+    float: right;
+}
+
+input.empty_field, select.empty_field, .empty_field ul.select2-choices, .empty_field a.select2-choice {
+    border-color: #dc3232 !important;
+    -webkit-box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
+    box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
+}
+
+.empty_field a.select2-choice, .empty_field span.select2 {
+    border: solid 2px red;
+    border-radius: 5px;
+}
+
+.ywarc_warning {
+    display: none;
+}
+
+.empty_field .ywarc_required_field, .ywarc_from_gt_to .ywarc_warning {
+    display: inline;
+    color: #dc3232;
+    font-weight: 700;
+}
+
+.empty_field .ywarc_required_field:before, .ywarc_from_gt_to .ywarc_warning:before {
+    content: "\f534";
+    font: normal 20px/1 dashicons;
+    color: #dc3232;
+    vertical-align: text-top;
+}
+
+.ywarc_optional {
+    color: grey;
+    font-style: italic;
+}
+
+.ywarc_metabox_gained_role {
+    border: #dcdada solid 1px;
+    padding: 15px;
+    text-align: center;
+    margin: 10px;
+}
+
+.ywarc_metabox_role_name {
+    font-size: 24px;
+    color: grey;
+}
+
+.ywarc_metabox_dates {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+tbody#the-list td.order_status img.ywarc_role_icon, tbody#the-list td.order_number img.ywarc_role_icon {
+    width: 25px;
+    margin: 10px 0;
+    cursor: help;
+}
+
+tbody#the-list td.order_number img.ywarc_role_icon {
+    margin-left: 10px;
+    vertical-align: middle;
+    cursor: help;
+}
+
+@media screen and (max-width: 782px) {
+    .form-table td input[type="text"] {
+        max-width: 350px;
+    }
+}
+
+
+
