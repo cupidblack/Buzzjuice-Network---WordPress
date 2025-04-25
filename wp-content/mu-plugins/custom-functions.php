@@ -69,5 +69,11 @@ add_action('woocommerce_checkout_update_order_meta', function ($order_id) {
 
 
 
+// Disable Admin Features: WooCommerce can load additional scripts in the admin dashboard.
+add_filter('woocommerce_admin_disabled', '__return_true');
+
+
+
+
 
 ?>

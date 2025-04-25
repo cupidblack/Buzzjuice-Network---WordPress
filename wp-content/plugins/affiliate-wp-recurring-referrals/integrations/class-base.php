@@ -172,16 +172,16 @@ abstract class Affiliate_WP_Recurring_Base {
 	 * @access public
 	 * @since  1.5.7
 	 *
+	 * @param int        $parent_id           Parent referral ID.
 	 * @param string     $base_amount         Optional. Base amount to calculate the referral amount from.
 	 *                                        Default empty.
 	 * @param string|int $reference           Optional. Referral reference (usually the order ID). Default empty.
-	 * @param int        $parent_id           Parent referral ID
 	 * @param int        $product_id          Optional. Product ID. Default 0.
 	 * @param int        $affiliate_id        Optional. Affiliate ID.
 	 *
 	 * @return float The calculated referral amount
 	 */
-	public function calc_referral_amount( $base_amount = '', $reference = '', $parent_id, $product_id = 0, $affiliate_id = 0 ) {
+	public function calc_referral_amount( $parent_id, $base_amount = '', $reference = '', $product_id = 0, $affiliate_id = 0 ) {
 
 		$referral_amount = '';
 

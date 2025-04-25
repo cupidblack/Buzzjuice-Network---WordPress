@@ -223,6 +223,10 @@ define( 'SAVEQUERIES', true );
 
 
 
+// Disable SSL on Local Staging
+define('WP_HTTP_BLOCK_EXTERNAL', false);
+define('WP_ACCESSIBLE_HOSTS', 'localhost');
+
 
 
 

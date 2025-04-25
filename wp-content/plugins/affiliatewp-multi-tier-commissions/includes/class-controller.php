@@ -50,11 +50,8 @@ class Controller {
 		// Maybe deactivate if is not a pro license.
 		add_action( 'plugins_loaded', array( $this, 'restrict_to_pro' ) );
 
-		// Register the new referral type.
-		add_action( 'affwp_referral_type_init', array( $this, 'register_new_referral_type' ) );
-
-		// We need to run this filter in plugins loaded as well, otherwise the new referral type will not show in the admin.
-		add_action( 'plugins_loaded', array( $this, 'register_new_referral_type' ) );
+		// Register the new referral type at the 'init' action to ensure translations are loaded.
+		add_action( 'init', array( $this, 'register_new_referral_type' ) );
 
 		// Make the connection between affiliates.
 		add_action( 'affwp_register_user', array( $this, 'save_referrer_id_to_affiliate' ) );
