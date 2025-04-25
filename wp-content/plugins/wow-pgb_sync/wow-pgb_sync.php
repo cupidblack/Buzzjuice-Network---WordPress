@@ -102,6 +102,8 @@ function wowonder_redirect_after_purchase($order_id) {
     $product_ids = get_option('wow_pgb_product_ids', []); // Retrieve product IDs for WoWPGB products
     $wowonder_url = get_option('wowonder_url', 'http://127.0.0.1/buzzjuice.net/streams/'); // Base WoWonder URL
 
+    //error_log("✅ (wow-pgb_sync.php) Order ID:" . print_r($order, true)); // Log the order ID for debugging
+
     foreach ($order->get_items() as $item) {
         $product = wc_get_product($item->get_product_id());
 
@@ -123,6 +125,9 @@ function wowonder_redirect_after_purchase($order_id) {
 
                 // Redirect to the WoWonder fund page
                 if (!empty($wow_post_id)) {
+
+                    bluecrown_affiliatewp_post_checkout_verification($order_id);
+
                     $redirect_url = sprintf(
                         "%s/show_fund/%s?nocache=%d",
                         esc_url($wowonder_url),
@@ -218,7 +223,7 @@ function wowonder_redirect_after_purchase($order_id) {
             
                 // Step 3: Check the user's pro status in WoWonder
                 $retry_count = 0;
-                $max_retries = 50; // Retry up to 50 times
+                $max_retries = 20; // Retry up to 50 times
                 $success = false;
 
 
@@ -267,11 +272,6 @@ function wowonder_redirect_after_purchase($order_id) {
                     }
                 }
 
-
-
-
-
-
                 if ($success) {
                     // Step 4: Activate WooCommerce Subscription
                     $woo_order_id = $order->get_id(); // Get WooCommerce order ID
@@ -300,6 +300,7 @@ function wowonder_redirect_after_purchase($order_id) {
                     $subscription_interval = $metadata['subscription_interval'];
 
                     // Log the extracted subscription metadata for debugging
+                    error_log("✅ Product Metadata:" . print_r($metadata, true)); // Fixed the logging statement
                     //error_log("✅ Subscription Period: $subscription_period");
                     //error_log("✅ Subscription Interval: $subscription_interval");
 
@@ -351,6 +352,8 @@ function wowonder_redirect_after_purchase($order_id) {
                             $subscription_id = $subscription['id'] ?? null;
                             error_log("✅ Subscription created successfully with ID: $subscription_id");
 
+                            bluecrown_affiliatewp_post_checkout_verification($order_id); // Call the function to credit the affiliate
+
                             // Redirect to the upgraded page for WoWPGB-Pro
                             $redirect_url = sprintf("%s/upgraded", esc_url($wowonder_url));
                             wp_redirect($redirect_url);
@@ -369,6 +372,9 @@ function wowonder_redirect_after_purchase($order_id) {
                     
                 // Handle wallet product redirection
                 if ($product_sku === 'wow-pgb_wallet') {
+
+                    bluecrown_affiliatewp_post_checkout_verification($order_id);
+
                     $redirect_url = sprintf(
                         "%s/wallet/?nocache=%d",
                         esc_url($wowonder_url),
@@ -380,13 +386,17 @@ function wowonder_redirect_after_purchase($order_id) {
             } 
         } else { // Corrected the unmatched '}' issue
             
-            // Handle other product types
-            $redirect_url = sprintf(
-                "%s/purchased",
-                esc_url($wowonder_url)
-            );
-            wp_redirect($redirect_url);
-            exit();
+            if ($product_sku === 'wow-pgb_market') {
+
+                bluecrown_affiliatewp_post_checkout_verification($order_id);
+                // Handle Market Redirection
+                $redirect_url = sprintf(
+                    "%s/purchased",
+                    esc_url($wowonder_url)
+                );
+                wp_redirect($redirect_url);
+                exit();
+            }
         }
     }
 }
@@ -457,20 +467,22 @@ function wowonder_settings_init() {
 add_action('admin_init', 'wowonder_settings_init');
 
 /**
- * Retrieve subscription metadata for a given variation ID.
+ * Retrieve subscription metadata and all product metadata for a given variation ID.
  *
  * @param int $variation_id The variation product ID.
- * @return array An array containing the subscription period and interval.
+ * @return array An array containing the subscription period, interval, and full metadata.
  */
 function get_subscription_metadata($variation_id) {
     $subscription_period = 'month'; // Default value
     $subscription_interval = 1; // Default value
+    $full_metadata = []; // To store all metadata
 
     // Retrieve the product object for the variation
     $product = wc_get_product($variation_id);
     if ($product) {
         // Loop through the product's metadata to find subscription-related keys
         foreach ($product->get_meta_data() as $meta) {
+            $full_metadata[$meta->key] = $meta->value; // Store all metadata
             if ($meta->key === '_subscription_period') {
                 $subscription_period = $meta->value;
             }
@@ -480,9 +492,13 @@ function get_subscription_metadata($variation_id) {
         }
     }
 
+    // Log the full metadata for debugging
+    error_log("✅ Full Product Metadata for Variation ID $variation_id: " . print_r($full_metadata, true));
+
     return [
         'subscription_period' => $subscription_period,
         'subscription_interval' => $subscription_interval,
+        'full_metadata' => $full_metadata, // Include all metadata in the return value
     ];
 }
 
@@ -544,5 +560,71 @@ function send_woocommerce_request($url, $method = 'GET', $data = null, $auth_key
     //error_log("📥 API Response: " . print_r($response, true));
 
     return ['response' => $response, 'http_code' => $http_code, 'error' => $error];
+}
+
+function bluecrown_affiliatewp_post_checkout_verification($order_id) {
+    // 🔹 AffiliateWP Integration: Ensure affiliates are credited for API orders
+    global $wpdb;
+
+    // Step 1: Retrieve the user ID (customer ID) from the WooCommerce order
+    $order = wc_get_order($order_id); // Ensure the order object is retrieved
+    if (!$order) {
+        error_log("❌ Invalid WooCommerce order ID: $order_id");
+        return;
+    }
+
+    $user_id = $order->get_customer_id(); // Use get_customer_id() instead of get_user_id()
+    if (!$user_id) {
+        error_log("❌ No user ID (customer ID) found for order ID: $order_id");
+        return;
+    }
+
+    // Step 2: Fetch affwp_customer_id from wp_affiliate_wp_customers table
+    $affwp_customer_id = $wpdb->get_var($wpdb->prepare(
+        "SELECT customer_id FROM wp_affiliate_wp_customers WHERE user_id = %d",
+        $user_id
+    ));
+
+    if (!$affwp_customer_id) {
+        error_log("❌ No affwp_customer_id found for user ID: $user_id");
+        return;
+    }
+
+    // Step 3: Fetch affiliate_id from wp_affiliate_wp_customermeta table
+    $affiliate_id = $wpdb->get_var($wpdb->prepare(
+        "SELECT meta_value FROM wp_affiliate_wp_customermeta WHERE affwp_customer_id = %d AND meta_key = 'affiliate_id'",
+        $affwp_customer_id
+    ));
+
+    if (!$affiliate_id) {
+        error_log("❌ No affiliate_id found for affwp_customer_id: $affwp_customer_id");
+        return;
+    }
+
+    // Step 4: Check if the affiliate has already been credited for this order
+    $referral_exists = affiliate_wp()->referrals->get_by('reference', $order_id, 'woocommerce');
+    if ($referral_exists) {
+        error_log("✅ Affiliate already credited for order ID: $order_id");
+        return;
+    }
+
+    // Step 5: Create a referral for the affiliate
+    $order_total = $order->get_total();
+    $referral_args = [
+        'reference'    => $order_id,
+        'amount'       => $order_total,
+        'description'  => "Order #{$order_id}",
+        'affiliate_id' => $affiliate_id,
+        'context'      => 'woocommerce',
+        'status'       => 'unpaid', // Default status, can be changed to 'paid' if necessary
+    ];
+
+    $referral_id = affiliate_wp()->referrals->add($referral_args);
+
+    if ($referral_id) {
+        error_log("✅ Affiliate credited successfully. Referral ID: $referral_id");
+    } else {
+        error_log("❌ Failed to credit affiliate for order ID: $order_id");
+    }
 }
 ?>

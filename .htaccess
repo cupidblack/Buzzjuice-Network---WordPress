@@ -2,42 +2,35 @@
 # BEGIN PERFORMANCE AND SECURITY HEADERS
 # ----------------------------------------------------------------------
 <IfModule mod_headers.c>
-    Header set Connection keep-alive
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-    Header always set X-Content-Type-Options "nosniff"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    Header always set X-Frame-Options "SAMEORIGIN"
-    Header append Vary "Accept-Encoding"
-    FileETag None
-    Header unset ETag
+#   Header set Connection keep-alive
+#    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+#   Header always set X-Content-Type-Options "nosniff"
+#    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+#    Header always set X-Frame-Options "SAMEORIGIN"
+#    Header append Vary "Accept-Encoding"
+#    FileETag None
 </IfModule>
 
 # Protect sensitive files
 <FilesMatch "^(wp-config\.php|\.htaccess|\.htpasswd|xmlrpc\.php|readme\.html|license\.txt|changelog\.txt)$">
-    Require all denied
+#    Require all denied
 </FilesMatch>
 
 # Block directory browsing
-Options -Indexes
+#Options -Indexes
 
 # No Cookies for static assets
 <FilesMatch "\.(js|css|jpg|png|jpeg|gif|xml|json|txt|pdf|mov|avi|otf|woff|ico|swf)$">
-    RequestHeader unset Cookie
-    Header unset Cookie
-    Header unset Set-Cookie
+#    RequestHeader unset Cookie
+#    Header unset Cookie
+#    Header unset Set-Cookie
 </FilesMatch>
 
 <IfModule mod_setenvif.c>
-    SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" HTTP_X_FORWARDED_FOR=$0
-    SetEnvIf X-Real-IP "^.*\..*\..*\..*" HTTP_X_REAL_IP=$0
+#    SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" HTTP_X_FORWARDED_FOR=$0
+#    SetEnvIf X-Real-IP "^.*\..*\..*\..*" HTTP_X_REAL_IP=$0
 </IfModule>
 
-# Redirect all HTTP traffic to HTTPS
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{HTTPS} !=on
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
 # ----------------------------------------------------------------------
 # END PERFORMANCE AND SECURITY HEADERS
 # ----------------------------------------------------------------------
@@ -87,20 +80,11 @@ AddDefaultCharset UTF-8
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /
+RewriteBase /buzzjuice.net/
 RewriteRule ^index\.php$ - [L]
-
-# Add a trailing slash to /wp-admin
-RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
-
-# RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-# RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
-RewriteRule ^(.*\.php)$ $1 [L]
-# RewriteRule . /buzzjuice.net/index.php [L]
-RewriteRule . index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /buzzjuice.net/index.php [L]
 </IfModule>
+
 # END WordPress
