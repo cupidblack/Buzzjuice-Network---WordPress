@@ -101,6 +101,8 @@ function wowonder_redirect_after_purchase($order_id) {
     $order = wc_get_order($order_id);
     $product_ids = get_option('wow_pgb_product_ids', []); // Retrieve product IDs for WoWPGB products
     $wowonder_url = get_option('wowonder_url', 'http://127.0.0.1/buzzjuice.net/streams/'); // Base WoWonder URL
+    $buzzsocial_url = get_option('buzzsocial_url', 'http://127.0.0.1/buzzjuice.net/social/'); // Base WoWonder URL
+
 
     //error_log("✅ (wow-pgb_sync.php) Order ID:" . print_r($order, true)); // Log the order ID for debugging
 
@@ -109,19 +111,39 @@ function wowonder_redirect_after_purchase($order_id) {
 
         // Check if the product SKU starts with 'wow-pgb_'
         if (strpos($product->get_sku(), 'wow-pgb_') === 0) {
+
             // Get the product SKU
             $product_sku = $product->get_sku();
 
+            // Get the wow_post_id from the webhook response (meta data)
+            $wow_post_id = '';
+            foreach ($order->get_meta_data() as $meta) {
+                if ($meta->key === 'wow_post_id') {
+                    $wow_post_id = $meta->value;
+                    break;
+                } elseif ($meta->key === 'qdw_membershipType') {
+                    $wow_post_id = $meta->value;
+                    break;
+                }
+            }
+
+error_log("wow_post_id: " . print_r($wow_post_id, true)); // Log the retrieved WoWonder post ID for debugging
+            
+            $qdw_transaction_kind = '';
+            foreach ($order->get_meta_data() as $meta) {
+                if ($meta->key === 'qdw_transaction_kind') {
+                    $qdw_transaction_kind = $meta->value;
+                    break;
+                }
+            }
+
+            if (empty($wow_post_id) && empty($qdw_membershipType) && empty($qdw_transaction_kind)) {
+                error_log("❌ WoWonder Post ID and QDW Membership Type are missing from the webhook meta.");
+                return;
+            }
+
             // Handle specific product types
             if ($product_sku === 'wow-pgb_fund') {
-                // Get the wow_post_id from the webhook response (meta data)
-                $wow_post_id = '';
-                foreach ($order->get_meta_data() as $meta) {
-                    if ($meta->key === 'wow_post_id') {
-                        $wow_post_id = $meta->value;
-                        break;
-                    }
-                }
 
                 // Redirect to the WoWonder fund page
                 if (!empty($wow_post_id)) {
@@ -137,7 +159,9 @@ function wowonder_redirect_after_purchase($order_id) {
                     wp_redirect($redirect_url);
                     exit();
                 }
-            } elseif ($product_sku === 'wow-pgb_pro' || $product_sku === 'wow-pgb_pro_1' || $product_sku === 'wow-pgb_pro_2' || $product_sku === 'wow-pgb_pro_3' || $product_sku === 'wow-pgb_pro_4') {
+            }
+            
+            if ($product_sku === 'wow-pgb_pro' || $product_sku === 'wow-pgb_pro_1' || $product_sku === 'wow-pgb_pro_2' || $product_sku === 'wow-pgb_pro_3' || $product_sku === 'wow-pgb_pro_4') {
                 // Authenticate to WoWonder to obtain an access token
                 $wowonder_api_url = 'http://127.0.0.1/buzzjuice.net/streams/api';
                 $server_key = 'd2c99a2e27e91439e54bdfc48c143119'; // Replace with your actual server key
@@ -145,43 +169,16 @@ function wowonder_redirect_after_purchase($order_id) {
                 $wow_password = 'cupidblack'; // Replace with your WoWonder admin password
             
                 // Step 1: Authenticate to WoWonder
-                $auth_response = wp_safe_remote_post("$wowonder_api_url/auth", [
-                    'timeout' => 10,
-                    'body' => [
-                        'server_key' => $server_key,
-                        'username' => $wow_username,
-                        'password' => $wow_password,
-                    ],
-                    'headers' => ['Content-Type' => 'application/x-www-form-urlencoded'],
-                ]);
-            
-                if (is_wp_error($auth_response)) {
-                    error_log("❌ WoWonder Authentication Failed: " . $auth_response->get_error_message());
+                $access_token = retry_with_backoff(function () use ($wowonder_api_url, $server_key, $wow_username, $wow_password) {
+                    return authenticate_to_wowonder($wowonder_api_url, $server_key, $wow_username, $wow_password);
+                }, 5, 5, 80); // Retry up to 5 times with exponential backoff
+
+                if (!$access_token) {
+                    error_log("❌ Failed to authenticate to WoWonder after retries.");
                     return;
                 }
-            
-                $auth_data = json_decode(wp_remote_retrieve_body($auth_response), true);
-                if (empty($auth_data['api_status']) || $auth_data['api_status'] != 200) {
-                    error_log("❌ WoWonder Authentication Failed: " . print_r($auth_data, true));
-                    return;
-                }
-            
-                $access_token = $auth_data['access_token'];
             
                 // Step 2: Get the user_id from the WooCommerce webhook meta
-                $wow_post_id = '';
-                foreach ($order->get_meta_data() as $meta) {
-                    if ($meta->key === 'wow_post_id') {
-                        $wow_post_id = $meta->value;
-                        break;
-                    }
-                }
-            
-                if (empty($wow_post_id)) {
-                    error_log("❌ WoWonder Post ID is missing from the webhook meta.");
-                    return;
-                }
-            
 
                 // Get the WooCommerce user ID from the order meta
                 $user_email = $order->get_billing_email(); // Get the billing email address from the order
@@ -207,11 +204,12 @@ function wowonder_redirect_after_purchase($order_id) {
                 // Log the retrieved user ID for debugging
                 //error_log("✅ Retrieved WordPress User ID: $user_id");
 
-
-
                 $wow_user_id = ''; // Get the WooCommerce user ID
                 foreach ($order->get_meta_data() as $meta) {
-                    if ($meta->key === 'userid') {
+                    if (!empty($meta->key) && $meta->key === 'userid') {
+                        $wow_user_id = $meta->value;
+                        break;
+                    } elseif (!empty($meta->key) && $meta->key === 'wow_user_id') {
                         $wow_user_id = $meta->value;
                         break;
                     }
@@ -222,57 +220,27 @@ function wowonder_redirect_after_purchase($order_id) {
                 }
             
                 // Step 3: Check the user's pro status in WoWonder
-                $retry_count = 0;
-                $max_retries = 20; // Retry up to 50 times
-                $success = false;
+                $success = retry_with_backoff(function () use ($wowonder_api_url, $access_token, $server_key, $wow_user_id, $wow_post_id) {
+                    $user_data = fetch_wowonder_user_data($wowonder_api_url, $access_token, $server_key, $wow_user_id);
 
+                    if (!$user_data) {
+                        return null; // Retry if user data is not fetched
+                    }
 
-            
-                while ($retry_count < $max_retries) {
-                    $get_user_response = wp_safe_remote_post("$wowonder_api_url/get-user-data?access_token=$access_token", [
-                        'timeout' => 10,
-                        'body' => [
-                            'server_key' => $server_key,
-                            'user_id' => $wow_user_id,
-                            'fetch' => 'user_data',
-                        ],
-                        'headers' => ['Content-Type' => 'application/x-www-form-urlencoded'],
-                    ]);
-            
-                    if (is_wp_error($get_user_response)) {
-                        error_log("❌ Failed to fetch user data from WoWonder: " . $get_user_response->get_error_message());
-                        $retry_count++;
-                        sleep(5); // Wait 5 seconds before retrying
-                        continue;
-                    }
-            
-                    $user_data = json_decode(wp_remote_retrieve_body($get_user_response), true);
-                    if (empty($user_data['api_status']) || $user_data['api_status'] != 200) {
-                        error_log("❌ Failed to fetch user data from WoWonder: " . print_r($user_data, true));
-                        $retry_count++;
-                        sleep(5); // Wait 5 seconds before retrying
-                        continue;
-                    } else {
-                        //error_log("✅ User data fetched successfully. User data: " . print_r($user_data, true));
-                    }
-            
                     // Check if the user's pro status matches
-                    if (!empty($user_data['user_data']['is_pro']) && $user_data['user_data']['is_pro'] == 1 &&
-                        !empty($user_data['user_data']['pro_type']) && $user_data['user_data']['pro_type'] == $wow_post_id) {
+                    if (!empty($user_data['is_pro']) && $user_data['is_pro'] == 1 &&
+                        (!empty($user_data['pro_type']) && $user_data['pro_type'] == $wow_post_id)) {
                         error_log("✅ (wow-pgb_sync.php) User's pro status verified successfully.");
-                        //error_log("✅ (wow-pgb_sync.php) User's pro status verified successfully. User data: " . print_r($user_data, true));
-                        $success = true;
-                        break;
+                        return true; // Stop retrying if the condition is met
                     } else {
-                        error_log("❌ User's pro status or pro type does not match. Retry Count " . $retry_count);
-                        //error_log("❌ User's pro status or pro type does not match. User data: " . print_r($user_data, true));
-                        $retry_count++;
-                        sleep(5); // Wait 5 seconds before retrying
-                        continue;
+                        error_log("❌ User's pro status or pro type does not match.");
+                        return null; // Retry if the condition is not met
                     }
-                }
+                }, 10, 2, 300); // Retry up to 5 times with exponential backoff
 
-                if ($success) {
+                if (!$success) {
+                    error_log("❌ Failed to verify user's pro status after retries.");
+                } else {
                     // Step 4: Activate WooCommerce Subscription
                     $woo_order_id = $order->get_id(); // Get WooCommerce order ID
                     $variation_id = null;
@@ -300,7 +268,7 @@ function wowonder_redirect_after_purchase($order_id) {
                     $subscription_interval = $metadata['subscription_interval'];
 
                     // Log the extracted subscription metadata for debugging
-                    error_log("✅ Product Metadata:" . print_r($metadata, true)); // Fixed the logging statement
+                    //error_log("✅ Product Metadata:" . print_r($metadata, true)); // Fixed the logging statement
                     //error_log("✅ Subscription Period: $subscription_period");
                     //error_log("✅ Subscription Interval: $subscription_interval");
 
@@ -338,40 +306,43 @@ function wowonder_redirect_after_purchase($order_id) {
                         return;
                     }
 
-                    $subscription_response = send_woocommerce_request(
-                        $woocommerce_api_url . '/subscriptions', // Append the correct endpoint
-                        'POST',
-                        $subscription_data,
-                        $consumer_key,
-                        $consumer_secret
-                    );
+                    $subscription_response = retry_with_backoff(function () use ($woocommerce_api_url, $consumer_key, $consumer_secret, $subscription_data) {
+                        return create_woocommerce_subscription(
+                            $woocommerce_api_url, // Base WooCommerce API URL
+                            $consumer_key,        // WooCommerce Consumer Key
+                            $consumer_secret,     // WooCommerce Consumer Secret
+                            $subscription_data    // Subscription data to send
+                        );
+                    }, 5, 5, 80); // Retry up to 5 times with exponential backoff
 
-                    if ($subscription_response['http_code'] === 201) {
-                        $subscription = json_decode($subscription_response['response'], true);
-                        if (!empty($subscription)) {
-                            $subscription_id = $subscription['id'] ?? null;
-                            error_log("✅ Subscription created successfully with ID: $subscription_id");
+                    // Validate the response structure
+                    if (empty($subscription_response)) {
+                        log_error("❌ Invalid subscription response received after retries.");
+                        return;
+                    }
 
-                            bluecrown_affiliatewp_post_checkout_verification($order_id); // Call the function to credit the affiliate
+                    // Log success
+                    $subscription_id = $subscription_response['id'] ?? null;
+                    error_log("✅ Subscription created successfully with ID: $subscription_id");
 
-                            // Redirect to the upgraded page for WoWPGB-Pro
-                            $redirect_url = sprintf("%s/upgraded", esc_url($wowonder_url));
-                            wp_redirect($redirect_url);
-                            exit();
-                        } else {
-                            error_log("❌ Failed to decode subscription response.");
-                        }
+                    // Additional logic for post-subscription actions
+                    bluecrown_affiliatewp_post_checkout_verification($order_id); // Call the function to credit the affiliate
+
+                    if ($order->get_meta_data('wow_order_id') === true) {
+                        // Redirect to the upgraded page for WoWPGB-Pro
+                        $redirect_url = sprintf("%s/upgraded", esc_url($wowonder_url));
+                        wp_redirect($redirect_url);
+                        exit();
                     } else {
-                        error_log("❌ Failed to create subscription. HTTP Code: {$subscription_response['http_code']}");
-                        $error_details = json_decode($subscription_response['response'], true);
-                        error_log("❌ Error Details: " . print_r($error_details, true));
+                        // Redirect to the purchased page for other products
+                        $redirect_url = sprintf("%s/ProSuccess?paymode=pro", esc_url($buzzsocial_url));
+                        wp_redirect($redirect_url);
+                        exit();
                     }
                 }
-                
-            } else { 
-                    
-                // Handle wallet product redirection
-                if ($product_sku === 'wow-pgb_wallet') {
+            }
+            
+            if ($product_sku === 'wow-pgb_wallet') {
 
                     bluecrown_affiliatewp_post_checkout_verification($order_id);
 
@@ -383,9 +354,8 @@ function wowonder_redirect_after_purchase($order_id) {
                     wp_redirect($redirect_url);
                     exit();
                 }
-            } 
-        } else { // Corrected the unmatched '}' issue
-            
+             
+
             if ($product_sku === 'wow-pgb_market') {
 
                 bluecrown_affiliatewp_post_checkout_verification($order_id);
@@ -397,7 +367,8 @@ function wowonder_redirect_after_purchase($order_id) {
                 wp_redirect($redirect_url);
                 exit();
             }
-        }
+
+        } 
     }
 }
 add_action('woocommerce_thankyou', 'wowonder_redirect_after_purchase');
@@ -459,10 +430,24 @@ function wowonder_settings_init() {
         'wowonder_settings_section'
     );
 
+    // BuzzSocial URL
+    add_settings_field(
+        'buzzsocial_url',
+        'BuzzSocial URL',
+        function() {
+            $buzzsocial_url = get_option('buzzsocial_url', '');
+            echo '<input type="url" id="buzzsocial_url" name="buzzsocial_url" value="' . esc_attr($buzzsocial_url) . '" class="regular-text ltr">';
+        },
+        'general',
+        'wowonder_settings_section'
+    );
+
     register_setting('general', 'wowonder_url', 'esc_url');
     register_setting('general', 'woocommerce_api_url', 'esc_url');
     register_setting('general', 'woocommerce_consumer_key', 'sanitize_text_field');
     register_setting('general', 'woocommerce_consumer_secret', 'sanitize_text_field');
+    register_setting('general', 'buzzsocial_url', 'esc_url');
+
 }
 add_action('admin_init', 'wowonder_settings_init');
 
@@ -493,7 +478,7 @@ function get_subscription_metadata($variation_id) {
     }
 
     // Log the full metadata for debugging
-    error_log("✅ Full Product Metadata for Variation ID $variation_id: " . print_r($full_metadata, true));
+    //error_log("✅ Full Product Metadata for Variation ID $variation_id: " . print_r($full_metadata, true));
 
     return [
         'subscription_period' => $subscription_period,
@@ -503,128 +488,372 @@ function get_subscription_metadata($variation_id) {
 }
 
 /**
- * Utility function for sending API requests (WooCommerce and WordPress).
+ * Utility function for making cURL requests.
  *
  * @param string $url The API endpoint URL.
  * @param string $method The HTTP method (GET, POST, PUT, DELETE).
  * @param array|null $data The data to send in the request body (for POST/PUT).
- * @param string|null $auth_key The WooCommerce consumer key.
- * @param string|null $auth_secret The WooCommerce consumer secret.
+ * @param array $headers Optional headers for the request.
+ * @param int $timeout Timeout in seconds for the request.
  * @return array The API response, HTTP code, and any errors.
  */
-function send_woocommerce_request($url, $method = 'GET', $data = null, $auth_key = null, $auth_secret = null) {
-    // Validate the URL
+function make_curl_request($url, $method = 'GET', $data = null, $headers = [], $timeout = 30) {
     if (filter_var($url, FILTER_VALIDATE_URL) === false) {
-        error_log("❌ Invalid URL provided: $url");
+        log_error("Invalid URL provided: $url");
         return ['response' => null, 'http_code' => 0, 'error' => 'Invalid URL'];
     }
 
-    // Initialize cURL
     $curl = curl_init();
-    $headers = [
-        'Content-Type: application/json',
-    ];
-
-    // Add Authorization header if credentials are provided
-    if ($auth_key && $auth_secret) {
-        $headers[] = 'Authorization: Basic ' . base64_encode("$auth_key:$auth_secret");
-    }
-
-    // Set cURL options
     $options = [
         CURLOPT_URL => $url,
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => $headers,
+        CURLOPT_TIMEOUT => $timeout,
         CURLOPT_CUSTOMREQUEST => strtoupper($method),
+        CURLOPT_HTTPHEADER => $headers,
         CURLOPT_SSL_VERIFYHOST => 0, // Disable SSL verification for local testing
         CURLOPT_SSL_VERIFYPEER => 0, // Disable SSL verification for local testing
     ];
 
-    // Add POST/PUT data if provided
     if (!empty($data)) {
-        $options[CURLOPT_POSTFIELDS] = json_encode($data);
+        $options[CURLOPT_POSTFIELDS] = is_array($data) ? http_build_query($data) : $data;
     }
 
     curl_setopt_array($curl, $options);
 
-    // Execute the request
     $response = curl_exec($curl);
     $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     $error = curl_error($curl);
     curl_close($curl);
 
-    // Logging for debugging
-    //error_log("📡 API Request: $method $url");
-    //error_log("📡 API HTTP Code: $http_code");
-    if ($error) error_log("⚠️ cURL Error: $error");
-    //error_log("📥 API Response: " . print_r($response, true));
+    if ($error) {
+        log_error("cURL Error: $error");
+    }
 
     return ['response' => $response, 'http_code' => $http_code, 'error' => $error];
 }
 
 function bluecrown_affiliatewp_post_checkout_verification($order_id) {
-    // 🔹 AffiliateWP Integration: Ensure affiliates are credited for API orders
+    if (!$order_id) return;
+
+    // Retrieve WooCommerce order
+    $order = wc_get_order($order_id);
+    if (!$order) return;
+
     global $wpdb;
 
-    // Step 1: Retrieve the user ID (customer ID) from the WooCommerce order
-    $order = wc_get_order($order_id); // Ensure the order object is retrieved
-    if (!$order) {
-        error_log("❌ Invalid WooCommerce order ID: $order_id");
+    // Step 1: Get customer_id from order metadata
+    // Try to get the customer ID from the order
+    $customer_id = $order->get_customer_id();
+
+    // If not found, fallback to the logged-in WordPress user ID
+    if (!$customer_id) {
+        $customer_id = get_current_user_id();
+    }
+
+    // Log an error if no customer ID is found
+    if (!$customer_id) {
+        error_log("❌ Unable to determine the customer ID.");
         return;
     }
 
-    $user_id = $order->get_customer_id(); // Use get_customer_id() instead of get_user_id()
-    if (!$user_id) {
-        error_log("❌ No user ID (customer ID) found for order ID: $order_id");
-        return;
-    }
+    // Proceed with the retrieved customer ID
+    //error_log("✅ Customer ID: $customer_id");
 
     // Step 2: Fetch affwp_customer_id from wp_affiliate_wp_customers table
     $affwp_customer_id = $wpdb->get_var($wpdb->prepare(
         "SELECT customer_id FROM wp_affiliate_wp_customers WHERE user_id = %d",
-        $user_id
+        $customer_id
     ));
 
-    if (!$affwp_customer_id) {
-        error_log("❌ No affwp_customer_id found for user ID: $user_id");
+    if (!$affwp_customer_id || $affwp_customer_id == 0) {
+        error_log("❌ Valid AffiliateWP Customer ID not found for Customer ID $customer_id. Skipping record creation.");
+        return;
+    }
+    
+    // Log the retrieved affwp_customer_id for debugging
+    //error_log("✅ Retrieved affwp_customer_id: $affwp_customer_id");
+    
+    // Ensure the affwp_customer_id is valid before calling add()
+    if (empty($affwp_customer_id) || !is_numeric($affwp_customer_id) || $affwp_customer_id <= 0) {
+        error_log("❌ Invalid affwp_customer_id ($affwp_customer_id) before calling add().");
         return;
     }
 
-    // Step 3: Fetch affiliate_id from wp_affiliate_wp_customermeta table
-    $affiliate_id = $wpdb->get_var($wpdb->prepare(
-        "SELECT meta_value FROM wp_affiliate_wp_customermeta WHERE affwp_customer_id = %d AND meta_key = 'affiliate_id'",
-        $affwp_customer_id
-    ));
-
-    if (!$affiliate_id) {
-        error_log("❌ No affiliate_id found for affwp_customer_id: $affwp_customer_id");
+    // Step 3: Retrieve the referring affiliate ID
+    $referring_affiliate_id = affiliate_wp()->tracking->get_affiliate_id();
+    if (!$referring_affiliate_id) {
+        error_log("❌ Referring Affiliate ID not found for Order #$order_id.");
         return;
     }
 
-    // Step 4: Check if the affiliate has already been credited for this order
-    $referral_exists = affiliate_wp()->referrals->get_by('reference', $order_id, 'woocommerce');
+    // Step 4: Validate if the lifetime_customer record already exists
+    $existing_record = $wpdb->get_var($wpdb->prepare(
+        "SELECT COUNT(*) FROM wp_affiliate_wp_lifetime_customers WHERE affwp_customer_id = %d AND affiliate_id = %d",
+        $affwp_customer_id,
+        $referring_affiliate_id
+    ));
+
+    if ($existing_record > 0) {
+        //error_log("✅ Lifetime Customer record already exists for affwp_customer_id $affwp_customer_id with affiliate_id $referring_affiliate_id.");
+        $affiliate_id = $referring_affiliate_id;
+    } else {
+        // Step 5: Create a new lifetime_customer record
+        $lifetime_customer_data = [
+            'affwp_customer_id' => $affwp_customer_id,
+            'affiliate_id' => $referring_affiliate_id,
+            'date_created' => current_time('mysql'), // Ensure the date is captured correctly
+        ];
+        
+        // Log the data being passed to add()
+        error_log("📋 Data being passed to add(): " . print_r($lifetime_customer_data, true));
+        
+        // Validate affwp_customer_id before calling add()
+        if (empty($lifetime_customer_data['affwp_customer_id']) || !is_numeric($lifetime_customer_data['affwp_customer_id']) || $lifetime_customer_data['affwp_customer_id'] <= 0) {
+            error_log("❌ Invalid affwp_customer_id in data array before calling add(): " . print_r($lifetime_customer_data, true));
+            return;
+        }
+        
+        $lifetime_customer_added = affiliate_wp_lifetime_commissions()->lifetime_customers->add($lifetime_customer_data);
+
+        if ($lifetime_customer_added) {
+            //error_log("✅ Lifetime Customer record created for affwp_customer_id $affwp_customer_id with affiliate_id $referring_affiliate_id.");
+            $affiliate_id = $referring_affiliate_id;
+        } else {
+            error_log("❌ Failed to create Lifetime Customer record for affwp_customer_id $affwp_customer_id.");
+            return;
+        }
+    }
+
+    // Step 6: Check if the affiliate has already been credited
+    $referral_exists = $wpdb->get_var($wpdb->prepare(
+        "SELECT referral_id FROM wp_affiliate_wp_referrals WHERE reference = %d AND affiliate_id = %d",
+        $order_id,
+        $affiliate_id
+    ));
+
     if ($referral_exists) {
-        error_log("✅ Affiliate already credited for order ID: $order_id");
+        error_log("✅ Affiliate ID $affiliate_id has already been credited for Order #$order_id.");
         return;
     }
 
-    // Step 5: Create a referral for the affiliate
-    $order_total = $order->get_total();
-    $referral_args = [
-        'reference'    => $order_id,
-        'amount'       => $order_total,
-        'description'  => "Order #{$order_id}",
-        'affiliate_id' => $affiliate_id,
-        'context'      => 'woocommerce',
-        'status'       => 'unpaid', // Default status, can be changed to 'paid' if necessary
+    // Step 7: Calculate commission based on product or default rates
+    $commission = 0;
+    foreach ($order->get_items() as $item) {
+        $product_id = $item->get_product_id();
+        $product_rate_type = get_post_meta($product_id, '_affwp_woocommerce_product_rate_type', true);
+        $product_rate = get_post_meta($product_id, '_affwp_woocommerce_product_rate', true);
+
+        if (is_numeric($product_rate) && $product_rate >= 0) {
+            // Use product-specific rate
+            if ($product_rate_type === 'percentage') {
+                $commission += ($item->get_total() * $product_rate / 100);
+            } elseif ($product_rate_type === 'flat') {
+                $commission += $product_rate;
+            }
+        } else {
+            // Fallback to default rate
+            $default_rate_type = get_option('affwp_settings')['referral_rate_type'];
+            $default_rate = get_option('affwp_settings')['referral_rate'];
+
+            if (is_numeric($default_rate) && $default_rate >= 0) {
+                if ($default_rate_type === 'percentage') {
+                    $commission += ($item->get_total() * $default_rate / 100);
+                } elseif ($default_rate_type === 'flat') {
+                    $commission += $default_rate;
+                }
+            }
+        }
+    }
+
+    // Step 8: Add referral for the affiliate
+    if ($commission > 0) {
+        // Fetch lifetime_customer_id from the database
+        $lifetime_customer_id = $wpdb->get_var($wpdb->prepare(
+            "SELECT lifetime_customer_id FROM wp_affiliate_wp_lifetime_customers WHERE affwp_customer_id = %d AND affiliate_id = %d",
+            $affwp_customer_id,
+            $affiliate_id
+        ));
+
+        // Prepare referral data
+        $referral_data = [
+            'affiliate_id' => $affiliate_id,
+            'amount' => $commission,
+            'reference' => $order_id,
+            'context' => 'woocommerce',
+            'description' => 'Order #' . $order_id,
+            'status' => 'unpaid',
+            'custom' => maybe_serialize([
+                'lifetime_customer_id' => $lifetime_customer_id,
+                'affwp_customer_id' => $affwp_customer_id
+            ])
+        ];
+
+        // Ensure valid affwp_customer_id before adding referral
+        if (!empty($affwp_customer_id) && $affwp_customer_id > 0) {
+            // Add referral
+            if (affiliate_wp()->referrals->add($referral_data)) {
+                error_log("✅ Commission of $commission credited to Affiliate ID $affiliate_id for Order #$order_id.");
+                //error_log("ℹ️ Referral includes lifetime_customer_id: $lifetime_customer_id and customer_id: $customer_id.");
+
+                // Step 9: Update unpaid earnings for the affiliate
+                $updated_unpaid_earnings = affwp_increase_affiliate_unpaid_earnings($affiliate_id, $commission);
+                if ($updated_unpaid_earnings !== false) {
+                    //error_log("✅ Unpaid earnings updated for Affiliate ID $affiliate_id. New Unpaid Earnings: $updated_unpaid_earnings.");
+                } else {
+                    error_log("❌ Failed to update unpaid earnings for Affiliate ID $affiliate_id.");
+                }
+            } else {
+                error_log("❌ Failed to credit commission for Affiliate ID $affiliate_id for Order #$order_id.");
+            }
+        } else {
+            error_log("❌ Invalid affwp_customer_id ($affwp_customer_id). Referral not added for Order #$order_id.");
+        }
+    }
+}
+
+/**
+ * Authenticate to WoWonder and retrieve an access token.
+ *
+ * @param string $api_url The WoWonder API base URL.
+ * @param string $server_key The server key for authentication.
+ * @param string $username The WoWonder admin username.
+ * @param string $password The WoWonder admin password.
+ * @return string|null The access token or null on failure.
+ */
+function authenticate_to_wowonder($api_url, $server_key, $username, $password) {
+    $url = "$api_url/auth";
+    $data = [
+        'server_key' => $server_key,
+        'username' => $username,
+        'password' => $password,
+    ];
+    $headers = ['Content-Type: application/x-www-form-urlencoded'];
+
+    $response = make_curl_request($url, 'POST', $data, $headers);
+
+    if ($response['http_code'] !== 200) {
+        log_error("WoWonder Authentication Failed: HTTP Code {$response['http_code']}. Response: {$response['response']}");
+        return null;
+    }
+
+    $auth_data = json_decode($response['response'], true);
+    if (empty($auth_data['api_status']) || $auth_data['api_status'] != 200) {
+        log_error("WoWonder Authentication Failed: " . print_r($auth_data, true));
+        return null;
+    }
+
+    return $auth_data['access_token'] ?? null;
+}
+
+/**
+ * Fetch user data from WoWonder.
+ *
+ * @param string $api_url The WoWonder API base URL.
+ * @param string $access_token The access token for authentication.
+ * @param string $server_key The server key for authentication.
+ * @param string $user_id The WoWonder user ID.
+ * @return array|null The user data or null on failure.
+ */
+function fetch_wowonder_user_data($api_url, $access_token, $server_key, $user_id) {
+    $url = "$api_url/get-user-data?access_token=$access_token";
+    $data = [
+        'server_key' => $server_key,
+        'user_id' => $user_id,
+        'fetch' => 'user_data',
+    ];
+    $headers = ['Content-Type: application/x-www-form-urlencoded'];
+
+    $response = make_curl_request($url, 'POST', $data, $headers);
+
+    if ($response['http_code'] !== 200) {
+        log_error("Failed to fetch user data from WoWonder: HTTP Code {$response['http_code']}. Response: {$response['response']}");
+        return null;
+    }
+
+    $user_data = json_decode($response['response'], true);
+    if (empty($user_data['api_status']) || $user_data['api_status'] != 200) {
+        log_error("Failed to fetch user data from WoWonder: " . print_r($user_data, true));
+        return null;
+    }
+
+    return $user_data['user_data'] ?? null;
+}
+
+/**
+ * Create a subscription using the WooCommerce API.
+ *
+ * @param string $api_url The WooCommerce API base URL.
+ * @param string $consumer_key The WooCommerce consumer key.
+ * @param string $consumer_secret The WooCommerce consumer secret.
+ * @param array $subscription_data The subscription data to send.
+ * @return array|null The subscription response or null on failure.
+ */
+function create_woocommerce_subscription($api_url, $consumer_key, $consumer_secret, $subscription_data) {
+    $url = "$api_url/subscriptions";
+    $headers = [
+        'Authorization: Basic ' . base64_encode("$consumer_key:$consumer_secret"),
+        'Content-Type: application/json',
     ];
 
-    $referral_id = affiliate_wp()->referrals->add($referral_args);
+    // Make the cURL request
+    $response = make_curl_request($url, 'POST', json_encode($subscription_data), $headers);
 
-    if ($referral_id) {
-        error_log("✅ Affiliate credited successfully. Referral ID: $referral_id");
-    } else {
-        error_log("❌ Failed to credit affiliate for order ID: $order_id");
+    // Check if the response contains a valid HTTP code
+    if (empty($response) || !isset($response['http_code'])) {
+        log_error("❌ cURL Error: Invalid response structure. Response: " . print_r($response, true));
+        return null;
     }
+
+    // Handle non-201 HTTP codes
+    if ($response['http_code'] !== 201) {
+        log_error("❌ Failed to create subscription. HTTP Code: {$response['http_code']}. Response: {$response['response']}");
+        return null;
+    }
+
+    // Decode the JSON response
+    $decoded_response = json_decode($response['response'], true);
+
+    // Validate the decoded response
+    if (empty($decoded_response) || !is_array($decoded_response)) {
+        log_error("❌ Failed to decode subscription response. Raw Response: {$response['response']}");
+        return null;
+    }
+
+    return $decoded_response;
+}
+
+/**
+ * Retry logic with exponential backoff.
+ *
+ * @param callable $callback The function to retry.
+ * @param int $max_retries The maximum number of retries.
+ * @param int $base_delay The base delay in seconds.
+ * @param int $max_delay The maximum delay in seconds.
+ * @return mixed The result of the callback or null on failure.
+ */
+function retry_with_backoff($callback, $max_retries = 5, $base_delay = 5, $max_delay = 80) {
+    $retry_count = 0;
+
+    while ($retry_count < $max_retries) {
+        $result = $callback();
+        if ($result !== null) {
+            return $result;
+        }
+
+        $retry_count++;
+        $delay = min($base_delay * (2 ** $retry_count), $max_delay);
+        sleep($delay);
+    }
+
+    return null;
+}
+
+/**
+ * Utility function for logging errors.
+ *
+ * @param string $message The error message to log.
+ */
+function log_error($message) {
+    error_log("❌ $message");
 }
 ?>

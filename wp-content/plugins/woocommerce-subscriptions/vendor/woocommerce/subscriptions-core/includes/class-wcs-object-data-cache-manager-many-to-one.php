@@ -32,7 +32,9 @@ class WCS_Object_Data_Cache_Manager_Many_To_One extends WCS_Object_Data_Cache_Ma
 	 * }
 	 */
 	protected function trigger_update_cache_hook_from_change( $object, $key, $change ) {
-		$previous_value = ! empty( $change['previous'] ) ? $change['previous'] : '';
-		$this->trigger_update_cache_hook( $change['type'], $object->get_id(), $key, $change['new'], $previous_value );
+		$new_value = isset( $change['new'] ) ? $change['new'] : ''; // Ensure 'new' key exists
+		$previous_value = isset( $change['previous'] ) ? $change['previous'] : ''; // Ensure 'previous' key exists
+
+		$this->trigger_update_cache_hook( $change['type'], $object->get_id(), $key, $new_value, $previous_value );
 	}
 }

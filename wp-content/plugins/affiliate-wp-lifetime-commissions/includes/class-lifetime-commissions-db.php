@@ -119,6 +119,22 @@ class Affiliate_WP_Lifetime_Commissions_DB extends Affiliate_WP_DB {
 		);
 
 		$args = wp_parse_args( $data, $defaults );
+
+		// Log the parsed arguments for debugging
+		//error_log("📋 Parsed arguments in add(): " . print_r($args, true));
+
+        // Validate affwp_customer_id
+        if ( empty( $args['affwp_customer_id'] ) || !is_numeric( $args['affwp_customer_id'] ) || $args['affwp_customer_id'] <= 0 ) {
+            //error_log("❌ Invalid affwp_customer_id: {$args['affwp_customer_id']}. Lifetime customer record not created.");
+            return false;
+        }
+
+        // Validate affiliate_id
+        if ( empty( $args['affiliate_id'] ) || !is_numeric( $args['affiliate_id'] ) || $args['affiliate_id'] <= 0 ) {
+            //error_log("❌ Invalid affiliate_id: {$args['affiliate_id']}. Lifetime customer record not created.");
+            return false;
+        }
+
 		$add  = $this->insert( $args, 'lifetime_customer' );
 
 		if ( $add ) {
