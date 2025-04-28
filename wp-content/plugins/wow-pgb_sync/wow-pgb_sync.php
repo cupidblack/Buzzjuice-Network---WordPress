@@ -7,6 +7,16 @@ Author: Blue Crown R&D
 Author URI: https://koware.org
 */
 
+// Load environment variables
+require_once __DIR__ . '/../blue-crown-wp/DotEnv.php';
+try {
+    $dotenv = new DotEnv(dirname(__DIR__, 4) . '/.env');
+    $dotenv->load();
+} catch (\Exception $e) {
+    error_log('Failed to load .env file: ' . $e->getMessage());
+    // Optionally, handle the error (e.g., fallback to default values or terminate execution)
+}
+
 // 🚀 Create Virtual WooCommerce Products on Plugin Activation
 function create_wow_pgb_virtual_products() {
     $products = [
@@ -127,7 +137,7 @@ function wowonder_redirect_after_purchase($order_id) {
                 }
             }
 
-error_log("wow_post_id: " . print_r($wow_post_id, true)); // Log the retrieved WoWonder post ID for debugging
+            //error_log("wow_post_id: " . print_r($wow_post_id, true)); // Log the retrieved WoWonder post ID for debugging
             
             $qdw_transaction_kind = '';
             foreach ($order->get_meta_data() as $meta) {
@@ -163,10 +173,10 @@ error_log("wow_post_id: " . print_r($wow_post_id, true)); // Log the retrieved W
             
             if ($product_sku === 'wow-pgb_pro' || $product_sku === 'wow-pgb_pro_1' || $product_sku === 'wow-pgb_pro_2' || $product_sku === 'wow-pgb_pro_3' || $product_sku === 'wow-pgb_pro_4') {
                 // Authenticate to WoWonder to obtain an access token
-                $wowonder_api_url = 'http://127.0.0.1/buzzjuice.net/streams/api';
-                $server_key = 'd2c99a2e27e91439e54bdfc48c143119'; // Replace with your actual server key
-                $wow_username = 'drenkaby'; // Replace with your WoWonder admin username
-                $wow_password = 'cupidblack'; // Replace with your WoWonder admin password
+                $wowonder_api_url = $_ENV['WOWONDER_API_URL'];
+                $server_key = $_ENV['WOWONDER_SERVER_KEY'];
+                $wow_username = $_ENV['WOWONDER_ADMIN_USERNAME'];
+                $wow_password = $_ENV['WOWONDER_ADMIN_PASSWORD'];
             
                 // Step 1: Authenticate to WoWonder
                 $access_token = retry_with_backoff(function () use ($wowonder_api_url, $server_key, $wow_username, $wow_password) {
@@ -346,19 +356,28 @@ error_log("wow_post_id: " . print_r($wow_post_id, true)); // Log the retrieved W
 
                     bluecrown_affiliatewp_post_checkout_verification($order_id);
 
-                    $redirect_url = sprintf(
-                        "%s/wallet/?nocache=%d",
-                        esc_url($wowonder_url),
-                        time() // Add a cache-busting parameter
-                    );
-                    wp_redirect($redirect_url);
-                    exit();
+                    if ($order->get_meta_data('wow_order_id') === true) {
+                        // Redirect to the upgraded page for WoWPGB-Pro
+                        $redirect_url = sprintf(
+                            "%s/wallet/?nocache=%d",
+                            esc_url($wowonder_url),
+                            time() // Add a cache-busting parameter
+                        );
+                        wp_redirect($redirect_url);
+                        exit();
+                    } else {
+                        // Redirect to the purchased page for other products
+                        $redirect_url = sprintf("%s/ProSuccess", esc_url($buzzsocial_url));
+                        wp_redirect($redirect_url);
+                        exit();
+                    }
                 }
              
 
             if ($product_sku === 'wow-pgb_market') {
 
                 bluecrown_affiliatewp_post_checkout_verification($order_id);
+
                 // Handle Market Redirection
                 $redirect_url = sprintf(
                     "%s/purchased",
@@ -510,8 +529,8 @@ function make_curl_request($url, $method = 'GET', $data = null, $headers = [], $
         CURLOPT_TIMEOUT => $timeout,
         CURLOPT_CUSTOMREQUEST => strtoupper($method),
         CURLOPT_HTTPHEADER => $headers,
-        CURLOPT_SSL_VERIFYHOST => 0, // Disable SSL verification for local testing
-        CURLOPT_SSL_VERIFYPEER => 0, // Disable SSL verification for local testing
+        CURLOPT_SSL_VERIFYHOST => $_ENV['CURL_SSL_VERIFYHOST'] ?? 0, // Disable SSL verification for local testing
+        CURLOPT_SSL_VERIFYPEER => $_ENV['CURL_SSL_VERIFYPEER'] ?? 0, // Disable SSL verification for local testing
     ];
 
     if (!empty($data)) {
@@ -854,6 +873,8 @@ function retry_with_backoff($callback, $max_retries = 5, $base_delay = 5, $max_d
  * @param string $message The error message to log.
  */
 function log_error($message) {
-    error_log("❌ $message");
+    if ($_ENV['ENABLE_LOGGING'] ?? true) {
+        error_log("❌ $message");
+    }
 }
 ?>
