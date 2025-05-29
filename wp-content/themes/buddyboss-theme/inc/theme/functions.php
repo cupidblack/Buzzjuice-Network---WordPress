@@ -1261,11 +1261,19 @@ function bb_wc_setup() {
  *
  * @return string
  */
+//BlueCrownR&D
 function textToColor( $text ) {
 	$code    = dechex( crc32( trim( $text ) ) );
 	$hexcode = substr( $code, 0, 6 );
-	$rgb     = hex_2_RGB( '#' . $hexcode );
-	$hsv     = RGB_2_HSV( $rgb['red'], $rgb['green'], $rgb['blue'] );
+	$rgb = hex_2_RGB('#' . $hexcode);
+
+// Check if $rgb is valid before proceeding.
+if ( is_array( $rgb ) && isset( $rgb['red'], $rgb['green'], $rgb['blue'] ) ) {
+    $hsv = RGB_2_HSV( $rgb['red'], $rgb['green'], $rgb['blue'] );
+} else {
+    // Handle invalid hex color gracefully.
+    $hsv = array( 'H' => 0, 'S' => 0, 'V' => 0 ); // Default fallback HSV values.
+}
 	// Transform the color tone to darker if lighter.
 	if ( $hsv['S'] < 40 ) {
 		$hsv['S'] = 40;

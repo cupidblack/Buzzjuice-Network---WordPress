@@ -1,0 +1,440 @@
+2025-05-18T21:35:06+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 889017ea9e939c572816b0160bc85d29
+            [Date] => May 18, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/social/qdwpgb_callback.php
+            [Duration] => 1.00373
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.8.2 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => BcQHgIRtxlc1YJsi6wUkuk7ukPptdaFuN1fGCfa8iZc=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 889017ea9e939c572816b0160bc85d29
+                        )
+
+                )
+
+            [Body] => {\"id\":565,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.8.2\",\"prices_include_tax\":false,\"date_created\":\"2025-03-16T08:15:49\",\"date_modified\":\"2025-05-18T21:33:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"4.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_y3Vtq9XAFvv3J\",\"billing\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"deleted@site.invalid\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"0\",\"customer_ip_address\":\"192.168.198.0\",\"customer_user_agent\":\"[deleted]\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-03-16T08:16:55\",\"date_paid\":\"2025-03-16T08:16:55\",\"cart_hash\":\"4704d8ec153c4c7813b9c613a5c4ad5f\",\"number\":\"565\",\"meta_data\":[{\"id\":6510,\"key\":\"_anonymized\",\"value\":\"yes\"},{\"id\":53,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":54,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":68,\"key\":\"_paystack_txn_ref\",\"value\":\"565_1742112984\"},{\"id\":52,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":55,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":67,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":60,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/streams\\/wallet\\/\"},{\"id\":65,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"3\"},{\"id\":62,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/checkout\\/?add-to-cart=560&quantity=1&woo_order_id=woo_67d624ebb4a91&amount=1.00&userid=1&product_name=Pro Membership&product_price=1.00&product_units=1&product_owner_id=1\"},{\"id\":64,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"5\"},{\"id\":63,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-16 01:10:17\"},{\"id\":59,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":66,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":61,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":56,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":17,\"name\":\"Pro Membership\",\"product_id\":0,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"4.00\",\"subtotal_tax\":\"0.00\",\"total\":\"4.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":null,\"price\":4,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/565\\/?pay_for_order=true&key=wc_order_y3Vtq9XAFvv3J\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-16T08:15:49\",\"date_modified_gmt\":\"2025-05-18T21:33:56\",\"date_completed_gmt\":\"2025-03-16T08:16:55\",\"date_paid_gmt\":\"2025-03-16T08:16:55\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/565\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/565\\/actions\\/email_templates\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 18 May 2025 21:35:06 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [access-control-allow-origin] => *
+                                    [access-control-max-age] => 3600
+                                    [access-control-allow-headers] => Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+                                    [content-length] => 128
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <h3>PHP GD library is NOT installed on your web server !</h3><h3>ZipArchive extension is NOT installed on your web server !</h3>
+                )
+
+        )
+
+)
+
+2025-05-18T21:35:06+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 28be56b54528013756e019a0576db426
+            [Date] => May 18, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.08596
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.8.2 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => v0KbRTMwaB80ppRAxNVpTxwe1ammfT7tg78Jd7hrlbU=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 28be56b54528013756e019a0576db426
+                        )
+
+                )
+
+            [Body] => {\"id\":565,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.8.2\",\"prices_include_tax\":false,\"date_created\":\"2025-03-16T08:15:49\",\"date_modified\":\"2025-05-18T21:33:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"4.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_y3Vtq9XAFvv3J\",\"billing\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"deleted@site.invalid\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"0\",\"customer_ip_address\":\"192.168.198.0\",\"customer_user_agent\":\"[deleted]\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-03-16T08:16:55\",\"date_paid\":\"2025-03-16T08:16:55\",\"cart_hash\":\"4704d8ec153c4c7813b9c613a5c4ad5f\",\"number\":\"565\",\"meta_data\":[{\"id\":6510,\"key\":\"_anonymized\",\"value\":\"yes\"},{\"id\":53,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":54,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":68,\"key\":\"_paystack_txn_ref\",\"value\":\"565_1742112984\"},{\"id\":52,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":55,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":67,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":60,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/streams\\/wallet\\/\"},{\"id\":65,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"3\"},{\"id\":62,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/checkout\\/?add-to-cart=560&quantity=1&woo_order_id=woo_67d624ebb4a91&amount=1.00&userid=1&product_name=Pro Membership&product_price=1.00&product_units=1&product_owner_id=1\"},{\"id\":64,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"5\"},{\"id\":63,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-16 01:10:17\"},{\"id\":59,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":66,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":61,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":56,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":17,\"name\":\"Pro Membership\",\"product_id\":0,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"4.00\",\"subtotal_tax\":\"0.00\",\"total\":\"4.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":null,\"price\":4,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/565\\/?pay_for_order=true&key=wc_order_y3Vtq9XAFvv3J\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-16T08:15:49\",\"date_modified_gmt\":\"2025-05-18T21:33:56\",\"date_completed_gmt\":\"2025-03-16T08:16:55\",\"date_paid_gmt\":\"2025-03-16T08:16:55\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/565\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/565\\/actions\\/email_templates\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 18 May 2025 21:35:06 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => PHPSESSID=pskf65osbm3g9uld2d9m2vv8n7; path=/; HttpOnly
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 128
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <h3>PHP GD library is NOT installed on your web server !</h3><h3>ZipArchive extension is NOT installed on your web server !</h3>
+                )
+
+        )
+
+)
+
+2025-05-18T21:35:06+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 889017ea9e939c572816b0160bc85d29
+            [Date] => May 18, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/social/qdwpgb_callback.php
+            [Duration] => 0.03459
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.8.2 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => YQ/LNWAWghKbKw1PTycH7NCdGlJeOMl/x3s+aFD1f9U=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 889017ea9e939c572816b0160bc85d29
+                        )
+
+                )
+
+            [Body] => {\"id\":564,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.8.2\",\"prices_include_tax\":false,\"date_created\":\"2025-03-16T07:59:10\",\"date_modified\":\"2025-05-18T21:33:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"2.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_RS4KYjCQXas4g\",\"billing\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"deleted@site.invalid\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"0\",\"customer_ip_address\":\"192.168.198.0\",\"customer_user_agent\":\"[deleted]\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-03-16T08:00:11\",\"date_paid\":\"2025-03-16T08:00:11\",\"cart_hash\":\"1e189a91b7b72986a8278c64f41de081\",\"number\":\"564\",\"meta_data\":[{\"id\":6511,\"key\":\"_anonymized\",\"value\":\"yes\"},{\"id\":36,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":37,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":51,\"key\":\"_paystack_txn_ref\",\"value\":\"564_1742111994\"},{\"id\":35,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":38,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":50,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":43,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/streams\\/wallet\\/\"},{\"id\":48,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"3\"},{\"id\":45,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/checkout\\/?add-to-cart=560&quantity=1&woo_order_id=woo_67d624ebb4a91&amount=1.00&userid=1&product_name=Pro Membership&product_price=1.00&product_units=1&product_owner_id=1\"},{\"id\":47,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"3\"},{\"id\":46,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-16 01:10:17\"},{\"id\":42,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":49,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":44,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":39,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":16,\"name\":\"Pro Membership\",\"product_id\":0,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"2.00\",\"subtotal_tax\":\"0.00\",\"total\":\"2.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":null,\"price\":2,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/564\\/?pay_for_order=true&key=wc_order_RS4KYjCQXas4g\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-16T07:59:10\",\"date_modified_gmt\":\"2025-05-18T21:33:56\",\"date_completed_gmt\":\"2025-03-16T08:00:11\",\"date_paid_gmt\":\"2025-03-16T08:00:11\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/564\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/564\\/actions\\/email_templates\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 18 May 2025 21:35:06 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [access-control-allow-origin] => *
+                                    [access-control-max-age] => 3600
+                                    [access-control-allow-headers] => Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+                                    [content-length] => 128
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <h3>PHP GD library is NOT installed on your web server !</h3><h3>ZipArchive extension is NOT installed on your web server !</h3>
+                )
+
+        )
+
+)
+
+2025-05-18T21:35:06+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 28be56b54528013756e019a0576db426
+            [Date] => May 18, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.06284
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.8.2 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => XORx+mFD+D/pyQ1GbXurxMjcT3RpTCWeg/OByw6P0J4=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 28be56b54528013756e019a0576db426
+                        )
+
+                )
+
+            [Body] => {\"id\":564,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.8.2\",\"prices_include_tax\":false,\"date_created\":\"2025-03-16T07:59:10\",\"date_modified\":\"2025-05-18T21:33:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"2.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_RS4KYjCQXas4g\",\"billing\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"deleted@site.invalid\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"0\",\"customer_ip_address\":\"192.168.198.0\",\"customer_user_agent\":\"[deleted]\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-03-16T08:00:11\",\"date_paid\":\"2025-03-16T08:00:11\",\"cart_hash\":\"1e189a91b7b72986a8278c64f41de081\",\"number\":\"564\",\"meta_data\":[{\"id\":6511,\"key\":\"_anonymized\",\"value\":\"yes\"},{\"id\":36,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":37,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":51,\"key\":\"_paystack_txn_ref\",\"value\":\"564_1742111994\"},{\"id\":35,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":38,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":50,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":43,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/streams\\/wallet\\/\"},{\"id\":48,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"3\"},{\"id\":45,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/checkout\\/?add-to-cart=560&quantity=1&woo_order_id=woo_67d624ebb4a91&amount=1.00&userid=1&product_name=Pro Membership&product_price=1.00&product_units=1&product_owner_id=1\"},{\"id\":47,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"3\"},{\"id\":46,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-16 01:10:17\"},{\"id\":42,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":49,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":44,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":39,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":16,\"name\":\"Pro Membership\",\"product_id\":0,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"2.00\",\"subtotal_tax\":\"0.00\",\"total\":\"2.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":null,\"price\":2,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/564\\/?pay_for_order=true&key=wc_order_RS4KYjCQXas4g\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-16T07:59:10\",\"date_modified_gmt\":\"2025-05-18T21:33:56\",\"date_completed_gmt\":\"2025-03-16T08:00:11\",\"date_paid_gmt\":\"2025-03-16T08:00:11\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/564\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/564\\/actions\\/email_templates\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 18 May 2025 21:35:06 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => PHPSESSID=dts334ogj7mo3sfmjvpkumsik5; path=/; HttpOnly
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 128
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <h3>PHP GD library is NOT installed on your web server !</h3><h3>ZipArchive extension is NOT installed on your web server !</h3>
+                )
+
+        )
+
+)
+
+2025-05-18T21:35:06+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 889017ea9e939c572816b0160bc85d29
+            [Date] => May 18, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/social/qdwpgb_callback.php
+            [Duration] => 0.03016
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.8.2 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => bDpv/m7b91j0DzsLRoKzIWACMyCrR5WF7ltIPblP2Pc=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 889017ea9e939c572816b0160bc85d29
+                        )
+
+                )
+
+            [Body] => {\"id\":563,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.8.2\",\"prices_include_tax\":false,\"date_created\":\"2025-03-16T07:53:10\",\"date_modified\":\"2025-05-18T21:33:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"1.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_V0c56T9YKb4PC\",\"billing\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"deleted@site.invalid\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"0\",\"customer_ip_address\":\"192.168.198.0\",\"customer_user_agent\":\"[deleted]\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-03-16T07:54:13\",\"date_paid\":\"2025-03-16T07:54:13\",\"cart_hash\":\"e588fa07f96d1c326e3e29e31a059035\",\"number\":\"563\",\"meta_data\":[{\"id\":6512,\"key\":\"_anonymized\",\"value\":\"yes\"},{\"id\":19,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":20,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":34,\"key\":\"_paystack_txn_ref\",\"value\":\"563_1742111634\"},{\"id\":18,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":21,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":33,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":26,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/streams\\/wallet\\/\"},{\"id\":31,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"3\"},{\"id\":28,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/checkout\\/?add-to-cart=560&quantity=1&woo_order_id=woo_67d624ebb4a91&amount=1.00&userid=1&product_name=Pro Membership&product_price=1.00&product_units=1&product_owner_id=1\"},{\"id\":30,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"1\"},{\"id\":29,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-16 01:10:17\"},{\"id\":25,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":32,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":27,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":22,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":15,\"name\":\"Pro Membership\",\"product_id\":0,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1.00\",\"subtotal_tax\":\"0.00\",\"total\":\"1.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":null,\"price\":1,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/563\\/?pay_for_order=true&key=wc_order_V0c56T9YKb4PC\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-16T07:53:10\",\"date_modified_gmt\":\"2025-05-18T21:33:56\",\"date_completed_gmt\":\"2025-03-16T07:54:13\",\"date_paid_gmt\":\"2025-03-16T07:54:13\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/563\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/563\\/actions\\/email_templates\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 18 May 2025 21:35:06 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [access-control-allow-origin] => *
+                                    [access-control-max-age] => 3600
+                                    [access-control-allow-headers] => Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+                                    [content-length] => 128
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <h3>PHP GD library is NOT installed on your web server !</h3><h3>ZipArchive extension is NOT installed on your web server !</h3>
+                )
+
+        )
+
+)
+
+2025-05-18T21:35:07+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 28be56b54528013756e019a0576db426
+            [Date] => May 18, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.07153
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.8.2 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => jZiEP5flBVJl3xo94XKLYJ3HifJBDQ2MOsrKrhXULig=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 28be56b54528013756e019a0576db426
+                        )
+
+                )
+
+            [Body] => {\"id\":563,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.8.2\",\"prices_include_tax\":false,\"date_created\":\"2025-03-16T07:53:10\",\"date_modified\":\"2025-05-18T21:33:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"1.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_V0c56T9YKb4PC\",\"billing\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"deleted@site.invalid\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"0\",\"customer_ip_address\":\"192.168.198.0\",\"customer_user_agent\":\"[deleted]\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-03-16T07:54:13\",\"date_paid\":\"2025-03-16T07:54:13\",\"cart_hash\":\"e588fa07f96d1c326e3e29e31a059035\",\"number\":\"563\",\"meta_data\":[{\"id\":6512,\"key\":\"_anonymized\",\"value\":\"yes\"},{\"id\":19,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":20,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":34,\"key\":\"_paystack_txn_ref\",\"value\":\"563_1742111634\"},{\"id\":18,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":21,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":33,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":26,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/streams\\/wallet\\/\"},{\"id\":31,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"3\"},{\"id\":28,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/checkout\\/?add-to-cart=560&quantity=1&woo_order_id=woo_67d624ebb4a91&amount=1.00&userid=1&product_name=Pro Membership&product_price=1.00&product_units=1&product_owner_id=1\"},{\"id\":30,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"1\"},{\"id\":29,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-16 01:10:17\"},{\"id\":25,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":32,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":27,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":22,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":15,\"name\":\"Pro Membership\",\"product_id\":0,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"1.00\",\"subtotal_tax\":\"0.00\",\"total\":\"1.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":null,\"price\":1,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/563\\/?pay_for_order=true&key=wc_order_V0c56T9YKb4PC\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-16T07:53:10\",\"date_modified_gmt\":\"2025-05-18T21:33:56\",\"date_completed_gmt\":\"2025-03-16T07:54:13\",\"date_paid_gmt\":\"2025-03-16T07:54:13\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/563\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/563\\/actions\\/email_templates\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 18 May 2025 21:35:06 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => PHPSESSID=snv18iocktqtiev13odkbupi3v; path=/; HttpOnly
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 128
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <h3>PHP GD library is NOT installed on your web server !</h3><h3>ZipArchive extension is NOT installed on your web server !</h3>
+                )
+
+        )
+
+)
+
+2025-05-18T21:35:07+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3317b993ffd137985e73ff2464b138f1
+            [Date] => May 18, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/social/qdwpgb_callback.php
+            [Duration] => 0.03197
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.8.2 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => l7cfNqNcZCbIdwTxk7JuFm5BnFrZPJNBro3glFq0Bew=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 3317b993ffd137985e73ff2464b138f1
+                        )
+
+                )
+
+            [Body] => {\"id\":562,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.8.2\",\"prices_include_tax\":false,\"date_created\":\"2025-03-16T01:10:15\",\"date_modified\":\"2025-05-18T21:33:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_1W8z8mFH1vjub\",\"billing\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"deleted@site.invalid\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"0\",\"customer_ip_address\":\"192.168.198.0\",\"customer_user_agent\":\"[deleted]\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-03-16T02:24:11\",\"date_paid\":\"2025-03-16T02:24:11\",\"cart_hash\":\"91962bde58d91929561839403bbdba7d\",\"number\":\"562\",\"meta_data\":[{\"id\":6513,\"key\":\"_anonymized\",\"value\":\"yes\"},{\"id\":2,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":3,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":17,\"key\":\"_paystack_txn_ref\",\"value\":\"562_1742091818\"},{\"id\":1,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":4,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":16,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":9,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/streams\\/wallet\\/\"},{\"id\":14,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"2\"},{\"id\":11,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/checkout\\/?add-to-cart=560&quantity=1&woo_order_id=woo_67d624ebb4a91&amount=1.00&userid=1&product_name=Pro Membership&product_price=1.00&product_units=1&product_owner_id=1\"},{\"id\":13,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"2\"},{\"id\":12,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-16 01:10:17\"},{\"id\":8,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":15,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":10,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":5,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":14,\"name\":\"Pro Membership\",\"product_id\":0,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5.00\",\"subtotal_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":null,\"price\":5,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/562\\/?pay_for_order=true&key=wc_order_1W8z8mFH1vjub\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-16T01:10:15\",\"date_modified_gmt\":\"2025-05-18T21:33:56\",\"date_completed_gmt\":\"2025-03-16T02:24:11\",\"date_paid_gmt\":\"2025-03-16T02:24:11\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/562\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/562\\/actions\\/email_templates\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 18 May 2025 21:35:07 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [access-control-allow-origin] => *
+                                    [access-control-max-age] => 3600
+                                    [access-control-allow-headers] => Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+                                    [content-length] => 128
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <h3>PHP GD library is NOT installed on your web server !</h3><h3>ZipArchive extension is NOT installed on your web server !</h3>
+                )
+
+        )
+
+)
+
+2025-05-18T21:35:07+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 15d705bf8a7be8c8412f905698603799
+            [Date] => May 18, 2025 @ 21:35
+            [URL] => http://127.0.0.1/buzzjuice.net/streams/wow-pgb_webhook.php
+            [Duration] => 0.06423
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/9.8.2 Hookshot (WordPress/6.7.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => http://127.0.0.1/buzzjuice.net/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => 5Wu74xhezukDvOKsKfoTMgqJWzv+gfvbIQoZ2aKTA/M=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 15d705bf8a7be8c8412f905698603799
+                        )
+
+                )
+
+            [Body] => {\"id\":562,\"parent_id\":0,\"status\":\"completed\",\"currency\":\"GHS\",\"version\":\"9.8.2\",\"prices_include_tax\":false,\"date_created\":\"2025-03-16T01:10:15\",\"date_modified\":\"2025-05-18T21:33:56\",\"discount_total\":\"0.00\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"customer_id\":0,\"order_key\":\"wc_order_1W8z8mFH1vjub\",\"billing\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"email\":\"deleted@site.invalid\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"[deleted]\",\"last_name\":\"[deleted]\",\"company\":\"\",\"address_1\":\"[deleted]\",\"address_2\":\"\",\"city\":\"[deleted]\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"paystack\",\"payment_method_title\":\"Debit\\/Credit Cards\",\"transaction_id\":\"0\",\"customer_ip_address\":\"192.168.198.0\",\"customer_user_agent\":\"[deleted]\",\"created_via\":\"store-api\",\"customer_note\":\"\",\"date_completed\":\"2025-03-16T02:24:11\",\"date_paid\":\"2025-03-16T02:24:11\",\"cart_hash\":\"91962bde58d91929561839403bbdba7d\",\"number\":\"562\",\"meta_data\":[{\"id\":6513,\"key\":\"_anonymized\",\"value\":\"yes\"},{\"id\":2,\"key\":\"_coupons_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":3,\"key\":\"_fees_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":17,\"key\":\"_paystack_txn_ref\",\"value\":\"562_1742091818\"},{\"id\":1,\"key\":\"_shipping_hash\",\"value\":\"9d4568c009d203ab10e33ea9953a0264\"},{\"id\":4,\"key\":\"_taxes_hash\",\"value\":\"d751713988987e9331980363e24189ce\"},{\"id\":16,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":9,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/streams\\/wallet\\/\"},{\"id\":14,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"2\"},{\"id\":11,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"http:\\/\\/192.168.198.151\\/buzzjuice.net\\/checkout\\/?add-to-cart=560&quantity=1&woo_order_id=woo_67d624ebb4a91&amount=1.00&userid=1&product_name=Pro Membership&product_price=1.00&product_units=1&product_owner_id=1\"},{\"id\":13,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"2\"},{\"id\":12,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2025-03-16 01:10:17\"},{\"id\":8,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":15,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/132.0.0.0 Safari\\/537.36 OPR\\/117.0.0.0\"},{\"id\":10,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":5,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":14,\"name\":\"Pro Membership\",\"product_id\":0,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5.00\",\"subtotal_tax\":\"0.00\",\"total\":\"5.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":null,\"price\":5,\"image\":{\"id\":0,\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/checkout\\/order-pay\\/562\\/?pay_for_order=true&key=wc_order_1W8z8mFH1vjub\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":false,\"date_created_gmt\":\"2025-03-16T01:10:15\",\"date_modified_gmt\":\"2025-05-18T21:33:56\",\"date_completed_gmt\":\"2025-03-16T02:24:11\",\"date_paid_gmt\":\"2025-03-16T02:24:11\",\"currency_symbol\":\"\\u20b5\",\"_links\":{\"self\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/562\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"http:\\/\\/127.0.0.1\\/buzzjuice.net\\/wp-json\\/wc\\/v3\\/orders\\/562\\/actions\\/email_templates\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 18 May 2025 21:35:07 GMT
+                                    [server] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+                                    [x-powered-by] => PHP/8.2.12
+                                    [set-cookie] => PHPSESSID=4343gaeq5f7b5bs36ch50n85h6; path=/; HttpOnly
+                                    [expires] => Thu, 19 Nov 1981 08:52:00 GMT
+                                    [cache-control] => no-store, no-cache, must-revalidate
+                                    [pragma] => no-cache
+                                    [keep-alive] => timeout=100,max=500
+                                    [content-length] => 128
+                                    [content-type] => text/html; charset=UTF-8
+                                )
+
+                        )
+
+                    [Body] => <h3>PHP GD library is NOT installed on your web server !</h3><h3>ZipArchive extension is NOT installed on your web server !</h3>
+                )
+
+        )
+
+)
+

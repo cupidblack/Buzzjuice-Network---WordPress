@@ -39,7 +39,7 @@
         <li><a href="/buzzjuice.net/streams/directory/market"><i class="fa fa-th-list"></i> Catalog</a></li>
         <li><a href="/buzzjuice.net/streams"><i class="fa fa-image"></i> Streams</a></li>
         <li><a href="/buzzjuice.net"><i class="fa fa-home"></i> Cabin</a></li>
-        <li><a href="https://koware.org/academy/"><i class="fa fa-leanpub"></i> Academy</a></li>
+        <li><a href="https://koware.org/academy/"><i class="fa fa-leanpub"></i> Courses</a></li>
         <li><a href="/buzzjuice.net/social/login"><i class="fa fa-users"></i> Social</a></li>
         <li><a href="/buzzjuice.net/streams/setting"><i class="fa fa-tachometer"></i> Dashboard</a></li>
     </ul>

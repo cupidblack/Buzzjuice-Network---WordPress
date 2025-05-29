@@ -35,48 +35,43 @@ use LearnDash\Core\Autoloader;
 use LearnDash\WooCommerce\Dependency_Checker;
 use LearnDash\WooCommerce\Plugin;
 
+// Hook to load the plugin text domain at the `init` action.
 add_action(
-	'plugins_loaded',
+	'init',
 	function () {
 		load_plugin_textdomain(
 			'learndash-woocommerce',
 			false,
-			plugin_basename(
-				__DIR__
-			) . '/languages'
+			plugin_basename( __DIR__ ) . '/languages'
 		);
 	}
 );
 
-$learndash_woocommerce_dependency_checker = new Dependency_Checker();
-
-$learndash_woocommerce_dependency_checker->set_dependencies(
-	[
-		'sfwd-lms/sfwd_lms.php'       => [
-			'label'       => '<a href="https://learndash.com">LearnDash LMS</a>',
-			'class'       => 'SFWD_LMS',
-			'min_version' => '4.7.0',
-		],
-		'woocommerce/woocommerce.php' => [
-			'label'       => '<a href="https://woocommerce.com/">WooCommerce</a>',
-			'class'       => 'WooCommerce',
-			'min_version' => '4.5.0',
-		],
-	]
-);
-
-$learndash_woocommerce_dependency_checker->set_message(
-	esc_html__( 'LearnDash LMS - WooCommerce add-on requires the following plugin(s) be active:', 'learndash-woocommerce' )
-);
-
-/**
- * The initialization of the plugin requires `plugins_loaded` hook because some required WooCommerce hooks
- * are not available in `learndash_init` or `init` hook. We set the priority to 50 to ensure that all plugins
- * have been loaded before we check the dependencies.
- */
+// Defer dependency checking and plugin initialization to the `init` action.
 add_action(
-	'plugins_loaded',
-	function () use ( $learndash_woocommerce_dependency_checker ) {
+	'init',
+	function () {
+		$learndash_woocommerce_dependency_checker = new Dependency_Checker();
+
+		$learndash_woocommerce_dependency_checker->set_dependencies(
+			[
+				'sfwd-lms/sfwd_lms.php'       => [
+					'label'       => '<a href="https://learndash.com">LearnDash LMS</a>',
+					'class'       => 'SFWD_LMS',
+					'min_version' => '4.7.0',
+				],
+				'woocommerce/woocommerce.php' => [
+					'label'       => '<a href="https://woocommerce.com/">WooCommerce</a>',
+					'class'       => 'WooCommerce',
+					'min_version' => '4.5.0',
+				],
+			]
+		);
+
+		$learndash_woocommerce_dependency_checker->set_message(
+			esc_html__( 'LearnDash LMS - WooCommerce add-on requires the following plugin(s) be active:', 'learndash-woocommerce' )
+		);
+
 		if ( ! $learndash_woocommerce_dependency_checker->check_dependency_results() ) {
 			return;
 		}
@@ -88,7 +83,7 @@ add_action(
 		require_once LEARNDASH_WOOCOMMERCE_PLUGIN_PATH . 'includes/class-learndash-woocommerce.php';
 		new Learndash_WooCommerce();
 	},
-	50
+	20
 );
 
 /**

@@ -2292,41 +2292,69 @@ function wc_get_permalink_structure() {
 }
 
 /**
- * Switch WooCommerce to site language.
+ * Switch WooCommerce to the site locale during the `init` action.
+ *
+ * This ensures that WooCommerce loads the correct translations for the current locale.
  *
  * @since 3.1.0
  */
 function wc_switch_to_site_locale() {
-	global $wp_locale_switcher;
+    global $wp_locale_switcher;
 
-	if ( function_exists( 'switch_to_locale' ) && isset( $wp_locale_switcher ) ) {
-		switch_to_locale( get_locale() );
+    // Check if locale switching is supported and the locale switcher is available.
+    if ( function_exists( 'switch_to_locale' ) && isset( $wp_locale_switcher ) ) {
+        // Switch to the site's locale.
+        switch_to_locale( get_locale() );
 
-		// Filter on plugin_locale so load_plugin_textdomain loads the correct locale.
-		add_filter( 'plugin_locale', 'get_locale' );
+        // Apply the `plugin_locale` filter to ensure the correct locale is used.
+        add_filter( 'plugin_locale', 'get_locale' );
 
-		// Init WC locale.
-		WC()->load_plugin_textdomain();
-	}
+        // Load WooCommerce's text domain for translations.
+        if ( method_exists( WC(), 'load_plugin_textdomain' ) ) {
+            WC()->load_plugin_textdomain();
+        } else {
+            error_log( 'WooCommerce: Failed to load plugin text domain. Method WC()->load_plugin_textdomain() does not exist.' );
+        }
+    } else {
+        error_log( 'WooCommerce: Locale switching is not supported or $wp_locale_switcher is not available.' );
+    }
 }
 
+// Hook the function to the `init` action.
+add_action( 'init', 'wc_switch_to_site_locale' );
+
 /**
- * Switch WooCommerce language to original.
+ * Restore WooCommerce to the original locale.
+ *
+ * This function reverts WooCommerce to its original language settings
+ * after switching to a different locale.
  *
  * @since 3.1.0
  */
 function wc_restore_locale() {
-	global $wp_locale_switcher;
+    global $wp_locale_switcher;
 
-	if ( function_exists( 'restore_previous_locale' ) && isset( $wp_locale_switcher ) ) {
-		restore_previous_locale();
+    // Check if locale restoration is supported and the locale switcher is available.
+    if ( function_exists( 'restore_previous_locale' ) && isset( $wp_locale_switcher ) ) {
+        // Attempt to restore the previous locale.
+        $restored = restore_previous_locale();
 
-		// Remove filter.
-		remove_filter( 'plugin_locale', 'get_locale' );
+        if ( ! $restored ) {
+            error_log( 'WooCommerce: Failed to restore the previous locale.' );
+        }
 
-		// Init WC locale.
-		WC()->load_plugin_textdomain();
-	}
+        // Remove the `plugin_locale` filter to avoid conflicts.
+        remove_filter( 'plugin_locale', 'get_locale' );
+
+        // Reload WooCommerce's text domain for translations.
+        if ( function_exists( 'WC' ) && method_exists( WC(), 'load_plugin_textdomain' ) ) {
+            WC()->load_plugin_textdomain();
+        } else {
+            error_log( 'WooCommerce: Failed to load plugin text domain. WC() or WC()->load_plugin_textdomain() is not available.' );
+        }
+    } else {
+        error_log( 'WooCommerce: Locale restoration is not supported or $wp_locale_switcher is not available.' );
+    }
 }
 
 /**

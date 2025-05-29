@@ -364,20 +364,20 @@ if ( ! class_exists( 'Affiliate_WP' ) ) :
 		 * @return \Affiliate_WP The one true plugin instance.
 		 */
 		public static function instance( $file = null ) {
-
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Affiliate_WP ) ) {
-
 				self::$instance = new Affiliate_WP;
-
+		
 				self::$instance->file = $file;
-
+		
 				self::$instance->set_plugin_data();
 				self::$instance->setup_constants();
 				self::$instance->includes();
 				self::$instance->setup_objects();
-				self::$instance->load_textdomain();
+		
+				// Hook the load_textdomain function to init action to defer translation loading.
+				add_action( 'init', [ self::$instance, 'load_textdomain' ] );
 			}
-
+		
 			return self::$instance;
 		}
 
@@ -755,6 +755,9 @@ if ( ! class_exists( 'Affiliate_WP' ) ) :
 			self::$instance->scripts = new Scripts();
 			self::$instance->drm = new DRM_Controller();
 
+			// Initialize the Creatives Groups class.
+			self::$instance->creative_groups = new \AffiliateWP\Creatives\Dashboard\Groups();
+
 			if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 				self::$instance->trustpilot = new \AffiliateWP\Admin\Trustpilot();
 			}
@@ -802,57 +805,57 @@ if ( ! class_exists( 'Affiliate_WP' ) ) :
 		}
 
 		/**
-		 * Loads the plugin language files
+		 * Loads the plugin language files.
 		 *
 		 * @access public
 		 * @since 1.0
 		 * @return void
 		 */
 		public function load_textdomain() {
+			add_action( 'init', function () {
+				// Set filter for plugin's languages directory.
+				$lang_dir = AFFILIATEWP_PLUGIN_DIR . '/languages/';
 
-			// Set filter for plugin's languages directory
-			$lang_dir = AFFILIATEWP_PLUGIN_DIR . '/languages/';
+				/**
+				 * Filters the languages directory path to use for AffiliateWP.
+				 *
+				 * @param string $lang_dir The languages directory path.
+				 */
+				$lang_dir = apply_filters( 'aff_wp_languages_directory', $lang_dir );
 
-			/**
-			 * Filters the languages directory path to use for AffiliateWP.
-			 *
-			 * @param string $lang_dir The languages directory path.
-			 */
-			$lang_dir = apply_filters( 'aff_wp_languages_directory', $lang_dir );
+				// Traditional WordPress plugin locale filter.
+				global $wp_version;
 
-			// Traditional WordPress plugin locale filter
+				$get_locale = get_locale();
 
-			global $wp_version;
+				if ( $wp_version >= 4.7 ) {
+					$get_locale = get_user_locale();
+				}
 
-			$get_locale = get_locale();
+				/**
+				 * Defines the plugin language locale used in AffiliateWP.
+				 *
+				 * @var $get_locale The locale to use. Uses `get_user_locale()` in WordPress 4.7 or greater,
+				 *                  otherwise uses `get_locale()`.
+				 */
+				$locale = apply_filters( 'plugin_locale', $get_locale, 'affiliate-wp' );
+				$mofile = sprintf( '%1$s-%2$s.mo', 'affiliate-wp', $locale );
 
-			if ( $wp_version >= 4.7 ) {
-				$get_locale = get_user_locale();
-			}
+				// Setup paths to current locale file.
+				$mofile_local  = $lang_dir . $mofile;
+				$mofile_global = WP_LANG_DIR . '/affiliate-wp/' . $mofile;
 
-			/**
-			 * Defines the plugin language locale used in AffiliateWP.
-			 *
-			 * @var $get_locale The locale to use. Uses get_user_locale()` in WordPress 4.7 or greater,
-			 *                  otherwise uses `get_locale()`.
-			 */
-			$locale = apply_filters( 'plugin_locale', $get_locale, 'affiliate-wp' );
-			$mofile = sprintf( '%1$s-%2$s.mo', 'affiliate-wp', $locale );
-
-			// Setup paths to current locale file
-			$mofile_local  = $lang_dir . $mofile;
-			$mofile_global = WP_LANG_DIR . '/affiliate-wp/' . $mofile;
-
-			if ( file_exists( $mofile_global ) ) {
-				// Look in global /wp-content/languages/affiliate-wp/ folder
-				load_textdomain( 'affiliate-wp', $mofile_global );
-			} elseif ( file_exists( $mofile_local ) ) {
-				// Look in local /wp-content/plugins/affiliate-wp/languages/ folder
-				load_textdomain( 'affiliate-wp', $mofile_local );
-			} else {
-				// Load the default language files
-				load_plugin_textdomain( 'affiliate-wp', false, $lang_dir );
-			}
+				if ( file_exists( $mofile_global ) ) {
+					// Look in global /wp-content/languages/affiliate-wp/ folder.
+					load_textdomain( 'affiliate-wp', $mofile_global );
+				} elseif ( file_exists( $mofile_local ) ) {
+					// Look in local /wp-content/plugins/affiliate-wp/languages/ folder.
+					load_textdomain( 'affiliate-wp', $mofile_local );
+				} else {
+					// Load the default language files.
+					load_plugin_textdomain( 'affiliate-wp', false, $lang_dir );
+				}
+			} );
 		}
 	}
 

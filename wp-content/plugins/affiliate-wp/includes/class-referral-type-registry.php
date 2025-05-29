@@ -36,17 +36,18 @@ class Registry extends Utils\Registry {
 	 * @since  2.2
 	 */
 	public function init() {
+		add_action( 'init', function () {
+			$this->register_core_types();
 
-		$this->register_core_types();
-
-		/**
-		 * Fires during instantiation of the referral type registry.
-		 *
-		 * @since 2.2
-		 *
-		 * @param \AffWP\Utils\Registry $this Registry instance.
-		 */
-		do_action( 'affwp_referral_type_init', $this );
+			/**
+			 * Fires during instantiation of the referral type registry.
+			 *
+			 * @since 2.2
+			 *
+			 * @param \AffWP\Utils\Registry $this Registry instance.
+			 */
+			do_action( 'affwp_referral_type_init', $this );
+		} );
 	}
 
 	/**

@@ -551,6 +551,12 @@ function make_curl_request($url, $method = 'GET', $data = null, $headers = [], $
     return ['response' => $response, 'http_code' => $http_code, 'error' => $error];
 }
 
+// Include the AffiliateWP core DB class
+require_once __DIR__ . '/../affiliate-wp/includes/abstracts/class-db.php'; // Adjust the path if necessary
+
+// Include the Affiliate_WP_Referrals_DB class
+require_once __DIR__ . '/../affiliate-wp/includes/class-referrals-db.php';
+
 function bluecrown_affiliatewp_post_checkout_verification($order_id) {
     if (!$order_id) return;
 
@@ -561,22 +567,11 @@ function bluecrown_affiliatewp_post_checkout_verification($order_id) {
     global $wpdb;
 
     // Step 1: Get customer_id from order metadata
-    // Try to get the customer ID from the order
-    $customer_id = $order->get_customer_id();
-
-    // If not found, fallback to the logged-in WordPress user ID
-    if (!$customer_id) {
-        $customer_id = get_current_user_id();
-    }
-
-    // Log an error if no customer ID is found
+    $customer_id = $order->get_customer_id() ?: get_current_user_id();
     if (!$customer_id) {
         error_log("❌ Unable to determine the customer ID.");
         return;
     }
-
-    // Proceed with the retrieved customer ID
-    //error_log("✅ Customer ID: $customer_id");
 
     // Step 2: Fetch affwp_customer_id from wp_affiliate_wp_customers table
     $affwp_customer_id = $wpdb->get_var($wpdb->prepare(
@@ -584,148 +579,158 @@ function bluecrown_affiliatewp_post_checkout_verification($order_id) {
         $customer_id
     ));
 
-    if (!$affwp_customer_id || $affwp_customer_id == 0) {
+    if (!$affwp_customer_id || $affwp_customer_id <= 0) {
         error_log("❌ Valid AffiliateWP Customer ID not found for Customer ID $customer_id. Skipping record creation.");
-        return;
-    }
-    
-    // Log the retrieved affwp_customer_id for debugging
-    //error_log("✅ Retrieved affwp_customer_id: $affwp_customer_id");
-    
-    // Ensure the affwp_customer_id is valid before calling add()
-    if (empty($affwp_customer_id) || !is_numeric($affwp_customer_id) || $affwp_customer_id <= 0) {
-        error_log("❌ Invalid affwp_customer_id ($affwp_customer_id) before calling add().");
         return;
     }
 
     // Step 3: Retrieve the referring affiliate ID
-    $referring_affiliate_id = affiliate_wp()->tracking->get_affiliate_id();
+    $referring_affiliate_id = $wpdb->get_var($wpdb->prepare(
+        "SELECT meta_value FROM wp_affiliate_wp_customermeta WHERE affwp_customer_id = %d",
+        $affwp_customer_id
+    ));
+
     if (!$referring_affiliate_id) {
         error_log("❌ Referring Affiliate ID not found for Order #$order_id.");
         return;
     }
 
-    // Step 4: Validate if the lifetime_customer record already exists
-    $existing_record = $wpdb->get_var($wpdb->prepare(
-        "SELECT COUNT(*) FROM wp_affiliate_wp_lifetime_customers WHERE affwp_customer_id = %d AND affiliate_id = %d",
+    // Step 4: Check if the affiliate has already been credited
+    $referrals_db = new Affiliate_WP_Referrals_DB(); // Instantiate the referrals database class
+    $existing_referral = $referrals_db->get_by('reference', $order_id);
+
+    if ($existing_referral) {
+        error_log("✅ Affiliate ID $referring_affiliate_id has already been credited for Order #$order_id.");
+        return;
+    }
+
+    // Step 5: Validate if the lifetime_customer record already exists
+    $lifetime_customer_id = $wpdb->get_var($wpdb->prepare(
+        "SELECT lifetime_customer_id FROM wp_affiliate_wp_lifetime_customers WHERE affwp_customer_id = %d AND affiliate_id = %d",
         $affwp_customer_id,
         $referring_affiliate_id
     ));
 
-    if ($existing_record > 0) {
-        //error_log("✅ Lifetime Customer record already exists for affwp_customer_id $affwp_customer_id with affiliate_id $referring_affiliate_id.");
-        $affiliate_id = $referring_affiliate_id;
-    } else {
-        // Step 5: Create a new lifetime_customer record
+    if (!$lifetime_customer_id) {
+        // Create a new lifetime_customer record
         $lifetime_customer_data = [
             'affwp_customer_id' => $affwp_customer_id,
             'affiliate_id' => $referring_affiliate_id,
-            'date_created' => current_time('mysql'), // Ensure the date is captured correctly
+            'date_created' => current_time('mysql'),
         ];
-        
-        // Log the data being passed to add()
-        error_log("📋 Data being passed to add(): " . print_r($lifetime_customer_data, true));
-        
-        // Validate affwp_customer_id before calling add()
-        if (empty($lifetime_customer_data['affwp_customer_id']) || !is_numeric($lifetime_customer_data['affwp_customer_id']) || $lifetime_customer_data['affwp_customer_id'] <= 0) {
-            error_log("❌ Invalid affwp_customer_id in data array before calling add(): " . print_r($lifetime_customer_data, true));
-            return;
-        }
-        
+
         $lifetime_customer_added = affiliate_wp_lifetime_commissions()->lifetime_customers->add($lifetime_customer_data);
 
-        if ($lifetime_customer_added) {
-            //error_log("✅ Lifetime Customer record created for affwp_customer_id $affwp_customer_id with affiliate_id $referring_affiliate_id.");
-            $affiliate_id = $referring_affiliate_id;
-        } else {
+        if (!$lifetime_customer_added) {
             error_log("❌ Failed to create Lifetime Customer record for affwp_customer_id $affwp_customer_id.");
             return;
         }
     }
 
-    // Step 6: Check if the affiliate has already been credited
-    $referral_exists = $wpdb->get_var($wpdb->prepare(
-        "SELECT referral_id FROM wp_affiliate_wp_referrals WHERE reference = %d AND affiliate_id = %d",
-        $order_id,
-        $affiliate_id
-    ));
-
-    if ($referral_exists) {
-        error_log("✅ Affiliate ID $affiliate_id has already been credited for Order #$order_id.");
-        return;
-    }
-
-    // Step 7: Calculate commission based on product or default rates
+    // Step 6: Calculate commission based on product or default rates
     $commission = 0;
+    $products_meta = []; // Array to store product details for the referral
+
     foreach ($order->get_items() as $item) {
         $product_id = $item->get_product_id();
+        $product = wc_get_product($product_id);
         $product_rate_type = get_post_meta($product_id, '_affwp_woocommerce_product_rate_type', true);
         $product_rate = get_post_meta($product_id, '_affwp_woocommerce_product_rate', true);
 
+        $product_price = $item->get_total();
+        $referral_amount = 0;
+
         if (is_numeric($product_rate) && $product_rate >= 0) {
-            // Use product-specific rate
             if ($product_rate_type === 'percentage') {
-                $commission += ($item->get_total() * $product_rate / 100);
+                $referral_amount = ($product_price * $product_rate / 100);
             } elseif ($product_rate_type === 'flat') {
-                $commission += $product_rate;
+                $referral_amount = $product_rate;
             }
         } else {
-            // Fallback to default rate
             $default_rate_type = get_option('affwp_settings')['referral_rate_type'];
             $default_rate = get_option('affwp_settings')['referral_rate'];
 
             if (is_numeric($default_rate) && $default_rate >= 0) {
                 if ($default_rate_type === 'percentage') {
-                    $commission += ($item->get_total() * $default_rate / 100);
+                    $referral_amount = ($product_price * $default_rate / 100);
                 } elseif ($default_rate_type === 'flat') {
-                    $commission += $default_rate;
+                    $referral_amount = $default_rate;
                 }
             }
         }
+
+        $commission += $referral_amount;
+
+        // Add product details to the products_meta array
+        $products_meta[] = [
+            'name' => $product->get_name(),
+            'id' => $product_id,
+            'price' => $product_price,
+            'referral_amount' => $referral_amount,
+        ];
     }
 
-    // Step 8: Add referral for the affiliate
+    // Step 7: Add referral for the affiliate
     if ($commission > 0) {
-        // Fetch lifetime_customer_id from the database
-        $lifetime_customer_id = $wpdb->get_var($wpdb->prepare(
-            "SELECT lifetime_customer_id FROM wp_affiliate_wp_lifetime_customers WHERE affwp_customer_id = %d AND affiliate_id = %d",
-            $affwp_customer_id,
-            $affiliate_id
-        ));
+        // Retrieve the parent ID (if applicable)
+        $parent_id = $order->get_parent_id(); // WooCommerce provides this method to get the parent order ID
 
-        // Prepare referral data
+        // Add the lifetime_referral flag to the custom data if lifetime_customer_id exists
+        $custom_data = [];
+
+        if ($lifetime_customer_id) {
+            $custom_data['lifetime_referral'] = true;
+        }
+
         $referral_data = [
-            'affiliate_id' => $affiliate_id,
-            'amount' => $commission,
-            'reference' => $order_id,
-            'context' => 'woocommerce',
-            'description' => 'Order #' . $order_id,
+            'affiliate_id' => $referring_affiliate_id,
+            'customer_id' => $affwp_customer_id,
+            'parent_id' => $parent_id ?: 0, // Use 0 if no parent ID exists
+            'description' => '',
             'status' => 'unpaid',
-            'custom' => maybe_serialize([
-                'lifetime_customer_id' => $lifetime_customer_id,
-                'affwp_customer_id' => $affwp_customer_id
-            ])
+            'amount' => $commission,
+            'currency' => $order->get_currency(),
+            'context' => 'woocommerce',
+            'campaign' => '', // Optional: Add campaign data if available
+            'reference' => $order_id,
+            'products' => serialize($products_meta), // Serialize product data
+            'date' => current_time('mysql'),
+            'custom' => maybe_serialize($custom_data), // Include the lifetime_referral flag
         ];
+        
+        // Generate the description
+        foreach ($order->get_items() as $item) {
+            $product = wc_get_product($item->get_product_id());
+            $parent_name = $product->get_name(); // Parent product name
+            $variation_name = $item->get_name(); // Variation product name
+            $variation_id = $item->get_variation_id(); // Variation ID
+    
+            // Format the description
+            $referral_data['description'] .= sprintf(
+                '%s - %s (Variation ID %d), ',
+                $parent_name,
+                $variation_name,
+                $variation_id
+            );
+        }
+    
+        // Remove trailing comma and space
+        $referral_data['description'] = rtrim($referral_data['description'], ', ');
 
-        // Ensure valid affwp_customer_id before adding referral
-        if (!empty($affwp_customer_id) && $affwp_customer_id > 0) {
-            // Add referral
-            if (affiliate_wp()->referrals->add($referral_data)) {
-                error_log("✅ Commission of $commission credited to Affiliate ID $affiliate_id for Order #$order_id.");
-                //error_log("ℹ️ Referral includes lifetime_customer_id: $lifetime_customer_id and customer_id: $customer_id.");
+        $referral_id = $referrals_db->add($referral_data);
 
-                // Step 9: Update unpaid earnings for the affiliate
-                $updated_unpaid_earnings = affwp_increase_affiliate_unpaid_earnings($affiliate_id, $commission);
-                if ($updated_unpaid_earnings !== false) {
-                    //error_log("✅ Unpaid earnings updated for Affiliate ID $affiliate_id. New Unpaid Earnings: $updated_unpaid_earnings.");
-                } else {
-                    error_log("❌ Failed to update unpaid earnings for Affiliate ID $affiliate_id.");
-                }
+        if ($referral_id) {
+            error_log("✅ Commission of $commission credited to Affiliate ID $referring_affiliate_id for Order #$order_id.");
+
+            // Step 8: Update unpaid earnings for the affiliate
+            $updated_unpaid_earnings = affwp_increase_affiliate_unpaid_earnings($referring_affiliate_id, $commission);
+            if ($updated_unpaid_earnings !== false) {
+                error_log("✅ Unpaid earnings updated for Affiliate ID $referring_affiliate_id. New Unpaid Earnings: $updated_unpaid_earnings.");
             } else {
-                error_log("❌ Failed to credit commission for Affiliate ID $affiliate_id for Order #$order_id.");
+                error_log("❌ Failed to update unpaid earnings for Affiliate ID $referring_affiliate_id.");
             }
         } else {
-            error_log("❌ Invalid affwp_customer_id ($affwp_customer_id). Referral not added for Order #$order_id.");
+            error_log("❌ Failed to credit commission for Affiliate ID $referring_affiliate_id for Order #$order_id.");
         }
     }
 }

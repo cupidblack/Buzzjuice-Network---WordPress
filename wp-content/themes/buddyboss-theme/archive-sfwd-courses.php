@@ -71,7 +71,9 @@ $courses_label     = LearnDash_Custom_Label::get_label( 'courses' );
 								</div>
 								<?php if ( buddyboss_theme_get_option( 'learndash_course_index_show_categories_filter' ) ) : ?>
 									<div class="select-wrap">
-										<?php if ( '' !== trim( buddyboss_theme()->learndash_helper()->print_categories_options() ) ) { ?>
+										<?php 
+										$categories_options = buddyboss_theme()->learndash_helper()->print_categories_options();
+										if ( '' !== trim( is_string( $categories_options ) ? $categories_options : '' ) ) { ?>
 											<select id="sfwd_cats-order-by" name="filter-categories">
 												<?php echo buddyboss_theme()->learndash_helper()->print_categories_options(); ?>
 											</select>

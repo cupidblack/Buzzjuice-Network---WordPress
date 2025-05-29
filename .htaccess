@@ -1,90 +1,14 @@
-# ----------------------------------------------------------------------
-# BEGIN PERFORMANCE AND SECURITY HEADERS
-# ----------------------------------------------------------------------
-<IfModule mod_headers.c>
-#   Header set Connection keep-alive
-#    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-#   Header always set X-Content-Type-Options "nosniff"
-#    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-#    Header always set X-Frame-Options "SAMEORIGIN"
-#    Header append Vary "Accept-Encoding"
-#    FileETag None
-</IfModule>
-
-# Protect sensitive files
-<FilesMatch "^(wp-config\.php|\.htaccess|\.htpasswd|xmlrpc\.php|readme\.html|license\.txt|changelog\.txt)$">
-#    Require all denied
-</FilesMatch>
-
-# Block directory browsing
-#Options -Indexes
-
-# No Cookies for static assets
-<FilesMatch "\.(js|css|jpg|png|jpeg|gif|xml|json|txt|pdf|mov|avi|otf|woff|ico|swf)$">
-#    RequestHeader unset Cookie
-#    Header unset Cookie
-#    Header unset Set-Cookie
-</FilesMatch>
-
-<IfModule mod_setenvif.c>
-#    SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" HTTP_X_FORWARDED_FOR=$0
-#    SetEnvIf X-Real-IP "^.*\..*\..*\..*" HTTP_X_REAL_IP=$0
-</IfModule>
-
-# ----------------------------------------------------------------------
-# END PERFORMANCE AND SECURITY HEADERS
-# ----------------------------------------------------------------------
-
-# Enable Compression
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE application/javascript application/json application/xml text/css text/html text/plain text/xml image/svg+xml
-    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|zip|rar|exe|flv|mov|mp3|avi|mp4|webm|pdf)$ no-gzip dont-vary
-    BrowserMatch ^Mozilla/4 gzip-only-text/html
-    BrowserMatch ^Mozilla/4\.0[678] no-gzip
-    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-    Header append Vary: Accept-Encoding
-</IfModule>
-
-# Use UTF-8 encoding for anything served text/plain or text/html
-AddDefaultCharset UTF-8
-
-# Force UTF-8 for a number of file formats
-<IfModule mod_mime.c>
-    AddCharset UTF-8 .atom .css .js .json .rss .vtt .xml
-    AddType image/svg+xml svg svgz
-    AddEncoding gzip svgz
-    AddType application/vnd.ms-fontobject .eot
-    AddType font/ttf .ttf
-    AddType font/otf .otf
-    AddType font/x-woff .woff
-    AddType image/avif avif
-    AddType image/webp .webp
-</IfModule>
-
-# Optimize caching for static assets
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresDefault "access plus 1 month"
-    ExpiresByType image/avif "access plus 1 year"
-    ExpiresByType image/webp "access plus 1 year"
-    ExpiresByType application/json "access plus 1 month"
-    ExpiresByType application/xml "access plus 1 month"
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-</IfModule>
-
 # BEGIN WordPress
 # The directives (lines) between "BEGIN WordPress" and "END WordPress" are
 # dynamically generated, and should only be modified via WordPress filters.
 # Any changes to the directives between these markers will be overwritten.
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /buzzjuice.net/
+RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /buzzjuice.net/index.php [L]
+RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress

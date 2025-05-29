@@ -748,9 +748,11 @@ function learndash_course_add_child_to_parent( int $course_id, int $child_id, in
  * @param WP $wp The `WP` instance.
  */
 function learndash_check_course_step( $wp ) {
-	if ( is_single() ) {
-		global $post;
-		if ( ( in_array( $post->post_type, array( 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz' ), true ) === true ) && ( 'yes' === LearnDash_Settings_Section::get_section_setting( 'LearnDash_Settings_Section_Permalinks', 'nested_urls' ) ) ) {
+	global $post;
+
+	//BlueCrownR&D
+	if ( isset( $post ) && is_a( $post, 'WP_Post' ) && in_array( $post->post_type, array( 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz' ), true ) ) {
+		if ( 'yes' === LearnDash_Settings_Section::get_section_setting( 'LearnDash_Settings_Section_Permalinks', 'nested_urls' ) ) {
 			$course_slug = get_query_var( 'sfwd-courses' );
 
 			// Check first if there is an existing course part of the URL. Maybe the student is trying to user a lesson URL part for a different course.

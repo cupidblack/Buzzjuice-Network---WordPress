@@ -86,11 +86,17 @@ final class Groups {
 	 * @since 2.12.0
 	 */
 	public function __construct() {
+		add_action( 'init', [ $this, 'initialize' ] );
+	}
 
+	/**
+	 * Initialize the class after the `init` action.
+	 *
+	 * @since 2.12.0
+	 */
+	public function initialize() {
 		$this->group_plural = __( 'Categories', 'affiliate-wp' );
-
 		$this->filter_creatives_nonce = $this->nonce_action( 'filter', 'creatives' );
-
 		$this->hooks();
 	}
 

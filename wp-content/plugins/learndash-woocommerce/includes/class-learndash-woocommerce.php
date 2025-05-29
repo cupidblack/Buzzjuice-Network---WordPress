@@ -2196,3 +2196,133 @@ class Learndash_WooCommerce {
 		_deprecated_file( __METHOD__, '2.0.0' );
 	}
 }
+
+/**
+ * Updated Learndash_WooCommerce class for compatibility with WooCommerce's High-Performance Order Storage.
+ *
+ * @package LearnDash\WooCommerce
+ */
+
+use Automattic\WooCommerce\Admin\Overrides\Order;
+use WC_Order;
+
+class Learndash_WooCommerce_Updated {
+
+    /**
+     * Declare compatibility with WooCommerce's High-Performance Order Storage.
+     *
+     * @return void
+     */
+    public static function declare_custom_order_tables_compatibility(): void {
+        if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', LEARNDASH_WOOCOMMERCE_FILE, true );
+        }
+    }
+
+    /**
+     * Handle course enrollment on order status change using CRUD APIs.
+     *
+     * @param int $order_id WooCommerce order ID.
+     * @return void
+     */
+    public static function handle_order_status_enrollment_update( int $order_id ): void {
+        $order = wc_get_order( $order_id );
+
+        if ( ! $order || ! is_a( $order, WC_Order::class ) ) {
+            error_log( "Invalid order ID: $order_id" );
+            return;
+        }
+
+        $items = $order->get_items();
+        foreach ( $items as $item ) {
+            $product_id = $item->get_product_id();
+            $courses    = get_post_meta( $product_id, '_related_course', true );
+            $courses    = is_array( $courses ) ? $courses : [];
+
+            foreach ( $courses as $course_id ) {
+                // Validate course ID.
+                if ( get_post_type( $course_id ) !== 'sfwd-courses' ) {
+                    error_log( "Invalid course ID: $course_id for product ID: $product_id" );
+                    continue;
+                }
+
+                // Enroll the user in the course.
+                $user_id = $order->get_user_id();
+                if ( $user_id ) {
+                    ld_update_course_access( $user_id, $course_id );
+                } else {
+                    error_log( "No user ID found for order ID: $order_id" );
+                }
+            }
+        }
+    }
+
+    /**
+     * Handle course unenrollment on order refund.
+     *
+     * @param int $order_id WooCommerce order ID.
+     * @return void
+     */
+    public static function handle_order_refund( int $order_id ): void {
+        $order = wc_get_order( $order_id );
+
+        if ( ! $order || ! is_a( $order, WC_Order::class ) ) {
+            error_log( "Invalid order ID: $order_id" );
+            return;
+        }
+
+        $items = $order->get_items();
+        foreach ( $items as $item ) {
+            $product_id = $item->get_product_id();
+            $courses    = get_post_meta( $product_id, '_related_course', true );
+            $courses    = is_array( $courses ) ? $courses : [];
+
+            foreach ( $courses as $course_id ) {
+                // Validate course ID.
+                if ( get_post_type( $course_id ) !== 'sfwd-courses' ) {
+                    error_log( "Invalid course ID: $course_id for product ID: $product_id" );
+                    continue;
+                }
+
+                // Unenroll the user from the course.
+                $user_id = $order->get_user_id();
+                if ( $user_id ) {
+                    ld_update_course_access( $user_id, $course_id, true );
+                } else {
+                    error_log( "No user ID found for order ID: $order_id" );
+                }
+            }
+        }
+    }
+
+    /**
+     * Example of using WooCommerce CRUD APIs for updating metadata.
+     *
+     * @param WC_Order $order WooCommerce order object.
+     * @return void
+     */
+    public static function update_order_meta( WC_Order $order ): void {
+        if ( ! $order || ! is_a( $order, WC_Order::class ) ) {
+            error_log( 'Invalid order object provided for metadata update.' );
+            return;
+        }
+
+        // Update custom metadata.
+        $order->update_meta_data( '_custom_meta', 'custom_value' );
+        $order->save();
+    }
+
+    /**
+     * Integrate with the Learndash_WooCommerce class.
+     *
+     * @return void
+     */
+    public static function integrate_with_learndash_woocommerce(): void {
+        add_action( 'before_woocommerce_init', [ __CLASS__, 'declare_custom_order_tables_compatibility' ] );
+        add_action( 'woocommerce_order_status_completed', [ __CLASS__, 'handle_order_status_enrollment_update' ] );
+        add_action( 'woocommerce_order_refunded', [ __CLASS__, 'handle_order_refund' ] );
+    }
+}
+
+// Integrate the updated class with the Learndash_WooCommerce class.
+Learndash_WooCommerce_Updated::integrate_with_learndash_woocommerce();
