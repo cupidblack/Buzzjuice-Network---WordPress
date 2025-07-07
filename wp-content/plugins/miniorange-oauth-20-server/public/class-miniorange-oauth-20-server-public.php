@@ -112,7 +112,13 @@ class Miniorange_Oauth_20_Server_Public {
 
 		if ( isset( $_SERVER['REQUEST_URI'] ) && isset( $_SERVER['HTTP_HOST'] ) ) {
 			$request_path = wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) );
-			$request_url  = $protocol . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . $request_path['path'];
+			$request_url  = $protocol . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) );
+
+			if (is_array($request_path) && isset($request_path['path'])) {
+				$request_url .= $request_path['path'];
+			} else {
+				$request_url .= '/'; // Default fallback if 'path' is not available
+			}
 		} else {
 			return;
 		}

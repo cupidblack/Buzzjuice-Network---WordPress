@@ -229,20 +229,41 @@ function wowonder_redirect_after_purchase($order_id) {
                     return;
                 }
             
-                // Step 3: Check the user's pro status in WoWonder
-                $success = retry_with_backoff(function () use ($wowonder_api_url, $access_token, $server_key, $wow_user_id, $wow_post_id) {
+                $success = retry_with_backoff(function () use ($wowonder_api_url, $access_token, $server_key, $wow_user_id, $wow_post_id, $user_id) {
+                    // Map WoWonder post IDs to WordPress roles
+                    $role_map = [
+                        1 => 'classic_lifestyle',
+                        2 => 'silver_lifestyle',
+                        3 => 'rockstar_lifestyle',
+                        4 => 'premium_lifestyle',
+                    ];
+                
+                    // Get the WordPress user by ID
+                    $user = get_user_by('ID', $user_id);
+                
+                    if ($user && isset($role_map[$wow_post_id])) {
+                        // Check if any of the user's roles match the WoWonder post ID
+                        foreach ($user->roles as $role) {
+                            if ($role === $role_map[$wow_post_id]) {
+                                error_log("✅ (wow-pgb_sync.php) User's WordPress role matches WoWonder post ID. Skipping API call.");
+                                return true; // Stop retrying if the condition is met
+                            }
+                        }
+                    }
+                
+                   /* // Proceed with the API call if no matching role is found
                     $user_data = fetch_wowonder_user_data($wowonder_api_url, $access_token, $server_key, $wow_user_id);
-
+                
                     if (!$user_data) {
                         return null; // Retry if user data is not fetched
                     }
-
+                
                     // Check if the user's pro status matches
                     if (!empty($user_data['is_pro']) && $user_data['is_pro'] == 1 &&
                         (!empty($user_data['pro_type']) && $user_data['pro_type'] == $wow_post_id)) {
                         error_log("✅ (wow-pgb_sync.php) User's pro status verified successfully.");
                         return true; // Stop retrying if the condition is met
-                    } else {
+                    } */ else {
                         error_log("❌ User's pro status or pro type does not match.");
                         return null; // Retry if the condition is not met
                     }
@@ -390,7 +411,32 @@ function wowonder_redirect_after_purchase($order_id) {
         } 
     }
 }
-add_action('woocommerce_thankyou', 'wowonder_redirect_after_purchase');
+add_action('wp_footer', function () {
+    // Run only on the WooCommerce Thank You page
+    if (!is_wc_endpoint_url('order-received')) {
+        return;
+    }
+
+    $order_id = absint(get_query_var('order-received'));
+    if (!$order_id) {
+        return;
+    }
+
+    $order = wc_get_order($order_id);
+    if (!$order || !in_array($order->get_status(), ['processing', 'completed'])) {
+        return; // Skip if order doesn't exist or isn't paid
+    }
+
+    // Prevent multiple executions
+    if (!did_action('wowonder_order_redirect')) {
+        do_action('wowonder_order_redirect', $order_id);
+    }
+});
+
+// Your actual redirect logic (can go in functions.php or your plugin)
+add_action('wowonder_order_redirect', 'wowonder_redirect_after_purchase');
+
+
 
 // 🔹 Add WoWonder and WooCommerce API Settings to WordPress General Settings
 function wowonder_settings_init() {
