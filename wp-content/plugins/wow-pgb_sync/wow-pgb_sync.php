@@ -10,7 +10,7 @@ Author URI: https://koware.org
 // Load environment variables
 require_once __DIR__ . '/../blue-crown-wp/DotEnv.php';
 try {
-    $dotenv = new DotEnv(dirname(__DIR__, 4) . '/.env');
+    $dotenv = new DotEnv(dirname(__DIR__, 5) . '/.env');
     $dotenv->load();
 } catch (\Exception $e) {
     error_log('Failed to load .env file: ' . $e->getMessage());
@@ -20,9 +20,9 @@ try {
 // 🚀 Create Virtual WooCommerce Products on Plugin Activation
 function create_wow_pgb_virtual_products() {
     $products = [
-        'WoWPGB-Fund' => 'wow-pgb_fund',
-        'WoWPGB-Market' => 'wow-pgb_market',
-        'WoWPGB-Wallet' => 'wow-pgb_wallet'
+        'Buzzjuice Crowdfund' => 'wow-pgb_fund',
+        'Buzzjuice Market' => 'wow-pgb_market',
+        'Buzzjuice Wallet' => 'wow-pgb_wallet'
     ];
 
     $product_ids = get_option('wow_pgb_product_ids', []);
@@ -59,7 +59,7 @@ function create_wow_pgb_virtual_products() {
     if (!$parent_product_id) {
         // Create parent variable product
         $parent_product = new WC_Product_Variable();
-        $parent_product->set_name('WoWPGB-Pro');
+        $parent_product->set_name('Buzzjuice Subscription');
         $parent_product->set_status('publish');
         $parent_product->set_catalog_visibility('hidden'); // Hide from catalog
         $parent_product->set_sku($parent_sku);
@@ -147,10 +147,10 @@ function wowonder_redirect_after_purchase($order_id) {
                 }
             }
 
-            if (empty($wow_post_id) && empty($qdw_membershipType) && empty($qdw_transaction_kind)) {
+            /*if (empty($wow_post_id) && empty($qdw_membershipType) && empty($qdw_transaction_kind)) {
                 error_log("❌ WoWonder Post ID and QDW Membership Type are missing from the webhook meta.");
                 return;
-            }
+            }*/
 
             // Handle specific product types
             if ($product_sku === 'wow-pgb_fund') {
@@ -229,6 +229,7 @@ function wowonder_redirect_after_purchase($order_id) {
                     return;
                 }
             
+                // Step 3: Check the user's pro status in WoWonder
                 $success = retry_with_backoff(function () use ($wowonder_api_url, $access_token, $server_key, $wow_user_id, $wow_post_id, $user_id) {
                     // Map WoWonder post IDs to WordPress roles
                     $role_map = [
@@ -359,12 +360,12 @@ function wowonder_redirect_after_purchase($order_id) {
                     // Additional logic for post-subscription actions
                     bluecrown_affiliatewp_post_checkout_verification($order_id); // Call the function to credit the affiliate
 
-                    if ($order->get_meta_data('wow_order_id') === true) {
+                    if (empty($order->get_meta('qdw_order_id'))) {
                         // Redirect to the upgraded page for WoWPGB-Pro
                         $redirect_url = sprintf("%s/upgraded", esc_url($wowonder_url));
                         wp_redirect($redirect_url);
                         exit();
-                    } else {
+                    } elseif ($order->get_meta('qdw_order_id') && $order->get_meta('qdw_order_id') !== '0') {
                         // Redirect to the purchased page for other products
                         $redirect_url = sprintf("%s/ProSuccess?paymode=pro", esc_url($buzzsocial_url));
                         wp_redirect($redirect_url);
@@ -377,7 +378,7 @@ function wowonder_redirect_after_purchase($order_id) {
 
                     bluecrown_affiliatewp_post_checkout_verification($order_id);
 
-                    if ($order->get_meta_data('wow_order_id') === true) {
+                    if (empty($order->get_meta('qdw_order_id'))) {
                         // Redirect to the upgraded page for WoWPGB-Pro
                         $redirect_url = sprintf(
                             "%s/wallet/?nocache=%d",
@@ -386,7 +387,7 @@ function wowonder_redirect_after_purchase($order_id) {
                         );
                         wp_redirect($redirect_url);
                         exit();
-                    } else {
+                    } elseif ($order->get_meta('qdw_order_id') && $order->get_meta('qdw_order_id') !== '0') {
                         // Redirect to the purchased page for other products
                         $redirect_url = sprintf("%s/ProSuccess", esc_url($buzzsocial_url));
                         wp_redirect($redirect_url);
@@ -435,8 +436,6 @@ add_action('wp_footer', function () {
 
 // Your actual redirect logic (can go in functions.php or your plugin)
 add_action('wowonder_order_redirect', 'wowonder_redirect_after_purchase');
-
-
 
 // 🔹 Add WoWonder and WooCommerce API Settings to WordPress General Settings
 function wowonder_settings_init() {
@@ -743,6 +742,8 @@ function bluecrown_affiliatewp_post_checkout_verification($order_id) {
             'date' => current_time('mysql'),
             'custom' => maybe_serialize($custom_data), // Include the lifetime_referral flag
         ];
+        
+        error_log(print_r($referral_data, true)); // Debugging line to check the referral data
         
         // Generate the description
         foreach ($order->get_items() as $item) {
