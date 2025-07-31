@@ -77,15 +77,15 @@ function custom_bp_avatar_from_xprofile($avatar_url, $params) {
                 $custom_avatar = '/../streams/' . ltrim($custom_avatar, '/');
             }
 
-            // CASE 2: If it starts with 'upload/', prepend '/../streams/'
+            // CASE 3: If it starts with 'upload/', prepend '/../streams/'
             elseif (strpos(ltrim($custom_avatar, '/'), 'upload/') === 0) {
                 $custom_avatar = '/../streams/' . ltrim($custom_avatar, '/');
             }
 
-            // CASE 3: If it's a relative path, prepend site + '/streams/'
-           /* elseif (!preg_match('#^https?://#i', $custom_avatar)) {
+            // CASE 4: If it's a relative path, prepend site + '/streams/'
+            elseif (!preg_match('#^https?://#i', $custom_avatar)) {
                 $custom_avatar = $site_url . '/streams/' . ltrim($custom_avatar, '/');
-            }*/
+            }
 
             // Add cache-busting versioning
             $custom_avatar .= (strpos($custom_avatar, '?') === false ? '?' : '&') . 'v=' . time();
@@ -115,6 +115,7 @@ function custom_bp_avatar_html_override($html, $params) {
         $custom_avatar = xprofile_get_field_data('avatar', $user_id);
 
         if (!empty($custom_avatar)) {
+            
             // Normalize URL to prevent multiple 'https://buzzjuice.net/streams/' repetitions
             $site_streams_url = 'https://buzzjuice.net/streams/';
             $stream_relative  = '/../streams/';
@@ -208,7 +209,7 @@ function custom_bp_cover_from_xprofile($pre_value, $args) {
     }
 
     // Step 3: Prepend with /../streams/
-    $custom_cover = '/../streams/' . $custom_cover;
+    $custom_cover = '../streams/' . $custom_cover;
 
     // Step 4: Add cache-busting timestamp
     $custom_cover .= (strpos($custom_cover, '?') === false ? '?' : '&') . 'v=' . time();

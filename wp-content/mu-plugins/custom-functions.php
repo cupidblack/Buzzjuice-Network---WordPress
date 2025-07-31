@@ -95,3 +95,16 @@ add_filter('rest_prepare_user', 'add_email_to_rest_api', 10, 3);
 
 // Disable Admin Features: WooCommerce can load additional scripts in the admin dashboard.
 // add_filter('woocommerce_admin_disabled', '__return_true');
+
+
+// BuzzJuice Message Sync Triggers BuddyBoss → WoWonder message sync on conversation view.
+add_action('bp_messages_screen_conversation', function() {
+    $user_id = get_current_user_id();
+    $recipient_id = bp_displayed_user_id();
+    if ($user_id && $recipient_id && $user_id !== $recipient_id) {
+        require_once WP_CONTENT_DIR . '/mu-plugins/wp_wo_messages_sync.php';
+        if (function_exists('wp_wo_sync_messages')) {
+            wp_wo_sync_messages($user_id, $recipient_id);
+        }
+    }
+});
