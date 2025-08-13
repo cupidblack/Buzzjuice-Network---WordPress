@@ -718,36 +718,48 @@ if ( ! class_exists( 'Learndash_Payment_Button' ) ) {
 		 * @return string
 		 */
 		protected function map_group_label(): string {
-			if ( ! $this->product ) {
-				return '';
+			$button_label = '';
+
+			if ( $this->product ) {
+				if ( $this->product->has_ended( $this->current_user ) ) {
+					$button_label = sprintf(
+						// translators: placeholder: Course label.
+						esc_html_x( '%s ended', 'placeholder: Group label', 'learndash' ),
+						$this->product->get_type_label()
+					);
+				} elseif ( $this->product->is_pre_ordered( $this->current_user ) ) {
+					$button_label = sprintf(
+						// translators: placeholder: Group label.
+						esc_html_x( '%s pre-ordered', 'placeholder: Group label', 'learndash' ),
+						$this->product->get_type_label()
+					);
+				} elseif ( 0 === $this->product->get_seats_available( $this->current_user ) ) {
+					$button_label = sprintf(
+						// translators: placeholder: Group label.
+						esc_html_x( '%s is full', 'placeholder: Group label', 'learndash' ),
+						$this->product->get_type_label()
+					);
+				} else {
+					$button_label = LearnDash_Custom_Label::get_label( LearnDash_Custom_Label::$button_take_group );
+				}
 			}
 
-			if ( $this->product->has_ended( $this->current_user ) ) {
-				return sprintf(
-					// translators: placeholder: Group label.
-					esc_html_x( '%s ended', 'placeholder: Group label', 'learndash' ),
-					$this->product->get_type_label()
-				);
-			}
-
-			if ( $this->product->is_pre_ordered( $this->current_user ) ) {
-				return sprintf(
-					// translators: placeholder: Group label.
-					esc_html_x( '%s pre-ordered', 'placeholder: Group label', 'learndash' ),
-					$this->product->get_type_label()
-				);
-			}
-
-			if ( 0 === $this->product->get_seats_available( $this->current_user ) ) {
-				return sprintf(
-					// translators: placeholder: Group label.
-					esc_html_x( '%s is full', 'placeholder: Group label', 'learndash' ),
-					$this->product->get_type_label()
-				);
-			}
-
-			return LearnDash_Custom_Label::get_label(
-				LearnDash_Custom_Label::$button_take_group
+			/**
+			 * Filters the group payment button label.
+			 *
+			 * @since 4.22.0
+			 *
+			 * @param string       $button_label The button label.
+			 * @param Product|null $product      The product model.
+			 * @param WP_User      $current_user The current user.
+			 *
+			 * @return string Button label.
+			 */
+			return apply_filters(
+				'learndash_payment_button_label_group',
+				$button_label,
+				$this->product,
+				$this->current_user
 			);
 		}
 

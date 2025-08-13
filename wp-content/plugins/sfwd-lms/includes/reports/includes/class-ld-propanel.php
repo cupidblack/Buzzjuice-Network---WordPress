@@ -317,13 +317,14 @@ class LearnDash_ProPanel {
 		if ( is_admin() ) {
 			if ( function_exists( 'get_current_screen' ) ) {
 				$screen = get_current_screen();
+
 				if (
 					in_array(
 						$screen->id,
 						[
 							'dashboard',
 							'dashboard_page_propanel-reporting',
-							'learndash-lms_page_' . Cast::to_string( App::getVar( 'learndash_settings_reports_page_id' ) ),
+							'admin_page_' . Cast::to_string( App::getVar( 'learndash_settings_reports_page_id' ) ),
 						],
 						true
 					)

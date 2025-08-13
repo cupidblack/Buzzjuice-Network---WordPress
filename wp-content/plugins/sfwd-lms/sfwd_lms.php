@@ -2,11 +2,12 @@
 /**
  * Plugin Name: LearnDash LMS
  * Plugin URI: http://www.learndash.com
+ * Update URI: learndash
  * Description: LearnDash LMS Plugin - Turn your WordPress site into a learning management system.
- * Version: 4.21.2
+ * Version: 4.23.2.1
  * Requires PHP: 7.4
- * Requires at least: 6.1
- * Tested up to: 6.7.2
+ * Requires at least: 6.6
+ * Tested up to: 6.8.2
  * Author: LearnDash
  * Author URI: http://www.learndash.com
  * Text Domain: learndash
@@ -33,7 +34,6 @@ use StellarWP\Learndash\StellarWP\Telemetry\Config as TelemetryConfig;
 use StellarWP\Learndash\StellarWP\Telemetry\Core as Telemetry;
 use StellarWP\Learndash\StellarWP\DB\DB;
 use StellarWP\Learndash\StellarWP\Validation\Config as ValidationConfig;
-use StellarWP\Learndash\StellarWP\Assets\Config as AssetsConfig;
 
 // CONSTANTS.
 
@@ -44,120 +44,11 @@ use StellarWP\Learndash\StellarWP\Assets\Config as AssetsConfig;
 *
 * @internal Will be set by LearnDash LMS. Semantic versioning is used.
 */
-define( 'LEARNDASH_VERSION', '4.21.2' );
+define( 'LEARNDASH_VERSION', '4.23.2.1' );
 
-update_option( 'nss_plugin_license_sfwd_lms', 'B5E0B5F8DD8689E6ACA49DD6E6E1A930' );
-update_option( 'nss_plugin_license_email_sfwd_lms', 'noreply@gmail.com' );
+update_option( 'nss_plugin_license_sfwd_lms', 'WEADOWN000000005603B1EBE59708542' );
+update_option( 'nss_plugin_license_email_sfwd_lms', 'noreply@weadown.com' );
 update_option( 'nss_plugin_remote_license_sfwd_lms', [ 'value' => 'active' ] );
-add_filter('pre_http_request', function($pre, $args, $url) {
-    if (strpos($url, 'https://licensing.learndash.com/services/wp-json/') !== false) {
-        $new_url = 'https://www.gpltimes.com/learndashapi.php';
-        
-        $data = [
-            'original_url' => $url,
-            'method' => $args['method'],
-            'headers' => $args['headers']
-        ];
-
-        if ($args['method'] === 'POST') {
-            $data['body'] = $args['body'];
-        } elseif ($args['method'] === 'GET') {
-            $url_parts = parse_url($url);
-            if (isset($url_parts['query'])) {
-                parse_str($url_parts['query'], $query_params);
-                $data['query_params'] = $query_params;
-            }
-        }
-        
-        $custom_args = [
-            'body' => json_encode($data),
-            'method' => 'POST',
-            'headers' => ['Content-Type' => 'application/json'],
-        ];
-        
-        $response = wp_remote_post($new_url, $custom_args);
-        
-        return !is_wp_error($response) ? $response : new WP_Error('request_failed', 'Failed to make the request to the custom API endpoint');
-    }
-    return $pre;
-}, 10, 3);
-
-add_filter('pre_http_request', function($pre, $r, $url) {
-    // Intercept request to subscriptions status endpoint
-    if (strpos($url, 'https://checkout.learndash.com/wp-json/learndash/v2/subscriptions/status') !== false) {
-        $response = array(
-            'headers' => array(),
-            'body' => json_encode(array(
-                'learndash' => array(
-                    array(
-                        'variation' => 'plus',
-                        'status' => 'active',
-                        'expiry' => 2524591861
-                    ),
-                    array(
-                        'variation' => 'plus',
-                        'status' => 'active',
-                        'expiry' => 2524591861
-                    )
-                )
-            )),
-            'response' => array(
-                'code' => 200,
-                'message' => 'OK'
-            ),
-        );
-        
-        return $response;
-    }
-
-    // Intercept POST request to site auth endpoint
-    if (strpos($url, 'https://checkout.learndash.com/wp-json/learndash/v2/site/auth') !== false && $r['method'] === 'POST') {
-        $response = array(
-            'headers' => array(),
-            'body' => json_encode(array(
-                'subscription_type' => 'learndash_legacy',
-                'plan_code' => 'plus',
-                'site_limit' => 100,
-                'expiry' => 2524591861,
-                'token' => 'B5E0B5F8DD8689E6ACA49DD6E6E1A930',
-                'product' => 'learndash'
-            )),
-            'response' => array(
-                'code' => 200,
-                'message' => 'OK'
-            ),
-        );
-
-        return $response;
-    }
-
-    // Intercept request to plugins repo endpoint
-    if (strpos($url, 'https://checkout.learndash.com/wp-json/learndash/v2/repo/plugins') !== false) {
-        // Fetch the JSON data from the external URL
-        $json_data = wp_remote_get('https://www.gpltimes.com/gpldata/learndashrepo.json');
-
-        // Check if the external data retrieval was successful
-        if (!is_wp_error($json_data) && wp_remote_retrieve_response_code($json_data) === 200) {
-            $body = wp_remote_retrieve_body($json_data);
-            
-            // Return the local response with the fetched JSON data
-            $response = array(
-                'headers' => array(),
-                'body' => $body,
-                'response' => array(
-                    'code' => 200,
-                    'message' => 'OK'
-                ),
-            );
-
-            return $response;
-        }
-    }
-
-    // Return $pre to continue with the normal request if no conditions match
-    return $pre;
-}, 10, 3);
-
 
 if ( ! defined( 'LEARNDASH_LMS_PLUGIN_DIR' ) ) {
 	/**

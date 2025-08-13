@@ -44,6 +44,7 @@ class Assets {
 		Asset::add( 'learndash-ld30-modern', 'css/modern.css' )
 			->add_to_group( self::GROUP )
 			->set_path( 'themes/ld30/assets' )
+			->add_dependency( 'dashicons' )
 			->register();
 
 		Asset::add( 'learndash-ld30-modern-script', 'js/themes/ld30/modern/main.js' )

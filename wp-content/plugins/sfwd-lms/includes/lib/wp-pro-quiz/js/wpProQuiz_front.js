@@ -1,3 +1,11 @@
+/**
+ * @var {Object} WpProQuizGlobal Global object for wpProQuiz.
+ */
+const learndash = window.learndash || {};
+
+learndash.forms = learndash.forms || {};
+learndash.forms.sortable = learndash.forms.sortable || {};
+
 /* eslint-disable vars-on-top, camelcase*/
 (function ($) {
 	/**
@@ -638,9 +646,18 @@
 						}
 					});
 
-					if (lockResponse == true) {
-						$questionList.sortable();
-						$questionList.sortable('disable');
+					if (lockResponse === true) {
+						// Backwards compatibility with templates older than 4.21.3.
+						if (
+							!$questionList.hasClass('.ld-sortable--sort_answer')
+						) {
+							$questionList.sortable();
+							$questionList.sortable('disable');
+						} else {
+							learndash.forms.sortable.destroySortable(
+								$questionList[0] ?? null
+							);
+						}
 					}
 				},
 
@@ -852,19 +869,29 @@
 						solved: true,
 					},
 				});
-			} else if (question_data.type == 'sort_answer') {
+			} else if (question_data.type === 'sort_answer') {
 				jQuery.each(question_value, function (pos, key) {
 					const this_li = $(
 						'.wpProQuiz_questionListItem[data-pos="' + key + '"]',
 						$questionList
 					);
-					const this_li_inner = $('div.wpProQuiz_sortable', this_li);
+					const this_li_inner = $('.wpProQuiz_sortable', this_li);
 					const this_li_inner_value = $(this_li_inner).text();
 
 					jQuery($questionList).append(this_li);
 					if (lockQuestion) {
-						jQuery($questionList).sortable();
-						jQuery($questionList).sortable('disable');
+						// Backwards compatibility with templates older than 4.21.3.
+						if (
+							!$questionList.hasClass('ld-sortable--sort_answer')
+						) {
+							jQuery($questionList).sortable();
+							jQuery($questionList).sortable('disable');
+						} else {
+							learndash.forms.sortable.destroySortable(
+								$questionList[0] ?? null
+							);
+						}
+
 						navigationElementslockQuestion(question);
 					}
 				});
@@ -1745,25 +1772,64 @@
 					console.log('after currentQuestion[%o]', currentQuestion);
 				}
 
-				$e.find('.wpProQuiz_sortable')
-					.parents('.wpProQuiz_questionList')
-					.sortable({
-						scroll: true,
-						scrollSensitivity: 10 || config.scrollSensitivity,
-						scrollSpeed: 10 || config.scrollSpeed,
-						update(event, ui) {
-							const $p = $(this).parents('.wpProQuiz_listItem');
-							$e.trigger({
-								type: 'questionSolved',
-								values: {
-									item: $p,
-									index: $p.index(),
-									solved: true,
-								},
-							});
-						},
-					})
-					.disableSelection();
+				// Backwards compatibility with templates older than 4.21.3.
+				$e.find(
+					'.wpProQuiz_sortable:not(.ld-sortable__item-handle)'
+				).each(function (index, sortableHandle) {
+					const $sortable = $(sortableHandle).parents(
+						'.wpProQuiz_questionList'
+					);
+
+					$sortable
+						.sortable({
+							scroll: true,
+							scrollSensitivity: 10 || config.scrollSensitivity,
+							scrollSpeed: 10 || config.scrollSpeed,
+							update() {
+								const $p = $(this).parents(
+									'.wpProQuiz_listItem'
+								);
+
+								$e.trigger({
+									type: 'questionSolved',
+									values: {
+										item: $p,
+										index: $p.index(),
+										solved: true,
+									},
+								});
+							},
+						})
+						.disableSelection();
+				});
+
+				$e.find('.ld-sortable--sort_answer').each(function (
+					index,
+					sortable
+				) {
+					let instance = sortable?.ldSortable;
+
+					if (!instance) {
+						instance =
+							learndash.forms.sortable.initSortable(sortable);
+					}
+
+					const callback = (container, item) => {
+						const $p = $(container).parents('.wpProQuiz_listItem');
+
+						$e.trigger({
+							type: 'questionSolved',
+							values: {
+								item: $p,
+								index: $p.index(),
+								solved: true,
+							},
+						});
+					};
+
+					instance.on('dropped', callback);
+					instance.on('reorder', callback);
+				});
 
 				$e.find(
 					'.wpProQuiz_sortStringList, .wpProQuiz_maxtrixSortCriterion'
@@ -3171,6 +3237,11 @@
 									.find('.wpProQuiz_responsePoints')
 									.text(result.p);
 
+								// Hide the move icon in matrix sorting answer box after answer checking is successful.
+								$this
+									.find('.wpProQuiz_sortStringItem_icon')
+									.hide();
+
 								$this.data('check', true);
 							}
 						});
@@ -3233,10 +3304,16 @@
 							typeof result.e.c !== 'undefined' &&
 							result.e.c.length > 0
 						) {
-							$question
-								.find('span.wpProQuiz_freeCorrect')
-								.text(result.e.c.join(', '))
-								.show();
+							autosizeInput($question.find('input[type="text"]'), 12);
+
+							// If the answer is incorrect, show the correct answer message.
+							if (!result.c) {
+								let message = WpProQuizGlobal.incorrectAnswer.replace('@@LearnDash_Incorrect@@', result.e.c.join(', '));
+								$question
+									.find('span.wpProQuiz_freeCorrect')
+									.html(message)
+									.show();
+							}
 						}
 						break;
 
@@ -3255,15 +3332,26 @@
 
 								if (result.s[i]) {
 									//input.css('background-color', '#B0DAB0');
-									input.addClass('wpProQuiz_answerCorrect');
+									$this.addClass('wpProQuiz_answerCorrect');
+
+									// Add a new span next to the `input` element to show the correct answer icon.
+									const correctAnswerIcon = $(
+										'<span class="ld-quiz__cloze-icon ld-quiz__cloze-icon--correct dashicons"></span>'
+									);
+									input.after(correctAnswerIcon);
+
+									span.show();
 								} else {
-									input.addClass('wpProQuiz_answerIncorrect');
-									//input.css('background-color', '#FFBABA');
+									$this.addClass('wpProQuiz_answerIncorrect');
+
+									// Add a new span next to the `input` element to show the incorrect answer icon.
+									const incorrectAnswerIcon = $(
+										'<span class="ld-quiz__cloze-icon ld-quiz__cloze-icon--incorrect dashicons"></span>'
+									);
+									input.after(incorrectAnswerIcon);
 
 									if (typeof result.e.c[i] !== 'undefined') {
-										span.html(
-											'(' + result.e.c[i].join() + ')'
-										);
+										span.html( '<span class="ld-quiz__cloze-results--correct-answer">(' + result.e.c[i].join() + ')</span>' );
 										span.show();
 									}
 								}
@@ -3280,6 +3368,58 @@
 							sortlist_container.length
 						) {
 							// LD 3.6.0: New logic to handle showing the "student" vs. "correct" answers.
+
+							if (
+								$questionList.hasClass(
+									'ld-sortable--sort_answer'
+								)
+							) {
+								learndash.forms.sortable.destroySortable(
+									$questionList[0] ?? null
+								);
+
+								/**
+								 * Improve accessibility of answered sortable list.
+								 *
+								 * This is destructive, and not easily reversible.
+								 * Therefore, it is not a part of learndash.forms.sortable.destroySortable().
+								 */
+								if ($questionList[0]) {
+									const $items =
+										$questionList.find(
+											'.ld-sortable__item'
+										);
+
+									$items.each(function(index, item) {
+										const $handle = $(item).find(
+											'.ld-sortable__item-handle'
+										);
+
+										$handle.removeAttr('tabindex');
+
+										const attributes = {};
+										$.each(
+											$handle[0]
+												? $handle[0].attributes
+												: {},
+											function () {
+												attributes[this.nodeName] =
+													this.nodeValue;
+											}
+										);
+
+										// Convert the handle to a <div> so that a screen reader won't treat it as a button.
+										const $nonButtonHandle = $(
+											'<div />',
+											attributes
+										).append($handle.contents());
+
+										$handle.replaceWith($nonButtonHandle);
+
+										$(item).attr('tabindex', '0');
+									});
+								}
+							}
 
 							// Clone the student answert list in order to show the correct order.
 							const $questionList_correct = $questionList.clone();
@@ -3305,6 +3445,19 @@
 							$questionList_correct
 								.children('.wpProQuiz_questionListItem')
 								.addClass('wpProQuiz_answerCorrect');
+
+							if (
+								$questionList_correct.hasClass(
+									'ld-sortable--sort_answer'
+								)
+							) {
+								$questionList_correct
+									.children('.ld-sortable__item')
+									.addClass(
+										'ld-sortable__item--correct-answer'
+									);
+							}
+
 							// Show the correct/incorrect indicators on the student answers.
 							jQuery.each(
 								result.e.c,
@@ -3327,11 +3480,31 @@
 												jQuery(student_item_el),
 												true
 											);
+
+											if (
+												$(student_item_el).hasClass(
+													'ld-sortable__item'
+												)
+											) {
+												$(student_item_el).addClass(
+													'ld-sortable__item--correct'
+												);
+											}
 										} else {
 											plugin.methode.marker(
 												jQuery(student_item_el),
 												false
 											);
+
+											if (
+												$(student_item_el).hasClass(
+													'ld-sortable__item'
+												)
+											) {
+												$(student_item_el).addClass(
+													'ld-sortable__item--incorrect'
+												);
+											}
 										}
 									}
 								}
@@ -3445,8 +3618,6 @@
 							$items
 								.children()
 								.css({ 'box-shadow': '0 0', cursor: 'auto' });
-
-							//						$questionList.sortable("destroy");
 
 							var index = new Array();
 							jQuery.each(result.e.c, function (i, v) {
@@ -4932,6 +5103,31 @@
 			}
 		});
 	};
+
+	/**
+	 * Autosize the input field.
+	 * 
+	 * @since 4.21.4
+	 * 
+	 * @param {jQuery} $input       - The input field to autosize.
+	 * @param {number} [$padding=0] - The padding to add to the input field.
+	 */
+	function autosizeInput($input, $padding = 0) {
+		const $sizer = $('<span>').css({
+			position: 'absolute',
+			visibility: 'hidden',
+			whiteSpace: 'pre',
+			font: $input.css('font'),
+		}).appendTo('body');
+		
+		function update() {
+			$sizer.text($input.val() || $input.attr('placeholder') || '');
+			$input.width($sizer.width() + 6 + $padding);
+		}
+		
+		$input.on('input', update);
+		update();
+	}
 })(jQuery);
 
 var learndash_prepare_quiz_resume_data = function (config) {

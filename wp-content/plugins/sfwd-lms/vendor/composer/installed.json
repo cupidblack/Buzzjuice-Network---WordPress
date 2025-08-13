@@ -341,6 +341,81 @@
             "install-path": "../scssphp/scssphp"
         },
         {
+            "name": "ssnepenthe/color-utils",
+            "version": "0.4.2",
+            "version_normalized": "0.4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ssnepenthe/color-utils.git",
+                "reference": "a68562f81fd603be0c45d102b4e8064c76ddf863"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ssnepenthe/color-utils/zipball/a68562f81fd603be0c45d102b4e8064c76ddf863",
+                "reference": "a68562f81fd603be0c45d102b4e8064c76ddf863",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phploc/phploc": "^3.0",
+                "phpmd/phpmd": "^2.6",
+                "phpunit/phpunit": "^6.0",
+                "psy/psysh": "^0.8",
+                "squizlabs/php_codesniffer": "^2.8",
+                "vimeo/psalm": "^0.3"
+            },
+            "time": "2017-06-19T16:48:17+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "inc/colors.php",
+                    "inc/helpers.php",
+                    "inc/transformations.php"
+                ],
+                "psr-4": {
+                    "SSNepenthe\\ColorUtils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "description": "A PHP library for performing SASS-like color manipulations.",
+            "homepage": "https://github.com/ssnepenthe/color-utils",
+            "keywords": [
+                "Brightness",
+                "alpha",
+                "blue",
+                "color",
+                "conversion",
+                "convert",
+                "green",
+                "hex",
+                "hexadecimal",
+                "hsl",
+                "hsla",
+                "hue",
+                "lightness",
+                "luminance",
+                "manipulation",
+                "red",
+                "rgb",
+                "rgba",
+                "sass",
+                "saturation",
+                "scss",
+                "transformation"
+            ],
+            "support": {
+                "issues": "https://github.com/ssnepenthe/color-utils/issues",
+                "source": "https://github.com/ssnepenthe/color-utils/tree/master"
+            },
+            "install-path": "../ssnepenthe/color-utils"
+        },
+        {
             "name": "stellarwp/admin-notices",
             "version": "1.2.2",
             "version_normalized": "1.2.2.0",
@@ -449,17 +524,17 @@
         },
         {
             "name": "stellarwp/assets",
-            "version": "1.4.5",
-            "version_normalized": "1.4.5.0",
+            "version": "1.4.10",
+            "version_normalized": "1.4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stellarwp/assets.git",
-                "reference": "3da0472671aa7f31a5acd65f4f2a212ac4abbfb8"
+                "reference": "a7c196cd6a4189d3f8f1112c5e66bcf1a5d1f610"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stellarwp/assets/zipball/3da0472671aa7f31a5acd65f4f2a212ac4abbfb8",
-                "reference": "3da0472671aa7f31a5acd65f4f2a212ac4abbfb8",
+                "url": "https://api.github.com/repos/stellarwp/assets/zipball/a7c196cd6a4189d3f8f1112c5e66bcf1a5d1f610",
+                "reference": "a7c196cd6a4189d3f8f1112c5e66bcf1a5d1f610",
                 "shasum": ""
             },
             "require": {
@@ -480,7 +555,7 @@
                 "symfony/string": "^5.4",
                 "szepeviktor/phpstan-wordpress": "^1.1"
             },
-            "time": "2025-01-20T14:40:06+00:00",
+            "time": "2025-05-22T14:40:10+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -505,7 +580,7 @@
             "description": "A library for managing asset registration and enqueuing in WordPress.",
             "support": {
                 "issues": "https://github.com/stellarwp/assets/issues",
-                "source": "https://github.com/stellarwp/assets/tree/1.4.5"
+                "source": "https://github.com/stellarwp/assets/tree/1.4.10"
             },
             "install-path": "../stellarwp/assets"
         },
@@ -785,17 +860,17 @@
         },
         {
             "name": "stellarwp/telemetry",
-            "version": "2.3.3",
-            "version_normalized": "2.3.3.0",
+            "version": "2.3.4",
+            "version_normalized": "2.3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stellarwp/telemetry.git",
-                "reference": "cb302096350b047ab203367c8198bd0c5d1805cc"
+                "reference": "74c7b819d574aa5fc1392f982fb32cedc18d4c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stellarwp/telemetry/zipball/cb302096350b047ab203367c8198bd0c5d1805cc",
-                "reference": "cb302096350b047ab203367c8198bd0c5d1805cc",
+                "url": "https://api.github.com/repos/stellarwp/telemetry/zipball/74c7b819d574aa5fc1392f982fb32cedc18d4c6f",
+                "reference": "74c7b819d574aa5fc1392f982fb32cedc18d4c6f",
                 "shasum": ""
             },
             "require": {
@@ -814,7 +889,7 @@
                 "the-events-calendar/coding-standards": "dev-master",
                 "wp-coding-standards/wpcs": "^3.0.0"
             },
-            "time": "2025-01-28T21:13:55+00:00",
+            "time": "2025-04-25T18:58:09+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -831,23 +906,23 @@
             "description": "Telemetry library for StellarWP plugins.",
             "support": {
                 "issues": "https://github.com/stellarwp/telemetry/issues",
-                "source": "https://github.com/stellarwp/telemetry/tree/2.3.3"
+                "source": "https://github.com/stellarwp/telemetry/tree/2.3.4"
             },
             "install-path": "../stellarwp/telemetry"
         },
         {
             "name": "stellarwp/validation",
-            "version": "1.4.1",
-            "version_normalized": "1.4.1.0",
+            "version": "1.5.0",
+            "version_normalized": "1.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stellarwp/validation.git",
-                "reference": "0f0d0dbc28b9b0780c61f81a6462c467e6d0358f"
+                "reference": "cf610086713a8a20ad640b7f0da2bcf0e8a826a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stellarwp/validation/zipball/0f0d0dbc28b9b0780c61f81a6462c467e6d0358f",
-                "reference": "0f0d0dbc28b9b0780c61f81a6462c467e6d0358f",
+                "url": "https://api.github.com/repos/stellarwp/validation/zipball/cf610086713a8a20ad640b7f0da2bcf0e8a826a4",
+                "reference": "cf610086713a8a20ad640b7f0da2bcf0e8a826a4",
                 "shasum": ""
             },
             "require": {
@@ -860,9 +935,11 @@
                 "codeception/module-phpbrowser": "^1.0.0",
                 "lucatume/di52": "^3.0",
                 "lucatume/wp-browser": "^3.0.14",
-                "phpunit/phpunit": "~6.0"
+                "phpstan/phpstan": "^1.12",
+                "phpunit/phpunit": "~6.0",
+                "szepeviktor/phpstan-wordpress": "^1.3"
             },
-            "time": "2023-08-15T15:24:53+00:00",
+            "time": "2025-06-18T20:38:33+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -887,7 +964,7 @@
             "description": "An end-to-end ready PHP validation library",
             "support": {
                 "issues": "https://github.com/stellarwp/validation/issues",
-                "source": "https://github.com/stellarwp/validation/tree/1.4.1"
+                "source": "https://github.com/stellarwp/validation/tree/1.5.0"
             },
             "install-path": "../stellarwp/validation"
         },

@@ -3,7 +3,7 @@
  * View: Course Pricing Free.
  *
  * @since 4.21.0
- * @version 4.21.0
+ * @version 4.21.3
  *
  * @var Product $product Product model.
  *
@@ -13,12 +13,12 @@
 use LearnDash\Core\Models\Product;
 
 ?>
-<div class="ld-enrollment__pricing ld-enrollment__pricing--free">
-	<span class="ld-enrollment__pricing-label">
+<section class="ld-enrollment__pricing ld-enrollment__pricing--free">
+	<h2 class="ld-enrollment__pricing-label" id="ld-enrollment__pricing-label">
 		<?php echo esc_html__( 'Price', 'learndash' ); ?>
-	</span>
+	</h2>
 
 	<span class="ld-enrollment__pricing-price">
 		<?php echo esc_html( $product->get_display_price() ); ?>
 	</span>
-</div>
+</section>

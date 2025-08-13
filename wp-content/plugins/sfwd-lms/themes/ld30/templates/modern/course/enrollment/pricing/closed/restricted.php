@@ -3,7 +3,7 @@
  * View: Course Pricing Closed With No Price and Url.
  *
  * @since 4.21.0
- * @version 4.21.0
+ * @version 4.21.3
  *
  * @var Product $product Product model.
  *
@@ -13,10 +13,10 @@
 use LearnDash\Core\Models\Product;
 
 ?>
-<div class="ld-enrollment__pricing ld-enrollment__pricing--closed">
-	<span class="ld-enrollment__pricing-price">
+<section class="ld-enrollment__pricing ld-enrollment__pricing--closed">
+	<h2 class="ld-enrollment__pricing-price" id="ld-enrollment__pricing-price">
 		<?php esc_html_e( 'Closed', 'learndash' ); ?>
-	</span>
+	</h2>
 
 	<span class="ld-enrollment__pricing-label">
 		<?php
@@ -27,4 +27,4 @@ use LearnDash\Core\Models\Product;
 		);
 		?>
 	</span>
-</div>
+</section>

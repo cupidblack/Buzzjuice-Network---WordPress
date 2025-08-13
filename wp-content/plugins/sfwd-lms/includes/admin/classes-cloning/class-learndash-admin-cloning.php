@@ -404,12 +404,13 @@ if ( ! class_exists( 'Learndash_Admin_Cloning' ) ) {
 		 * @return array The list of meta keys that should be excluded from cloning.
 		 */
 		protected function get_cloning_excluded_meta_keys( WP_Post $post ): array {
-			$excluded_keys = array(
+			$excluded_keys = [
 				'_wp_old_slug',
 				'_wp_old_date',
 				'_edit_lock',
 				'_edit_last',
-			);
+				'learndash_stripe_product_ids',
+			];
 
 			/**
 			 * Filters the list of meta keys that should be excluded from cloning.

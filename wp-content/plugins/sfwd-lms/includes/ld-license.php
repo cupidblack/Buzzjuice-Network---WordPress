@@ -31,7 +31,7 @@ const LEARNDASH_HUB_PLUGIN_SLUG           = 'learndash-hub/learndash-hub.php';
  */
 add_action(
 	'learndash_licensing_management_license_verified',
-	function( $license_response ) {
+	function ( $license_response ) {
 		update_option(
 			LEARNDASH_HUB_LICENSE_CACHE_OPTION,
 			array(
@@ -307,36 +307,61 @@ function learndash_get_license_show_notice() {
  * Get the license notice message.
  *
  * @since 3.1.8
+ * @since 4.22.1 Deprecated $mode parameter.
  *
- * @param integer $mode Which message.
+ * @param integer $mode Deprecated. Which message to get.
  *
  * @return string
  */
-function learndash_get_license_message( $mode = 1 ) {
-	if ( learndash_updates_enabled() ) {
-		if ( 2 === $mode ) {
-			return sprintf(
-				// translators: placeholders: HTML surrounding the plugin name and HTML surrounding the plugin update link.
-				esc_html_x( 'License of your plugin %1$sLearnDash LMS%2$s is invalid or incomplete. Please click %3$shere%4$s and update your license.', 'placeholders: Plugin name. Plugin update link.', 'learndash' ),
-				'<strong>',
-				'</strong>',
-				'<a href="' . get_admin_url( null, 'admin.php?page=learndash_hub_licensing' ) . '">',
-				'</a>'
-			);
-		}
-
-		return sprintf(
-			// translators: placeholder: Link to purchase LearnDash.
-			esc_html_x( 'Please enter your email and a valid license or %s a license now.', 'placeholder: link to purchase LearnDash', 'learndash' ),
-			"<a href='http://www.learndash.com/' target='_blank' rel='noreferrer noopener'>" . esc_html__( 'buy', 'learndash' ) . '</a>'
-		);
+function learndash_get_license_message( $mode = null ) {
+	if ( $mode !== null ) {
+		_deprecated_argument( __FUNCTION__, '4.22.1', 'The $mode parameter is deprecated since 4.22.1.' );
 	}
 
-	return sprintf(
-		// translators: placeholders: Plugin name. Plugin update link.
-		esc_html_x( 'LearnDash update and license calls are temporarily disabled. Click %s for more information.', 'placeholders: FAQ update link.', 'learndash' ),
-		'<a target="_blank" rel="noopener noreferrer" aria-label="' . esc_html__( 'opens in a new tab', 'learndash' ) . '" href="https://www.learndash.com/support/docs/faqs/why-are-the-license-updates-and-license-checks-disabled-on-my-site/">' . esc_html__( 'here', 'learndash' ) . '</a>'
-	);
+	ob_start();
+	?>
+
+	<p>
+		<strong>
+			<?php esc_html_e( 'License Activation Failed', 'learndash' ); ?>
+		</strong>
+	</p>
+
+	<p>
+		<?php
+		printf(
+			// Translators: %1$s: Opening anchor tag, %2$s: Closing anchor tag, %3$s: Opening anchor tag, %4$s: Closing anchor tag.
+			esc_html__(
+				// cSpell:ignore syour -- Sprintf specifier placeholder.
+				'We couldn\'t validate your LearnDash license. If you already have a valid license, please make sure you\'re using the latest version of LearnDash. %1$sCheck for updates%2$s or download the latest version from %3$syour account%4$s.',
+				'learndash'
+			),
+			'<a href="/wp-admin/update-core.php" target="_blank" rel="noopener noreferrer">',
+			'</a>',
+			'<a href="https://go.learndash.com/downloads" target="_blank" rel="noopener noreferrer">',
+			'</a>'
+		);
+		?>
+	</p>
+
+	<p>
+		<?php
+		printf(
+			// Translators: %1$s: Opening anchor tag, %2$s: Closing anchor tag, %3$s: Opening anchor tag, %4$s: Closing anchor tag.
+			esc_html__(
+				"If you're new to LearnDash, get %1\$sa license here%2\$s. Still need assistance? %3\$sContact Support%4\$s",
+				'learndash'
+			),
+			'<a href="https://go.learndash.com/lepricing" target="_blank" rel="noopener noreferrer">',
+			'</a>',
+			'<a href="https://go.learndash.com/support" target="_blank" rel="noopener noreferrer">',
+			'</a>'
+		);
+		?>
+	</p>
+
+	<?php
+	return Cast::to_string( ob_get_clean() );
 }
 
 /**

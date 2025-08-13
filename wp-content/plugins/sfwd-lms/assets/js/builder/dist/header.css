@@ -38,25 +38,27 @@
    * How to use spacers:
    *
    * The intent of spacers is to ensure we have proper spacing between elements
-   * that adjusts as the user changes their font size. For legibility,
-   * we want the HORIZONTAL spacing to scale with font size but the VERTICAL
-   * spacing to be static. This allows for readability as one reads down the page
-   * while preventing the content area from being restricted by vertical spacing
-   * becoming larger.
+   * that adjusts as the user changes their font size.
+   *
+   * For legibility, we want the top/bottom spacing to scale with font size but
+   * the left/right spacing to be static.
+   *
+   * This allows for readability as one reads down the page while preventing the
+   * content area from being restricted by left/right spacing becoming larger.
    *
    * Example 1: Padding on an element
    * --------------------------------
-   * In this example, we ensure that the element is padded horizontally
-   * (top and bottom) using rems and vertically using pixels.
-   *
-   *   padding: var(--ld-spacer-3) var(--ld-spacer-fixed-3);
+   * padding: var(--ld-spacer-3) var(--ld-spacer-fixed-3);
    *
    * Example 2: Margins
    * ------------------
-   * Similar to padding, margins should scale at the top/bottom while remaining
-   * static on the right/left.
+   * margin: var(--ld-spacer-3) var(--ld-spacer-fixed-3);
    *
-   *    margin: var(--ld-spacer-3) var(--ld-spacer-fixed-3);
+   * Example 3: Column and row gaps
+   * ------------------------------
+   * gap: var(--ld-spacer-3) var(--ld-spacer-fixed-3);
+   * column-gap: var(--ld-spacer-3);
+   * row-gap: var(--ld-spacer-fixed-3);
    */
   /* -------------------------------------------------------------------------
    * Spacers
@@ -107,8 +109,13 @@
   --ld-color-brand-tertiary: #479bf8;
   --ld-color-semantic-success: #3eab6a;
   --ld-color-semantic-error: #e65255;
+  --ld-color-system-validation-error: #db0000;
+  --ld-color-semantic-error-light: #faeeee;
+  --ld-color-system-validation-success: #2f8351;
+  --ld-color-semantic-success-light: #eef7f1;
   --ld-color-system-dark: #0e2a90;
   --ld-color-system-body-text: #4a4a68;
+  --ld-color-system-text-dark: #0e0e2c;
   --ld-color-system-subtle: #8c8ca2;
   --ld-color-system-subtle-text: var(--ld-color-system-subtle);
   --ld-color-system-border: #dce1e8;
@@ -125,7 +132,10 @@
   /** Buttons **/
   --ld-color-button: var(--ld-color-system-white);
   --ld-color-button-bg: var(--ld-color-brand-primary);
-  --ld-color-button-bg-hover: #2c4fd1;
+  --ld-color-button-bg-hover: var(--ld-color-system-dark);
+  --ld-color-button-secondary-border: var(--ld-color-brand-primary);
+  --ld-color-button-disabled-bg-hover: #a7adc2;
+  --ld-color-button-disabled-border-hover: var(--ld-color-system-subtle-text);
   /** Progress bar **/
   --ld-color-progress-bar-bg: #f5f5f5;
   --ld-color-progress-bar-fg: #000;
@@ -152,7 +162,6 @@
   --ld-color-field-description: var(--ld-color-system-subtle-text);
   --ld-color-field-error: var(--ld-color-semantic-error);
   --ld-color-label: var(--ld-color-system-dark);
-  --ld-color-button-secondary-border: #728188;
 }
 
 :root {
@@ -229,12 +238,12 @@
   --ld-typography-desktop-pre-title-transform: uppercase;
   --ld-typography-mobile-pre-title-size: 0.75rem;
   --ld-typography-mobile-pre-title-height: 1.25rem;
-  --ld-typography-desktop-button-text-size: 1rem;
-  --ld-typography-desktop-button-text-height: 1.5rem;
+  --ld-typography-desktop-button-text-size: var(--ld-typography-desktop-body-size);
+  --ld-typography-desktop-button-text-height: var(--ld-typography-desktop-body-height);
   --ld-typography-desktop-button-text-weight: var(--ld-typography-font-weight-bold);
   --ld-typography-desktop-button-text-spacing: 3%;
-  --ld-typography-mobile-button-text-size: 0.875rem;
-  --ld-typography-mobile-button-text-height: 1.375rem;
+  --ld-typography-mobile-button-text-size: var(--ld-typography-mobile-body-size);
+  --ld-typography-mobile-button-text-height: var(--ld-typography-mobile-body-height);
   --ld-typography-desktop-link-size: 1rem;
   --ld-typography-desktop-link-height: 1.5rem;
   --ld-typography-desktop-link-weight: var(--ld-typography-font-weight-bold);
@@ -252,7 +261,7 @@
 }
 
 :root {
-  --ld-button-border-radius: var(--ld-radius);
+  --ld-button-border-radius: var(--ld-border-radius);
   --ld-button-border-radius-rounded: 100px;
   --ld-field-radius: var(--ld-radius);
 }
@@ -388,6 +397,11 @@
   padding-left: 10px;
   width: 100%;
 }
+@media (min-width: 782px) {
+  .block-editor-page #sfwd-header {
+    top: 32px;
+  }
+}
 .block-editor-page #sfwd-header .ld-global-header {
   position: relative;
 }
@@ -429,7 +443,7 @@
 }
 @media (min-width: 960px) {
   .block-editor-page #sfwd-header {
-    width: calc(100% - 160px);
+    width: calc(100% - 170px);
   }
 }
 /* Non-Gutenberg header styling */
@@ -439,7 +453,6 @@ body:not(.block-editor-page) #sfwd-header {
   padding: 8px 20px 4px;
   padding-bottom: 0;
   width: calc(100% + 20px);
-  z-index: 9999;
   /**
    * Once the WP Admin Bar is position: fixed and 32px tall, we need to revert to
    * the original desktop styling for the header to place the
@@ -465,7 +478,7 @@ body:not(.block-editor-page) .learndash-settings-page-wrap #sfwd-header {
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 99990;
+  z-index: 30;
 }
 @media only screen and (min-width: 601px) and (max-width: 782px) {
   #sfwd-header {
@@ -494,29 +507,22 @@ body:not(.block-editor-page) .learndash-settings-page-wrap #sfwd-header {
   width: 100%;
   /* Button styles overrides */
   /* stylelint-disable-next-line selector-class-pattern */
+  /* Split button styles */
 }
 .ld-global-header.ld-global-header--modern {
-  gap: 10px;
   padding: 0 var(--ld-spacer-fixed-2);
 }
 @media (max-width: 959px) {
   .ld-global-header.ld-global-header--modern {
     align-items: flex-start;
     flex-direction: column;
-    gap: 0;
+    gap: var(--ld-spacer-1);
     padding: var(--ld-spacer-1) var(--ld-spacer-fixed-1) 0 var(--ld-spacer-fixed-1);
     width: auto;
   }
 }
 .ld-global-header.ld-global-header--modern .ld-global-header-new-settings {
-  align-items: center;
-  order: 1;
   width: 154px;
-}
-@media (max-width: 959px) {
-  .ld-global-header .ld-global-header-title-area--modern {
-    margin-bottom: var(--ld-spacer-1);
-  }
 }
 .ld-global-header h1 {
   color: #23282d;
@@ -551,7 +557,7 @@ body:not(.block-editor-page) .learndash-settings-page-wrap #sfwd-header {
     align-items: unset;
   }
 }
-@media only screen and (min-width: 641px) {
+@media only screen and (min-width: 960px) {
   .ld-global-header .ld-global-header-new-settings {
     flex-wrap: nowrap;
     justify-content: flex-end;
@@ -559,28 +565,56 @@ body:not(.block-editor-page) .learndash-settings-page-wrap #sfwd-header {
 }
 .ld-global-header .edit-post-header__settings a.button,
 .ld-global-header .edit-post-header__settings button.button,
-.ld-global-header .ld-tab-buttons a.button,
-.ld-global-header .ld-tab-buttons button.button {
+.ld-global-header .ld-tab-buttons:not(.ld-tab-buttons--modern) a.button,
+.ld-global-header .ld-tab-buttons:not(.ld-tab-buttons--modern) button.button {
   background-color: transparent !important;
   color: #007cba;
 }
 .ld-global-header .edit-post-header__settings a.button.is-primary,
 .ld-global-header .edit-post-header__settings button.button.is-primary,
-.ld-global-header .ld-tab-buttons a.button.is-primary,
-.ld-global-header .ld-tab-buttons button.button.is-primary {
+.ld-global-header .ld-tab-buttons:not(.ld-tab-buttons--modern) a.button.is-primary,
+.ld-global-header .ld-tab-buttons:not(.ld-tab-buttons--modern) button.button.is-primary {
   box-shadow: inset 0 4px 0 0 #fff, 0 4px 0 0 #007cba !important;
   color: #555;
 }
 .ld-global-header .edit-post-header__settings a.button.is-primary:hover, .ld-global-header .edit-post-header__settings a.button.is-primary:focus,
 .ld-global-header .edit-post-header__settings button.button.is-primary:hover,
 .ld-global-header .edit-post-header__settings button.button.is-primary:focus,
-.ld-global-header .ld-tab-buttons a.button.is-primary:hover,
-.ld-global-header .ld-tab-buttons a.button.is-primary:focus,
-.ld-global-header .ld-tab-buttons button.button.is-primary:hover,
-.ld-global-header .ld-tab-buttons button.button.is-primary:focus {
+.ld-global-header .ld-tab-buttons:not(.ld-tab-buttons--modern) a.button.is-primary:hover,
+.ld-global-header .ld-tab-buttons:not(.ld-tab-buttons--modern) a.button.is-primary:focus,
+.ld-global-header .ld-tab-buttons:not(.ld-tab-buttons--modern) button.button.is-primary:hover,
+.ld-global-header .ld-tab-buttons:not(.ld-tab-buttons--modern) button.button.is-primary:focus {
   background-color: transparent;
   box-shadow: inset 0 4px 0 0 #fff, 0 4px 0 0 #007cba !important;
   color: #555;
+}
+.ld-global-header .edit-post-header__settings--modern {
+  margin-right: var(--ld-spacer-fixed-5);
+}
+.ld-global-header div.ld-split-button {
+  display: inline-flex;
+  margin-right: 10px;
+  position: relative;
+}
+.ld-global-header div.ld-split-button__plus-symbol {
+  display: inline-block;
+  transform: translateY(-2px);
+  margin-right: 2px;
+}
+.ld-global-header div.ld-split-button .ld-split-button__menu-item.components-menu-item__button:hover {
+  color: #007cba;
+}
+.ld-global-header div.ld-split-button .ld-split-button__primary {
+  align-items: center;
+  display: inline-flex;
+  line-height: 31px;
+}
+.ld-global-header div.ld-split-button .ld-popover.components-popover {
+  top: 112% !important;
+  right: -4px;
+}
+.ld-global-header div.ld-split-button .ld-split-button__toggle {
+  margin-left: 1px;
 }
 
 /* Back link */
@@ -609,6 +643,11 @@ body:not(.block-editor-page) .learndash-settings-page-wrap #sfwd-header {
 @media (max-width: 959px) {
   .ld-header-has-tabs.ld-header-has-tabs--modern .edit-post-layout {
     padding-top: 100px;
+  }
+}
+@media (max-width: 959px) {
+  .ld-header-has-tabs.ld-header-has-actions--modern .edit-post-layout {
+    padding-top: 138px;
   }
 }
 .ld-header-has-tabs .edit-post-layout {
@@ -807,12 +846,14 @@ body.block-editor-page #sfwd-header .header-boundary {
   flex: 1 0 0;
   gap: var(--ld-spacer-fixed-3);
   justify-content: center;
+  padding-top: 1px;
 }
 @media (max-width: 959px) {
   .ld-tab-buttons--modern {
     flex-basis: initial;
     justify-content: flex-start;
     overflow-x: scroll;
+    padding-left: 2px;
     width: 100%;
   }
 }
@@ -833,12 +874,29 @@ body.block-editor-page #sfwd-header .header-boundary {
 .ld-tab-buttons a.button.ld-tab-button--modern,
 .ld-tab-buttons button.button.ld-tab-button--modern {
   align-items: center;
+  background-color: transparent;
+  border-bottom: 4px solid transparent;
   color: #555;
   display: flex;
   height: auto;
   justify-content: center;
   margin: 0;
   padding: var(--ld-spacer-4) var(--ld-spacer-fixed-1);
+}
+.ld-tab-buttons a.button.ld-tab-button--modern:hover,
+.ld-tab-buttons button.button.ld-tab-button--modern:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+.ld-tab-buttons a.button.ld-tab-button--modern.is-primary, .ld-tab-buttons a.button.ld-tab-button--modern.is-primary:hover,
+.ld-tab-buttons button.button.ld-tab-button--modern.is-primary,
+.ld-tab-buttons button.button.ld-tab-button--modern.is-primary:hover {
+  border-color: var(--wp-components-color-accent, var(--wp-admin-theme-color, #007cba));
+  color: var(--wp-components-color-accent, var(--wp-admin-theme-color, #007cba));
+}
+.ld-tab-buttons a.button.ld-tab-button--modern.is-primary:focus,
+.ld-tab-buttons button.button.ld-tab-button--modern.is-primary:focus {
+  color: var(--wp-components-color-accent, var(--wp-admin-theme-color, #007cba));
 }
 @media (max-width: 959px) {
   .ld-tab-buttons a.button.ld-tab-button--modern,
@@ -847,16 +905,9 @@ body.block-editor-page #sfwd-header .header-boundary {
     padding: var(--ld-spacer-1) var(--ld-spacer-fixed-1);
   }
 }
-.ld-tab-buttons a.button.ld-tab-button--modern.is-primary, .ld-tab-buttons a.button.ld-tab-button--modern.is-primary:hover,
-.ld-tab-buttons button.button.ld-tab-button--modern.is-primary,
-.ld-tab-buttons button.button.ld-tab-button--modern.is-primary:hover {
-  box-shadow: inset 0 4px 0 0 #fff, inset 0 -4px 0 0 #007cba !important;
-  color: #007cba;
-}
 .ld-tab-buttons a.button:focus,
 .ld-tab-buttons button.button:focus {
   background-color: transparent;
-  box-shadow: none;
 }
 .ld-tab-buttons a.button:hover,
 .ld-tab-buttons button.button:hover {
@@ -1028,7 +1079,7 @@ div#learndash_course_builder > .hndle {
   cursor: pointer;
   font-size: 13px;
   margin: 0;
-  padding: 8px 8px 8px 2rem;
+  padding: 8px;
   text-align: left;
   text-decoration: none;
   width: 100%;
@@ -1060,11 +1111,16 @@ body:not(.block-editor-page) .ld-popover.components-popover,
   opacity: 1;
   z-index: 9999;
 }
-@media (max-width: 782px) {
-  body:not(.block-editor-page) .ld-popover.components-popover,
-  .sfwd-quiz.block-editor-page .ld-popover.components-popover {
-    right: 0;
+body:not(.block-editor-page) .ld-popover.components-popover.ld-popover--modern,
+.sfwd-quiz.block-editor-page .ld-popover.components-popover.ld-popover--modern {
+  top: 75% !important;
+  right: 32px;
+}
+@media (max-width: 959px) {
+  body:not(.block-editor-page) .ld-popover.components-popover.ld-popover--modern,
+  .sfwd-quiz.block-editor-page .ld-popover.components-popover.ld-popover--modern {
     top: 100% !important;
+    left: 0;
   }
 }
 @media (max-width: 640px) and (min-width: 480px), (max-width: 431px) {
@@ -1081,6 +1137,7 @@ body:not(.block-editor-page) .components-popover__content,
 .sfwd-quiz.block-editor-page .components-popover__content {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 body:not(.block-editor-page) .components-popover__content button,
 .sfwd-quiz.block-editor-page .components-popover__content button {
@@ -1096,8 +1153,7 @@ body:not(.block-editor-page) .components-popover__content .block-editor-inserter
 .sfwd-quiz.block-editor-page .components-popover__content .block-editor-inserter__quick-inserter.has-search.has-expand button.components-button.block-editor-inserter__quick-inserter-expand {
   background: #1e1e1e;
 }
-body:not(.block-editor-page) .ld-popover.components-popover:after,
-body:not(.block-editor-page) .ld-popover.components-popover:before,
+body:not(.block-editor-page) .ld-popover.components-popover:after, body:not(.block-editor-page) .ld-popover.components-popover:before,
 .sfwd-quiz.block-editor-page .ld-popover.components-popover:after,
 .sfwd-quiz.block-editor-page .ld-popover.components-popover:before {
   content: "";
@@ -1115,10 +1171,24 @@ body:not(.block-editor-page) .ld-popover.components-popover:before,
   right: 10px;
 }
 @media (max-width: 640px) and (min-width: 480px), (max-width: 431px) {
-  body:not(.block-editor-page) .ld-popover.components-popover:after,
-  body:not(.block-editor-page) .ld-popover.components-popover:before,
+  body:not(.block-editor-page) .ld-popover.components-popover:after, body:not(.block-editor-page) .ld-popover.components-popover:before,
   .sfwd-quiz.block-editor-page .ld-popover.components-popover:after,
   .sfwd-quiz.block-editor-page .ld-popover.components-popover:before {
+    left: 20px;
+    right: unset;
+    margin-left: unset;
+  }
+}
+body:not(.block-editor-page) .ld-popover.components-popover.ld-popover--modern:after, body:not(.block-editor-page) .ld-popover.components-popover.ld-popover--modern:before,
+.sfwd-quiz.block-editor-page .ld-popover.components-popover.ld-popover--modern:after,
+.sfwd-quiz.block-editor-page .ld-popover.components-popover.ld-popover--modern:before {
+  margin-left: -10px;
+  right: 10px;
+}
+@media (max-width: 959px) {
+  body:not(.block-editor-page) .ld-popover.components-popover.ld-popover--modern:after, body:not(.block-editor-page) .ld-popover.components-popover.ld-popover--modern:before,
+  .sfwd-quiz.block-editor-page .ld-popover.components-popover.ld-popover--modern:after,
+  .sfwd-quiz.block-editor-page .ld-popover.components-popover.ld-popover--modern:before {
     left: 20px;
     right: unset;
     margin-left: unset;

@@ -46,6 +46,7 @@ $form_width = empty( $form_width ) ? '' : 'width: ' . esc_attr( $form_width ) . 
 							'type'    => $status['type'],
 							'icon'    => 'alert',
 							'message' => $status['message'],
+							'role'    => 'alert',
 						),
 						true
 					);

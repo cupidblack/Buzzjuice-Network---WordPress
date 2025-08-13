@@ -14,7 +14,7 @@ use LearnDash\Core\Utilities\Cast;
 use StellarWP\Learndash\StellarWP\DB\DB;
 
 /**
- * Class to add a Description to the bottom of each Field.
+ * Plugin initialization class.
  *
  * @since 4.16.0
  */

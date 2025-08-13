@@ -29,6 +29,7 @@ class Provider extends ServiceProvider {
 		$this->container->singleton( Initialization::class );
 
 		add_action( 'init', $this->container->callback( Initialization::class, 'run' ) );
+		add_action( 'admin_head', $this->container->callback( Menu::class, 'update_main_menu_label' ) );
 		add_filter( 'learndash_header_variant', $this->container->callback( Header\Variants\Modern::class, 'enable' ) );
 	}
 }

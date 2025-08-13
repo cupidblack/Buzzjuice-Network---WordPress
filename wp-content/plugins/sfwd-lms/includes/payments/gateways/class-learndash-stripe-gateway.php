@@ -429,7 +429,9 @@ if ( ! class_exists( 'Learndash_Stripe_Gateway' ) && class_exists( 'Learndash_Pa
 			$button .= '<input type="hidden" name="post_id" value="' . esc_attr( (string) $post->ID ) . '" />';
 			$button .= '<input type="hidden" name="nonce" value="' . esc_attr( wp_create_nonce( $this->get_nonce_name() ) ) . '" />';
 			$button .= '<input type="hidden" name="action" value="' . esc_attr( $this->get_ajax_action_name_setup() ) . '" />';
-			$button .= '<input class="' . esc_attr( Learndash_Payment_Button::map_button_class_name() ) . '" id="' . esc_attr( Learndash_Payment_Button::map_button_id() ) . '" type="submit" value="' . esc_attr( $button_label ) . '">';
+			$button .= '<button aria-label="' . esc_attr( $button_label . '. ' . $this->get_checkout_info_text( $post->post_type ) ) . '" class="' . esc_attr( Learndash_Payment_Button::map_button_class_name() ) . '" id="' . esc_attr( Learndash_Payment_Button::map_button_id() ) . '" type="submit">';
+			$button .= esc_html( $button_label );
+			$button .= '</button>';
 			$button .= '</form>';
 
 			ob_start();
@@ -502,6 +504,7 @@ if ( ! class_exists( 'Learndash_Stripe_Gateway' ) && class_exists( 'Learndash_Pa
 
 					$(document).on('submit', '.<?php echo esc_attr( $this->get_form_class_name() ); ?>', function (e) {
 						e.preventDefault();
+
 						var inputs = $(this).serializeArray();
 						inputs = inputs.reduce(function (new_inputs, value, index, inputs) {
 							new_inputs[value.name] = value.value;
@@ -515,23 +518,28 @@ if ( ! class_exists( 'Learndash_Stripe_Gateway' ) && class_exists( 'Learndash_Pa
 							backgroundColor: 'rgba(182, 182, 182, 0.1)'
 						});
 
-						// Set Stripe session
+						// Set Stripe session.
 						$.ajax({
 							url: <?php echo wp_json_encode( admin_url( 'admin-ajax.php' ) ); ?>,
 							type: 'POST',
 							dataType: 'json',
 							data: _objectSpread({}, inputs)
 						}).done(function (response) {
-							if ( response.success ) {
-								stripe.redirectToCheckout({
-									sessionId: response.data.session_id
-								}).then(function ( result ) {
-									if ( result.error.length > 0 ) {
-										alert( result.error );
-									}
-								});
+							if (response.success) {
+								const afterAlertHook = function () {
+									stripe
+										.redirectToCheckout({
+											sessionId: response.data.session_id,
+										})
+										.then(function (result) {
+											if (result.error.length > 0) {
+												alert(result.error);
+											}
+										});
+								};
+								learnDashPaymentsShowFormSubmittedSuccessfullyMessage(afterAlertHook);
 							} else {
-								alert( response.data.message );
+								alert(response.data.message);
 							}
 
 							$('.learndash_checkout_buttons').removeClass('ld-loading');

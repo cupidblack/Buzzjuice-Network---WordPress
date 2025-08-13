@@ -3,7 +3,7 @@
  * LearnDash LD30 Displays a user's profile quiz row.
  *
  * @since 3.0.0
- * @version 4.18.0
+ * @version 4.21.3
  *
  * @package LearnDash\Templates\LD30
  */
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Defaults for fallbacks.
 $certificate_link = null;
 $score            = null;
-$stats            = '--';
+$stats            = '<span aria-label="' . esc_attr__( 'The statistic is not available.', 'learndash' ) .'">--</span>';
 
 /**
  * Set the quiz status and certificate link (if applicable)
@@ -49,7 +49,22 @@ if ( get_current_user_id() === absint( $user_id ) || learndash_is_admin_user() |
 		if ( apply_filters( 'show_user_profile_quiz_statistics', get_post_meta( $quiz_attempt['post']->ID, '_viewProfileStatistics', true ), $user_id, $quiz_attempt, basename( __FILE__ ) ) ) {
 			$stats = sprintf(
 				'
-				<a class="user_statistic" data-statistic-nonce="%s" data-user-id="%s" data-quiz-id="%s" data-ref-id="%s" href="#">
+				<a
+					aria-label="' . sprintf(
+						// translators: %s: quiz label.
+						esc_attr__(
+							'View the statistics of the %s attempt.',
+							'learndash'
+						),
+						learndash_get_custom_label_lower( 'quiz' )
+					) . '"
+					class="user_statistic"
+					data-statistic-nonce="%s"
+					data-user-id="%s"
+					data-quiz-id="%s"
+					data-ref-id="%s"
+					href="#"
+				>
 					<span class="ld-icon ld-icon-assignment"></span> %s
 				</a>
 				',
@@ -71,19 +86,35 @@ $quiz_title = ! empty( $quiz_attempt['post']->post_title ) ? apply_filters( 'the
 
 $quiz_link = ! empty( $quiz_attempt['post']->ID ) ? learndash_get_step_permalink( intval( $quiz_attempt['post']->ID ), $course_id ) : '#'; ?>
 
-<div class="ld-table-list-item <?php echo esc_attr( $status ); ?>">
+<div
+	class="ld-table-list-item <?php echo esc_attr( $status ); ?>"
+	role="row"
+>
 	<div class="ld-table-list-item-preview">
-
-		<div class="ld-table-list-title">
-			<a href="<?php echo esc_url( $quiz_link ); ?>"><?php echo wp_kses_post( learndash_status_icon( $status, 'sfwd-quiz' ) ); ?><span><?php echo wp_kses_post( $quiz_title ); ?></span></a>
-		</div> <!--/.ld-table-list-title-->
-
 		<div class="ld-table-list-columns">
+			<div
+				class="ld-table-list-title"
+				role="rowheader"
+			>
+				<a
+					aria-label="<?php echo sprintf(
+						// translators: %s: quiz label.
+						esc_attr__( 'Go to the %s page.', 'learndash' ),
+						learndash_get_custom_label_lower( 'quiz' )
+					); ?>"
+					href="<?php echo esc_url( $quiz_link ); ?>"
+				>
+					<?php echo wp_kses_post( learndash_status_icon( $status, 'sfwd-quiz' ) ); ?>
+					<span>
+						<?php echo wp_kses_post( $quiz_title ); ?>
+					</span>
+				</a>
+			</div> <!--/.ld-table-list-title-->
 
 			<?php
 
 			if ( $certificate_link && ! empty( $certificate_link ) ) {
-				$certificate_link = '<a class="ld-certificate-link" href="' . $certificate_link . '" target="_new" aria-label="' . __( 'Certificate', 'learndash' ) . '"><span class="ld-icon ld-icon-certificate"></span></a>';
+				$certificate_link = '<a class="ld-certificate-link" href="' . $certificate_link . '" target="_new" aria-label="' . __( 'View certificate.', 'learndash' ) . '"><span class="ld-icon ld-icon-certificate"></span></a>';
 			}
 
 			/**
@@ -128,7 +159,11 @@ $quiz_link = ! empty( $quiz_attempt['post']->ID ) ? learndash_get_step_permalink
 			);
 			foreach ( $quiz_columns as $column ) :
 				?>
-				<div class="<?php echo esc_attr( 'ld-table-list-column ld-table-list-column-' . $column['id'] . ' ' . $column['class'] ); ?>">
+				<div
+					class="<?php echo esc_attr( 'ld-table-list-column ld-table-list-column-' . $column['id'] . ' ' . $column['class'] ); ?>"
+					role="cell"
+					tabindex="0"
+				>
 					<span class="ld-column-label"><?php echo wp_kses_post( $column['label'] ); ?>: </span>
 					<?php echo wp_kses_post( $column['content'] ); ?>
 				</div>
@@ -142,13 +177,30 @@ $quiz_link = ! empty( $quiz_attempt['post']->ID ) ? learndash_get_step_permalink
 
 	if ( $essays && ! empty( $essays ) ) :
 		?>
-		<div class="ld-table-list-item-expanded">
-			<div class="ld-table-list ld-essay-list">
-				<div class="ld-table-list-header">
-					<div class="ld-table-list-title">
-						<?php echo esc_html_e( 'Essays', 'learndash' ); ?>
-					</div> <!--/.ld-table-list-title-->
-					<div class="ld-table-list-columns">
+		<div
+			class="ld-table-list-item-expanded"
+			role="cell"
+		>
+			<div
+				aria-label="<?php esc_attr_e( 'Essays', 'learndash' ); ?>"
+				class="ld-table-list ld-essay-list"
+				role="table"
+			>
+				<div
+					class="ld-table-list-header"
+					role="rowgroup"
+				>
+					<div
+						class="ld-table-list-columns"
+						role="row"
+					>
+						<div
+							class="ld-table-list-title"
+							role="columnheader"
+						>
+							<?php echo esc_html_e( 'Essays', 'learndash' ); ?>
+						</div> <!--/.ld-table-list-title-->
+
 						<?php
 
 						/**
@@ -177,7 +229,10 @@ $quiz_link = ! empty( $quiz_attempt['post']->ID ) ? learndash_get_step_permalink
 						);
 						foreach ( $columns as $column ) :
 							?>
-							<div class="<?php echo esc_attr( 'ld-table-list-column ld-table-list-column-' . $column['id'] ); ?>">
+							<div
+								class="<?php echo esc_attr( 'ld-table-list-column ld-table-list-column-' . $column['id'] ); ?>"
+								role="columnheader"
+							>
 								<?php echo esc_html( $column['label'] ); ?>
 							</div>
 							<?php
@@ -185,7 +240,11 @@ $quiz_link = ! empty( $quiz_attempt['post']->ID ) ? learndash_get_step_permalink
 						?>
 					</div> <!--/.ld-table-list-columns-->
 				</div> <!--/.ld-table-list-header-->
-				<div class="ld-table-list-items">
+
+				<div
+					class="ld-table-list-items"
+					role="rowgroup"
+				>
 					<?php
 					foreach ( $essays as $essay_array ) :
 

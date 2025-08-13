@@ -15,9 +15,9 @@ if ( ( class_exists( 'LearnDash_Shortcodes_Section' ) ) && ( ! class_exists( 'Le
 			$this->fields_args = $fields_args;
 
 			$this->shortcodes_section_key         = 'ld_propanel';
-			$this->shortcodes_section_title       = esc_html__( 'ProPanel', 'learndash' );
+			$this->shortcodes_section_title       = esc_html__( 'Reports', 'learndash' );
 			$this->shortcodes_section_type        = 1;
-			$this->shortcodes_section_description = esc_html__( 'This shortcode displays widgets from ProPanel.', 'learndash' );
+			$this->shortcodes_section_description = esc_html__( 'This shortcode displays reporting widgets.', 'learndash' );
 
 			parent::__construct();
 		}
@@ -28,23 +28,23 @@ if ( ( class_exists( 'LearnDash_Shortcodes_Section' ) ) && ( ! class_exists( 'Le
 					'id'        => $this->shortcodes_section_key . '_widget',
 					'name'      => 'widget',
 					'type'      => 'select',
-					// translators: ProPanel Widget
-					'label'     => esc_html_x( 'Widget', 'ProPanel Widget', 'ld_propanel' ),
-					'help_text' => esc_html__( 'Select which ProPanel widget to display', 'learndash' ),
+					// translators: Reports Widget.
+					'label'     => esc_html_x( 'Widget', 'Reports Widget', 'learndash' ),
+					'help_text' => esc_html__( 'Select which Reports widget to display', 'learndash' ),
 					'value'     => '',
 					'options'   => array(
-						// translators: ProPanel widget shortcode
-						'link'           => esc_html_x( 'Link to ProPanel Full Page', 'ProPanel widget shortcode', 'learndash' ),
-						// translators: ProPanel widget shortcode
-						'overview'       => esc_html_x( 'Overview Widget', 'ProPanel widget shortcode', 'learndash' ),
-						// translators: ProPanel widget shortcode
-						'filtering'      => esc_html_x( 'Filtering Widget', 'ProPanel widget shortcode', 'learndash' ),
-						// translators: ProPanel widget shortcode
-						'reporting'      => esc_html_x( 'Reporting Widget', 'ProPanel widget shortcode', 'learndash' ),
-						// translators: ProPanel widget shortcode
-						'activity'       => esc_html_x( 'Activity Widget', 'ProPanel widget shortcode', 'learndash' ),
-						// translators: ProPanel widget shortcode
-						'progress_chart' => esc_html_x( 'Progress Chart Widget', 'ProPanel widget shortcode', 'learndash' ),
+						// translators: Reports widget shortcode.
+						'link'           => esc_html_x( 'Link to Reports Full Page', 'Reports widget shortcode', 'learndash' ),
+						// translators: Reports widget shortcode.
+						'overview'       => esc_html_x( 'Overview Widget', 'Reports widget shortcode', 'learndash' ),
+						// translators: Reports widget shortcode.
+						'filtering'      => esc_html_x( 'Filtering Widget', 'Reports widget shortcode', 'learndash' ),
+						// translators: Reports widget shortcode.
+						'reporting'      => esc_html_x( 'Reporting Widget', 'Reports widget shortcode', 'learndash' ),
+						// translators: Reports widget shortcode.
+						'activity'       => esc_html_x( 'Activity Widget', 'Reports widget shortcode', 'learndash' ),
+						// translators: Reports widget shortcode.
+						'progress_chart' => esc_html_x( 'Progress Chart Widget', 'Reports widget shortcode', 'learndash' ),
 					),
 				),
 				'filter_groups'  => array(
@@ -99,13 +99,13 @@ if ( ( class_exists( 'LearnDash_Shortcodes_Section' ) ) && ( ! class_exists( 'Le
 					'value'     => '',
 					// 'attrs'           =>  array( 'multiple' => 'multiple' ),
 					'options'   => array(
-						// translators: Course status - All Statuses
+						// translators: Course status - All Statuses.
 						''            => esc_html_x( 'All Statuses', 'Course status - All Statuses', 'learndash' ),
-						// translators: Course status - Not Started
+						// translators: Course status - Not Started.
 						'not-started' => esc_html_x( 'Not Started', 'Course status - Not Started', 'learndash' ),
-						// translators: Course status - In Progress
+						// translators: Course status - In Progress.
 						'in-progress' => esc_html_x( 'In Progress', 'Course status - In Progress', 'learndash' ),
-						// translators: Course status - Completed
+						// translators: Course status - Completed.
 						'completed'   => esc_html_x( 'Completed', 'Course status - Completed', 'learndash' ),
 					),
 
@@ -119,9 +119,9 @@ if ( ( class_exists( 'LearnDash_Shortcodes_Section' ) ) && ( ! class_exists( 'Le
 					'help_text' => esc_html__( 'Display Chart Orientation', 'learndash' ),
 					'value'     => '',
 					'options'   => array(
-						// translators: Chart orientation
+						// translators: Chart orientation.
 						''             => esc_html_x( 'Stacked (default)', 'Chart orientation', 'learndash' ),
-						// translators: Chart orientation
+						// translators: Chart orientation.
 						'side-by-side' => esc_html_x( 'Side by Side', 'Chart orientation', 'learndash' ),
 					),
 
@@ -130,10 +130,10 @@ if ( ( class_exists( 'LearnDash_Shortcodes_Section' ) ) && ( ! class_exists( 'Le
 					'id'        => $this->shortcodes_section_key . '_per_page',
 					'name'      => 'per_page',
 					'type'      => 'number',
-					// translators: Pagination for Widget output
+					// translators: Pagination for Widget output.
 					'label'     => esc_html_x( 'Per Page', 'Pagination for Widget output', 'learndash' ),
-					// translators: ProPanel Widget
-					'help_text' => esc_html_x( 'Pagination for Widget output', 'ProPanel Widget', 'learndash' ),
+					// translators: Reports Widget.
+					'help_text' => esc_html_x( 'Pagination for Widget output', 'Reports Widget', 'learndash' ),
 					'value'     => '',
 				),
 			);

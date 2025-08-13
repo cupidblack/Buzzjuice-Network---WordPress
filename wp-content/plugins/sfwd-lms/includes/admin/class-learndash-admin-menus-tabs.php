@@ -10,8 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use LearnDash\Core\App;
 use LearnDash\Core\Utilities\Cast;
 use StellarWP\Learndash\StellarWP\SuperGlobals\SuperGlobals;
+use LearnDash\Core\Modules\Quiz\Question;
 
 if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 	/**
@@ -403,6 +405,15 @@ if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 				$this->add_admin_tab_set( $exam_post_type_url, $submenu[ $exam_post_type_url ] );
 			}
 
+			// Reports.
+
+			$add_submenu['reports'] = array(
+				'name'  => __( 'Reports', 'learndash' ),
+				'cap'   => LEARNDASH_ADMIN_CAPABILITY_CHECK,
+				'link'  => 'admin.php?page=' . App::getVar( 'learndash_settings_reports_page_id' ),
+				'class' => 'submenu-ldlms-reports',
+			);
+
 			// Assignments.
 
 			if ( current_user_can( 'edit_assignments' ) ) {
@@ -494,7 +505,7 @@ if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 
 				add_menu_page(
 					esc_html__( 'LearnDash LMS', 'learndash' ),
-					esc_html__( 'LearnDash LMS', 'learndash' ),
+					'LearnDash LMS', // Do not translate this text, it is used in the screen ID generation and must stay static. The menu label is updated via a hook.
 					'read',
 					'learndash-lms',
 					null, // @phpstan-ignore-line
@@ -811,19 +822,6 @@ if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 						}
 					}
 				}
-			}
-
-			if ( 'admin.php?page=learndash-lms-reports' === $current_screen_parent_file ) {
-				$this->add_admin_tab_item(
-					$current_screen_parent_file,
-					array(
-						'id'   => 'learndash-lms_page_learndash-lms-reports',
-						'name' => esc_html_x( 'Reports', 'Learndash Report Menu Label', 'learndash' ),
-						'link' => 'admin.php?page=learndash-lms-reports',
-						'cap'  => LEARNDASH_ADMIN_CAPABILITY_CHECK,
-					),
-					$this->admin_tab_priorities['high']
-				);
 			}
 
 			if ( 'edit.php?post_type=groups' === $current_screen_parent_file ) {
@@ -1210,7 +1208,6 @@ if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 					'incorrect_answer_message'           => esc_html__( 'Message for incorrect answer - optional', 'learndash' ),
 
 					'essay_answer_message'               => esc_html__( 'Message after Essay is submitted - optional', 'learndash' ),
-
 					'solution_hint'                      => esc_html__( 'Solution hint', 'learndash' ),
 					'different_points_for_each_answer'   => esc_html__( 'Different points for each answer', 'learndash' ),
 					'points'                             => esc_html__( 'points', 'learndash' ),
@@ -1435,6 +1432,8 @@ if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 					'essay_graded_full_points'           => esc_html_x( 'Graded, Full Points Awarded', 'Essay answer grading option', 'learndash' ),
 					'essay_not_set'                      => esc_html_x( 'Not set', 'Essay answer grading option has not been set', 'learndash' ),
 					'supported_media_in_answers'         => esc_html_x( 'Only image, video and audio files are supported.', 'Supported media formats in question answers', 'learndash' ),
+					'matrix_sort_answer_accessibility_warning_html' => Question\Admin\Edit::get_matrix_sort_answer_accessibility_warning(),
+					'matrix_sort_answer_accessibility_warning_label' => Question\Admin\Edit::get_matrix_sort_answer_accessibility_warning( false ),
 				),
 			);
 
@@ -1907,6 +1906,26 @@ if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 						}
 					}
 				} elseif ( learndash_get_post_type_slug( 'quiz' ) === $screen_post_type ) {
+					$header_data['tabs'] = array_merge(
+						$header_data['tabs'],
+						[
+							[
+								'id'                  => $screen_post_type . '-settings',
+								'name'                => esc_html__( 'Settings', 'learndash' ),
+								'metaboxes'           => [
+									$screen_post_type,
+									'learndash-quiz-access-settings',
+									'learndash-quiz-progress-settings',
+									'learndash-quiz-display-content-settings',
+									'learndash-quiz-results-options',
+									'learndash-quiz-admin-data-handling-settings',
+									'learndash-course-grid-meta-box',
+								],
+								'showDocumentSidebar' => 'false',
+							],
+						]
+					);
+
 					if ( ( true === learndash_is_data_upgrade_quiz_questions_updated() ) && ( LearnDash_Settings_Section::get_section_setting( 'LearnDash_Settings_Quizzes_Builder', 'enabled' ) === 'yes' ) ) {
 						$header_data['tabs'] = array_merge(
 							$header_data['tabs'],
@@ -1918,18 +1937,6 @@ if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 							)
 						);
 					}
-
-					$header_data['tabs'] = array_merge(
-						$header_data['tabs'],
-						array(
-							array(
-								'id'                  => $screen_post_type . '-settings',
-								'name'                => esc_html__( 'Settings', 'learndash' ),
-								'metaboxes'           => array( $screen_post_type, 'learndash-quiz-access-settings', 'learndash-quiz-progress-settings', 'learndash-quiz-display-content-settings', 'learndash-quiz-results-options', 'learndash-quiz-admin-data-handling-settings', 'learndash-course-grid-meta-box' ),
-								'showDocumentSidebar' => 'false',
-							),
-						)
-					);
 
 					if ( ( true !== learndash_is_data_upgrade_quiz_questions_updated() ) || ( LearnDash_Settings_Section::get_section_setting( 'LearnDash_Settings_Quizzes_Builder', 'enabled' ) !== 'yes' ) ) {
 						$pro_quiz_id = learndash_get_setting( get_the_ID(), 'quiz_pro' );
@@ -2227,7 +2234,6 @@ if ( ! class_exists( 'Learndash_Admin_Menus_Tabs' ) ) {
 					$prioritized_tab_ids,
 					[
 						'learndash_course_builder',
-						'learndash_quiz_builder',
 						'learndash_' . $screen_post_type . '_access_extending',
 						$screen_post_type . '-settings',
 					]

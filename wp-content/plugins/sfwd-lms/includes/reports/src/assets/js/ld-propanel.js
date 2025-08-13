@@ -4,7 +4,7 @@ var learnDashProPanel = jQuery( function ( $ ) {
 
 	var widgetObjects = {};
 	var currentFilters = {
-		type:  null,
+		type:  'course',
 		id: null,
 		courseStatus: null,
 		search: null,
@@ -17,7 +17,6 @@ var learnDashProPanel = jQuery( function ( $ ) {
 		dateEnd: '',
 		reporting_pager: {},
 		activity_pager: {},
-		//total_users: 0
 	};
 	var selectedUserIds = [];
 	var allUserIds = [];
@@ -84,8 +83,18 @@ var learnDashProPanel = jQuery( function ( $ ) {
 				$( document ).on( 'click', '.ld-propanel-widget-reporting .ld-propanel-reporting-pager-info button', pagerReporting );
 				$( document ).on( 'click', '.ld-propanel-widget-reporting button.reporting-download', downloadReporting );
 
-				filterReporting();
-
+				if ( typeof widgetObjects['reporting'] !== 'undefined' ) {
+					var reportingContainer = $( '.propanel-reporting', widgetObjects['reporting'] );
+		
+					if ( currentFilters.type == 'group' ) {
+						loadTemplate( reportingContainer, 'group-reporting' );
+					} else if ( currentFilters.type == 'course' ) {
+						loadTemplate( reportingContainer, 'course-reporting' );
+					} else if ( currentFilters.type == 'user' ) {
+						loadTemplate( reportingContainer, 'user-reporting' );
+					}
+				}
+				loadReportingTable();
 			}
 
 			if ( template == 'course-reporting' ) {
@@ -133,14 +142,13 @@ var learnDashProPanel = jQuery( function ( $ ) {
 			}
 
 			if ( template == 'progress-chart' ) {
-				getProgressChartsData();
 				$( document ).on( 'proPanel.filterChanged', getProgressChartsData );
+				getProgressChartsData();
 			}
 		});
 
 		loadWidgets();
 		setContainerType();
-
 		if ( typeof widgetObjects['filtering'] === 'undefined' ) {
 			if ( typeof currentFilters !== 'undefined' ) {
 				if ( typeof widgetObjects['reporting'] !== 'undefined' ) {
@@ -155,28 +163,23 @@ var learnDashProPanel = jQuery( function ( $ ) {
 					}
 					$( document ).on( 'proPanel.filterChanged', getProgressChartsData );
 				}
-
-				// See PP-241: This timeout is needed to allow the template HTML to be added to the DOM.
-				setTimeout(function () {
-					filterReporting();
-				}, ld_propanel_settings.template_load_delay);
 			}
 		}
 	}
 
 	/**
-	 * Initialize all widgets
+	 * Initialize all widgets.
 	 */
 	function loadWidgets() {
 		var widgetElements = $( '.ld-propanel-widget' );
 
-		// We oad all the widget elements first.
+		// We load all the widget elements first.
 		$.each( widgetElements, function () {
 			var widget_id = $( this ).data( 'ld-widget-type' );
 			widgetObjects[ widget_id ] = $( this );
 		} );
 
-		// Then in this next loop we load in the filters
+		// Then in this next loop we load in the filters.
 
 		$.each( widgetObjects, function () {
 			var widget_id = $( this ).data( 'ld-widget-type' ),
@@ -260,7 +263,7 @@ var learnDashProPanel = jQuery( function ( $ ) {
 			args.filters || {}
 		);
 
-		$.when(
+		return $.when(
 			$.ajax( {
 				url: ld_propanel_settings.ajaxurl,
 				method: 'get',
@@ -340,7 +343,6 @@ var learnDashProPanel = jQuery( function ( $ ) {
 	function loadReportingTable() {
 		if ( typeof widgetObjects['reporting'] !== 'undefined' ) {
 			proPanelTable = widgetObjects['reporting'].find( '.tablesorter' );
-
 			var page_size =jQuery('select#ld-propanel-pagesize').val();
 			var search =jQuery('select#ld-propanel-pagesize').val();
 
@@ -1017,8 +1019,28 @@ var learnDashProPanel = jQuery( function ( $ ) {
 			args.filters || {}
 		);
 
+		// Our request details.
+		const ajaxData = {
+			url: ld_propanel_settings.ajaxurl,
+			method: 'get',
+			dataType: 'json',
+			data: {
+				'action': 'learndash_propanel_get_progress_charts_data',
+				'filters': filters,
+				'nonce': ld_propanel_settings.nonce,
+				'lang': ld_propanel_settings.lang,
+			}
+		};
+
+		// On success, build the charts.
+		const ajaxCallback = function (response) {
+			if (response && response.hasOwnProperty('success')) {
+				buildProgressCharts(response.data);
+			}
+		};
+
 		if ( typeof widgetObjects['progress-chart'] !== 'undefined' ) {
-			loadTemplate(
+			return loadTemplate(
 				widgetObjects['progress-chart'],
 				'progress-chart-data',
 				Object.assign(
@@ -1028,26 +1050,18 @@ var learnDashProPanel = jQuery( function ( $ ) {
 						filters: filters
 					}
 				)
-			);
-		}
+			).then(function (response) {
+				$.when(
+					$.ajax( ajaxData )
+				).done( ajaxCallback );
 
-		$.when(
-			$.ajax( {
-				url: ld_propanel_settings.ajaxurl,
-				method: 'get',
-				dataType: 'json',
-				data: {
-					'action': 'learndash_propanel_get_progress_charts_data',
-					'filters': filters,
-					'nonce': ld_propanel_settings.nonce,
-					'lang': ld_propanel_settings.lang,
-				}
-			})
-		).done(function (response) {
-			if (response && response.hasOwnProperty('success')) {
-				buildProgressCharts(response.data);
-			}
-		});
+				return response;
+			});	
+		} else {
+			return $.when(
+				$.ajax( ajaxData )
+			).done( ajaxCallback );
+		}
 	}
 
 	/**

@@ -10,6 +10,7 @@
 namespace LearnDash\Core\Themes\LD30\Modern;
 
 use StellarWP\Learndash\lucatume\DI52\ServiceProvider;
+use StellarWP\Learndash\lucatume\DI52\Container;
 
 /**
  * Class Provider for initializing theme implementations and hooks.
@@ -17,6 +18,29 @@ use StellarWP\Learndash\lucatume\DI52\ServiceProvider;
  * @since 4.21.0
  */
 class Provider extends ServiceProvider {
+	/**
+	 * Settings instance.
+	 *
+	 * @since 4.22.0
+	 *
+	 * @var Settings
+	 */
+	private Settings $settings;
+
+	/**
+	 * Provider constructor.
+	 *
+	 * @since 4.22.0
+	 *
+	 * @param Container $container The DI container instance.
+	 * @param Settings  $settings  The settings instance.
+	 */
+	public function __construct( Container $container, Settings $settings ) {
+		parent::__construct( $container );
+
+		$this->settings = $settings;
+	}
+
 	/**
 	 * Registers the service provider bindings.
 	 *
@@ -31,6 +55,7 @@ class Provider extends ServiceProvider {
 			return;
 		}
 
+		$this->container->register( Group\Provider::class );
 		$this->container->register( Course\Provider::class );
 		$this->container->register( Ajax\Provider::class );
 
@@ -121,16 +146,8 @@ class Provider extends ServiceProvider {
 	 * @return bool
 	 */
 	private function should_load(): bool {
-		/**
-		 * We can't use the LearnDash_Settings_Section_General_Appearance::get_setting() here because it is
-		 * not always initialized, and for purposes of this logic we need to see the option when it is not initialized.
-		 *
-		 * @var array{ course_enabled: string } $pages_enabled The modern page enabled settings.
-		 */
-		$pages_enabled = get_option( 'learndash_settings_appearance' );
+		$settings = $this->settings->get();
 
-		// In the future, this will check if one of many settings are enabled.
-		return ! empty( $pages_enabled['course_enabled'] )
-			&& $pages_enabled['course_enabled'] === 'yes';
+		return $settings['course_enabled'] || $settings['group_enabled'];
 	}
 }

@@ -36,6 +36,7 @@ class Modern {
 	 */
 	private const SUPPORTED_POST_TYPES = [
 		LDLMS_Post_Types::COURSE,
+		LDLMS_Post_Types::QUIZ,
 	];
 
 	/**

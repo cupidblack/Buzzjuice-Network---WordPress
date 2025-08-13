@@ -25,18 +25,18 @@ abstract class ProPanel2_Widget extends Widget {
 	 *
 	 * @since 4.17.0
 	 *
-	 * @var LearnDash_ProPanel_Widget
+	 * @var LearnDash_ProPanel_Widget|null
 	 */
-	protected LearnDash_ProPanel_Widget $propanel2_widget;
+	protected ?LearnDash_ProPanel_Widget $propanel2_widget = null;
 
 	/**
 	 * Returns a ProPanel v2.x widget instance.
 	 *
 	 * @since 4.17.0
 	 *
-	 * @return LearnDash_ProPanel_Widget
+	 * @return LearnDash_ProPanel_Widget|null
 	 */
-	public function get_propanel2_widget(): LearnDash_ProPanel_Widget {
+	public function get_propanel2_widget(): ?LearnDash_ProPanel_Widget {
 		return $this->propanel2_widget;
 	}
 

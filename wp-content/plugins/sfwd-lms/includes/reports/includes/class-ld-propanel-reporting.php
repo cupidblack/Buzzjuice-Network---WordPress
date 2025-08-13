@@ -126,15 +126,7 @@ if ( ! class_exists( 'LearnDash_ProPanel_Reporting' ) ) {
 
 			$registered_filters = LearnDash_ProPanel::get_instance()->filtering_widget->get_filters();
 
-			$this->post_data = ld_propanel_load_post_data();
-			if ( isset( $this->post_data['filters']['time_start'] ) ) {
-				unset( $this->post_data['filters']['time_start'] );
-			}
-
-			if ( isset( $this->post_data['filters']['time_end'] ) ) {
-				unset( $this->post_data['filters']['time_end'] );
-			}
-
+			$this->post_data           = ld_propanel_load_post_data();
 			$this->activity_query_args = ld_propanel_load_activity_query_args( array(), $this->post_data );
 
 			if ( 'course' == $this->post_data['filters']['type'] ) {

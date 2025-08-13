@@ -42,7 +42,7 @@ class Provider extends ServiceProvider {
 	 */
 	protected function hooks(): void {
 		add_action(
-			'admin_notices',
+			'admin_init',
 			$this->container->callback( Invalid_License::class, 'display' ),
 		);
 	}

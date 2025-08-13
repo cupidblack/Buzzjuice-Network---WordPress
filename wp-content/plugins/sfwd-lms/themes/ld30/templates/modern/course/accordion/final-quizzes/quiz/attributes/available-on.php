@@ -3,7 +3,7 @@
  * View: Course Accordion Final Quiz Attribute - Available On.
  *
  * @since 4.21.0
- * @version 4.21.0
+ * @version 4.21.3
  *
  * @var Quiz     $quiz Quiz model object.
  * @var Template $this Current Instance of template engine rendering this template.
@@ -28,8 +28,7 @@ $tooltip = sprintf(
 
 ?>
 <div
-	class="ld-accordion__item-attribute ld-accordion__item-attribute--available-on ld-accordion__item-attribute--collapsible"
-	data-ld-tooltip-text="<?php echo esc_attr( $tooltip ); ?>"
+	class="ld-accordion__item-attribute ld-accordion__item-attribute--available-on ld-accordion__item-attribute--collapsible ld-tooltip ld-tooltip--modern"
 	tabindex="0"
 >
 	<?php
@@ -42,7 +41,10 @@ $tooltip = sprintf(
 	);
 	?>
 
-	<span class="ld-accordion__item-attribute-label ld-accordion__item-attribute-label--available-on ld-accordion__item-attribute-label--collapsible">
+	<span
+		class="ld-accordion__item-attribute-label ld-accordion__item-attribute-label--available-on ld-accordion__item-attribute-label--collapsible ld-tooltip__text"
+		role="tooltip"
+	>
 		<?php echo esc_html( $tooltip ); ?>
 	</span>
 </div>

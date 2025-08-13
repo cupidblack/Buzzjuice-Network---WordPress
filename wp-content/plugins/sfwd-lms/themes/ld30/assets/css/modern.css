@@ -31,6 +31,94 @@
  *                         Can be 'min' or 'max'.
  */
 :root {
+  --ld-typography-font-family: inter, -apple-system, roboto, ubuntu, sans-serif;
+  --ld-typography-font-weight-regular: 400;
+  --ld-typography-font-weight-medium: 500;
+  --ld-typography-font-weight-bold: 700;
+  --ld-typography-desktop-h1-size: 4rem;
+  --ld-typography-desktop-h1-height: 4.5rem;
+  --ld-typography-desktop-h1-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-h1-spacing: -2%;
+  --ld-typography-desktop-h1-margin: var(--ld-spacer-8);
+  --ld-typography-mobile-h1-size: 3rem;
+  --ld-typography-mobile-h1-height: 3.5rem;
+  --ld-typography-mobile-h1-margin: var(--ld-spacer-7);
+  --ld-typography-desktop-h2-size: 3rem;
+  --ld-typography-desktop-h2-height: 3.5rem;
+  --ld-typography-desktop-h2-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-h2-spacing: -2%;
+  --ld-typography-desktop-h2-margin: var(--ld-spacer-7);
+  --ld-typography-mobile-h2-size: 2.5rem;
+  --ld-typography-mobile-h2-height: 3rem;
+  --ld-typography-mobile-h2-margin: var(--ld-spacer-6);
+  --ld-typography-desktop-h3-size: 2.5rem;
+  --ld-typography-desktop-h3-height: 3rem;
+  --ld-typography-desktop-h3-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-h3-spacing: -2%;
+  --ld-typography-desktop-h3-margin: var(--ld-spacer-6);
+  --ld-typography-mobile-h3-size: 2rem;
+  --ld-typography-mobile-h3-height: 2.5rem;
+  --ld-typography-mobile-h3-margin: var(--ld-spacer-5);
+  --ld-typography-desktop-h4-size: 2rem;
+  --ld-typography-desktop-h4-height: 2.5rem;
+  --ld-typography-desktop-h4-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-h4-spacing: inherit;
+  --ld-typography-desktop-h4-margin: var(--ld-spacer-5);
+  --ld-typography-mobile-h4-size: 1.5rem;
+  --ld-typography-mobile-h4-height: 2rem;
+  --ld-typography-mobile-h4-margin: var(--ld-spacer-4);
+  --ld-typography-desktop-h5-size: 1.5rem;
+  --ld-typography-desktop-h5-height: 2rem;
+  --ld-typography-desktop-h5-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-h5-spacing: inherit;
+  --ld-typography-desktop-h5-margin: var(--ld-spacer-4);
+  --ld-typography-mobile-h5-size: 1.25rem;
+  --ld-typography-mobile-h5-height: 1.75rem;
+  --ld-typography-mobile-h5-margin: var(--ld-spacer-4);
+  --ld-typography-desktop-h6-size: 1.125rem;
+  --ld-typography-desktop-h6-height: 1.5rem;
+  --ld-typography-desktop-h6-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-h6-spacing: inherit;
+  --ld-typography-desktop-h6-margin: var(--ld-spacer-3);
+  --ld-typography-mobile-h6-size: 1.125rem;
+  --ld-typography-mobile-h6-height: 1.5rem;
+  --ld-typography-mobile-h6-margin: var(--ld-spacer-3);
+  --ld-typography-desktop-body-large-size: 1.25rem;
+  --ld-typography-desktop-body-large-height: 1.75rem;
+  --ld-typography-mobile-body-large-size: 1rem;
+  --ld-typography-mobile-body-large-height: 1.5rem;
+  --ld-typography-desktop-body-size: 1rem;
+  --ld-typography-desktop-body-height: 1.5rem;
+  --ld-typography-mobile-body-size: 0.875rem;
+  --ld-typography-mobile-body-height: 1.375rem;
+  --ld-typography-desktop-body-small-size: 0.875rem;
+  --ld-typography-desktop-body-small-height: 1.375rem;
+  --ld-typography-desktop-caption-size: 0.75rem; /* 12px */
+  --ld-typography-desktop-caption-height: 1.25rem; /* 20px */
+  --ld-typography-mobile-caption-size: 0.75rem;
+  --ld-typography-mobile-caption-height: 1.25rem;
+  --ld-typography-desktop-pre-title-size: 0.75rem;
+  --ld-typography-desktop-pre-title-height: 1.25rem;
+  --ld-typography-desktop-pre-title-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-pre-title-spacing: 3%;
+  --ld-typography-desktop-pre-title-transform: uppercase;
+  --ld-typography-mobile-pre-title-size: 0.75rem;
+  --ld-typography-mobile-pre-title-height: 1.25rem;
+  --ld-typography-desktop-button-text-size: var(--ld-typography-desktop-body-size);
+  --ld-typography-desktop-button-text-height: var(--ld-typography-desktop-body-height);
+  --ld-typography-desktop-button-text-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-button-text-spacing: 3%;
+  --ld-typography-mobile-button-text-size: var(--ld-typography-mobile-body-size);
+  --ld-typography-mobile-button-text-height: var(--ld-typography-mobile-body-height);
+  --ld-typography-desktop-link-size: 1rem;
+  --ld-typography-desktop-link-height: 1.5rem;
+  --ld-typography-desktop-link-weight: var(--ld-typography-font-weight-bold);
+  --ld-typography-desktop-link-decoration: underline;
+  --ld-typography-mobile-link-size: 0.875rem;
+  --ld-typography-mobile-link-height: 1.375rem;
+}
+
+:root {
   /** Colors **/
   --ld-color-semantic-success: #2f8351;
   --ld-color-semantic-error: #db0000;
@@ -55,8 +143,13 @@
   --ld-color-brand-tertiary: #479bf8;
   --ld-color-semantic-success: #3eab6a;
   --ld-color-semantic-error: #e65255;
+  --ld-color-system-validation-error: #db0000;
+  --ld-color-semantic-error-light: #faeeee;
+  --ld-color-system-validation-success: #2f8351;
+  --ld-color-semantic-success-light: #eef7f1;
   --ld-color-system-dark: #0e2a90;
   --ld-color-system-body-text: #4a4a68;
+  --ld-color-system-text-dark: #0e0e2c;
   --ld-color-system-subtle: #8c8ca2;
   --ld-color-system-subtle-text: var(--ld-color-system-subtle);
   --ld-color-system-border: #dce1e8;
@@ -73,7 +166,10 @@
   /** Buttons **/
   --ld-color-button: var(--ld-color-system-white);
   --ld-color-button-bg: var(--ld-color-brand-primary);
-  --ld-color-button-bg-hover: #2c4fd1;
+  --ld-color-button-bg-hover: var(--ld-color-system-dark);
+  --ld-color-button-secondary-border: var(--ld-color-brand-primary);
+  --ld-color-button-disabled-bg-hover: #a7adc2;
+  --ld-color-button-disabled-border-hover: var(--ld-color-system-subtle-text);
   /** Progress bar **/
   --ld-color-progress-bar-bg: #f5f5f5;
   --ld-color-progress-bar-fg: #000;
@@ -100,7 +196,6 @@
   --ld-color-field-description: var(--ld-color-system-subtle-text);
   --ld-color-field-error: var(--ld-color-semantic-error);
   --ld-color-label: var(--ld-color-system-dark);
-  --ld-color-button-secondary-border: #728188;
 }
 
 .ld-layout {
@@ -157,7 +252,7 @@
 }
 .ld-layout__content {
   grid-area: content;
-  gap: var(--ld-spacer-2);
+  gap: var(--ld-spacer-6);
 }
 .ld-layout > *:not(.ld-layout__header):not(.ld-layout__sidebar):not(.ld-layout__content):not(script):not(style) {
   display: flex;
@@ -253,6 +348,13 @@
   margin: 0;
   padding: 0;
 }
+.ld-form input[type=button]:disabled,
+.ld-form input[type=submit]:disabled,
+.ld-form input[type=reset]:disabled,
+.ld-form button:disabled,
+.ld-form .ld-button:disabled {
+  cursor: not-allowed;
+}
 
 .ld-form__field-error-message {
   color: var(--ld-color-semantic-error);
@@ -270,10 +372,92 @@
   margin-bottom: 0;
 }
 
+/**
+ * Applies base LD button styles.
+ *
+ * @param {Boolean} $force - Whether to force the button styles by un-setting
+ * 								existing styles. This should be used if you need
+ * 								to override any possible Theme or Plugin styles.
+ * 								If you do not need to be this specific with your
+ * 								styles, you should instead use the .ld-button classes.
+ * 								Default: true.
+ */
+/**
+ * Applies primary button styles.
+ *
+ * @param {Boolean} $using-forced-styles - Whether this is being used in
+ * 											conjunction with ld-button( true ). Default: true.
+ */
+/**
+ * Applies Secondary button styles.
+ *
+ * @param {Boolean} $using-forced-styles - Whether this is being used in
+ * 											conjunction with ld-button( true ). Default: true.
+ */
+/**
+ * Applies Tertiary button styles.
+ *
+ * @param {Boolean} $using-forced-styles - Whether this is being used in
+ * 											conjunction with ld-button( true ). Default: true.
+ */
+/**
+ * Applies Border button styles.
+ *
+ * TODO: Remove, it is only used on the Modern Registration page.
+ *
+ * @param {Boolean} $using-forced-styles - Whether this is being used in
+ * 											conjunction with ld-button( true ). Default: true.
+ */
+/**
+ * Applies Mini button styles.
+ *
+ * @param {Boolean} $using-forced-styles - Whether this is being used in
+ * 											conjunction with ld-button( true ). Default: true.
+ */
+/**
+ * Applies styling for a button with an icon on the right side.
+ *
+ * @param {Boolean} $mini-styles - Whether this is for a mini button.
+ * 									Default: false.
+ * @param {Boolean} $using-forced-styles - Whether this is being used in
+ * 											conjunction with ld-button( true ). Default: true.
+ */
+/**
+ * Applies styling for a button with an icon on the left side.
+ *
+ * @param {Boolean} $mini-styles - Whether this is for a mini button.
+ * 									Default: false.
+ * @param {Boolean} $using-forced-styles - Whether this is being used in
+ * 											conjunction with ld-button( true ). Default: true.
+ */
+/**
+ * Applies Disabled button styles.
+ *
+ * @param {Boolean} $using-forced-styles - Whether this is being used in
+ * 											conjunction with ld-button( true ). Default: true.
+ */
+/**
+ * Applies provided styles in a way that allows us to force them
+ * across multiple pseudo-selectors. Optionally, un-sets all styles
+ * before applying the provided styles.
+ *
+ * This is useful when we really don't want any
+ * 3rd party CSS impacting our styling.
+ *
+ * This mixin should not be used directly, but rather as part of
+ * other button styling mixins to give us a way to consistently
+ * apply button styling in a variety of scenarios.
+ *
+ * @param {Boolean} $force - Whether to apply the passed styles across multiple
+ * 								pseudo-selectors. Default: true.
+ * @param {Boolean} $with-unset - Whether to un-set all styles. This should only
+ * 								be used with base styles. Default: false.
+ */
 .ld-button {
   align-items: center;
   border-radius: var(--ld-button-border-radius);
-  border-style: none;
+  border: none;
+  box-shadow: none;
   box-sizing: border-box;
   color: var(--ld-color-system-white);
   cursor: pointer;
@@ -281,26 +465,47 @@
   font-family: var(--ld-typography-font-family);
   font-size: var(--ld-typography-desktop-button-text-size);
   font-weight: var(--ld-typography-desktop-button-text-weight);
+  gap: var(--ld-spacer-fixed-1);
   justify-content: center;
-  letter-spacing: var(--ld-typography-desktop-button-text-spacing);
   line-height: var(--ld-typography-desktop-button-text-height);
+  margin: 0;
+  outline-offset: 2px;
+  outline-style: none;
+  outline-width: 2px;
   overflow-wrap: break-word;
-  padding: var(--ld-spacer-2) var(--ld-spacer-fixed-5);
+  padding: var(--ld-spacer-fixed-1) var(--ld-spacer-3);
   text-align: center;
   text-decoration: none;
   white-space: normal;
   width: auto;
   word-break: normal;
+  /**
+   * We are intentionally using a screen width breakpoint here.
+   *
+   * This is because we cannot be sure what container size this
+   * mixin will be used in ahead of time.
+   *
+   * We have decided to handle mobile vs desktop button styles based on
+   * screen width rather than container width globally.
+   */
 }
-.ld-button--lg {
-  height: 56px;
-  padding: var(--ld-spacer-3) var(--ld-spacer-fixed-5);
+@media (min-width: 720px) {
+  .ld-button {
+    padding: var(--ld-spacer-fixed-2) var(--ld-spacer-3);
+  }
 }
-.ld-button--sm {
-  font-size: var(--ld-typography-mobile-button-text-size);
-  height: 46px;
-  line-height: var(--ld-typography-mobile-button-text-height);
-  padding: var(--ld-spacer-2) var(--ld-spacer-fixed-4);
+.ld-button:focus {
+  outline-style: solid;
+}
+.ld-button:disabled, .ld-button[aria-disabled=true] {
+  background-color: var(--ld-color-system-light-2);
+  border: 1px solid var(--ld-color-system-border);
+  color: var(--ld-color-system-subtle-text);
+  cursor: not-allowed;
+}
+.ld-button:disabled:hover, .ld-button[aria-disabled=true]:hover {
+  background-color: var(--ld-color-button-disabled-bg-hover);
+  border-color: var(--ld-color-button-disabled-border-hover);
 }
 .ld-button--primary {
   background-color: var(--ld-color-button-bg);
@@ -308,27 +513,46 @@
 .ld-button--primary:active, .ld-button--primary:hover {
   background-color: var(--ld-color-button-bg-hover);
 }
+.ld-button--primary:focus {
+  outline-color: var(--ld-color-button-bg-hover);
+}
 .ld-button--secondary {
-  background-color: #fff;
+  background-color: var(--ld-color-system-white);
   border: 2px solid var(--ld-color-button-secondary-border);
-  color: var(--ld-color-system-body-text);
+  color: var(--ld-color-brand-primary);
 }
 .ld-button--secondary:active, .ld-button--secondary:focus, .ld-button--secondary:hover {
   background-color: var(--ld-color-system-light-1);
-  color: var(--ld-color-system-body-text);
+  border-color: var(--ld-color-system-dark);
+  color: var(--ld-color-system-dark);
   outline: none;
 }
+.ld-button--secondary:focus {
+  outline-color: var(--ld-color-system-dark);
+}
 .ld-button--tertiary {
-  background-color: transparent;
-  border: 3px solid var(--ld-color-brand-primary);
-  color: var(--ld-color-brand-primary);
+  background-color: var(--ld-color-system-white);
+  border: 2px solid transparent;
+  color: var(--ld-color-system-body-text);
+  outline-offset: 0;
+  outline-width: 4px;
+}
+.ld-button--tertiary:active, .ld-button--tertiary:hover, .ld-button--tertiary:focus {
+  border-color: var(--ld-color-brand-primary);
 }
 .ld-button--tertiary:active, .ld-button--tertiary:hover {
-  background-color: transparent;
-  color: var(--ld-color-button-bg-hover);
+  background-color: var(--ld-color-system-light-1);
+  color: var(--ld-color-brand-primary);
 }
-.ld-button--rounded {
-  border-radius: var(--ld-button-border-radius-rounded);
+.ld-button--tertiary:focus {
+  outline-color: #d6defb;
+}
+.ld-button--tertiary:disabled, .ld-button--tertiary[aria-disabled=true] {
+  background-color: var(--ld-color-system-white);
+  border: none;
+}
+.ld-button--tertiary:disabled:hover, .ld-button--tertiary[aria-disabled=true]:hover {
+  background-color: var(--ld-color-system-light-2);
 }
 .ld-button--border {
   background: var(--ld-color-field-bg);
@@ -352,22 +576,52 @@
   color: var(--ld-color-system-body-text);
   outline: none;
 }
-.ld-button:disabled {
-  background-color: var(--ld-color-system-light-2);
-  border: 1px solid var(--ld-color-system-border);
-  color: var(--ld-color-system-subtle-text);
-  cursor: not-allowed;
+.ld-button--mini {
+  font-size: var(--ld-typography-desktop-caption-size);
+  line-height: var(--ld-typography-desktop-caption-height);
+  padding: var(--ld-spacer-fixed-1) var(--ld-spacer-3);
 }
-.ld-button__password-visibility-toggle {
-  background-color: var(--ld-color-field-bg);
+.ld-button--mini.ld-button--icon-right {
+  padding-right: var(--ld-spacer-2);
 }
-
-.ld-form input[type=button]:disabled,
-.ld-form input[type=submit]:disabled,
-.ld-form input[type=reset]:disabled,
-.ld-form button:disabled,
-.ld-form .ld-button:disabled {
-  cursor: not-allowed;
+.ld-button--mini.ld-button--icon-left {
+  padding-left: var(--ld-spacer-2);
+}
+.ld-button--icon-right {
+  padding-right: var(--ld-spacer-2);
+  /**
+   * We are intentionally using a screen width breakpoint here.
+   *
+   * This is because this we cannot be sure what container size this
+   * mixin will be used in ahead of time.
+   *
+   * We have decided to handle mobile vs desktop button styles based on
+   * screen width rather than container width globally.
+   */
+}
+@media (min-width: 720px) {
+  .ld-button--icon-right {
+    padding-left: var(--ld-spacer-4);
+    padding-right: var(--ld-spacer-3);
+  }
+}
+.ld-button--icon-left {
+  padding-left: var(--ld-spacer-2);
+  /**
+   * We are intentionally using a screen width breakpoint here.
+   *
+   * This is because this we cannot be sure what container size this
+   * mixin will be used in ahead of time.
+   *
+   * We have decided to handle mobile vs desktop button styles based on
+   * screen width rather than container width globally.
+   */
+}
+@media (min-width: 720px) {
+  .ld-button--icon-left {
+    padding-left: var(--ld-spacer-3);
+    padding-right: var(--ld-spacer-4);
+  }
 }
 
 .ld-tab-bar {
@@ -465,6 +719,10 @@
   height: auto;
   margin-bottom: var(--ld-spacer-8);
   width: 100%;
+}
+
+.ld-button__password-visibility-toggle {
+  background-color: var(--ld-color-field-bg);
 }
 
 .ld-registration__wrapper {
@@ -1032,14 +1290,22 @@
   gap: var(--ld-spacer-0);
 }
 .ld-enrollment__pricing-label, .ld-enrollment__status-label {
+  color: var(--ld-color-system-body-text);
+  font-family: var(--wp--preset--font-family--body);
   font-size: var(--ld-typography-desktop-body-small-size);
   font-weight: var(--ld-typography-font-weight-regular);
   line-height: var(--ld-typography-desktop-body-small-height);
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .ld-enrollment__pricing-price, .ld-enrollment__status-description {
+  color: var(--ld-color-system-body-text);
+  font-family: var(--wp--preset--font-family--body);
   font-size: var(--ld-typography-desktop-body-large-size);
   font-weight: var(--ld-typography-font-weight-bold);
   line-height: var(--ld-typography-desktop-body-small-height);
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .ld-enrollment__seats-remaining {
   font-size: var(--ld-typography-desktop-body-small-size);
@@ -1063,30 +1329,71 @@
 .ld-enrollment__join form {
   margin: 0;
 }
-.ld-enrollment__join .ld-enrollment__join-button, .ld-enrollment__join .ld-enrollment__join-button:hover, .ld-enrollment__join .ld-enrollment__join-button:focus {
+.ld-enrollment__join .ld-enrollment__join-button {
+  /**
+   * We are intentionally using a screen width breakpoint here.
+   *
+   * This is because we cannot be sure what container size this
+   * mixin will be used in ahead of time.
+   *
+   * We have decided to handle mobile vs desktop button styles based on
+   * screen width rather than container width globally.
+   */
+}
+.ld-enrollment__join .ld-enrollment__join-button, .ld-enrollment__join .ld-enrollment__join-button:active, .ld-enrollment__join .ld-enrollment__join-button:focus-visible, .ld-enrollment__join .ld-enrollment__join-button:focus-within, .ld-enrollment__join .ld-enrollment__join-button:focus, .ld-enrollment__join .ld-enrollment__join-button:hover {
   all: unset;
-  background-color: var(--ld-color-button-bg);
-  border-radius: var(--ld-border-radius-small);
+  align-items: center;
+  border-radius: var(--ld-button-border-radius);
   border: none;
   box-shadow: none;
+  box-sizing: border-box;
   color: var(--ld-color-system-white);
-  font-size: var(--ld-typography-mobile-body-large-size);
-  font-weight: var(--ld-typography-font-weight-bold);
-  line-height: var(--ld-typography-mobile-body-large-height);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--ld-typography-font-family);
+  font-size: var(--ld-typography-desktop-button-text-size);
+  font-weight: var(--ld-typography-desktop-button-text-weight);
+  gap: var(--ld-spacer-fixed-1);
+  justify-content: center;
+  line-height: var(--ld-typography-desktop-button-text-height);
   margin: 0;
-  padding: var(--ld-spacer-3) var(--ld-spacer-fixed-5);
+  outline-offset: 2px;
+  outline-style: none;
+  outline-width: 2px;
+  overflow-wrap: break-word;
+  padding: var(--ld-spacer-fixed-1) var(--ld-spacer-3);
+  text-align: center;
   text-decoration: none;
   white-space: normal;
+  width: auto;
+  word-break: normal;
 }
-.ld-enrollment__join .ld-enrollment__join-button:hover, .ld-enrollment__join .ld-enrollment__join-button:focus {
-  background-color: var(--ld-color-button-bg-hover);
-}
-.ld-enrollment__join .ld-enrollment__join-button:hover {
-  cursor: pointer;
+@media (min-width: 720px) {
+  .ld-enrollment__join .ld-enrollment__join-button, .ld-enrollment__join .ld-enrollment__join-button:active, .ld-enrollment__join .ld-enrollment__join-button:focus-visible, .ld-enrollment__join .ld-enrollment__join-button:focus-within, .ld-enrollment__join .ld-enrollment__join-button:focus, .ld-enrollment__join .ld-enrollment__join-button:hover {
+    padding: var(--ld-spacer-fixed-2) var(--ld-spacer-3);
+  }
 }
 .ld-enrollment__join .ld-enrollment__join-button:focus {
-  outline-offset: 2px;
-  outline: 2px solid var(--ld-color-button-bg-hover);
+  outline-style: solid;
+}
+.ld-enrollment__join .ld-enrollment__join-button:disabled, .ld-enrollment__join .ld-enrollment__join-button[aria-disabled=true] {
+  background-color: var(--ld-color-system-light-2);
+  border: 1px solid var(--ld-color-system-border);
+  color: var(--ld-color-system-subtle-text);
+  cursor: not-allowed;
+}
+.ld-enrollment__join .ld-enrollment__join-button:disabled:hover, .ld-enrollment__join .ld-enrollment__join-button[aria-disabled=true]:hover {
+  background-color: var(--ld-color-button-disabled-bg-hover);
+  border-color: var(--ld-color-button-disabled-border-hover);
+}
+.ld-enrollment__join .ld-enrollment__join-button, .ld-enrollment__join .ld-enrollment__join-button:active, .ld-enrollment__join .ld-enrollment__join-button:focus-visible, .ld-enrollment__join .ld-enrollment__join-button:focus-within, .ld-enrollment__join .ld-enrollment__join-button:focus, .ld-enrollment__join .ld-enrollment__join-button:hover {
+  background-color: var(--ld-color-button-bg);
+}
+.ld-enrollment__join .ld-enrollment__join-button:active, .ld-enrollment__join .ld-enrollment__join-button:hover {
+  background-color: var(--ld-color-button-bg-hover);
+}
+.ld-enrollment__join .ld-enrollment__join-button:focus {
+  outline-color: var(--ld-color-button-bg-hover);
 }
 .ld-enrollment__login {
   display: flex;
@@ -1103,6 +1410,7 @@
   border: none;
   box-shadow: none;
   color: var(--ld-color-brand-primary);
+  cursor: pointer;
   font-size: var(--ld-typography-desktop-caption-size);
   font-weight: var(--ld-typography-font-weight-bold);
   line-height: var(--ld-typography-desktop-caption-height);
@@ -1178,13 +1486,17 @@
    *
    * https://css-tricks.com/the-hidden-attribute-is-visibly-weak/
    */
+  /**
+   * TODO: If this gets added to the global button styles, we should
+   * switch to using mixins here.
+   */
 }
 .ld-accordion__header {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
   gap: var(--ld-spacer-2);
-  margin: var(--ld-spacer-2) 0 var(--ld-spacer-3) 0;
+  margin: 0 0 var(--ld-spacer-3) 0;
 }
 .ld-accordion.ld-breakpoint--small .ld-accordion__header {
   gap: var(--ld-spacer-fixed-1);
@@ -1227,6 +1539,10 @@
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
+  /**
+   * Kept for backwards compatibility with LD30 Modern templates
+   * from before 4.21.3.
+   */
 }
 .ld-accordion__item-steps.ld-expanded {
   /**
@@ -1424,6 +1740,10 @@
 }
 .ld-accordion__item-header--lesson, .ld-accordion__item-header--final-quiz {
   position: relative;
+  /**
+   * Kept for backwards compatibility with LD30 Modern templates
+   * from before 4.21.3.
+   */
 }
 .ld-accordion.ld-breakpoint--small .ld-accordion__item-header--lesson, .ld-accordion.ld-breakpoint--small .ld-accordion__item-header--final-quiz {
   position: inherit;
@@ -1456,6 +1776,10 @@
 }
 .ld-accordion__item-header--lesson {
   padding: var(--ld-spacer-1) 0 var(--ld-spacer-fixed-1) var(--ld-spacer-2);
+  /**
+   * Kept for backwards compatibility with LD30 Modern templates
+   * from before 4.21.3.
+   */
 }
 .ld-accordion.ld-breakpoint--small .ld-accordion__item-header--lesson {
   padding: var(--ld-spacer-2) var(--ld-spacer-fixed-2) var(--ld-spacer-1) var(--ld-spacer-fixed-2);
@@ -1494,6 +1818,9 @@
   /**
    * Item Title Tooltips, specifically,
    * need to use styling closer to the default Tooltip styling.
+   *
+   * Kept for backwards compatibility with LD30 Modern templates
+   * from before 4.21.3.
    */
 }
 .ld-accordion__item-title:is(a):hover, .ld-accordion__item-title:is(a):focus {
@@ -1535,7 +1862,36 @@
   display: inline-flex;
   gap: var(--ld-spacer-fixed-0);
 }
+.ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible {
+  display: inline-flex;
+  letter-spacing: 1px;
+  padding-right: var(--ld-spacer-1);
+  /**
+   * On desktop the text within these Tooltips is shown by default.
+   * We need to hide it when the user hovers over the attribute.
+   *
+   * Kept for backwards compatibility with LD30 Modern templates
+   * from before 4.21.3.
+   */
+}
+.ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible[data-ld-tooltip-text]:hover::after, .ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible[data-ld-tooltip-text]:focus::after, .ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible[data-ld-tooltip-text]:focus-within::after {
+  visibility: hidden;
+}
+.ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible.ld-tooltip [role=tooltip] {
+  all: unset;
+}
+.ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible.ld-tooltip,
+.ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible.ld-tooltip [role=tooltip] {
+  letter-spacing: 1px;
+}
 .ld-accordion__item-attribute--collapsible, .ld-accordion__item-attribute--collapsed {
+  /**
+   * Don't use the tooltip styles if JS is disabled.
+   *
+   * We have to ignore the selector-class-pattern rule
+   * otherwise it would only apply to --collapsed attributes.
+   */
+  /* stylelint-disable-next-line selector-class-pattern */
   background: var(--ld-color-system-middle-gray-light);
   border-radius: var(--ld-border-radius);
   display: flex;
@@ -1544,13 +1900,8 @@
   line-height: var(--ld-typography-desktop-caption-height);
   text-transform: uppercase;
 }
-.ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible {
-  display: inline-flex;
-  letter-spacing: 1px;
-  padding-right: var(--ld-spacer-1);
-}
-.ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible[data-ld-tooltip-text]:hover::after, .ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible[data-ld-tooltip-text]:focus::after, .ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute--collapsible[data-ld-tooltip-text]:focus-within::after {
-  visibility: hidden;
+.ld-accordion__item-attribute--collapsible:not(.ld-tooltip--initialized) [role=tooltip], .ld-accordion__item-attribute--collapsed:not(.ld-tooltip--initialized) [role=tooltip] {
+  all: unset;
 }
 .ld-accordion__item-attribute--available-on {
   background: var(--ld-color-brand-secondary);
@@ -1570,9 +1921,23 @@
   color: var(--ld-color-brand-secondary);
 }
 .ld-accordion__item-attribute-label--collapsible {
+  /**
+   * Kept for backwards compatibility with LD30 Modern templates
+   * from before 4.21.3.
+   */
+}
+.ld-accordion__item-attribute-label--collapsible[data-ld-tooltip-text] {
   display: none;
 }
 .ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute-label--collapsible {
+  /**
+   * Kept for backwards compatibility with LD30 Modern templates
+   * from before 4.21.3.
+   */
+  opacity: 1;
+  position: relative;
+}
+.ld-accordion.ld-breakpoint--small .ld-accordion__item-attribute-label--collapsible[data-ld-tooltip-text] {
   display: inline-block;
 }
 .ld-accordion__pagination {
@@ -1624,6 +1989,31 @@
   cursor: not-allowed;
 }
 
+.ld-tooltip.ld-tooltip--modern::after {
+  height: var(--ld-spacer-0);
+}
+.ld-tooltip.ld-tooltip--modern [role=tooltip] {
+  background: var(--ld-color-system-middle-gray-light);
+  border-radius: var(--ld-border-radius-small);
+  border: 1px solid #cbd5e0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+  color: var(--ld-color-system-body-text);
+  font-family: unset;
+  font-size: var(--ld-typography-desktop-body-small-size);
+  font-weight: var(--ld-typography-font-weight-medium);
+  line-height: var(--ld-typography-desktop-body-small-height);
+  max-width: 100%;
+  min-width: 130px;
+  padding: var(--ld-spacer-0) var(--ld-spacer-fixed-1);
+  text-transform: none;
+  transform: translateY(var(--ld-spacer-0));
+}
+
+/**
+ * Old LD30 Modern tooltip implementation, left for backwards compatibility.
+ * Replaced with a new style of tooltips in 4.21.3 for accessibility reasons.
+ * Kept for backwards compatibility.
+ */
 [data-ld-tooltip-text] {
   position: relative;
 }
@@ -1657,4 +2047,230 @@
   flex-grow: 1;
   margin-bottom: 0;
   margin-top: 0;
+}
+
+.learndash-course-grid--modern .items-wrapper.grid {
+  column-gap: var(--ld-spacer-fixed-2);
+  row-gap: var(--ld-spacer-2);
+  margin-bottom: var(--ld-spacer-2);
+  /**
+   * The parent wrapper element exists outside of the "styling context"
+   * of the course grid, so we need to target it specifically.
+   */
+}
+.ld-course-grid__wrapper.ld-breakpoint--small .learndash-course-grid--modern .items-wrapper.grid {
+  column-gap: var(--ld-spacer-fixed-5);
+  row-gap: var(--ld-spacer-5);
+  margin-bottom: var(--ld-spacer-5);
+}
+.ld-course-grid__wrapper.ld-breakpoint--wide .learndash-course-grid--modern .items-wrapper.grid {
+  column-gap: var(--ld-spacer-fixed-6);
+  row-gap: var(--ld-spacer-6);
+  margin-bottom: var(--ld-spacer-6);
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 {
+  /**
+   * To replicate grid_height_equal, we need to ensure the post and
+   * content elements are flex containers with a height of 100%.
+   */
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .post {
+  border-radius: var(--ld-border-radius);
+  border: 1px solid var(--ld-color-system-border);
+  box-shadow: none;
+  overflow: hidden;
+  padding: 0;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .thumbnail img {
+  aspect-ratio: 4/3;
+  border-radius: 0;
+  object-fit: cover;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ld-spacer-fixed-4) var(--ld-spacer-4) var(--ld-spacer-fixed-8) var(--ld-spacer-4);
+  gap: var(--ld-spacer-7);
+  /**
+   * Replicate grid_height_equal, but align the content to the top
+   * instead of the bottom.
+   */
+  /**
+   * However, if it is a button, we should align it to the bottom.
+   */
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button {
+  /**
+   * Due to how it is wrapped in a .button class,
+   * we need to unstyle the container as well as the button itself.
+   *
+   * This is because 3rd party themes are very, very likely to
+   * style the .button class as a button.
+   */
+  all: unset;
+  align-self: center;
+  display: flex;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a {
+  /**
+   * We are intentionally using a screen width breakpoint here.
+   *
+   * This is because we cannot be sure what container size this
+   * mixin will be used in ahead of time.
+   *
+   * We have decided to handle mobile vs desktop button styles based on
+   * screen width rather than container width globally.
+   */
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:active, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-visible, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-within, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:hover {
+  all: unset;
+  align-items: center;
+  border-radius: var(--ld-button-border-radius);
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: var(--ld-color-system-white);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--ld-typography-font-family);
+  font-size: var(--ld-typography-desktop-button-text-size);
+  font-weight: var(--ld-typography-desktop-button-text-weight);
+  gap: var(--ld-spacer-fixed-1);
+  justify-content: center;
+  line-height: var(--ld-typography-desktop-button-text-height);
+  margin: 0;
+  outline-offset: 2px;
+  outline-style: none;
+  outline-width: 2px;
+  overflow-wrap: break-word;
+  padding: var(--ld-spacer-fixed-1) var(--ld-spacer-3);
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  width: auto;
+  word-break: normal;
+}
+@media (min-width: 720px) {
+  .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:active, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-visible, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-within, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:hover {
+    padding: var(--ld-spacer-fixed-2) var(--ld-spacer-3);
+  }
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus {
+  outline-style: solid;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:disabled, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a[aria-disabled=true] {
+  background-color: var(--ld-color-system-light-2);
+  border: 1px solid var(--ld-color-system-border);
+  color: var(--ld-color-system-subtle-text);
+  cursor: not-allowed;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:disabled:hover, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a[aria-disabled=true]:hover {
+  background-color: var(--ld-color-button-disabled-bg-hover);
+  border-color: var(--ld-color-button-disabled-border-hover);
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:active, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-visible, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-within, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:hover {
+  background-color: var(--ld-color-button-bg);
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:active, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:hover {
+  background-color: var(--ld-color-button-bg-hover);
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus {
+  outline-color: var(--ld-color-button-bg-hover);
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:active, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-visible, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-within, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:hover {
+  font-size: var(--ld-typography-desktop-caption-size);
+  line-height: var(--ld-typography-desktop-caption-height);
+  padding: var(--ld-spacer-fixed-1) var(--ld-spacer-3);
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .button a, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:active, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-visible, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus-within, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:focus, .learndash-course-grid--modern .items-wrapper .grid-3 .content .button a:hover {
+  padding-right: var(--ld-spacer-2);
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .entry-title {
+  font-size: var(--ld-typography-desktop-h5-size);
+  line-height: var(--ld-typography-desktop-h5-height);
+  margin: 0;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content .ld-progress {
+  margin: 0;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content > *:not(.button):last-child {
+  margin-bottom: auto;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .content > .button:last-child {
+  margin-top: auto;
+}
+.learndash-course-grid--modern .items-wrapper .grid-3 .post,
+.learndash-course-grid--modern .items-wrapper .grid-3 .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.learndash-course-grid--modern .pagination {
+  overflow: initial;
+}
+.learndash-course-grid--modern .pagination .load-more {
+  /**
+   * We are intentionally using a screen width breakpoint here.
+   *
+   * This is because we cannot be sure what container size this
+   * mixin will be used in ahead of time.
+   *
+   * We have decided to handle mobile vs desktop button styles based on
+   * screen width rather than container width globally.
+   */
+}
+.learndash-course-grid--modern .pagination .load-more, .learndash-course-grid--modern .pagination .load-more:active, .learndash-course-grid--modern .pagination .load-more:focus-visible, .learndash-course-grid--modern .pagination .load-more:focus-within, .learndash-course-grid--modern .pagination .load-more:focus, .learndash-course-grid--modern .pagination .load-more:hover {
+  all: unset;
+  align-items: center;
+  border-radius: var(--ld-button-border-radius);
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: var(--ld-color-system-white);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--ld-typography-font-family);
+  font-size: var(--ld-typography-desktop-button-text-size);
+  font-weight: var(--ld-typography-desktop-button-text-weight);
+  gap: var(--ld-spacer-fixed-1);
+  justify-content: center;
+  line-height: var(--ld-typography-desktop-button-text-height);
+  margin: 0;
+  outline-offset: 2px;
+  outline-style: none;
+  outline-width: 2px;
+  overflow-wrap: break-word;
+  padding: var(--ld-spacer-fixed-1) var(--ld-spacer-3);
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  width: auto;
+  word-break: normal;
+}
+@media (min-width: 720px) {
+  .learndash-course-grid--modern .pagination .load-more, .learndash-course-grid--modern .pagination .load-more:active, .learndash-course-grid--modern .pagination .load-more:focus-visible, .learndash-course-grid--modern .pagination .load-more:focus-within, .learndash-course-grid--modern .pagination .load-more:focus, .learndash-course-grid--modern .pagination .load-more:hover {
+    padding: var(--ld-spacer-fixed-2) var(--ld-spacer-3);
+  }
+}
+.learndash-course-grid--modern .pagination .load-more:focus {
+  outline-style: solid;
+}
+.learndash-course-grid--modern .pagination .load-more:disabled, .learndash-course-grid--modern .pagination .load-more[aria-disabled=true] {
+  background-color: var(--ld-color-system-light-2);
+  border: 1px solid var(--ld-color-system-border);
+  color: var(--ld-color-system-subtle-text);
+  cursor: not-allowed;
+}
+.learndash-course-grid--modern .pagination .load-more:disabled:hover, .learndash-course-grid--modern .pagination .load-more[aria-disabled=true]:hover {
+  background-color: var(--ld-color-button-disabled-bg-hover);
+  border-color: var(--ld-color-button-disabled-border-hover);
+}
+.learndash-course-grid--modern .pagination .load-more, .learndash-course-grid--modern .pagination .load-more:active, .learndash-course-grid--modern .pagination .load-more:focus-visible, .learndash-course-grid--modern .pagination .load-more:focus-within, .learndash-course-grid--modern .pagination .load-more:focus, .learndash-course-grid--modern .pagination .load-more:hover {
+  background-color: var(--ld-color-button-bg);
+}
+.learndash-course-grid--modern .pagination .load-more:active, .learndash-course-grid--modern .pagination .load-more:hover {
+  background-color: var(--ld-color-button-bg-hover);
+}
+.learndash-course-grid--modern .pagination .load-more:focus {
+  outline-color: var(--ld-color-button-bg-hover);
 }

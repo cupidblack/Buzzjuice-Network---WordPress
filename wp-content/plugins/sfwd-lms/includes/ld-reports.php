@@ -1157,10 +1157,12 @@ function learndash_reports_get_activity( $query_args = array(), $current_user_id
 		$sql_str_meta_where .= ' AND ld_user_activity_meta.activity_meta_key IN (' . "'" . implode( "','", $query_args['meta_fields'] ) . "'" . ') ';
 	}
 
+	if ( ! is_array( $query_args_org['activity_status'] ) ) {
+		$query_args_org['activity_status'] = array_filter( explode( ',', $query_args_org['activity_status'] ) );
+	}
+
 	if ( ( isset( $query_args['time_start_gmt_timestamp'] ) ) && ( ! empty( $query_args['time_start_gmt_timestamp'] ) ) && ( isset( $query_args['time_end_gmt_timestamp'] ) ) && ( ! empty( $query_args['time_end_gmt_timestamp'] ) ) ) {
 		$sql_str_where .= ' AND ( ';
-
-		// This is an old code. We will never get here. activity_status is converted to boolean before this.
 
 		if ( array_intersect( array( 'NOT_STARTED', 'IN_PROGRESS' ), $query_args_org['activity_status'] ) || empty( $query_args_org['activity_status'] ) ) {
 			$sql_str_where .= '(ld_user_activity.activity_started BETWEEN ' . $query_args['time_start_gmt_timestamp'] . ' AND ' . $query_args['time_end_gmt_timestamp'] . ') ';
@@ -1180,8 +1182,6 @@ function learndash_reports_get_activity( $query_args = array(), $current_user_id
 	} elseif ( ( isset( $query_args['time_start_gmt_timestamp'] ) ) && ( ! empty( $query_args['time_start_gmt_timestamp'] ) ) ) {
 		$sql_str_where .= ' AND ( ';
 
-		// This is an old code. We will never get here. activity_status is converted to boolean before this.
-
 		if ( array_intersect( array( 'NOT_STARTED', 'IN_PROGRESS' ), $query_args_org['activity_status'] ) || empty( $query_args_org['activity_status'] ) ) {
 			$sql_str_where .= 'ld_user_activity.activity_started >= ' . $query_args['time_start_gmt_timestamp'] . ' OR ld_user_activity.activity_updated >= ' . $query_args['time_start_gmt_timestamp'];
 		}
@@ -1197,8 +1197,6 @@ function learndash_reports_get_activity( $query_args = array(), $current_user_id
 		$sql_str_where .= ' ) ';
 	} elseif ( ( isset( $query_args['time_end_gmt_timestamp'] ) ) && ( ! empty( $query_args['time_end_gmt_timestamp'] ) ) ) {
 		$sql_str_where .= ' AND ( ';
-
-		// This is an old code. We will never get here. activity_status is converted to boolean before this.
 
 		if ( array_intersect( array( 'NOT_STARTED', 'IN_PROGRESS' ), $query_args_org['activity_status'] ) || empty( $query_args_org['activity_status'] ) ) {
 			$sql_str_where .= '(ld_user_activity.activity_started > 0 AND ld_user_activity.activity_started <= ' . $query_args['time_end_gmt_timestamp'] . ') OR ( ld_user_activity.activity_updated > 0 AND ld_user_activity.activity_updated <= ' . $query_args['time_end_gmt_timestamp'] . ')';

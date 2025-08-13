@@ -189,6 +189,16 @@ class WpProQuiz_Controller_Quiz extends WpProQuiz_Controller_Controller {
 		$this->view->show( $get );
 	}
 
+	/**
+	 * Adds or updates a quiz.
+	 *
+	 * @since 1.2.7
+	 *
+	 * @param array<string,mixed>|null $get  The GET parameters.
+	 * @param WP_Post|null             $post The POST parameters.
+	 *
+	 * @return void|bool
+	 */
 	private function addUpdateQuiz( $get = null, $post = null ) {
 		if ( empty( $get ) ) {
 			$get = $_GET;
@@ -253,7 +263,7 @@ class WpProQuiz_Controller_Quiz extends WpProQuiz_Controller_Controller {
 			if ( ! empty( $get['post_id'] ) ) {
 				$quiz_post = get_post( $get['post_id'] );
 				if ( ( ! empty( $quiz_post ) ) && ( is_a( $quiz_post, 'WP_Post' ) ) ) {
-					$quiz->setPostId = $quiz_post->ID;
+					$quiz->setPostId( $quiz_post->ID );
 				}
 			}
 

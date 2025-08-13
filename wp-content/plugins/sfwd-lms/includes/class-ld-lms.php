@@ -460,6 +460,7 @@ if ( ! class_exists( 'SFWD_LMS' ) ) {
 		 *
 		 * @since 2.1.0
 		 * @since 4.18.1.1 Added support for WordPress 6.7.
+		 * @since 4.21.2.1 Added support for WordPress 6.8+.
 		 *
 		 * @return void
 		 */
@@ -562,9 +563,21 @@ if ( ! class_exists( 'SFWD_LMS' ) ) {
 				determine_locale()
 			);
 
-			// If the .mo file does not exist, load_plugin_textdomain() will show a PHP notice on WordPress 6.7+.
 			if ( file_exists( $mo_file_path ) ) {
+				// If the .mo file does not exist, load_plugin_textdomain() will show a PHP notice on WordPress 6.7+.
 				load_plugin_textdomain( $text_domain, false, $relative_path );
+			} else {
+				/**
+				 * This fixes an issue with WordPress 6.8+ support.
+				 *
+				 * If the file doesn't exist, we need to fake a loaded translation to prevent
+				 * _load_textdomain_just_in_time() from running.
+				 *
+				 * Using NOOP_Translations will prevent any translations from running, but if a translation file does
+				 * not exist, this would be expected functionality anyway.
+				 */
+				global $l10n;
+				$l10n[ $text_domain ] = new NOOP_Translations(); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Expected, see above.
 			}
 
 			/**
@@ -2796,6 +2809,10 @@ if ( ! class_exists( 'SFWD_LMS' ) ) {
 						'hierarchical'          => true,
 						'show_in_rest'          => false,
 						'rest_controller_class' => API\Controllers\Transactions::class,
+						'map_meta_cap'          => true, // Ensure all other capabilities are generated.
+						'capabilities'          => [
+							'create_posts' => 'do_not_allow', // Remove the "Add New" button from the admin bar.
+						],
 					),
 					'fields'             => array(),
 					'default_options'    => array(

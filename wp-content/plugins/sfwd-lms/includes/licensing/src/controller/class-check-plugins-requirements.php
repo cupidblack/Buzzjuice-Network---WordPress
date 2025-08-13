@@ -69,6 +69,11 @@ class CheckPluginsRequirements {
 
 		$projects = $api->get_projects();
 
+		// If an error occurred retrieving plugin data, allow plugin installation.
+		if ( ! is_array( $projects ) ) {
+			return $source;
+		}
+
 		$plugin_data = $project_helper->look_project( $plugin_slug, $projects );
 
 		if ( ! is_array( $plugin_data ) ) {

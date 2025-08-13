@@ -1065,7 +1065,13 @@ if ( ! class_exists( 'Learndash_Payment_Gateway' ) ) {
 					$this->user
 				);
 			} elseif ( learndash_is_group_post( $post ) ) {
-				$button_label = LearnDash_Custom_Label::get_label( LearnDash_Custom_Label::$button_take_group );
+				/* This filter is documented in includes/payments/class-learndash-payment-button.php */
+				$button_label = apply_filters(
+					'learndash_payment_button_label_group',
+					LearnDash_Custom_Label::get_label( LearnDash_Custom_Label::$button_take_group ),
+					Product::create_from_post( $post ),
+					$this->user
+				);
 			}
 
 			if ( Learndash_Razorpay_Gateway::get_name() === static::get_name() ) {

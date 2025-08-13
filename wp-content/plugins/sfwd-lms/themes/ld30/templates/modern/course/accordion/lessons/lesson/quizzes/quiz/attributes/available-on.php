@@ -3,7 +3,7 @@
  * View: Course Accordion Lesson Quiz Attribute - Available On.
  *
  * @since 4.21.0
- * @version 4.21.0
+ * @version 4.21.3
  *
  * @var Quiz     $quiz The quiz object.
  * @var Template $this Current Instance of template engine rendering this template.
@@ -28,8 +28,7 @@ $tooltip = sprintf(
 
 ?>
 <div
-	class="ld-accordion__item-attribute ld-accordion__item-attribute--available-on ld-accordion__item-attribute--collapsed"
-	data-ld-tooltip-text="<?php echo esc_attr( $tooltip ); ?>"
+	class="ld-accordion__item-attribute ld-accordion__item-attribute--available-on ld-accordion__item-attribute--collapsed ld-tooltip ld-tooltip--modern"
 	tabindex="0"
 >
 	<?php
@@ -41,4 +40,11 @@ $tooltip = sprintf(
 		]
 	);
 	?>
+
+	<span
+		class="ld-accordion__item-attribute-label ld-accordion__item-attribute-label--available-on ld-accordion__item-attribute-label--collapsed ld-tooltip__text"
+		role="tooltip"
+	>
+		<?php echo esc_html( $tooltip ); ?>
+	</span>
 </div>

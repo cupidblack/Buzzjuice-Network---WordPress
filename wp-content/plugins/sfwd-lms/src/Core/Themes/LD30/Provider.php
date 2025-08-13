@@ -9,9 +9,9 @@
 
 namespace LearnDash\Core\Themes\LD30;
 
-use LearnDash\Core\Themes\LD30\Modern\Features;
 use LearnDash_Theme_Register;
 use StellarWP\Learndash\lucatume\DI52\ServiceProvider;
+use LearnDash\Core\Themes\LD30\Modern\Settings;
 
 /**
  * Class Provider for initializing theme implementations and hooks.
@@ -27,10 +27,14 @@ class Provider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register(): void {
+		// Needs to be registered regardless of the theme being active for the fields to show when switching themes.
+		$this->container->register( Presenter_Mode\Provider::class );
+
 		if ( ! $this->should_load() ) {
 			return;
 		}
 
+		$this->container->register( Quiz\Provider::class );
 		$this->container->register( Modern\Provider::class );
 	}
 

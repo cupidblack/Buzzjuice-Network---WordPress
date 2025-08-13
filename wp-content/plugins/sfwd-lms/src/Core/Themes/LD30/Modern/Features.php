@@ -16,7 +16,6 @@ use LearnDash_Settings_Section_Registration_Pages;
 use LearnDash_Theme_Register_LD30;
 use LearnDash_Theme_Register;
 use LearnDash\Core\Template\Template;
-use StellarWP\Learndash\StellarWP\AdminNotices\AdminNotices;
 use WP_Post;
 
 /**
@@ -37,6 +36,10 @@ class Features {
 	public static function enabled_for_view( string $view_slug ): bool {
 		if ( $view_slug === LDLMS_Post_Types::COURSE ) {
 			return LearnDash_Settings_Section_General_Appearance::get_setting( 'course_enabled' ) === 'yes';
+		}
+
+		if ( $view_slug === LDLMS_Post_Types::GROUP ) {
+			return LearnDash_Settings_Section_General_Appearance::get_setting( 'group_enabled' ) === 'yes';
 		}
 
 		return false;
@@ -77,6 +80,13 @@ class Features {
 		if (
 			self::enabled_for_view( LDLMS_Post_Types::COURSE )
 			&& is_singular( LDLMS_Post_Types::get_post_type_slug( LDLMS_Post_Types::COURSE ) )
+		) {
+			return true;
+		}
+
+		if (
+			self::enabled_for_view( LDLMS_Post_Types::GROUP )
+			&& is_singular( LDLMS_Post_Types::get_post_type_slug( LDLMS_Post_Types::GROUP ) )
 		) {
 			return true;
 		}
@@ -187,6 +197,10 @@ class Features {
 		);
 		LearnDash_Settings_Section_General_Appearance::set_setting(
 			'course_enabled',
+			'yes',
+		);
+		LearnDash_Settings_Section_General_Appearance::set_setting(
+			'group_enabled',
 			'yes',
 		);
 	}

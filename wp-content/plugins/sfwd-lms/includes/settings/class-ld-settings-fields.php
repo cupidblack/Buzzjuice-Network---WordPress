@@ -6,6 +6,8 @@
  * @package LearnDash\Settings\Fields
  */
 
+use LearnDash\Core\Template\Template;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -305,6 +307,13 @@ if ( ! class_exists( 'LearnDash_Settings_Fields' ) ) {
 									?>
 									<span class="learndash_required_field"><abbr title="<?php esc_html_e( 'Required', 'learndash' ); ?>">*</abbr></span>
 									<?php
+								}
+
+								if (
+									isset( $field['args']['label_badge'] )
+									&& is_string( $field['args']['label_badge'] )
+								) {
+									Template::show_admin_template( "common/badges/{$field['args']['label_badge']}" );
 								}
 								?>
 								</label>

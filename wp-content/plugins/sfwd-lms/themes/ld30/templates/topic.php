@@ -3,7 +3,7 @@
  * LearnDash LD30 Displays a topic.
  *
  * @since 3.0.0
- * @version 4.18.0
+ * @version 4.21.3
  *
  * Available Variables:
  *
@@ -49,6 +49,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * @param int $user_id   User ID.
 	 */
 	do_action( 'learndash-topic-before', get_the_ID(), $course_id, $user_id );
+
+	// Show the step completed alert immediately after the topic is completed.
+
+	learndash_30_show_step_completed_alert( $post->ID, $course_id, $user_id, 'topic' );
 
 	if ( ( defined( 'LEARNDASH_TEMPLATE_CONTENT_METHOD' ) ) && ( 'shortcode' === LEARNDASH_TEMPLATE_CONTENT_METHOD ) ) {
 		$shown_content_key = 'learndash-shortcode-wrap-ld_infobar-' . absint( $course_id ) . '_' . (int) get_the_ID() . '_' . absint( $user_id );
@@ -143,7 +147,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
 			}
 		} else {
-
 			/**
 			 * Display Lesson Assignments
 			 */
@@ -215,7 +218,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			}
 		}
 	} else {
-
 		$can_complete = false;
 
 		if ( $all_quizzes_completed && $logged_in && ! empty( $course_id ) ) :

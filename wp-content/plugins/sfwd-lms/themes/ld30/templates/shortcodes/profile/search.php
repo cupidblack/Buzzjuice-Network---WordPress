@@ -3,6 +3,7 @@
  * LearnDash LD30 Displays a user's profile search.
  *
  * @since 3.0.0
+ * @version 4.21.3
  *
  * @package LearnDash\Templates\LD30
  */
@@ -31,7 +32,7 @@ $learndash_search_is_expanded = ( false !== (bool) $learndash_profile_search_que
 		<?php echo esc_html_e( 'close', 'learndash' ); ?>
 	</button>
 
-	<h4>
+	<h4 class="ld-item-search-heading">
 	<?php
 		printf(
 			// translators: Profile Search Courses.

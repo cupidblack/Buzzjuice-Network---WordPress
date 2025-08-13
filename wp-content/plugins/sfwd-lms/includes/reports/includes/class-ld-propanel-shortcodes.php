@@ -42,6 +42,7 @@ if ( ! class_exists( 'LearnDash_ProPanel_Shortcode' ) ) {
 		 */
 		public function __construct() {
 			add_shortcode( 'ld_propanel', array( $this, 'do_shortcode' ) );
+			add_shortcode( 'ld_reports', array( $this, 'do_shortcode' ) );
 		}
 
 		function do_shortcode( $atts = array(), $content = '' ) {

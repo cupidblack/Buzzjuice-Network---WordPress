@@ -3,7 +3,7 @@
  * LearnDash LD30 Displays a user's profile course progress row.
  *
  * @since 3.0.0
- * @version 4.20.2
+ * @version 4.21.5
  *
  * @package LearnDash\Templates\LD30
  */
@@ -60,7 +60,13 @@ $course_class = apply_filters(
 
 		<a href="<?php echo esc_url( get_the_permalink( $course_id ) ); ?>" class="ld-item-name">
 			<?php learndash_status_icon( $status, get_post_type(), null, true ); ?>
-			<span class="ld-course-title"><?php echo esc_html( get_the_title( $course_id ) ); ?></span>
+			<span
+				aria-level="4"
+				class="ld-course-title"
+				role="heading"
+			>
+				<?php echo esc_html( get_the_title( $course_id ) ); ?>
+			</span>
 		</a> <!--/.ld-course-name-->
 
 		<?php
@@ -88,15 +94,22 @@ $course_class = apply_filters(
 				<a class="ld-certificate-link" target="_blank" href="<?php echo esc_url( $learndash_certificate_link ); ?>" aria-label="<?php esc_attr_e( 'Certificate', 'learndash' ); ?>"><span class="ld-icon ld-icon-certificate"></span></span></a>
 			<?php endif; ?>
 
-			<?php echo wp_kses_post( learndash_status_bubble( $status ) ); ?>
+			<?php echo wp_kses_post( learndash_status_bubble( $status, 'course', false ) ); ?>
 
 			<button
 				aria-controls="<?php echo esc_attr( 'ld-course-list-item-' . $course_id . '-container' ); ?>"
 				aria-expanded="false"
 				class="ld-expand-button ld-primary-background ld-compact ld-not-mobile"
 				data-ld-expands="<?php echo esc_attr( 'ld-course-list-item-' . $course_id . '-container' ); ?>"
+				data-ld-expand-text="<?php esc_html_e( 'Expand', 'learndash' ); ?>"
+				data-ld-collapse-text="<?php esc_html_e( 'Collapse', 'learndash' ); ?>"
 			>
 				<span class="ld-icon-arrow-down ld-icon"></span>
+				<span class="ld-text screen-reader-text"><?php esc_html_e( 'Expand', 'learndash' ); ?></span>
+
+				<span class="screen-reader-text">
+					<?php echo esc_html( get_the_title( $course_id ) ); ?>
+				</span>
 			</button> <!--/.ld-expand-button-->
 
 			<button
@@ -109,6 +122,10 @@ $course_class = apply_filters(
 			>
 				<span class="ld-icon-arrow-down ld-icon"></span>
 				<span class="ld-text ld-primary-color"><?php esc_html_e( 'Expand', 'learndash' ); ?></span>
+
+				<span class="screen-reader-text">
+					<?php echo esc_html( get_the_title( $course_id ) ); ?>
+				</span>
 			</button> <!--/.ld-expand-button-->
 
 		</div> <!--/.ld-course-details-->

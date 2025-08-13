@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
 			&& ( apply_filters( 'ld_propanel_shortcode_show', 'reporting', get_current_user_id() ) ) ) {
 				?>
 				<h2><?php esc_html_e( 'LearnDash Reporting', 'learndash' ); ?></h2>
-				<?php echo do_shortcode( '[ld_propanel widget="reporting"]' ); ?>
+				<?php echo do_shortcode( '[ld_reports widget="reporting"]' ); ?>
 			<?php } ?>
 
 			<?php
@@ -47,14 +47,14 @@ defined( 'ABSPATH' ) || exit;
 			&& ( apply_filters( 'ld_propanel_shortcode_show', 'activity', get_current_user_id() ) ) ) {
 				?>
 				<h2><?php esc_html_e( 'LearnDash Activity Report', 'learndash' ); ?></h2>
-				<?php echo do_shortcode( '[ld_propanel widget="activity"]' ); ?>
+				<?php echo do_shortcode( '[ld_reports widget="activity"]' ); ?>
 			<?php } ?>
 			</div>
 
 			<div class="rightColumn">
 			<?php if ( ( is_user_logged_in() ) && ( ( learndash_is_group_leader_user() ) || ( learndash_is_admin_user() ) ) ) { ?>
 				<h2><?php esc_html_e( 'LearnDash Reports Overview', 'learndash' ); ?></h2>
-				<?php echo do_shortcode( '[ld_propanel widget="overview"]' ); ?>
+				<?php echo do_shortcode( '[ld_reports widget="overview"]' ); ?>
 			<?php } ?>
 
 			<?php
@@ -62,7 +62,7 @@ defined( 'ABSPATH' ) || exit;
 			&& ( apply_filters( 'ld_propanel_shortcode_show', 'filtering', get_current_user_id() ) ) ) {
 				?>
 				<h2><?php esc_html_e( 'LearnDash Report Filters', 'learndash' ); ?></h2>
-				<?php echo do_shortcode( '[ld_propanel widget="filtering"]' ); ?>
+				<?php echo do_shortcode( '[ld_reports widget="filtering"]' ); ?>
 			<?php } ?>
 
 			<?php
@@ -70,7 +70,7 @@ defined( 'ABSPATH' ) || exit;
 			&& ( apply_filters( 'ld_propanel_shortcode_show', 'progress_chart', get_current_user_id() ) ) ) {
 				?>
 				<h2><?php esc_html_e( 'LearnDash Progress Chart', 'learndash' ); ?></h2>
-				<?php echo do_shortcode( '[ld_propanel widget="progress_chart"]' ); ?>
+				<?php echo do_shortcode( '[ld_reports widget="progress_chart"]' ); ?>
 			<?php } ?>
 			</div>
 		</div>

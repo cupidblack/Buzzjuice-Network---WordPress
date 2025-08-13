@@ -12,6 +12,7 @@ namespace LearnDash\Core\Modules\Reports;
 use StellarWP\Learndash\lucatume\DI52\ContainerException;
 use StellarWP\Learndash\lucatume\DI52\ServiceProvider;
 use LearnDash\Core\Utilities\Cast;
+use LearnDash\Core\Modules\Reports\Settings as Reports_Settings;
 
 /**
  * Reports module provider.
@@ -54,6 +55,8 @@ class Provider extends ServiceProvider {
 		$this->container->register( Legacy\Provider::class );
 
 		if ( ! self::should_load() ) {
+			// Register the disabled message provider when reports are disabled.
+			$this->container->register( Disabled\Provider::class );
 			return;
 		}
 
@@ -71,6 +74,10 @@ class Provider extends ServiceProvider {
 	 * @return bool
 	 */
 	public static function should_load(): bool {
+		// Check if Core Reports is disabled via the settings.
+		$reports_settings = Reports_Settings::get();
+		$reports_disabled = ! $reports_settings['display_reports'];
+
 		return ! (
 			(
 				defined( self::PREVENT_LOAD_CONSTANT )
@@ -106,6 +113,7 @@ class Provider extends ServiceProvider {
 				'learndash_module_reports_disabled',
 				false
 			)
+			|| $reports_disabled
 		);
 	}
 

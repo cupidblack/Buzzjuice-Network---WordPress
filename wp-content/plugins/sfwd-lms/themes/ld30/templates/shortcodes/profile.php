@@ -11,7 +11,7 @@
  * $shortcode_atts : Array of values passed to shortcode
  *
  * @since 3.0.0
- * @version 4.20.2
+ * @version 4.21.4
  *
  * @package LearnDash\Templates\LD30
  */
@@ -78,9 +78,9 @@ endif; ?>
 					<?php
 					if ( ! empty( $current_user->user_lastname ) || ! empty( $current_user->user_firstname ) ) :
 						?>
-						<div class="ld-profile-heading">
+						<h2 class="ld-profile-heading">
 							<?php echo esc_html( $current_user->user_firstname . ' ' . $current_user->user_lastname ); ?>
-						</div>
+						</h2>
 					<?php endif; ?>
 
 					<?php
@@ -97,6 +97,10 @@ endif; ?>
 					<?php endif; ?>
 				</div> <!--/.ld-profile-card-->
 				<div class="ld-profile-stats">
+					<h3 class="sr-only">
+						<?php esc_html_e( 'Your Stats', 'learndash' ); ?>
+					</h3>
+
 					<?php
 					$learndash_user_stats = learndash_get_user_stats( $user_id );
 
@@ -207,6 +211,10 @@ endif; ?>
 					>
 						<span class="ld-icon-arrow-down ld-icon"></span>
 						<span class="ld-text"><?php echo esc_html_e( 'Expand All', 'learndash' ); ?></span>
+
+						<span class="screen-reader-text">
+							<?php echo esc_html( learndash_get_custom_label( 'courses' ) ); ?>
+						</span>
 					</button> <!--/.ld-expand-button-->
 				</div> <!--/.ld-course-list-actions-->
 			</div> <!--/.ld-section-heading-->

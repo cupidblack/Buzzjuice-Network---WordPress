@@ -29,7 +29,12 @@ if ( $user->exists() ) {
 	<?php endif; ?>
 
 	<?php if ( $custom_login_enabled ) : ?>
-		<button class="ld-enrollment__login-link" data-ld-login-modal-trigger>
+		<button
+			aria-controls="ld-login-modal"
+			aria-haspopup="dialog"
+			class="ld-enrollment__login-link"
+			data-ld-login-modal-trigger
+		>
 			<?php esc_html_e( 'Log In', 'learndash' ); ?>
 		</button>
 	<?php else : ?>

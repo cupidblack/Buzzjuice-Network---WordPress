@@ -3,7 +3,7 @@
  * View: Course Enrollment Join Section.
  *
  * @since 4.21.0
- * @version 4.21.0
+ * @version 4.21.3
  *
  * @var Product  $product Product model.
  * @var WP_User  $user    WP_User object.
@@ -41,7 +41,7 @@ if (
 }
 
 ?>
-<div class="ld-enrollment__join">
+<section class="ld-enrollment__join">
 	<?php
 	$this->template(
 		'modern/course/enrollment/join/button',
@@ -59,4 +59,4 @@ if (
 		]
 	);
 	?>
-</div>
+</section>

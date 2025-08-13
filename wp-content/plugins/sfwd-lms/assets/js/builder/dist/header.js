@@ -217,6 +217,17 @@ const Icon = _ref => {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", null, `${LearnDashData.i18n.question_data_invalid}`), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
       d: "M538.5,386.199L356.5,70.8c-16.4-28.4-46.7-45.9-79.501-45.9c-32.8,0-63.1,17.5-79.5,45.9L12.3,391.6 c-16.4,28.4-16.4,63.4,0,91.8C28.7,511.8,59,529.3,91.8,529.3H462.2c0.101,0,0.2,0,0.2,0c50.7,0,91.8-41.101,91.8-91.8 C554.2,418.5,548.4,400.8,538.5,386.199z M316.3,416.899c0,21.7-16.7,38.3-39.2,38.3s-39.2-16.6-39.2-38.3V416 c0-21.601,16.7-38.301,39.2-38.301S316.3,394.3,316.3,416V416.899z M317.2,158.7L297.8,328.1c-1.3,12.2-9.4,19.8-20.7,19.8 s-19.4-7.7-20.7-19.8L237,158.6c-1.3-13.1,5.801-23,18-23H299.1C311.3,135.7,318.5,145.6,317.2,158.7z"
     }));
+  } else if ('accessibility-warning' === icon) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      x: "0",
+      y: "0",
+      width: "554.2",
+      height: "554.199",
+      viewBox: "0 0 554.2 554.199"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", null, `${LearnDashData.i18n.matrix_sort_answer_accessibility_warning_label}`), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+      d: "M538.5,386.199L356.5,70.8c-16.4-28.4-46.7-45.9-79.501-45.9c-32.8,0-63.1,17.5-79.5,45.9L12.3,391.6 c-16.4,28.4-16.4,63.4,0,91.8C28.7,511.8,59,529.3,91.8,529.3H462.2c0.101,0,0.2,0,0.2,0c50.7,0,91.8-41.101,91.8-91.8 C554.2,418.5,548.4,400.8,538.5,386.199z M316.3,416.899c0,21.7-16.7,38.3-39.2,38.3s-39.2-16.6-39.2-38.3V416 c0-21.601,16.7-38.301,39.2-38.301S316.3,394.3,316.3,416V416.899z M317.2,158.7L297.8,328.1c-1.3,12.2-9.4,19.8-20.7,19.8 s-19.4-7.7-20.7-19.8L237,158.6c-1.3-13.1,5.801-23,18-23H299.1C311.3,135.7,318.5,145.6,317.2,158.7z"
+    }));
   }
   return null;
 };
@@ -229,6 +240,160 @@ Icon.propTypes = {
   stroke: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string)
 };
 /* harmony default export */ __webpack_exports__["default"] = (Icon);
+
+/***/ }),
+
+/***/ "./src/components/common/split-button/index.js":
+/*!*****************************************************!*\
+  !*** ./src/components/common/split-button/index.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../icon */ "./src/components/common/icon/index.js");
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+// eslint-disable-next-line import/no-unresolved
+
+
+/**
+ * SplitButton Component.
+ *
+ * @param {Object} props         Component props.
+ * @param {Array}  props.buttons Array of button objects with text, href, target, data, and class properties.
+ * 
+ * @return {React.Component} SplitButton component.
+ */
+const SplitButton = _ref => {
+  let {
+    buttons
+  } = _ref;
+  const [isOpen, setIsOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const buttonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    /**
+     * Handles clicks outside the button component to close the dropdown.
+     *
+     * @param {Event} event The click event.
+     *
+     * @return {void}
+     */
+    const handleClickOutside = event => {
+      if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    const doc = buttonRef.current?.ownerDocument;
+    if (doc) {
+      doc.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        doc.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, []);
+  if (!buttons || !buttons.length) {
+    return null;
+  }
+  const [primaryButton, ...dropdownButtons] = buttons;
+
+  /**
+   * Converts button data object into data attributes for HTML elements.
+   *
+   * @param {Object} button The button object containing data properties.
+   *
+   * @return {Object} Object containing data attributes.
+   */
+  const getDataAttributes = button => {
+    if (!button.data) return {};
+    return Object.keys(button.data).reduce((result, key) => {
+      if (typeof button.data[key] === 'object') {
+        result[`data-${key}`] = JSON.stringify(button.data[key]);
+      } else {
+        result[`data-${key}`] = button.data[key];
+      }
+      return result;
+    }, {});
+  };
+
+  /**
+   * Renders the split button icon based on the provided icon type.
+   *
+   * @param {string|boolean} icon The icon type to render.
+   *
+   * @return {React.ReactElement|null} The rendered icon or null.
+   */
+  function renderSplitButtonIcon(icon) {
+    switch (icon) {
+      case false:
+        return null;
+      // In the future, handle different icon types here
+      default:
+        // Default to plus symbol
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "ld-split-button__plus-symbol"
+        }, "+");
+    }
+  }
+
+  /**
+   * Renders a button element with the provided properties.
+   *
+   * @param {Object} button          The button configuration object.
+   * @param {boolean} isDropdownItem Whether the button is a dropdown item.
+   *
+   * @return {React.ReactElement} The rendered button element.
+   */
+  const renderButton = function (button) {
+    let isDropdownItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    const ButtonTag = button?.href?.length > 0 ? 'a' : 'button';
+    const dataAttributes = getDataAttributes(button);
+    const className = isDropdownItem ? 'ld-split-button__menu-item components-menu-item__button' : 'ld-split-button__primary button button-primary';
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ButtonTag, _extends({
+      href: button.href,
+      target: button.target,
+      className: `${className} ${button.class || ''}`
+    }, dataAttributes), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      className: "ld-split-button__content"
+    }, !isDropdownItem && renderSplitButtonIcon(button.icon), ' ', button.text));
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "ld-split-button",
+    ref: buttonRef
+  }, renderButton(primaryButton), dropdownButtons.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "ld-split-button__toggle button button-primary",
+    onClick: () => setIsOpen(!isOpen),
+    "aria-haspopup": "true",
+    "aria-expanded": isOpen
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_icon__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    icon: "dropdown",
+    stroke: "white"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    style: {
+      display: isOpen ? 'block' : 'none'
+    },
+    className: "ld-split-button__popover components-popover is-bottom is-left ld-popover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "components-popover__content"
+  }, dropdownButtons.map((button, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: index
+  }, renderButton(button, true)))))));
+};
+SplitButton.propTypes = {
+  buttons: prop_types__WEBPACK_IMPORTED_MODULE_2___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_2___default().shape({
+    text: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string.isRequired),
+    href: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+    target: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+    class: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+    data: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().object),
+    icon: prop_types__WEBPACK_IMPORTED_MODULE_2___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_2___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_2___default().bool)])
+  })).isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (SplitButton);
 
 /***/ }),
 
@@ -483,19 +648,20 @@ class PostTitle extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _common_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/icon */ "./src/components/common/icon/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _common_split_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/split-button */ "./src/components/common/split-button/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 /* eslint-disable @wordpress/no-global-event-listener */
+
 
 
 
@@ -535,8 +701,7 @@ class Tabs extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
       currentTab: activeTab,
       tabs: this.props.data.tabs || [],
       popover: false,
-      addNewEntityButton: null,
-      buttons: this.props.data.buttons || []
+      addNewEntityButton: null
     };
     this.dropdownRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
     this.handleTabClick = this.handleTabClick.bind(this);
@@ -567,7 +732,16 @@ class Tabs extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
       if (this.props.variant) {
         document.body.classList.add('ld-header-has-tabs--' + this.props.variant);
       }
+      tabs.forEach(tab => {
+        const controlledTabEl = document.querySelector('#' + tab.id);
+        if (controlledTabEl) {
+          controlledTabEl.setAttribute('aria-labelledby', 'tab-' + tab.id);
+        }
+      });
     }
+
+    // The page has actions, add a class to body to push down Gutenberg if needed.
+    const currentTabObject = tabs.filter(tab => currentTab === tab.id)[0] || tabs[0];
 
     // Look for changes in #editor in Gutenberg
     const editorContainer = document.getElementById('editor');
@@ -825,41 +999,60 @@ class Tabs extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
       tabs,
       currentTab,
       popover,
-      addNewEntityButton,
-      buttons
+      addNewEntityButton
     } = this.state;
+    // We don't want to access the buttons object directly so we avoid mutating it below.
+    const buttons = this.props.data.buttons ? [...this.props.data.buttons] : [];
     const currentTabObject = tabs.filter(tab => currentTab === tab.id)[0] || tabs[0];
     const hasActions = currentTabObject && 'actions' in currentTabObject && 0 !== currentTabObject.actions.length;
+    const tabButtons = tabs.length > 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('ld-tab-buttons', {
+        [`ld-tab-buttons--${this.props.variant}`]: this.props.variant
+      })
+    }, tabs.map((tab, index) => 'true' === tab.isExternal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+      key: `tab-button-${index}`,
+      id: tab.id ? `tab-${tab.id}` : false,
+      href: tab.link.replace(/&amp;/g, '&'),
+      className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('is-button button components-button ld-tab-button', {
+        [`ld-tab-button--${this.props.variant}`]: this.props.variant,
+        'is-primary': tab.id === currentTab
+      }),
+      dangerouslySetInnerHTML: {
+        __html: tab.name
+      }
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      key: `tab-button-${index}`,
+      id: tab.id ? `tab-${tab.id}` : false,
+      onClick: this.handleTabClick,
+      "aria-controls": tab.id,
+      "data-index": index,
+      className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('is-button button components-button ld-tab-button', {
+        [`ld-tab-button--${this.props.variant}`]: this.props.variant,
+        'is-primary': tab.id === currentTab
+      }),
+      dangerouslySetInnerHTML: {
+        __html: tab.name
+      }
+    }))) : null;
     if (0 !== tabs.length) {
       if (addNewEntityButton) {
+        // Create a button object from the addNewEntityButton and place it at the beginning of the buttons array.
+        buttons.unshift({
+          text: addNewEntityButton.textContent,
+          href: addNewEntityButton.href
+        });
+
+        // Remove the addNewEntityButton from the DOM.
         addNewEntityButton.remove();
       }
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, this.props.variant && tabButtons, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "ld-global-header-new-settings"
-      }, buttons && buttons.map((button, index) => {
-        const ButtonTag = button?.href?.length > 0 ? 'a' : 'button';
-        const dataAttributes = button.data ? Object.keys(button.data).reduce((result, key) => {
-          if (typeof button.data[key] === 'object') {
-            result[`data-${key}`] = JSON.stringify(button.data[key]);
-          } else {
-            result[`data-${key}`] = button.data[key];
-          }
-          return result;
-        }, {}) : {};
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ButtonTag, _extends({
-          key: 'ld-global-header-button-' + index
-        }, button.href ? {
-          href: button.href
-        } : {}, button.href && button.target ? {
-          target: button.target
-        } : {}, {
-          className: `${button.class} ld-global-header-button button button-primary button-small ${addNewEntityButton || index < buttons.length - 1 ? '' : '-right'}`
-        }, dataAttributes), button.text);
-      }), addNewEntityButton && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: addNewEntityButton.href,
-        className: `global-new-entity-button button button-primary button-small ${hasActions ? 'global-new-entity-button--has-actions' : '-right'}`
-      }, addNewEntityButton.innerText), hasActions && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "edit-post-header__settings",
+      }, buttons && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_common_split_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        buttons: buttons
+      }), hasActions && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('edit-post-header__settings', {
+          [`edit-post-header__settings--${this.props.variant}`]: this.props.variant
+        }),
         ref: this.dropdownRef
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "is-button components-button ld-actions button",
@@ -869,7 +1062,9 @@ class Tabs extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
       }, LearnDashData.i18n.actions, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_common_icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
         icon: "dropdown"
       })), popover && currentTabObject.actions && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "components-popover edit-post-more-menu__content is-bottom is-left ld-popover"
+        className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('components-popover edit-post-more-menu__content is-bottom is-left ld-popover', {
+          [`ld-popover--${this.props.variant}`]: this.props.variant
+        })
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "components-popover__content"
       }, currentTabObject.actions.map((action, index) => {
@@ -890,35 +1085,7 @@ class Tabs extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
           rel: `noreferrer noopener`,
           className: `${action.classNames && action.classNames.length ? action.classNames.join(' ') : ''} components-menu-item__button components-button${activeClassName}`
         }, action.title);
-      }))))), tabs.length > 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('ld-tab-buttons', {
-          [`ld-tab-buttons--${this.props.variant}`]: this.props.variant
-        })
-      }, tabs.map((tab, index) => 'true' === tab.isExternal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        key: `tab-button-${index}`,
-        id: tab.id ? `tab-${tab.id}` : false,
-        href: tab.link.replace(/&amp;/g, '&'),
-        className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('is-button button components-button ld-tab-button', {
-          [`ld-tab-button--${this.props.variant}`]: this.props.variant,
-          'is-primary': tab.id === currentTab
-        }),
-        dangerouslySetInnerHTML: {
-          __html: tab.name
-        }
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        key: `tab-button-${index}`,
-        id: tab.id ? `tab-${tab.id}` : false,
-        onClick: this.handleTabClick,
-        "aria-controls": tab.id,
-        "data-index": index,
-        className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('is-button button components-button ld-tab-button', {
-          [`ld-tab-button--${this.props.variant}`]: this.props.variant,
-          'is-primary': tab.id === currentTab
-        }),
-        dangerouslySetInnerHTML: {
-          __html: tab.name
-        }
-      }))));
+      }))))), !this.props.variant && tabButtons);
     }
     return null;
   }
@@ -928,8 +1095,8 @@ class Tabs extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
  * Valid props
  */
 Tabs.propTypes = {
-  data: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().object),
-  variant: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().string)
+  data: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().object),
+  variant: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string)
 };
 
 /**
@@ -1608,17 +1775,15 @@ const workspaceReducer = function () {
         const parentIndex = immutableQuestions.findIndex(node => node.get('ID') === action.parent.ID);
         const index = state.questions[parentIndex].answers[answerType].length + 1;
         const nodePath = [parentIndex, 'answers', answerType, action.payload.index];
-        if (nodePath.length) {
-          // we need to update a tree
-          const treePath = nodePath.slice(0, nodePath.length - 1);
-          questions = immutableQuestions.updateIn(treePath, tree => {
-            return tree.insert(index, action.payload);
-          }).toJS();
-          return _objectSpread(_objectSpread({}, state), {}, {
-            questions
-          });
-        }
-        return state;
+
+        // we need to update a tree
+        const treePath = nodePath.slice(0, nodePath.length - 1);
+        questions = immutableQuestions.updateIn(treePath, tree => {
+          return tree.insert(index, action.payload);
+        }).toJS();
+        return _objectSpread(_objectSpread({}, state), {}, {
+          questions
+        });
       }
 
     /**

@@ -878,7 +878,7 @@ class Asset {
 			);
 		}
 
-		return $dependencies;
+		return (array) $dependencies;
 	}
 
 	/**
@@ -1112,6 +1112,51 @@ class Asset {
 	}
 
 	/**
+	 * Get the asset's full path - considering if minified exists.
+	 *
+	 * @since 1.4.6
+	 * @since 1.4.7 When the path is a URL, return the URL.
+	 *
+	 * @param bool $use_min_if_available
+	 *
+	 * @return string
+	 */
+	public function get_full_resource_path( bool $use_min_if_available = true ): string {
+		$resource_path_data = $this->build_resource_path_data();
+		if ( empty( $resource_path_data['resource'] ) ) {
+			return '';
+		}
+
+		if (
+			str_starts_with( $resource_path_data['resource'], 'http://' ) ||
+			str_starts_with( $resource_path_data['resource'], 'https://' ) ||
+			str_starts_with( $resource_path_data['resource'], '//' )
+		) {
+			return $resource_path_data['resource'];
+		}
+		$resource           = $resource_path_data['resource'];
+		$resource_path      = $resource_path_data['resource_path'];
+
+		$root_path       = $this->get_root_path();
+
+		$path = wp_normalize_path( $root_path . $resource_path . $resource );
+
+		if ( ! $use_min_if_available ) {
+			return $path;
+		}
+
+		if ( strstr( $path, '.min.' . $this->get_type() ) ) {
+			return $path;
+		}
+
+		$min_relative_path = $this->get_min_path();
+		$min_path = $min_relative_path === $this->get_path() ? preg_replace( '#(.*).(js|css)#', '$1.min.$2', $path ) : $root_path . $min_relative_path . $resource;
+		$min_path = wp_normalize_path( $min_path );
+
+		return file_exists( $min_path ) ? $min_path : $path;
+	}
+
+	/**
 	 * Get the asset version.
 	 *
 	 * @return string
@@ -1123,7 +1168,16 @@ class Asset {
 			return (string) $asset_file_contents['version'];
 		}
 
-		return $this->version;
+		$hook_prefix = Config::get_hook_prefix();
+
+		/**
+		 * Filters the asset version when it doesn't come from an asset file.
+		 *
+		 * @param string $version The asset version.
+		 * @param string $slug    The asset slug.
+		 * @param Asset  $asset   The Asset object.
+		 */
+		return (string) apply_filters( "stellarwp/assets/{$hook_prefix}/version", $this->version, $this->slug, $this );
 	}
 
 	/**
@@ -1749,7 +1803,7 @@ class Asset {
 		if ( $dependencies[0] && is_callable( $dependencies[0] ) ) {
 			$this->dependencies = $dependencies[0];
 		} else {
-			$this->dependencies = $dependencies;
+			$this->dependencies = (array) $dependencies;
 		}
 
 		return $this;

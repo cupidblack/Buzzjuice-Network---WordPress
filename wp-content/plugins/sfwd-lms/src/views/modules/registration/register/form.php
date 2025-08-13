@@ -32,6 +32,7 @@ if ( $registration_errors['has_errors'] ) {
 			'type'    => 'warning',
 			'icon'    => 'alert',
 			'message' => $registration_errors['message'],
+			'role'    => 'alert',
 		],
 		true
 	);

@@ -36,7 +36,7 @@ class LearnDash_Settings_Section_Translations_Learndash_ProPanel extends LearnDa
 	 *
 	 * @var string
 	 */
-	private $project_slug = 'ld_propanel';
+	private $project_slug = 'ld_reports';
 
 	/**
 	 * Flag if the translation has been registered.

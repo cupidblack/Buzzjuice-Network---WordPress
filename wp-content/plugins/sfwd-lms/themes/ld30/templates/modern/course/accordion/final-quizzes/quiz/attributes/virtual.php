@@ -3,7 +3,7 @@
  * View: Course Accordion Final Quiz Attribute - Virtual.
  *
  * @since 4.21.0
- * @version 4.21.0
+ * @version 4.21.3
  *
  * @var Quiz     $quiz Quiz model object.
  * @var Template $this Current Instance of template engine rendering this template.
@@ -29,8 +29,7 @@ if ( $quiz->is_attendance_required() ) {
 
 ?>
 <div
-	class="ld-accordion__item-attribute ld-accordion__item-attribute--virtual ld-accordion__item-attribute--collapsible"
-	data-ld-tooltip-text="<?php echo esc_attr( $tooltip ); ?>"
+	class="ld-accordion__item-attribute ld-accordion__item-attribute--virtual ld-accordion__item-attribute--collapsible ld-tooltip ld-tooltip--modern"
 	tabindex="0"
 >
 	<?php
@@ -43,7 +42,10 @@ if ( $quiz->is_attendance_required() ) {
 	);
 	?>
 
-	<span class="ld-accordion__item-attribute-label ld-accordion__item-attribute-label--virtual ld-accordion__item-attribute-label--collapsible">
+	<span
+		class="ld-accordion__item-attribute-label ld-accordion__item-attribute-label--virtual ld-accordion__item-attribute-label--collapsible ld-tooltip__text"
+		role="tooltip"
+	>
 		<?php echo esc_html( $tooltip ); ?>
 	</span>
 </div>

@@ -3,7 +3,7 @@
  * Registration - order overview section.
  *
  * @since 4.16.0
- * @version 4.16.0
+ * @version 4.21.3
  *
  * @var Learndash_Coupon_DTO|null       $attached_coupon_dto      Coupon data.
  * @var array<string, int|float|string> $course_pricing           Course or group pricing data.
@@ -31,9 +31,9 @@ $should_show_pay_buttons = $is_registered || $is_user_logged_in;
 			<?php esc_html_e( 'Order Details', 'learndash' ); ?>
 		</h2>
 	<?php else : ?>
-		<h4 class="ld-registration-order__heading">
+		<h3 class="ld-registration-order__heading">
 			<?php esc_html_e( 'Order Details', 'learndash' ); ?>
-		</h4>
+		</h3>
 	<?php endif; ?>
 
 	<?php if ( $has_access_already ) : ?>

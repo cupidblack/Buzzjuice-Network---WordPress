@@ -874,11 +874,12 @@ function learndash_output_registration_success_alert() {
 
 	learndash_get_template_part(
 		'modules/alert.php',
-		array(
-			'type'    => 'success',
+		[
 			'icon'    => 'alert',
 			'message' => __( 'Registration successful.', 'learndash' ),
-		),
+			'role'    => 'alert',
+			'type'    => 'success',
+		],
 		true
 	);
 
@@ -2057,6 +2058,7 @@ function learndash_login_failed_alert(): void {
 				'type'    => 'warning',
 				'icon'    => 'alert',
 				'message' => __( 'Incorrect username or password. Please try again', 'learndash' ),
+				'role'    => 'alert',
 			),
 			true
 		);

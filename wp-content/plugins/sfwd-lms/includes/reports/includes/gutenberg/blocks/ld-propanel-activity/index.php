@@ -22,7 +22,7 @@ if ( class_exists( 'LearnDash_ProPanel_Gutenberg_Block' ) && ! class_exists( 'Le
 		 * @since 4.17.0
 		 */
 		public function __construct() {
-			$this->shortcode_slug   = 'ld_propanel';
+			$this->shortcode_slug   = 'ld_reports';
 			$this->shortcode_widget = 'activity';
 			$this->block_slug       = 'ld-propanel-activity';
 			$this->block_attributes = array(

@@ -689,7 +689,9 @@ if ( ! class_exists( 'Learndash_Razorpay_Gateway' ) && class_exists( 'Learndash_
 				data-nonce="<?php echo esc_attr( wp_create_nonce( $this->get_nonce_name() ) ); ?>"
 				data-post_id="<?php echo esc_attr( (string) $post->ID ); ?>"
 			>
-				<input class="<?php echo esc_attr( Learndash_Payment_Button::map_button_class_name() ); ?>" id="<?php echo esc_attr( Learndash_Payment_Button::map_button_id() ); ?>" type="submit" value="<?php echo esc_attr( $button_label ); ?>">
+				<button	aria-label="<?php echo esc_attr( $button_label . '. ' . $this->get_checkout_info_text( $post->post_type ) ); ?>" class="<?php echo esc_attr( Learndash_Payment_Button::map_button_class_name() ); ?>" id="<?php echo esc_attr( Learndash_Payment_Button::map_button_id() ); ?>" type="submit">
+					<?php echo esc_html( $button_label ); ?>
+				</button>
 			</form>
 			<?php
 			$buffer = ob_get_clean();

@@ -26,7 +26,7 @@ class Page extends LearnDash_Settings_Page {
 	 * @since 4.17.0
 	 */
 	public function __construct() {
-		$this->parent_menu_page_url = 'learndash-lms';
+		$this->parent_menu_page_url = 'admin.php?page=learndash-lms-reports';
 
 		$this->menu_page_capability        = LEARNDASH_ADMIN_CAPABILITY_CHECK;
 		$this->settings_page_id            = Cast::to_string(
@@ -97,6 +97,7 @@ class Page extends LearnDash_Settings_Page {
 			$this->buttons[] = [
 				'text'  => wp_strip_all_tags( $text ),
 				'class' => 'learndash-data-reports-button',
+				'icon'  => false,
 				'data'  => [
 					'nonce' => wp_create_nonce( 'learndash-data-reports-' . esc_attr( $action['slug'] ) . '-' . get_current_user_id() ),
 					'slug'  => esc_attr( $action['slug'] ),
@@ -121,5 +122,34 @@ class Page extends LearnDash_Settings_Page {
 		do_action( 'learndash_settings_page_before_content' );
 
 		parent::show_settings_page();
+	}
+
+	/**
+	 * Sets the LearnDash header data for this page.
+	 *
+	 * @since 4.23.1
+	 *
+	 * @param array<string, mixed> $header_data Header data.
+	 *
+	 * @return array<string, mixed> Header data.
+	 */
+	public function set_header_data( array $header_data ): array {
+		$current_screen = get_current_screen();
+
+		if (
+			! $current_screen
+			|| $current_screen->id !== $this->settings_screen_id
+		) {
+			return $header_data;
+		}
+
+		if (
+			isset( $header_data['post_data'] )
+			&& is_array( $header_data['post_data'] )
+		) {
+			$header_data['post_data']['builder_post_title'] = esc_html( $this->settings_page_title );
+		}
+
+		return $header_data;
 	}
 }

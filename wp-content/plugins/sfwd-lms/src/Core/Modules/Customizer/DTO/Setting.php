@@ -150,6 +150,18 @@ class Setting extends Learndash_DTO {
 	public bool $important = false;
 
 	/**
+	 * Whether this Setting supports specific additional CSS transformations.
+	 * Sometimes, we need to apply transformations to the provided setting in some scenarios (like on button hover)
+	 * that we won't expose as customizer controls in order to avoid overwhelming the user with too many options and
+	 * to attempt to apply a base level of accessibility.
+	 *
+	 * @since 4.21.3
+	 *
+	 * @var string[]
+	 */
+	public array $supports = [];
+
+	/**
 	 * Control object the Setting is registered for.
 	 *
 	 * @since 4.15.0
@@ -177,6 +189,7 @@ class Setting extends Learndash_DTO {
 		'property'       => 'string',
 		'unit'           => 'string',
 		'important'      => 'bool',
+		'supports'       => 'array',
 		'control'        => Control::class,
 	];
 }

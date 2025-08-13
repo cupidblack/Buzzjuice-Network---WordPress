@@ -36,7 +36,6 @@ if ( ! class_exists( 'LearnDash_Course_Wizard' ) ) {
 			add_action( 'admin_menu', array( $this, 'register_menu' ) );
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-			add_action( 'admin_footer-edit.php', array( $this, 'add_wizard_button' ) );
 
 			add_action( 'admin_post_ld_course_wizard_playlist_process', array( $this, 'process_url_action' ) );
 			add_action( 'admin_post_ld_course_wizard_create_course', array( $this, 'create_course_action' ) );
@@ -44,13 +43,15 @@ if ( ! class_exists( 'LearnDash_Course_Wizard' ) ) {
 
 		/**
 		 * Add the course wizard button to the course list table.
-		 * TODO: Add this button via the Global Header Component rather than by injecting it like this.
 		 *
+		 * @deprecated 4.23.1 Use the Admin Header Course Wizard service instead.
 		 * @since 4.1.0
 		 *
 		 * @return void
 		 */
 		public function add_wizard_button() {
+			_deprecated_function( __METHOD__, '4.23.1', 'LearnDash\Modules\Admin\Header\Course_Wizard::add_header_buttons' );
+
 			$screen = get_current_screen();
 			if ( is_object( $screen ) && 'edit-' . learndash_get_post_type_slug( 'course' ) === $screen->id ) {
 				?>
@@ -226,10 +227,17 @@ if ( ! class_exists( 'LearnDash_Course_Wizard' ) ) {
 						'return_url'    => rawurlencode( $return_url ),
 					)
 				),
+				'timeout'   => 30,
 			);
 
 			$request = wp_remote_post( self::PLAYLIST_PROCESS_SERVER_ENDPOINT . '/process_url', $args );
-			$body    = json_decode( wp_remote_retrieve_body( $request ) );
+
+			if ( is_wp_error( $request ) ) {
+				$this->update_processing_data( $playlist_url, 'error_message', $request->get_error_message() );
+				learndash_safe_redirect( $return_url );
+			}
+
+			$body = json_decode( wp_remote_retrieve_body( $request ) );
 
 			if ( ! $body || ! empty( $body->message ) ) {
 				$this->update_processing_data( $playlist_url, 'error_message', ! empty( $body->message ) ? $body->message : __( 'Error on access LearnDash service. Please try it again in a few minutes.', 'learndash' ) );
@@ -371,8 +379,14 @@ if ( ! class_exists( 'LearnDash_Course_Wizard' ) ) {
 				),
 				array(
 					'sslverify' => self::PLAYLIST_PROCESS_SERVER_SSL_VERIFY,
+					'timeout'   => 30,
 				)
 			);
+
+			// Return error message if the request returns WP_Error.
+			if ( is_wp_error( $request ) ) {
+				return $request->get_error_message();
+			}
 
 			$body = json_decode( wp_remote_retrieve_body( $request ) );
 			if ( ! $body || ! empty( $body->message ) ) {

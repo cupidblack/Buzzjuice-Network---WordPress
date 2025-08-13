@@ -57,5 +57,10 @@ class Provider extends ServiceProvider {
 			$this->container->callback( Page::class, 'add_page_instance' ),
 			10
 		);
+
+		add_filter(
+			'learndash_header_data',
+			$this->container->callback( Page::class, 'set_header_data' )
+		);
 	}
 }

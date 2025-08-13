@@ -57,6 +57,7 @@ function learndash_register_essay_post_type() {
 		'edit_others_essays'  => 'edit_others_essays',
 		'publish_essays'      => 'publish_essays',
 		'read_private_essays' => 'read_private_essays',
+		'create_posts'        => 'do_not_allow', // Remove the "Add New" button from the admin bar.
 	);
 
 	if ( learndash_is_admin_user() ) {

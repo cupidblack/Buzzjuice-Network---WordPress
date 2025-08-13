@@ -3,7 +3,7 @@
  * View: Course Accordion Topic Attribute - In-Person.
  *
  * @since 4.21.0
- * @version 4.21.0
+ * @version 4.21.3
  *
  * @var Topic    $topic Topic model.
  * @var Template $this  Current Instance of template engine rendering this template.
@@ -29,8 +29,7 @@ if ( $topic->is_attendance_required() ) {
 
 ?>
 <div
-	class="ld-accordion__item-attribute ld-accordion__item-attribute--in-person ld-accordion__item-attribute--collapsed"
-	data-ld-tooltip-text="<?php echo esc_attr( $tooltip ); ?>"
+	class="ld-accordion__item-attribute ld-accordion__item-attribute--in-person ld-accordion__item-attribute--collapsed ld-tooltip ld-tooltip--modern"
 	tabindex="0"
 >
 
@@ -43,4 +42,11 @@ if ( $topic->is_attendance_required() ) {
 		]
 	);
 	?>
+
+	<span
+		class="ld-accordion__item-attribute-label ld-accordion__item-attribute-label--in-person ld-accordion__item-attribute-label--collapsed ld-tooltip__text"
+		role="tooltip"
+	>
+		<?php echo esc_html( $tooltip ); ?>
+	</span>
 </div>

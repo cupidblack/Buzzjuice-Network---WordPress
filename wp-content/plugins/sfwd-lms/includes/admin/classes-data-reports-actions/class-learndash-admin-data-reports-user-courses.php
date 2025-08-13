@@ -6,6 +6,8 @@
  * @package LearnDash\Course\Reports
  */
 
+use LearnDash\Core\Utilities\Cast;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -498,7 +500,10 @@ if ( ( ! class_exists( 'Learndash_Admin_Data_Reports_Courses' ) ) && ( class_exi
 		public function set_report_filenames( $data ) {
 			$wp_upload_dir = wp_upload_dir();
 
-			$ld_file_part = '/learndash/reports/learndash_reports_' . str_replace( array( 'ld_data_reports_', '-' ), array( '', '_' ), $this->transient_key ) . '.csv';
+			// Create a unique suffix from the $data array. We only use the first 7 characters to avoid the filename being too long.
+			$unique_suffix = substr( md5( Cast::to_string( wp_json_encode( $data ) ) ), 0, 7 );
+
+			$ld_file_part = '/learndash/reports/learndash_reports_' . str_replace( array( 'ld_data_reports_', '-' ), array( '', '_' ), $this->transient_key ) . '_' . $unique_suffix . '.csv';
 
 			$ld_wp_upload_filename = $wp_upload_dir['basedir'] . $ld_file_part;
 

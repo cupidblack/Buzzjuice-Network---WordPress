@@ -35,6 +35,7 @@ class Assets {
 		Asset::add( 'learndash-ld30-modern', 'css/modern.css' )
 			->add_to_group( 'learndash-registration' )
 			->set_path( 'themes/ld30/assets' )
+			->set_dependencies( 'dashicons' )
 			->register();
 
 		Asset::add( 'learndash-validation', 'js/modules/forms/validation.js' )

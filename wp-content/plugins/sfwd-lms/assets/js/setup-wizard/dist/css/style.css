@@ -728,6 +728,9 @@
 #learndash-setup-wizard .mb-auto {
   margin-bottom: auto;
 }
+#learndash-setup-wizard .ml-0 {
+  margin-left: 0px;
+}
 #learndash-setup-wizard .ml-16 {
   margin-left: 4rem;
 }

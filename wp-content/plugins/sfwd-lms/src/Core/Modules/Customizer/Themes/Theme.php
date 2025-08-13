@@ -17,6 +17,7 @@ use LearnDash\Core\Modules\Customizer\DTO\Control;
 use LearnDash\Core\Modules\Customizer\DTO\Setting;
 use LearnDash\Core\Utilities\Cast;
 use InvalidArgumentException;
+use LearnDash\Core\Utilities\Color;
 use WP_Customize_Color_Control;
 use WP_Customize_Control;
 
@@ -342,7 +343,7 @@ abstract class Theme {
 			return '';
 		}
 
-		return sprintf(
+		$rule = sprintf(
 			'%s {
 				%s: %s%s%s;
 			}',
@@ -352,6 +353,49 @@ abstract class Theme {
 			$setting->unit,
 			$setting->important ? ' !important' : ''
 		);
+
+		if ( empty( $setting->supports ) ) {
+			return $rule;
+		}
+
+		// In case we have multiple selectors, we need to apply the same transformations to each.
+		$selectors = explode( ',', $setting->selector );
+
+		foreach ( $selectors as $selector ) {
+			foreach ( $setting->supports as $support ) {
+				switch ( $support ) {
+					// Replicates the hover/focus states pre-4.21.3.
+					case 'button-hover':
+						$rule .= sprintf(
+							'%s:hover {
+								%s: %s%s%s;
+							}',
+							$selector,
+							'opacity',
+							0.85,
+							'',
+							$setting->important ? ' !important' : ''
+						);
+						break;
+					case 'button-focus':
+						$rule .= sprintf(
+							'%s:focus {
+								%s: %s%s%s;
+							}',
+							$selector,
+							'opacity',
+							0.75,
+							'',
+							$setting->important ? ' !important' : ''
+						);
+						break;
+					default:
+						break;
+				}
+			}
+		}
+
+		return $rule;
 	}
 
 	/**

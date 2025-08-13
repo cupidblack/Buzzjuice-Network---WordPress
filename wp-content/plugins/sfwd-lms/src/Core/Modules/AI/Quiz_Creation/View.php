@@ -234,6 +234,40 @@ class View {
 	}
 
 	/**
+	 * Add AI quiz creation button to header buttons.
+	 *
+	 * @since 4.23.1
+	 *
+	 * @param array<string,mixed> $buttons Array of header buttons.
+	 *
+	 * @return array<int|string,mixed> Modified array of header buttons.
+	 */
+	public function add_header_buttons( $buttons ) {
+		$screen = get_current_screen();
+
+		if (
+			is_object( $screen )
+			&& $screen->id === 'edit-' . learndash_get_post_type_slug( LDLMS_Post_Types::QUIZ )
+		) {
+			$buttons[] = [
+				'text' => wp_sprintf(
+					// translators: Quiz label.
+					__( 'Create %s from AI', 'learndash' ),
+					learndash_get_custom_label( 'quiz' )
+				),
+				'href' => add_query_arg(
+					[
+						'page' => Quiz_Creation::$slug,
+					],
+					admin_url( 'admin.php' )
+				),
+			];
+		}
+
+		return $buttons;
+	}
+
+	/**
 	 * Enqueue admin scripts.
 	 *
 	 * @since 4.8.0
@@ -244,35 +278,6 @@ class View {
 		$screen = get_current_screen();
 
 		if (
-			is_object( $screen )
-			&& $screen->id === 'edit-' . learndash_get_post_type_slug( LDLMS_Post_Types::QUIZ )
-		) {
-			wp_enqueue_script(
-				Quiz_Creation::$slug . '-button',
-				LEARNDASH_LMS_PLUGIN_URL . 'src/assets/dist/js/admin/modules/ai/quiz-creation/button.js',
-				[],
-				LEARNDASH_SCRIPT_VERSION_TOKEN,
-				true
-			);
-
-			wp_localize_script(
-				Quiz_Creation::$slug . '-button',
-				'LearnDashQuizCreationAiButton',
-				[
-					'label' => wp_sprintf(
-						// translators: Quiz label.
-						__( 'Create %s from AI', 'learndash' ),
-						learndash_get_custom_label( 'quiz' )
-					),
-					'url'   => add_query_arg(
-						[
-							'page' => Quiz_Creation::$slug,
-						],
-						admin_url( 'admin.php' )
-					),
-				]
-			);
-		} elseif (
 			is_object( $screen )
 			&& $screen->id === 'learndash-lms_page_' . Quiz_Creation::$slug
 		) {

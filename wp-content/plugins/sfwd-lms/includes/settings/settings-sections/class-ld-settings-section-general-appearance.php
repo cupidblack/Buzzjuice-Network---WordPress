@@ -56,6 +56,7 @@ class LearnDash_Settings_Section_General_Appearance extends LearnDash_Settings_S
 			[
 				'registration_enabled' => '',
 				'course_enabled'       => '',
+				'group_enabled'        => '',
 			]
 		);
 	}
@@ -89,6 +90,15 @@ class LearnDash_Settings_Section_General_Appearance extends LearnDash_Settings_S
 						'yes' => '',
 					],
 				],
+				'group_enabled'        => [
+					'name'    => 'group_enabled',
+					'type'    => 'checkbox-switch',
+					'label'   => '',
+					'value'   => $this->setting_option_values['group_enabled'] ?? '',
+					'options' => [
+						'yes' => '',
+					],
+				],
 			]
 		);
 
@@ -116,9 +126,22 @@ class LearnDash_Settings_Section_General_Appearance extends LearnDash_Settings_S
 		);
 		$course_description = sprintf(
 			/* translators: placeholder: %1$s = course custom label */
-			__( 'When active, the Modern LearnDash Styles will be used for all %1$s pages', 'learndash' ),
-			strtolower( $course_label )
+			__( 'When active, Modern LearnDash Styles will be used for all %1$s pages', 'learndash' ),
+			learndash_get_custom_label_lower( 'course' )
 		);
+
+		$group_label = learndash_get_custom_label( 'group' );
+		$group_page  = sprintf(
+			/* translators: placeholder: %1$s = Group custom label */
+			__( '%1$s Page', 'learndash' ),
+			$group_label
+		);
+		$group_description = sprintf(
+			/* translators: placeholder: %1$s = group custom label */
+			__( 'When active, Modern LearnDash Styles will be used for all %1$s pages', 'learndash' ),
+			learndash_get_custom_label_lower( 'group' )
+		);
+
 		ob_start();
 		call_user_func( $this->setting_option_fields['registration_enabled']['display_callback'], $this->setting_option_fields['registration_enabled'] );
 		$registration_toggle = ob_get_clean();
@@ -126,6 +149,10 @@ class LearnDash_Settings_Section_General_Appearance extends LearnDash_Settings_S
 		ob_start();
 		call_user_func( $this->setting_option_fields['course_enabled']['display_callback'], $this->setting_option_fields['course_enabled'] );
 		$course_toggle = ob_get_clean();
+
+		ob_start();
+		call_user_func( $this->setting_option_fields['group_enabled']['display_callback'], $this->setting_option_fields['group_enabled'] );
+		$group_toggle = ob_get_clean();
 
 		// phpcs:disable -- Many escaping errors, but these are being escaped. False error.
 		echo Template::get_admin_template(
@@ -144,6 +171,13 @@ class LearnDash_Settings_Section_General_Appearance extends LearnDash_Settings_S
 						'label'          => $course_page,
 						'description'    => $course_description,
 						'learn_more_url' => 'https://go.learndash.com/moderncourse',
+						'feedback_url'   => 'https://go.learndash.com/modernfeedback',
+					],
+					[
+						'field_html'     => $group_toggle,
+						'label'          => $group_page,
+						'description'    => $group_description,
+						'learn_more_url' => 'https://go.learndash.com/moderngroup',
 						'feedback_url'   => 'https://go.learndash.com/modernfeedback',
 					],
 				],

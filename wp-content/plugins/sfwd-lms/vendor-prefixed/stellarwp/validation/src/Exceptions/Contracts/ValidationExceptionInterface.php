@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace StellarWP\Learndash\StellarWP\Validation\Exceptions\Contracts;
 
-interface ValidationExceptionInterface
+use Throwable;
+
+interface ValidationExceptionInterface extends Throwable
 {
 
 }

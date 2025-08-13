@@ -829,6 +829,10 @@ if ( ! class_exists( 'SFWD_CPT_Instance' ) ) {
 				}
 			} elseif ( learndash_get_post_type_slug( 'group' ) === $post->post_type ) {
 				if ( LearnDash_Theme_Register::get_active_theme_instance()->supports_views( LDLMS_Post_Types::get_post_type_key( $this->post_type ) ) ) {
+					if ( ! $post instanceof WP_Post ) {
+						return $content;
+					}
+
 					$view = new Views\Group( $post );
 
 					$content = $view->get_html();

@@ -3,7 +3,7 @@
  * View: Course Pricing Recurring With Trial.
  *
  * @since 4.21.0
- * @version 4.21.0
+ * @version 4.21.3
  *
  * @var Product $product Product model.
  *
@@ -16,10 +16,10 @@ $pricing        = $product->get_pricing();
 $trial_category = $pricing->trial_price === 0. ? 'free' : 'paid';
 
 ?>
-<div class="ld-enrollment__pricing ld-enrollment__pricing--recurring ld-enrollment__pricing--<?php echo esc_attr( $trial_category ); ?>-trial">
-	<span class="ld-enrollment__pricing-label">
+<section class="ld-enrollment__pricing ld-enrollment__pricing--recurring ld-enrollment__pricing--<?php echo esc_attr( $trial_category ); ?>-trial">
+	<h2 class="ld-enrollment__pricing-label" id="ld-enrollment__pricing-label">
 		<?php echo esc_html__( 'Price', 'learndash' ); ?>
-	</span>
+	</h2>
 
 	<span class="ld-enrollment__pricing-price">
 		<?php
@@ -76,5 +76,5 @@ $trial_category = $pricing->trial_price === 0. ? 'free' : 'paid';
 		}
 		?>
 	</span>
-</div>
+</section>
 

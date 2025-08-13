@@ -42,6 +42,7 @@ if (
 				'type'    => 'warning',
 				'icon'    => 'alert',
 				'message' => ' ',
+				'role'    => 'alert',
 			],
 			true
 		);

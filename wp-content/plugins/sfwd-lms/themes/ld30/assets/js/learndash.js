@@ -36,9 +36,21 @@ jQuery(function ($) {
 	}
 
 	// a[href="#login"] is for backwards compatibility with potentially outdated templates.
-	$('body').on('click', 'a[href="#login"], button[data-ld-login-modal-trigger]', function (e) {
-		e.preventDefault();
-		openLoginModal();
+	$('body').on(
+		'click',
+		'a[href="#login"], button[data-ld-login-modal-trigger]',
+		function (e) {
+			e.preventDefault();
+			openLoginModal();
+		}
+	);
+
+	// By default, the element is not interactable with keyboard. We make the keypress event for space and enter key to close the login modal for accessibility.
+	$('body').on('keypress', '.ld-modal-closer', function (e) {
+		if (13 === e.keyCode || 32 === e.keyCode) {
+			e.preventDefault();
+			closeLoginModal();
+		}
 	});
 
 	$('body').on('click', '.ld-modal-closer', function (e) {
@@ -77,6 +89,9 @@ jQuery(function ($) {
 	);
 
 	focusMobileCheck();
+	focusMobileResizeCheck();
+
+	disableFocusTrap();
 
 	$('body').on('click', '.ld-focus-sidebar-trigger', function (e) {
 		if ($('.ld-focus').hasClass('ld-focus-sidebar-collapsed')) {
@@ -86,7 +101,7 @@ jQuery(function ($) {
 		}
 	});
 
-	$('body').on('click', '.ld-mobile-nav a', function (e) {
+	$('body').on('click', '.ld-trigger-mobile-nav', function (e) {
 		e.preventDefault();
 		if ($('.ld-focus').hasClass('ld-focus-sidebar-collapsed')) {
 			openFocusSidebar();
@@ -111,16 +126,24 @@ jQuery(function ($) {
 
 	var windowWidth = $(window).width();
 
-	$(window).on('orientationchange', function () {
-		windowWidth = $(window).width();
-	});
+	// Ensure that tooltips are positioned properly after screen size changes.
+	$(window).on('resize orientationchange', function () {
+		const resizeTimer = setTimeout(() => {
+			const newWidth = $(window).width();
 
-	$(window).on('resize', function () {
-		if ($(this).width() !== windowWidth && 1024 >= $(this).width()) {
-			setTimeout(function () {
+			if (newWidth === windowWidth) {
+				return;
+			}
+
+			windowWidth = newWidth;
+
+			// Wait one more animation frame after debounce to let layout settle.
+			window.requestAnimationFrame(() => {
+				initTooltips();
 				focusMobileResizeCheck();
-			}, 50);
-		}
+				clearTimeout(resizeTimer);
+			});
+		}, 150);
 	});
 
 	if ($('.ld-course-status-content').length) {
@@ -141,23 +164,32 @@ jQuery(function ($) {
 		}
 	}
 
+	/**
+	 * Toggles the focus sidebar based on the window width.
+	 *
+	 * @since 3.2.0
+	 * @since 4.21.5 Now also toggles aria-modal attribute.
+	 *
+	 * @return {void}
+	 */
 	function focusMobileResizeCheck() {
-		if (
-			1024 > $(window).width() &&
-			!$('.ld-focus').hasClass('ld-focus-sidebar-collapsed')
-		) {
-			closeFocusSidebar();
-		} else if (
-			1024 <= $(window).width() &&
-			$('.ld-focus').hasClass('ld-focus-sidebar-filtered')
-		) {
-			closeFocusSidebar();
-		} else if (
-			1024 <= $(window).width() &&
-			!$('.ld-focus').hasClass('ld-focus-sidebar-filtered') &&
-			$('.ld-focus').hasClass('ld-focus-sidebar-collapsed')
-		) {
-			openFocusSidebar();
+		if ($(window).width() < 1024) {
+			$('#ld-focus-sidebar').attr('aria-modal', 'true');
+
+			if (!$('.ld-focus').hasClass('ld-focus-sidebar-collapsed')) {
+				closeFocusSidebar();
+			}
+		} else {
+			$('#ld-focus-sidebar').attr('aria-modal', 'false');
+
+			if ($('.ld-focus').hasClass('ld-focus-sidebar-filtered')) {
+				closeFocusSidebar();
+			} else if (
+				!$('.ld-focus').hasClass('ld-focus-sidebar-filtered') &&
+				$('.ld-focus').hasClass('ld-focus-sidebar-collapsed')
+			) {
+				openFocusSidebar();
+			}
 		}
 	}
 
@@ -180,7 +212,35 @@ jQuery(function ($) {
 		$('.ld-focus').addClass('ld-focus-sidebar-collapsed');
 		$('.ld-focus').removeClass('ld-focus-initial-transition');
 		$('.ld-mobile-nav').removeClass('expanded');
+		$('[aria-controls="ld-focus-sidebar"]').attr('aria-expanded', 'false');
 		positionTooltips();
+
+		dispatchSidebarEvent(false);
+	}
+
+	/**
+	 * Dispatches a custom event on to notify other scripts that the focus sidebar has been opened or closed.
+	 *
+	 * @since 4.23.2
+	 *
+	 * @param {boolean} isOpen Whether the sidebar is open.
+	 *
+	 * @return {void}
+	 */
+	function dispatchSidebarEvent(isOpen) {
+		const sidebar = document.querySelector('.ld-focus-sidebar');
+
+		if (!sidebar) {
+			return;
+		}
+
+		let eventName = 'ld-focus-sidebar-closed';
+
+		if (isOpen) {
+			eventName = 'ld-focus-sidebar-opened';
+		}
+
+		sidebar.dispatchEvent(new CustomEvent(eventName));
 	}
 
 	/**
@@ -191,6 +251,9 @@ jQuery(function ($) {
 	 * @return {void}
 	 */
 	function closeFocusSidebar() {
+		// Hide the wrapper to avoid issues with focus trap.
+		$('.ld-focus-sidebar-wrapper').hide();
+
 		$('.ld-focus').addClass('ld-focus-sidebar-collapsed');
 		$('.ld-mobile-nav').removeClass('expanded');
 
@@ -218,22 +281,99 @@ jQuery(function ($) {
 			);
 		}
 
-		$('.ld-focus-sidebar-trigger').attr('aria-expanded', 'false');
+		$('[aria-controls="ld-focus-sidebar"]').attr('aria-expanded', 'false');
+
+		disableFocusTrap();
+
+		// If the mobile trigger is visible, move focus to it.
+		const mobileTrigger = $('.ld-trigger-mobile-nav');
+
+		if (mobileTrigger.is(':visible')) {
+			mobileTrigger.focus();
+		}
 
 		positionTooltips();
+
+		dispatchSidebarEvent(false);
+	}
+	/**
+	 * Handles tab key press in the focus sidebar to trap focus within the sidebar.
+	 * When the last focusable element is reached, focus is redirected to the first element.
+	 *
+	 * @since 4.21.3
+	 * @param {Event} e The keyboard event object.
+	 */
+	function handleTabTrap(e) {
+		if (e.key === 'Tab') {
+			e.preventDefault();
+			$('#ld-focus-sidebar-toggle').focus();
+		}
 	}
 
 	/**
-	 * Opens the focus sidebar.
+	 * Enables focus trap for the sidebar to improve accessibility.
+	 * Makes sidebar elements tabbable, focuses the sidebar toggle button,
+	 * and adds event listener to trap focus within the sidebar.
+	 *
+	 * @since 4.21.3
+	 */
+	function enableFocusTrap() {
+		// Focus sidebar for accessibility when opened, allowing keyboard navigation easier.
+		$('#ld-focus-sidebar-toggle').focus();
+
+		// Make the course heading tabbable.
+		$('#ld-focus-mode-course-heading').attr('tabindex', '0');
+
+		// Get list of focusable elements, and when last one is focused, focus on the first element to trap focus.
+		const focusableElements = $('.ld-lesson-items a');
+		const lastFocusableElement =
+			focusableElements[focusableElements.length - 1];
+
+		lastFocusableElement.addEventListener('keydown', handleTabTrap);
+	}
+
+	/**
+	 * Disables focus trap for the sidebar when it's closed.
+	 * Makes sidebar elements non-tabbable and removes the event listener.
+	 *
+	 * @since 4.21.3
+	 */
+	function disableFocusTrap() {
+		// Make the course heading non-tabbable when the sidebar is closed.
+		$('#ld-focus-mode-course-heading').attr('tabindex', '-1');
+
+		if ($('.ld-focus-sidebar-trigger').attr('aria-expanded') === 'true') {
+			return;
+		}
+
+		// Remove focus trap when sidebar is closed.
+		const focusableElements = $('.ld-lesson-items a');
+		const lastFocusableElement =
+			focusableElements[focusableElements.length - 1];
+
+		if (lastFocusableElement) {
+			lastFocusableElement.removeEventListener('keydown', handleTabTrap);
+		}
+	}
+
+	/**
+	 * Opens the focus sidebar and enables focus trap for accessibility.
+	 * Handles mobile checks, class toggling, and icon changes.
 	 *
 	 * @since 3.0.0
-	 *
-	 * @return {void}
 	 */
 	function openFocusSidebar() {
 		focusMobileCheck();
+
+		// Show the wrapper
+		$('.ld-focus-sidebar-wrapper').show();
+
+		// Flip classes to open the focus sidebar.
 		$('.ld-focus').removeClass('ld-focus-sidebar-collapsed');
 		$('.ld-mobile-nav').addClass('expanded');
+
+		// We need to wait for the sidebar to be opened before we can enable the focus trap.
+		enableFocusTrap();
 
 		if (
 			$('.ld-focus-sidebar-trigger .ld-icon').hasClass(
@@ -259,7 +399,9 @@ jQuery(function ($) {
 			);
 		}
 
-		$('.ld-focus-sidebar-trigger').attr('aria-expanded', 'true');
+		$('[aria-controls="ld-focus-sidebar"]').attr('aria-expanded', 'true');
+
+		dispatchSidebarEvent(true);
 
 		positionTooltips();
 	}
@@ -336,6 +478,36 @@ jQuery(function ($) {
 		);
 	}
 
+	/**
+	 * Focuses on the first alert on the page with a role "alert".
+	 * This is required for accessibility.
+	 *
+	 * @since 4.21.3
+	 * @since 4.21.5 Switched to a focus-based approach for better compatibility with different screen readers.
+	 *
+	 * @return {void}
+	 */
+	function initializeAlerts() {
+		/**
+		 * We need to give it a tabindex of -1 to allow it to be programmatically focused so it will be
+		 * read out by screen readers. Unfortunately, we cannot remove it after focusing.
+		 * If we do, it won't be read at all.
+		 *
+		 * By using -1 rather than 0, it won't show up in the tab order when navigating by keyboard.
+		 *
+		 * We can only target the first alert because we have no way to know when the screen reader has finished
+		 * reading each alert to focus on the next one.
+		 *
+		 * The setTimeout() is used to force this to happen at the end of the event queue and improve compatibility.
+		 */
+		setTimeout(function () {
+			$('.ld-alert[role="alert"]:visible')
+				.first()
+				.attr('tabindex', '-1')
+				.focus();
+		}, 500);
+	}
+
 	$(document).on(
 		'ldAccordionPaginationComplete',
 		'.ld-accordion--course',
@@ -344,6 +516,7 @@ jQuery(function ($) {
 
 	// On page load.
 	initializeExpandableElements();
+	initializeAlerts();
 
 	$('body').on('click', '.ld-search-prompt', function (e) {
 		e.preventDefault();
@@ -641,11 +814,149 @@ jQuery(function ($) {
 		}
 	});
 
-	var $tooltips = $('*[data-ld-tooltip]');
+	/**
+	 * Initialize tooltips.
+	 * - If JS isn't enabled, the tooltips will be visible at all times.
+	 * - This adds the `ld-tooltip--initialized` class to all tooltips to signify that JS is enabled.
+	 * - The `ld-tooltip--hidden` class is removed when the mouse is over a tooltip, the tooltip is focused,
+	 * or the tooltip is focused-within.
+	 * - The `ld-tooltip--hidden` class is added if a tooltip is visible and the Escape key is pressed.
+	 *
+	 * @since 4.21.3
+	 *
+	 * @return {void}
+	 */
+	function initTooltips() {
+		$('.ld-tooltip').each(function () {
+			const $tooltip = $(this).find('[role="tooltip"]');
 
+			if (!$tooltip.length || typeof $tooltip[0] === 'undefined') {
+				return;
+			}
+
+			if (!$(this).hasClass('ld-tooltip--initialized')) {
+				$(this)
+					.addClass('ld-tooltip--initialized')
+					.addClass('ld-tooltip--hidden');
+			}
+
+			/**
+			 * We need to temporarily remove the `ld-tooltip--hidden` class
+			 * as hidden tooltips are hidden off to the left edge of the screen.
+			 *
+			 * We need to know where it would normally be positioned when visible
+			 * to know if we need to move it to the right.
+			 */
+			const isHidden = $(this).hasClass('ld-tooltip--hidden');
+
+			$(this).removeClass('ld-tooltip--hidden');
+			$(this).removeClass('ld-tooltip--position-right');
+
+			const tooltipRect = $tooltip[0].getBoundingClientRect();
+
+			let containerWidth = windowWidth;
+
+			/**
+			 * If the tooltip is within the focus sidebar, use the sidebar width.
+			 *
+			 * We have to do this because when an element is vertically scrollable, a browser will simply not
+			 * allow you to have items spill out the left or right sides even when the appropriate CSS for
+			 * overflow-x is set to visible as it will be forced to auto implicitly.
+			 *
+			 * See https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x#syntax
+			 */
+			if ($(this).closest('.ld-focus-sidebar').length) {
+				containerWidth = $(this).closest('.ld-focus-sidebar').width();
+			}
+
+			/**
+			 * If the tooltip would overflow the right edge of the window,
+			 * add the `ld-tooltip--position-right` class.
+			 */
+			$(this).toggleClass(
+				'ld-tooltip--position-right',
+				tooltipRect.right > containerWidth
+			);
+
+			// Add the .ld-tooltip--hidden class back if it was hidden.
+			$(this).toggleClass('ld-tooltip--hidden', isHidden);
+		});
+
+		$(document).on('keydown', function (event) {
+			/**
+			 * We need to check if the Escape key is pressed and if any tooltips
+			 * are currently visible before dismissing them.
+			 */
+			if (
+				event.key === 'Escape' &&
+				($('.ld-tooltip:hover').length ||
+					$('.ld-tooltip:focus').length ||
+					$('.ld-tooltip:focus-within').length)
+			) {
+				$(
+					'.ld-tooltip:hover, .ld-tooltip:focus, .ld-tooltip:focus-within'
+				).addClass('ld-tooltip--hidden');
+
+				// Remove focus to prevent automatically scrolling the page.
+				$('.ld-tooltip:focus, .ld-tooltip :focus').blur();
+			}
+		});
+
+		/**
+		 * For the next two event listeners:
+		 *
+		 * - mouseenter/mouseleave are used for hover on desktop.
+		 *
+		 * - focusin/focusout are used for keyboard focus on desktop.
+		 * 	- These are used instead of focus/blur because the focused element is likely _within_ the tooltip container.
+		 * 	- If the focused element is the tooltip container, these event names still work.
+		 *
+		 * - touchstart is used for touch devices.
+		 */
+
+		$(document).on(
+			'mouseenter focusin touchstart',
+			'.ld-tooltip--hidden',
+			function () {
+				// Show the tooltip.
+				$(this).removeClass('ld-tooltip--hidden');
+			}
+		);
+
+		$(document).on(
+			'mouseleave focusout touchstart',
+			'.ld-tooltip:not(.ld-tooltip--hidden)',
+			function () {
+				// Hide the tooltip when the mouse when the user moves away from the tooltip.
+				$(this).addClass('ld-tooltip--hidden');
+			}
+		);
+	}
+
+	/**
+	 * In order to account for container breakpoints modifying the layout,
+	 * we need to initialize tooltips twice on page load.
+	 *
+	 * TODO: Find a better way to do this.
+	 */
+	initTooltips();
 	initTooltips();
 
-	function initTooltips() {
+	var $tooltips = $('*[data-ld-tooltip]');
+
+	initLegacyTooltips();
+
+	/**
+	 * Initialize legacy LD30 Classic tooltips.
+	 * Replaced with a new style of tooltips in 4.21.3 for accessibility reasons.
+	 * Kept for backwards compatibility.
+	 *
+	 * @since 3.0.0
+	 * @since 4.21.3 Renamed from initTooltips to initLegacyTooltips.
+	 *
+	 * @return {void}
+	 */
+	function initLegacyTooltips() {
 		// Clear out old tooltips
 
 		if ($('#learndash-tooltips').length) {
@@ -751,6 +1062,8 @@ jQuery(function ($) {
 				},
 				50
 			);
+
+			$('.ld-modal', modal_wrapper).focus();
 		}
 	}
 
@@ -759,9 +1072,21 @@ jQuery(function ($) {
 		if ('undefined' !== typeof modal_wrapper && modal_wrapper.length) {
 			$(modal_wrapper).removeClass('ld-modal-open');
 			$(modal_wrapper).addClass('ld-modal-closed');
+
+			// Return the focus to the login link that triggers the modal.
+			$('[data-ld-login-modal-trigger]').focus();
 		}
 	}
 
+	/**
+	 * Position legacy LD30 Classic tooltips.
+	 * This is not used by the new tooltips added in 4.21.3.
+	 * Kept for backwards compatibility.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @return {void}
+	 */
 	function positionTooltips() {
 		if ('undefined' !== typeof $tooltips) {
 			setTimeout(function () {
@@ -927,7 +1252,6 @@ jQuery(function ($) {
 			.data('pager-results');
 
 		linkVars.context = $(this).data('context');
-		console.log('linkVars[%o]', linkVars);
 
 		parentVars.currentTarget = e.currentTarget;
 
@@ -1337,8 +1661,6 @@ jQuery(function ($) {
 		jQuery('#wpProQuiz_user_overlay, #wpProQuiz_loadUserData').show();
 		var content = jQuery('#wpProQuiz_user_content').hide();
 
-		//console.log('- learndash.js');
-
 		jQuery.ajax({
 			type: 'POST',
 			url: ldVars.ajaxurl,
@@ -1351,7 +1673,6 @@ jQuery(function ($) {
 					content.html(reply_data.html);
 					jQuery('#wpProQuiz_user_content').show();
 
-					//console.log('trigger event change - learndash.js');
 					jQuery('body').trigger(
 						'learndash-statistics-contentchanged'
 					);

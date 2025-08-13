@@ -20,7 +20,7 @@ use LearnDash\Core\Utilities\Cast;
  */
 class Provider extends ServiceProvider {
 	/**
-	 * Constant that can be used to prevent loading the Reports module if set to true.
+	 * Constant that can be used to prevent loading the Licensing module if set to true.
 	 *
 	 * @since 4.18.0
 	 *

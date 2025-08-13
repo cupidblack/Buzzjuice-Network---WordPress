@@ -30,6 +30,7 @@ class Provider extends ServiceProvider {
 	public function register() {
 		$this->container->register( AI\Provider::class );
 		$this->container->register( AJAX\Provider::class );
+		$this->container->register( Admin\Provider::class );
 		$this->container->register( Support\Provider::class );
 		$this->container->register( Customizer\Provider::class );
 		$this->container->register( Experiments\Provider::class );
@@ -38,5 +39,9 @@ class Provider extends ServiceProvider {
 		$this->container->register( Payments\Provider::class );
 		$this->container->register( Admin_Bar\Provider::class );
 		$this->container->register( Licensing\Provider::class );
+		$this->container->register( Course_Grid\Provider::class );
+		$this->container->register( Quiz\Provider::class );
+		$this->container->register( Extras\Provider::class );
+		$this->container->register( Admin\Provider::class );
 	}
 }

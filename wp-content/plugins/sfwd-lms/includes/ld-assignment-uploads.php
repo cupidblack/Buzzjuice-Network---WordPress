@@ -853,6 +853,7 @@ function learndash_register_assignment_upload_type() {
 			'delete_post'            => 'delete_assignment',
 			'edit_published_posts'   => 'edit_published_assignments',
 			'delete_published_posts' => 'delete_published_assignments',
+			'create_posts'           => 'do_not_allow', // Remove the "Add New" button from the admin bar.
 		),
 		'map_meta_cap'          => true,
 	);

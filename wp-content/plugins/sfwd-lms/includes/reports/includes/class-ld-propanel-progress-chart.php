@@ -195,20 +195,14 @@ if ( ! class_exists( 'LearnDash_ProPanel_Progress_Chart' ) ) {
 
 			$post_data = ld_propanel_load_post_data();
 
-			if ( isset( $post_data['filters']['time_start'] ) ) {
-				unset( $post_data['filters']['time_start'] );
-			}
-
-			if ( isset( $post_data['filters']['time_end'] ) ) {
-				unset( $post_data['filters']['time_end'] );
-			}
-
 			$activity_query_args = array(
 				'post_types'        => 'sfwd-courses',
 				'activity_types'    => 'course',
 				'activity_status'   => '',
 				'orderby_order'     => 'users.display_name, posts.post_title',
 				'date_format'       => 'F j, Y H:i:s',
+				'time_start'        => '',
+				'time_end'          => '',
 				'include_meta'      => false, // Since v4.20.5.
 				'return_count_only' => true, // Since v4.20.5.
 			);

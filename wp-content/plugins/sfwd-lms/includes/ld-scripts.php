@@ -7,6 +7,8 @@
  * @package LearnDash\Scripts
  */
 
+use LearnDash\Core\Template\Template;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -90,14 +92,47 @@ function learndash_load_resources() {
 
 	$filepath = LEARNDASH_LMS_PLUGIN_URL . 'assets/js/learndash-payments' . learndash_min_asset() . '.js';
 	if ( ! empty( $filepath ) ) {
-		wp_register_script( 'learndash-payments', $filepath, array( 'jquery' ), LEARNDASH_SCRIPT_VERSION_TOKEN, true );
+		wp_register_script(
+			'learndash-payments',
+			$filepath,
+			[ 'jquery', 'wp-i18n' ],
+			LEARNDASH_SCRIPT_VERSION_TOKEN,
+			true
+		);
 		$learndash_assets_loaded['scripts']['learndash-payments'] = __FUNCTION__;
 		wp_localize_script(
 			'learndash-payments',
 			'learndash_payments',
 			array(
-				'ajaxurl'  => admin_url( 'admin-ajax.php' ),
-				'messages' => array(
+				'ajaxurl'                               => admin_url( 'admin-ajax.php' ),
+				/**
+				 * Filters the payment form redirect alert countdown.
+				 *
+				 * @since 4.21.3
+				 *
+				 * @param int $countdown The countdown value. Default is 5 seconds.
+				 *
+				 * @return int The countdown value in seconds.
+				 */
+				'payment_form_redirect_alert_countdown' => apply_filters(
+					'learndash_payment_form_redirect_alert_countdown',
+					5
+				),
+				'payment_form_submitted_alert'          => Template::get_template(
+					'modules/alert.php',
+					[
+						'type'    => 'success',
+						'icon'    => 'alert',
+						'message' => sprintf(
+							// Translators: %s: countdown value, %s: countdown unit label.
+							esc_html__( 'Form submitted successfully! Redirecting to payment in %1$s %2$s...', 'learndash' ),
+							'<span aria-live="polite" id="ld-payments-redirect-alert-countdown-value" role="timer"></span>',
+							'<span id="ld-payments-redirect-alert-countdown-unit-label"></span>'
+						),
+						'role'    => 'alert',
+					],
+				),
+				'messages'                              => array(
 					'successful_transaction' => is_user_logged_in()
 						? sprintf(
 							// Translators: %s: order label.
