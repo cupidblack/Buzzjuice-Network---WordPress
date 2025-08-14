@@ -18,6 +18,7 @@ class PWAFORWPPRO_EXTENSION_MANAGER_EDD_SL_Plugin_Updater {
 	private $version     = '';
 	private $wp_override = false;
 	private $cache_key   = '';
+	private $beta        = false; // Explicitly declare the beta property.
 
 	private $health_check_timeout = 5;
 
