@@ -159,6 +159,9 @@ add_action('wp_login', function($user_login, $user) use ($__buzz_sso_secret) {
     }
 
     bz_log_session_state("wp_login");
+
+    // *** THE CRITICAL LINE ***
+    session_write_close();
 }, 10, 2);
 
 add_action('check_admin_referer', 'logout_without_confirm', 10, 2);
