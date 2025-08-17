@@ -13,6 +13,9 @@ if (!defined('DB_HELPERS_ENV_LOADED')) {
     }
 }
 
+// BUZZJUICE SINGLE SIGN ON
+if (!defined('BUZZ_SSO_SECRET')) define('BUZZ_SSO_SECRET', getenv('BUZZ_SSO_SECRET'));
+
 // WORDPRESS DB
 if (!defined('WP_DB_HOST')) define('WP_DB_HOST', getenv('WORDPRESS_DB_HOST'));
 if (!defined('WP_DB_USER')) define('WP_DB_USER', getenv('WORDPRESS_DB_USER'));
