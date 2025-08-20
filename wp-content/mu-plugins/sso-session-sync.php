@@ -7,30 +7,45 @@
  * - Use default PHPSESSID for WP internals (no BUZZSESS namespace)
  * - Primary SSO method = signed cookie `buzz_sso`
  * - WoWonder and QuickDate read `buzz_sso` (signed JSON payload)
- * - Include wp_user_id, wp_user_login, wp_user_email, wo_user_id, qd_user_id
- * - Safe against tampering (HMAC)
+ * - Include wp_user_id, wp_user_login, wp_user_email, wo_user_id, qd_user_id, cookie domain, session name
+ * - Extensive error control and logging for debugging
  */
+
 require_once __DIR__ . '/../../data/db_helpers.php';
+
 /* -------------------------------------------------------------------------- */
 /* Config */
 /* -------------------------------------------------------------------------- */
-if (!defined('BUZZ_SSO_COOKIE')) define('BUZZ_SSO_COOKIE', 'buzz_sso');
-if (!defined('BUZZ_SSO_TTL'))    define('BUZZ_SSO_TTL', 900); // 15 minutes
-if (!defined('BUZZ_SSO_DEBUG'))  define('BUZZ_SSO_DEBUG', false);
-if (!defined('BUZZ_DEBUG_LOG'))  define('BUZZ_DEBUG_LOG', __DIR__ . '/buzz_sso_debug.log');
+if (!defined('BUZZ_SSO_COOKIE'))   define('BUZZ_SSO_COOKIE', 'buzz_sso');
+if (!defined('BUZZ_SSO_TTL'))      define('BUZZ_SSO_TTL', 900); // 15 minutes
+if (!defined('BUZZ_SSO_DEBUG'))    define('BUZZ_SSO_DEBUG', false);
+if (!defined('BUZZ_DEBUG_LOG'))    define('BUZZ_DEBUG_LOG', __DIR__ . '/wp_debug_buzz_sso.log');
 if (!defined('BUZZ_COOKIE_DOMAIN')) define('BUZZ_COOKIE_DOMAIN', '.buzzjuice.net');
 
-// Secret shared between WP, WoWonder, QuickDate (set in wp-config.php or ENV)
+// Secret shared between WP, WoWonder, QuickDate (set in wp-config.php or ENV/.env)
 $__buzz_sso_secret = getenv('BUZZ_SSO_SECRET') ?: (defined('BUZZ_SSO_SECRET') ? BUZZ_SSO_SECRET : null);
 
 /* -------------------------------------------------------------------------- */
 /* Utilities */
 /* -------------------------------------------------------------------------- */
 function bz_debug_log($msg, $extra = []) {
-    if (!BUZZ_SSO_DEBUG) return;
     $ts = date('Y-m-d H:i:s');
     $line = "[$ts] $msg";
-    if (!empty($extra)) $line .= ' | ' . json_encode($extra, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    // Always log session/cookie identifiers for debugging
+    $meta = [
+        'cookie_domain'  => BUZZ_COOKIE_DOMAIN,
+        'session_name'   => session_name(),
+        'session_id'     => session_id(),
+        'cookies'        => $_COOKIE,
+        'session_vars'   => $_SESSION,
+        'server'         => [
+            'HTTP_HOST' => $_SERVER['HTTP_HOST'] ?? null,
+            'REQUEST_URI' => $_SERVER['REQUEST_URI'] ?? null,
+            'HTTPS' => $_SERVER['HTTPS'] ?? null,
+        ]
+    ];
+    if (!empty($extra) && is_array($extra)) $meta = array_merge($meta, $extra);
+    $line .= ' | ' . json_encode($meta, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     @file_put_contents(BUZZ_DEBUG_LOG, $line . "\n", FILE_APPEND);
 }
 
@@ -66,18 +81,24 @@ function bz_sso_verify_token($token, $secret) {
 /* -------------------------------------------------------------------------- */
 function bz_sso_set_cookie($user) {
     global $__buzz_sso_secret;
-    if (!$__buzz_sso_secret) return;
+    if (!$__buzz_sso_secret) {
+        bz_debug_log('BUZZ_SSO_SECRET not set for signing buzz_sso cookie');
+        return;
+    }
 
     $now = time();
     $payload = [
-        'ver'        => 1,
-        'wp_user_id' => (int) $user->ID,
+        'ver'           => 1,
+        'wp_user_id'    => (int) $user->ID,
         'wp_user_login' => (string) $user->user_login,
         'wp_user_email' => (string) $user->user_email,
-        'wo_user_id' => (int) get_user_meta($user->ID, 'wo_user_id', true),
-        'qd_user_id' => (int) get_user_meta($user->ID, 'qd_user_id', true),
-        'iat'        => $now,
-        'exp'        => $now + BUZZ_SSO_TTL,
+        'wo_user_id'    => (int) get_user_meta($user->ID, 'wo_user_id', true),
+        'qd_user_id'    => (int) get_user_meta($user->ID, 'qd_user_id', true),
+        'cookie_domain' => BUZZ_COOKIE_DOMAIN,
+        'session_name'  => session_name(),
+        'session_id'    => session_id(),
+        'iat'           => $now,
+        'exp'           => $now + BUZZ_SSO_TTL,
     ];
     $token = bz_sso_build_token($payload, $__buzz_sso_secret);
 
@@ -117,6 +138,8 @@ add_action('set_auth_cookie', function() {
 add_action('wp_logout', function() {
     bz_sso_clear_cookie();
     wp_safe_redirect('https://buzzjuice.net/streams/logout/?cabin=home');
+    unset($_SESSION);
+    session_destroy();
     exit;
 }, 10);
 
@@ -131,15 +154,23 @@ add_action('init', function() use ($__buzz_sso_secret) {
     $token = $_COOKIE[BUZZ_SSO_COOKIE] ?? null;
     $parsed = $token && $__buzz_sso_secret ? bz_sso_verify_token($token, $__buzz_sso_secret) : null;
 
-    echo "buzz_sso cookie debug\n";
-    print_r([
-        'raw_cookie' => $token,
-        'parsed'     => $parsed,
-        'server'     => [
+    $debug_info = [
+        'raw_cookie'     => $token,
+        'parsed_payload' => $parsed,
+        'cookie_domain'  => BUZZ_COOKIE_DOMAIN,
+        'session_name'   => session_name(),
+        'session_id'     => session_id(),
+        'cookies'        => $_COOKIE,
+        'session_vars'   => $_SESSION,
+        'server'         => [
             'HTTP_HOST' => $_SERVER['HTTP_HOST'] ?? null,
             'REQUEST_URI' => $_SERVER['REQUEST_URI'] ?? null,
         ],
-    ]);
+    ];
+    bz_debug_log('Debug endpoint accessed', $debug_info);
+
+    echo "buzz_sso cookie debug\n";
+    print_r($debug_info);
     exit;
 }, 1);
 
