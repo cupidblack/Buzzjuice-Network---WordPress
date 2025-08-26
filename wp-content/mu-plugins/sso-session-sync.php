@@ -17,6 +17,12 @@
  *   cross-application pickup and defensive hydration by QuickDate.
  * - Removes the additional helper files on shadow removal.
  * - Adds extra debug logs and atomic write/rename semantics for the extra copies.
+ *
+ * See repository version — primary behavior unchanged: writes php_serialize payload into
+ * sess_shadow_{shadow_id} with atomic write + .ser and .json copies.
+ *
+ * Important: QuickDate SessionStart reads the primary file (php_serialize) into
+ * $_SESSION['buzz_sso_serialized'] and will only attempt unserialize() on that raw string.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -61,22 +67,19 @@ function bz_shadow_session_dir() {
     return $dir;
 }
 
-// Stable shadow session id: 'shadow_' . WP PHPSESSID
 function bz_shadow_session_id($wp_sid = null) {
     static $persisted_shadow_id = null;
     if ($persisted_shadow_id) return $persisted_shadow_id;
     $wp_sid = $wp_sid ?: session_id();
     if (!$wp_sid) return null;
-    // Use a WP transient to persist this shadow id for the session lifetime
     $transient_key = 'buzz_shadow_sid_' . $wp_sid;
     $existing = get_transient($transient_key);
     if ($existing) {
         $persisted_shadow_id = $existing;
         return $persisted_shadow_id;
     }
-    // Deterministic: shadow session id = 'shadow_' . $wp_sid (can hash if security needed)
     $new_shadow_id = 'shadow_' . $wp_sid;
-    set_transient($transient_key, $new_shadow_id, DAY_IN_SECONDS); // persists for session lifetime
+    set_transient($transient_key, $new_shadow_id, DAY_IN_SECONDS);
     $persisted_shadow_id = $new_shadow_id;
     return $persisted_shadow_id;
 }
@@ -87,22 +90,11 @@ function bz_shadow_session_path($derived_id = null) {
     return rtrim($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'sess_' . $derived_id;
 }
 
-/**
- * Write the canonical shadow session.
- *
- * Behavior:
- * - primary file: sess_{shadow_id}      (PHP serialized payload)  <-- current consumer QuickDate reads this
- * - additional copies:
- *     sess_{shadow_id}.ser              (identical PHP serialized payload, convenience suffix)
- *     sess_{shadow_id}.json             (JSON representation for debugging / alternate consumers)
- *
- * All writes are atomic via write-to-temp + rename. Old copies removed by bz_remove_shadow_session().
- */
 function bz_write_shadow_session($wp_sid = null) {
     if (session_status() !== PHP_SESSION_ACTIVE) return false;
     $wp_sid = $wp_sid ?: session_id();
     if (!$wp_sid) return false;
-    $shadow_id = bz_shadow_session_id($wp_sid); // stable ID
+    $shadow_id = bz_shadow_session_id($wp_sid);
     $path = bz_shadow_session_path($shadow_id);
 
     $shadow = [];
@@ -115,14 +107,12 @@ function bz_write_shadow_session($wp_sid = null) {
         if (array_key_exists($k, $_SESSION)) $shadow[$k] = $_SESSION[$k];
     }
 
-    // Primary payload: PHP serialized (keep php serialize handler)
     $payload = @serialize($shadow);
     if ($payload === false) {
         bz_debug_log('bz_write_shadow_session: serialize failed', ['shadow_id'=>$shadow_id]);
         return false;
     }
 
-    // Atomic write helper
     $write_atomic = function($target_path, $contents) use ($shadow_id) {
         $tmp = $target_path . '.tmp';
         if (@file_put_contents($tmp, $contents, LOCK_EX) === false) {
@@ -130,34 +120,27 @@ function bz_write_shadow_session($wp_sid = null) {
             @unlink($tmp);
             return false;
         }
-        // Ensure intended permissions where possible (owner read/write, group read)
         @chmod($tmp, 0640);
         if (!@rename($tmp, $target_path)) {
-            // fallback: attempt copy then unlink
             if (!@copy($tmp, $target_path) || !@unlink($tmp)) {
                 bz_debug_log('bz_write_shadow_session: atomic rename/copy failed', ['tmp'=>$tmp,'target'=>$target_path,'shadow_id'=>$shadow_id]);
                 @unlink($tmp);
                 return false;
             }
         }
-        // Final chmod to be safe
         @chmod($target_path, 0640);
         return true;
     };
 
-    // Write primary serialized file (compatibility for QuickDate/WoWonder)
     if (!$write_atomic($path, $payload)) {
         return false;
     }
-
-    // Additionally write a .ser copy (same PHP serialized content, different suffix)
+    // convenience .ser copy
     $path_ser = $path . '.ser';
     if (!$write_atomic($path_ser, $payload)) {
-        // Not fatal — already wrote primary file; just log
         bz_debug_log('bz_write_shadow_session: failed to write .ser copy', ['path_ser'=>$path_ser,'shadow_id'=>$shadow_id]);
     }
-
-    // Also write a JSON copy for alternate consumers or debugging. Strip nothing sensitive here because payload is limited.
+    // json copy for debugging only
     $json_payload = @json_encode($shadow, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     if ($json_payload !== false) {
         $path_json = $path . '.json';
@@ -183,27 +166,14 @@ function bz_remove_shadow_session($wp_sid = null) {
     $path = bz_shadow_session_path($shadow_id);
 
     $removed_any = false;
-    // Primary file
-    if (is_file($path)) {
-        @unlink($path);
-        $removed_any = true;
-    }
-    // .ser copy
+    if (is_file($path)) { @unlink($path); $removed_any = true; }
     $path_ser = $path . '.ser';
-    if (is_file($path_ser)) {
-        @unlink($path_ser);
-        $removed_any = true;
-    }
-    // .json copy
+    if (is_file($path_ser)) { @unlink($path_ser); $removed_any = true; }
     $path_json = $path . '.json';
-    if (is_file($path_json)) {
-        @unlink($path_json);
-        $removed_any = true;
-    }
+    if (is_file($path_json)) { @unlink($path_json); $removed_any = true; }
 
     if ($removed_any) {
         bz_debug_log('bz_remove_shadow_session: removed', ['shadow_id'=>$shadow_id, 'paths'=>[$path,$path_ser,$path_json]]);
-        // Remove transient
         $transient_key = 'buzz_shadow_sid_' . ($wp_sid ?: session_id());
         delete_transient($transient_key);
         return true;
@@ -293,8 +263,9 @@ add_action('wp_login', function ($user_login, \WP_User $user) {
 add_action('init', function () {
     bz_shadow_session_dir(); // ensure dir exists
     $wp_sid = session_id();
+    global $__buzz_sso_secret;
     if ($wp_sid) {
-        // Shadow session id must not change mid-process; fix it if it does
+        // Defensive: fix shadow session id drift
         $shadow_id = bz_shadow_session_id($wp_sid);
         $transient_key = 'buzz_shadow_sid_' . $wp_sid;
         $stored = get_transient($transient_key);
@@ -302,10 +273,10 @@ add_action('init', function () {
             set_transient($transient_key, $shadow_id, DAY_IN_SECONDS);
             bz_debug_log('init: fixed shadow session_id drift', ['wp_sid'=>$wp_sid, 'shadow_sid'=>$shadow_id]);
         }
-        // Regenerate buzz_sso cookie if missing and session fields present
-        global $__buzz_sso_secret;
-        if ($__buzz_sso_secret && (empty($_COOKIE[BUZZ_SSO_COOKIE]))) {
+        // If buzz_sso cookie is missing but session is valid, regenerate, don't destroy
+        if ($__buzz_sso_secret && empty($_COOKIE[BUZZ_SSO_COOKIE])) {
             if (!empty($_SESSION['wp_user_id']) && !empty($_SESSION['wp_user_login']) && !empty($_SESSION['wp_user_email'])) {
+                // Regenerate cookie, do not expire
                 $now = time();
                 $payload = [
                     'ver'           => 1,
@@ -340,6 +311,7 @@ add_action('init', function () {
 }, 1);
 
 // On logout: clear buzz_sso, remove shadow and destroy session
+// Only clear SSO data and shadow on explicit logout
 add_action('wp_logout', function () {
     $wp_sid = session_id();
     bz_remove_shadow_session($wp_sid);
