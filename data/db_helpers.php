@@ -66,9 +66,13 @@ function get_wowonder_db() {
 }
 
 // Helper for table names
-function wp_table($table) {
-    return '`' . WP_DB_NAME . '`.`' . WP_TABLE_PREFIX . $table . '`';
+if (!function_exists('wp_table')) {
+    function wp_table($table) {
+        return '`' . WP_DB_NAME . '`.`' . WP_TABLE_PREFIX . $table . '`';
+    }
 }
-function bp_table($table) {
-    return '`' . WP_DB_NAME . '`.`' . BP_TABLE_PREFIX . $table . '`';
+if (!function_exists('bp_table')) {
+    function bp_table($table) {
+        return '`' . WP_DB_NAME . '`.`' . BP_TABLE_PREFIX . $table . '`';
+    }
 }
