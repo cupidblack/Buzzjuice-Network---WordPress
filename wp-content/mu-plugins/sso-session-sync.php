@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-require_once __DIR__ . '/../../data/db_helpers.php';
+require_once __DIR__ . '/../../shared/db_helpers.php';
 
 /* Config */
 if (!defined('BUZZ_SSO_COOKIE'))    define('BUZZ_SSO_COOKIE', 'buzz_sso');
