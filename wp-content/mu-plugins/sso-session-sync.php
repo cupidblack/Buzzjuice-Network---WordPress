@@ -23,6 +23,12 @@
  *
  * Important: QuickDate SessionStart reads the primary file (php_serialize) into
  * $_SESSION['buzz_sso_serialized'] and will only attempt unserialize() on that raw string.
+ *
+ * NOTE (2025-08): This variant issues a long-lived buzz_sso cookie (practically "never-expire")
+ * by setting a very long expiration (10 years). The cookie still contains a signed payload
+ * and is explicitly cleared on logout. Tokens accepted by other apps also check 'exp' inside
+ * the signed JSON; we therefore set the token 'exp' to the same long expiry for the buzz_sso cookie.
+ * Short-lived SSO password tokens (WPSSO.v1) used for the JS bridge still use BUZZ_SSO_TTL.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -56,6 +62,11 @@ function bz_debug_log($msg, $extra = []) {
         "[$ts] $msg | " . json_encode($meta, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) . PHP_EOL,
         FILE_APPEND
     );
+}
+
+/* Long-lived expiry helper: practical "never-expire" lifetime (10 years) */
+function bz_long_lived_expiry_seconds() {
+    return 10 * 365 * 24 * 60 * 60; // 10 years
 }
 
 /* --------------------------- Shadow session helpers --------------------------- */
@@ -188,6 +199,7 @@ add_action('wp_login', function ($user_login, \WP_User $user) {
     if (session_status() !== PHP_SESSION_ACTIVE) { @session_start(); }
     $old_sid = session_id();
     bz_remove_shadow_session($old_sid);
+    // Clear any existing buzz_sso cookie (we will issue a long-lived cookie below)
     setcookie(BUZZ_SSO_COOKIE, '', time() - 3600, '/', BUZZ_COOKIE_DOMAIN, true, true);
     $_SESSION = [];
     @session_unset();
@@ -216,10 +228,11 @@ add_action('wp_login', function ($user_login, \WP_User $user) {
     // Export shadow session using stable id
     bz_write_shadow_session(session_id());
 
-    // Issue buzz_sso cookie
+    // Issue buzz_sso cookie (long-lived)
     global $__buzz_sso_secret;
     if ($__buzz_sso_secret) {
         $now = time();
+        $exp = $now + bz_long_lived_expiry_seconds();
         $payload = [
             'ver'           => 1,
             'wp_user_id'    => (int)$_SESSION['wp_user_id'],
@@ -232,21 +245,28 @@ add_action('wp_login', function ($user_login, \WP_User $user) {
             'session_id'    => session_id(),
             'handler'       => ini_get('session.serialize_handler'),
             'iat' => $now,
-            'exp' => $now + BUZZ_SSO_TTL,
+            'exp' => $exp,
         ];
         $json = wp_json_encode($payload);
         $sig  = hash_hmac('sha256', $json, (string)$__buzz_sso_secret, true);
         $token = rtrim(strtr(base64_encode($json), '+/', '-_'), '=') . '.' . rtrim(strtr(base64_encode($sig), '+/', '-_'), '=');
-        setcookie(BUZZ_SSO_COOKIE, $token, [
-            'expires'  => $payload['exp'],
-            'path'     => '/',
-            'domain'   => BUZZ_COOKIE_DOMAIN,
-            'secure'   => true,
-            'httponly' => true,
-            'samesite' => 'Lax',
-        ]);
+
+        // Set cookie with long-lived expiry (10 years) — ensures cookie persists until explicit logout
+        if (PHP_VERSION_ID >= 70300) {
+            setcookie(BUZZ_SSO_COOKIE, $token, [
+                'expires'  => $exp,
+                'path'     => '/',
+                'domain'   => BUZZ_COOKIE_DOMAIN,
+                'secure'   => true,
+                'httponly' => true,
+                'samesite' => 'Lax',
+            ]);
+        } else {
+            setcookie(BUZZ_SSO_COOKIE, $token, $exp, '/', BUZZ_COOKIE_DOMAIN, true, true);
+        }
+
         $_SESSION['buzz_sso_last'] = $payload;
-        bz_debug_log('buzz_sso cookie issued', ['wp_sid'=>session_id(), 'shadow_sid'=>bz_shadow_session_id(session_id())]);
+        bz_debug_log('buzz_sso cookie issued (long-lived)', ['wp_sid'=>session_id(), 'shadow_sid'=>bz_shadow_session_id(session_id()), 'expires'=>date('c',$exp)]);
     }
 
     update_user_meta($user->ID, 'buzz_wp_php_sessid', session_id());
@@ -276,35 +296,42 @@ add_action('init', function () {
         // If buzz_sso cookie is missing but session is valid, regenerate, don't destroy
         if ($__buzz_sso_secret && empty($_COOKIE[BUZZ_SSO_COOKIE])) {
             if (!empty($_SESSION['wp_user_id']) && !empty($_SESSION['wp_user_login']) && !empty($_SESSION['wp_user_email'])) {
-                // Regenerate cookie, do not expire
+                // Regenerate cookie with long-lived expiry, do not expire automatically
                 $now = time();
+                $exp = $now + bz_long_lived_expiry_seconds();
                 $payload = [
                     'ver'           => 1,
                     'wp_user_id'    => (int)$_SESSION['wp_user_id'],
                     'wp_user_login' => (string)$_SESSION['wp_user_login'],
                     'wp_user_email' => (string)$_SESSION['wp_user_email'],
-                    'wo_user_id'    => (int)$_SESSION['wo_user_id'],
-                    'qd_user_id'    => (int)$_SESSION['qd_user_id'],
+                    'wo_user_id'    => (int)($_SESSION['wo_user_id'] ?? 0),
+                    'qd_user_id'    => (int)($_SESSION['qd_user_id'] ?? 0),
                     'cookie_domain' => BUZZ_COOKIE_DOMAIN,
                     'session_name'  => session_name(),
                     'session_id'    => session_id(),
                     'handler'       => ini_get('session.serialize_handler'),
                     'iat' => $now,
-                    'exp' => $now + BUZZ_SSO_TTL,
+                    'exp' => $exp,
                 ];
                 $json = wp_json_encode($payload);
                 $sig  = hash_hmac('sha256', $json, (string)$__buzz_sso_secret, true);
                 $token = rtrim(strtr(base64_encode($json), '+/', '-_'), '=') . '.' . rtrim(strtr(base64_encode($sig), '+/', '-_'), '=');
-                setcookie(BUZZ_SSO_COOKIE, $token, [
-                    'expires'  => $payload['exp'],
-                    'path'     => '/',
-                    'domain'   => BUZZ_COOKIE_DOMAIN,
-                    'secure'   => true,
-                    'httponly' => true,
-                    'samesite' => 'Lax',
-                ]);
+
+                if (PHP_VERSION_ID >= 70300) {
+                    setcookie(BUZZ_SSO_COOKIE, $token, [
+                        'expires'  => $exp,
+                        'path'     => '/',
+                        'domain'   => BUZZ_COOKIE_DOMAIN,
+                        'secure'   => true,
+                        'httponly' => true,
+                        'samesite' => 'Lax',
+                    ]);
+                } else {
+                    setcookie(BUZZ_SSO_COOKIE, $token, $exp, '/', BUZZ_COOKIE_DOMAIN, true, true);
+                }
+
                 $_SESSION['buzz_sso_last'] = $payload;
-                bz_debug_log('init: buzz_sso cookie regenerated', ['wp_sid'=>$wp_sid, 'shadow_sid'=>$shadow_id]);
+                bz_debug_log('init: buzz_sso cookie regenerated (long-lived)', ['wp_sid'=>$wp_sid, 'shadow_sid'=>$shadow_id, 'expires'=>date('c',$exp)]);
             }
         }
     }
@@ -315,7 +342,12 @@ add_action('init', function () {
 add_action('wp_logout', function () {
     $wp_sid = session_id();
     bz_remove_shadow_session($wp_sid);
-    setcookie(BUZZ_SSO_COOKIE, '', time() - 3600, '/', BUZZ_COOKIE_DOMAIN, true, true);
+    // Expire buzz_sso cookie explicitly on logout
+    if (PHP_VERSION_ID >= 70300) {
+        setcookie(BUZZ_SSO_COOKIE, '', ['expires'=>time()-3600,'path'=>'/','domain'=>BUZZ_COOKIE_DOMAIN,'secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
+    } else {
+        setcookie(BUZZ_SSO_COOKIE, '', time()-3600, '/', BUZZ_COOKIE_DOMAIN, true, true);
+    }
     $_SESSION = [];
     @session_unset();
     @session_destroy();
