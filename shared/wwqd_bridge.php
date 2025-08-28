@@ -180,6 +180,7 @@ if (!function_exists('bp_table')) {
  * Metadata loader
  * - Reads shared/buzz_metadata.json (preferred local file), falls back to remote URL
  * -------------------------------------------------------------------------- */
+ 
 function get_user_field_metadata() {
     static $metadata = null;
     if ($metadata !== null) return $metadata;
@@ -187,11 +188,8 @@ function get_user_field_metadata() {
     $local = __DIR__ . '/buzz_metadata.json';
     if (file_exists($local)) {
         $json = @file_get_contents($local);
-    } else {
-        // fallback to original remote location (same behavior as earlier)
-        $json = @file_get_contents('https://buzzjuice.net/data/user_field_metadata.json');
-    }
-
+    } 
+    
     $metadata = $json ? json_decode($json, true) : ['private_secure_fields' => [], 'public_open_fields' => []];
     // Ensure keys exist
     if (!isset($metadata['private_secure_fields'])) $metadata['private_secure_fields'] = [];
@@ -825,35 +823,72 @@ if (!function_exists('sync_quickdate_to_wowonder')) {
  * Called by WordPress after updating usermeta/xprofile -> will sync to QuickDate
  * Signature: sync_user_to_quickdate($wp_user_email, $usermeta_data = [], $xprofile_data = [])
  */
+// Replacement snippet: updated sync_user_to_quickdate function
+// Only the function body is shown here — replace the existing function in shared/wwqd_bridge.php
 if (!function_exists('sync_user_to_quickdate')) {
     function sync_user_to_quickdate($wp_user_email, $usermeta_data = [], $xprofile_data = []) {
         $qd_data = [];
-        // Prefer xprofile values for profile details
+
+        // Helper to detect absolute http/https URLs
+        $is_abs = function($u) {
+            return (bool) preg_match('#^https?://#i', (string)$u);
+        };
+
+        // Normalize and prefer xprofile values for profile details
         foreach ($xprofile_data as $key => $value) {
-            if ($value !== null && $value !== '') {
-                if (in_array($key, ['avatar', 'cover']) && !filter_var($value, FILTER_VALIDATE_URL)) {
-                    if (strpos($value, '../streams/') !== 0) {
-                        $value = '../streams/' . ltrim($value, '/');
-                    }
-                }
-                $qd_data[$key] = $value;
+            // normalize value
+            $val = $value;
+            if (is_array($val) || is_object($val)) {
+                // keep original behaviour: serialize/convert if needed by callers elsewhere
+                // but for syncing we want string-like values
+                $val = is_string($val) ? $val : json_encode($val);
             }
+            $val = trim((string)$val);
+
+            if ($val === '') continue;
+
+            // Special handling for avatar/cover fields:
+            // - If value already starts with http(s):// (absolute), leave untouched.
+            // - If it is a protocol-relative URL (//host/...), leave untouched.
+            // - If it already uses the ../streams/ convention, leave untouched.
+            // - Otherwise prefix the ../streams/ relative path as before.
+            if (in_array($key, ['avatar', 'cover'], true)) {
+                if ($is_abs($val) || strpos($val, '//') === 0 || strpos($val, '../streams/') === 0) {
+                    // leave $val as-is
+                } else {
+                    $val = '/../streams/' . ltrim($val, '/');
+                }
+            }
+
+            $qd_data[$key] = $val;
         }
-        // Include usermeta values only if not already set
+
+        // Include usermeta values only if not already set (xprofile takes precedence)
         foreach ($usermeta_data as $key => $value) {
-            if (!isset($qd_data[$key]) && $value !== null && $value !== '') {
-                if (in_array($key, ['avatar', 'cover']) && !filter_var($value, FILTER_VALIDATE_URL)) {
-                    if (strpos($value, '../streams/') !== 0) {
-                        $value = '../streams/' . ltrim($value, '/');
-                    }
-                }
-                $qd_data[$key] = $value;
+            if (isset($qd_data[$key])) continue;
+            $val = $value;
+            if (is_array($val) || is_object($val)) {
+                $val = is_string($val) ? $val : json_encode($val);
             }
+            $val = trim((string)$val);
+            if ($val === '') continue;
+
+            if (in_array($key, ['avatar', 'cover'], true)) {
+                if ($is_abs($val) || strpos($val, '//') === 0 || strpos($val, '../streams/') === 0) {
+                    // leave as-is
+                } else {
+                    $val = '/../streams/' . ltrim($val, '/');
+                }
+            }
+
+            $qd_data[$key] = $val;
         }
+
         if (empty($qd_data)) {
             error_log("[sync_user_to_quickdate] No data to sync for $wp_user_email");
             return false;
         }
+
         return qd_update_user($wp_user_email, $qd_data);
     }
 }

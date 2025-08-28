@@ -339,6 +339,8 @@ add_action('init', function () {
 
 // On logout: clear buzz_sso, remove shadow and destroy session
 // Only clear SSO data and shadow on explicit logout
+// On logout: clear buzz_sso, remove shadow and destroy session
+// Only clear SSO data and shadow on explicit logout
 add_action('wp_logout', function () {
     $wp_sid = session_id();
     bz_remove_shadow_session($wp_sid);
@@ -354,7 +356,13 @@ add_action('wp_logout', function () {
     $transient_key = 'buzz_shadow_sid_' . $wp_sid;
     delete_transient($transient_key);
     bz_debug_log('wp_logout: session destroyed and cookie cleared', ['wp_sid'=>$wp_sid, 'shadow_sid'=>bz_shadow_session_id($wp_sid)]);
-    wp_safe_redirect('https://buzzjuice.net/streams/logout/?cabin=home');
+
+    // Redirect to central shared logout proxy (authorised by BUZZ_SSO_SECRET)
+    // Use BUZZ_SSO_SECRET if available (exposed earlier as $__buzz_sso_secret)
+    global $__buzz_sso_secret;
+    $secret = $__buzz_sso_secret ?: (defined('BUZZ_SSO_SECRET') ? BUZZ_SSO_SECRET : getenv('BUZZ_SSO_SECRET'));
+    $url = 'https://buzzjuice.net/shared/sso-logout.php?sso_secret=' . rawurlencode((string)$secret) . '&from_wp=1';
+    wp_safe_redirect($url);
     exit;
 }, 10);
 
