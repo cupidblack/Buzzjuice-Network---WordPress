@@ -279,6 +279,177 @@ add_action('wp_login', function ($user_login, \WP_User $user) {
     ]);
 }, 10, 2);
 
+/*
+Plugin Name: BuzzJuice SSO Bridge Injector
+Description: Ensures background SSO bridges are loaded on every page after login.
+Version: 1.0
+Author: BuzzJuice SSO Team
+ * Ensures background SSO bridges are loaded on every page after login, with extensive error reporting.
+ */
+add_action('wp_head', function() {
+    if (is_user_logged_in()) {
+        ?>
+        <script>
+        (function(){
+          var endpoints = [
+            { name: 'WoWonder', url: 'https://buzzjuice.net/streams/ww-sso-bridge.php?from_wp=1', beacon: 'https://buzzjuice.net/streams/ww-sso-bridge.php?sso_client_log=1' },
+            { name: 'QuickDate', url: 'https://buzzjuice.net/social/qd-sso-bridge.php?from_wp=1', beacon: 'https://buzzjuice.net/social/qd-sso-bridge.php?sso_client_log=1' }
+          ];
+
+          function sendBeacon(url, data) {
+            try {
+              var payload = JSON.stringify(data || {});
+              if (navigator.sendBeacon) navigator.sendBeacon(url, payload);
+              else {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-Type', 'text/plain');
+                xhr.send(payload);
+              }
+            } catch (e) {
+              console.error('Beacon failed', e);
+              var img = new Image();
+              img.src = url + '&fallback=1&msg=' + encodeURIComponent('BeaconException: ' + (e && e.message ? e.message : 'unknown'));
+            }
+          }
+
+          function logError(context, error, endpoint) {
+            var errMsg = '';
+            try {
+              if (error instanceof Error) {
+                errMsg = error.message + (error.stack ? '\n' + error.stack : '');
+              } else if (typeof error === 'string') {
+                errMsg = error;
+              } else {
+                errMsg = JSON.stringify(error);
+              }
+            } catch (e) { errMsg = 'Unknown error'; }
+            sendBeacon(endpoint.beacon, {
+              event: 'js_error',
+              context: context,
+              error: errMsg,
+              name: endpoint.name,
+              ts: Date.now(),
+              url: endpoint.url
+            });
+            console.error('[BuzzJuice SSO][Bridge][' + endpoint.name + '][' + context + ']', errMsg);
+          }
+
+          function injectBridges() {
+            try {
+              if (!document.body) {
+                logError('body_null', 'document.body is not yet available', endpoints[0]);
+                return false;
+              }
+              endpoints.forEach(function(endpoint){
+                try {
+                  var iframe = document.createElement('iframe');
+                  iframe.src = endpoint.url;
+                  iframe.style.display = 'none';
+                  iframe.setAttribute('aria-hidden', 'true');
+                  iframe.onload = function() {
+                    sendBeacon(endpoint.beacon, {
+                      event: 'iframe_load',
+                      name: endpoint.name,
+                      ts: Date.now(),
+                      url: endpoint.url
+                    });
+                  };
+                  iframe.onerror = function(e) {
+                    logError('iframe_onerror', e, endpoint);
+                    sendBeacon(endpoint.beacon, {
+                      event: 'iframe_error',
+                      name: endpoint.name,
+                      error: e,
+                      ts: Date.now(),
+                      url: endpoint.url
+                    });
+                  };
+                  setTimeout(function(){
+                    try {
+                      if (!iframe.contentWindow || !iframe.contentDocument || iframe.contentDocument.readyState !== 'complete') {
+                        sendBeacon(endpoint.beacon, {
+                          event: 'iframe_timeout',
+                          name: endpoint.name,
+                          ts: Date.now(),
+                          url: endpoint.url
+                        });
+                        console.warn('[BuzzJuice SSO][Bridge][' + endpoint.name + '] iframe load timeout');
+                      }
+                    } catch (timeoutError) {
+                      logError('iframe_timeout_check', timeoutError, endpoint);
+                    }
+                  }, 20000);
+                  document.body.appendChild(iframe);
+                } catch (err) {
+                  logError('iframe_creation', err, endpoint);
+                }
+              });
+              sendBeacon(endpoints[0].beacon, {event: 'bridge_injected', msg: 'Background SSO bridge iframes injected', ts: Date.now()});
+              console.log('[BuzzJuice SSO] Background bridge iframes injected');
+              return true;
+            } catch(e) {
+              logError('injectBridges', e, endpoints[0]);
+              return false;
+            }
+          }
+
+          // Defensive: always wait for DOM to be ready before injecting
+          if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            // DOM is already ready
+            injectBridges();
+          } else {
+            document.addEventListener('DOMContentLoaded', injectBridges);
+            // As fallback, poll for body for up to 2s
+            var tries = 0;
+            var maxTries = 20;
+            var pollBody = function() {
+              tries++;
+              if (document.body) {
+                injectBridges();
+              } else if (tries < maxTries) {
+                setTimeout(pollBody, 100);
+              } else {
+                logError('poll_body_timeout', 'document.body never became available', endpoints[0]);
+              }
+            };
+            setTimeout(pollBody, 100);
+          }
+
+          // Global error reporting
+          window.addEventListener('error', function(e){
+            endpoints.forEach(function(endpoint){
+              logError('global_error', e.error || e.message || e, endpoint);
+            });
+          });
+          window.addEventListener('unhandledrejection', function(e){
+            endpoints.forEach(function(endpoint){
+              logError('unhandled_rejection', e.reason || e, endpoint);
+            });
+          });
+        })();
+        </script>
+        <?php
+    }
+});
+
+/*
+Plugin Name: BuzzJuice SSO Redirect Interceptor
+Description: Intercepts login redirects to ensure SSO bridges finish before proceeding.
+Version: 1.0
+Author: BuzzJuice SSO Team
+*/
+/*
+add_filter('login_redirect', function($redirect_to, $request, $user){
+    // Only intercept for non-admin users and successful logins
+    if ($user && is_a($user, 'WP_User') && !in_array('administrator', (array)$user->roles, true)) {
+        // Send to our custom SSO landing page instead
+        $target = site_url('/sso-landing.php?redirect_to=' . urlencode($redirect_to));
+        return $target;
+    }
+    return $redirect_to;
+}, 99, 3);
+*/
 // Defensive fallback: if buzz_sso/shadow missing, regenerate without destroying WP session
 add_action('init', function () {
     bz_shadow_session_dir(); // ensure dir exists
@@ -341,6 +512,62 @@ add_action('init', function () {
 // Only clear SSO data and shadow on explicit logout
 // On logout: clear buzz_sso, remove shadow and destroy session
 // Only clear SSO data and shadow on explicit logout
+// On logout: clear buzz_sso, remove shadow and destroy session
+add_action('wp_logout', function () {
+    $wp_sid = session_id();
+    bz_remove_shadow_session($wp_sid);
+
+    // Expire buzz_sso cookie explicitly on logout
+    if (PHP_VERSION_ID >= 70300) {
+        setcookie(BUZZ_SSO_COOKIE, '', ['expires'=>time()-3600,'path'=>'/','domain'=>BUZZ_COOKIE_DOMAIN,'secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
+    } else {
+        setcookie(BUZZ_SSO_COOKIE, '', time()-3600, '/', BUZZ_COOKIE_DOMAIN, true, true);
+    }
+    $_SESSION = [];
+    @session_unset();
+    @session_destroy();
+    $transient_key = 'buzz_shadow_sid_' . $wp_sid;
+    delete_transient($transient_key);
+    bz_debug_log('wp_logout: session destroyed and cookie cleared', ['wp_sid'=>$wp_sid, 'shadow_sid'=>bz_shadow_session_id($wp_sid)]);
+
+    // --- Cache-control headers ---
+    header('Expires: 0');
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Cache-Control: post-check=0, pre-check=0', false);
+    header('Pragma: no-cache');
+
+    // Redirect to central shared logout proxy
+    global $__buzz_sso_secret;
+    $secret = $__buzz_sso_secret ?: (defined('BUZZ_SSO_SECRET') ? BUZZ_SSO_SECRET : getenv('BUZZ_SSO_SECRET'));
+    $url = 'https://buzzjuice.net/shared/sso-logout.php?sso_secret=' . rawurlencode((string)$secret) . '&from_wp=1&logged_out=1';
+    wp_safe_redirect($url);
+    exit;
+}, 10);
+
+add_action('wp_head', function() {
+    ?>
+    <script>
+        (function() {
+          // Force reload from server if logged_out=1 is present
+          if (window.location.search.indexOf('logged_out=1') !== -1) {
+            // Simulate ctrl+F5: reload from server, not cache
+            window.location.href = window.location.origin + window.location.pathname;
+            setTimeout(function(){
+              window.location.reload(true); // 'true' param is ignored by modern browsers but kept for legacy
+            }, 100);
+          }
+          // Also force reload on back/forward navigation if page was cached
+          window.onpageshow = function(event) {
+            if (event.persisted) {
+              window.location.reload(true);
+            }
+          };
+        })();
+    </script>
+    <?php
+});
+
+/* --------------------------- Admin debug endpoint --------------------------- */
 add_action('wp_logout', function () {
     $wp_sid = session_id();
     bz_remove_shadow_session($wp_sid);
@@ -357,6 +584,12 @@ add_action('wp_logout', function () {
     delete_transient($transient_key);
     bz_debug_log('wp_logout: session destroyed and cookie cleared', ['wp_sid'=>$wp_sid, 'shadow_sid'=>bz_shadow_session_id($wp_sid)]);
 
+    // Immediately clear browser cache
+    header('Expires: 0');
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Cache-Control: post-check=0, pre-check=0', false);
+    header('Pragma: no-cache');
+
     // Redirect to central shared logout proxy (authorised by BUZZ_SSO_SECRET)
     // Use BUZZ_SSO_SECRET if available (exposed earlier as $__buzz_sso_secret)
     global $__buzz_sso_secret;
@@ -365,35 +598,6 @@ add_action('wp_logout', function () {
     wp_safe_redirect($url);
     exit;
 }, 10);
-
-/* --------------------------- Admin debug endpoint --------------------------- */
-add_action('init', function () use ($__buzz_sso_secret) {
-    if (empty($_GET['bz_sso_debug'])) return;
-    if (!current_user_can('manage_options')) return;
-    header('Content-Type: text/plain; charset=utf-8');
-    $token  = $_COOKIE[BUZZ_SSO_COOKIE] ?? null;
-    $parsed = ($token && $__buzz_sso_secret) ? bz_sso_verify_token($token, $__buzz_sso_secret) : null;
-    $info = [
-        'session_name'   => session_name(),
-        'session_id'     => session_id(),
-        'shadow_id'      => bz_shadow_session_id(session_id()),
-        'serialize_handler' => ini_get('session.serialize_handler'),
-        'wp_user_id'     => $_SESSION['wp_user_id']    ?? null,
-        'wp_user_login'  => $_SESSION['wp_user_login'] ?? null,
-        'wp_user_email'  => $_SESSION['wp_user_email'] ?? null,
-        'wo_user_id'     => $_SESSION['wo_user_id']    ?? null,
-        'qd_user_id'     => $_SESSION['qd_user_id']    ?? null,
-        'buzz_sso_raw'   => $token,
-        'buzz_sso_parsed'=> $parsed,
-        'cookie_domain'  => BUZZ_COOKIE_DOMAIN,
-        'cookies'        => $_COOKIE,
-        'session_vars'   => $_SESSION,
-    ];
-    bz_debug_log('Admin debug endpoint', $info);
-    echo "BuzzJuice SSO — Admin Debug\n\n";
-    print_r($info);
-    exit;
-}, 2);
 
 /* ---------------- BuddyBoss redirect compatibility (unchanged) -- */
 add_action('plugins_loaded', function() {
@@ -424,12 +628,42 @@ function bluecrown_bb_login_redirect($redirect_to, $request, $user) {
 }
 
 /* ---------------- Optional: logout without confirm -------------- */
-add_action('check_admin_referer', 'logout_without_confirm', 10, 2);
-function logout_without_confirm($action, $result) {
-    if ($action === 'log-out' && !isset($_GET['_wpnonce'])) {
-        $redirect_to = isset($_REQUEST['redirect_to']) ? $_REQUEST['redirect_to'] : home_url('/');
-        $location = str_replace('&amp;', '&', wp_logout_url($redirect_to));
-        header('Location: ' . $location);
-        exit;
+/**
+ * Skip the WP logout confirmation screen by generating a fresh, nonce'd logout URL
+ * and redirecting to it when a user hits the confirm step without a _wpnonce.
+ *
+ * Security & behavior:
+ * - Only acts on the 'log-out' action.
+ * - Only for logged-in users.
+ * - Validates/sanitizes `redirect_to` to prevent open redirects.
+ * - Uses core helpers (wp_logout_url, wp_safe_redirect).
+ */
+add_action('check_admin_referer', function ($action, $result) {
+    // We only care about the logout flow, and only if the user is actually logged in.
+    if ($action !== 'logout' || $action !== 'log-out' || !is_user_logged_in()) {
+        return;
     }
-}
+
+    // If a nonce is present, let WP handle it normally (this means: no confirm screen).
+    if (isset($_GET['_wpnonce']) && is_string($_GET['_wpnonce']) && $_GET['_wpnonce'] !== '') {
+        return;
+    }
+
+    // Build a safe post-logout landing URL.
+    // 1) prefer ?redirect_to= if provided (and valid)
+    // 2) otherwise fall back to the homepage
+    $raw_redirect_to = isset($_REQUEST['redirect_to']) ? (string) $_REQUEST['redirect_to'] : '';
+    $fallback        = home_url('/');
+
+    // Validate against allowed hosts (defaults to your site). If invalid, WP returns $fallback.
+    $redirect_to = wp_validate_redirect($raw_redirect_to, $fallback);
+
+    // Generate a fresh, nonce-protected logout URL that will immediately log the user out.
+    // wp_logout_url() will include the nonce and preserve our validated redirect_to.
+    $logout_url = wp_logout_url($redirect_to);
+
+    // Send a safe redirect to the nonce'd logout URL.
+    nocache_headers(); // avoid caching of this transitional response
+    wp_safe_redirect($logout_url, 302);
+    exit;
+}, 10, 2);
