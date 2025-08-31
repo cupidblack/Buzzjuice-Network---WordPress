@@ -508,42 +508,88 @@ add_action('init', function () {
     }
 }, 1);
 
-// On logout: clear buzz_sso, remove shadow and destroy session
-// Only clear SSO data and shadow on explicit logout
-// On logout: clear buzz_sso, remove shadow and destroy session
-// Only clear SSO data and shadow on explicit logout
-// On logout: clear buzz_sso, remove shadow and destroy session
-add_action('wp_logout', function () {
-    $wp_sid = session_id();
-    bz_remove_shadow_session($wp_sid);
+/* --------------------------- Admin debug endpoint --------------------------- */
 
-    // Expire buzz_sso cookie explicitly on logout
-    if (PHP_VERSION_ID >= 70300) {
-        setcookie(BUZZ_SSO_COOKIE, '', ['expires'=>time()-3600,'path'=>'/','domain'=>BUZZ_COOKIE_DOMAIN,'secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
-    } else {
-        setcookie(BUZZ_SSO_COOKIE, '', time()-3600, '/', BUZZ_COOKIE_DOMAIN, true, true);
+// Add login_init hook to accept an orchestrator-generated WP logout URL or one-time token.
+// If a platform redirected the browser to wp-login.php?action=logout&sso_one_time=... we will
+// validate the one-time token and perform immediate SSO cleanup and redirect to the orchestrator.
+// This lets platforms obtain a server-generated token and redirect users to WP logout without nonce.
+
+add_action('login_init', function() {
+    // Only act when action=logout and sso_one_time present
+    if (empty($_GET['action']) || $_GET['action'] !== 'logout') return;
+    if (empty($_GET['sso_one_time'])) return;
+
+    $one = (string) $_GET['sso_one_time'];
+    $secret = getenv('BUZZ_SSO_SECRET') ?: (defined('BUZZ_SSO_SECRET') ? BUZZ_SSO_SECRET : null);
+    if (!$secret) {
+        bz_debug_log('sso_token_login_init: missing BUZZ_SSO_SECRET', []);
+        return;
     }
+
+    // Validate one-time token (same format used in shared/sso-logout.php)
+    $parts = explode('.', $one, 2);
+    if (count($parts) !== 2) {
+        bz_debug_log('sso_token_login_init: malformed token', ['token_preview'=>substr($one,0,16)]);
+        return;
+    }
+    $json = base64_decode(strtr($parts[0], '-_', '+/'));
+    $sig  = base64_decode(strtr($parts[1], '-_', '+/'));
+    if ($json === false || $sig === false) {
+        bz_debug_log('sso_token_login_init: token base64 decode failed', []);
+        return;
+    }
+    $calc = hash_hmac('sha256', $json, (string)$secret, true);
+    if (!hash_equals($calc, $sig)) {
+        bz_debug_log('sso_token_login_init: token HMAC mismatch', []);
+        return;
+    }
+    $payload = @json_decode($json, true);
+    if (!is_array($payload) || (isset($payload['exp']) && time() > (int)$payload['exp'])) {
+        bz_debug_log('sso_token_login_init: token expired or invalid payload', ['payload'=>$payload ?? null]);
+        return;
+    }
+
+    // Token valid: perform WP-side SSO cleanup (same actions performed on wp_logout)
+    if (session_status() !== PHP_SESSION_ACTIVE) { @session_start(); }
+    $wp_sid = session_id();
+
+    try { bz_remove_shadow_session($wp_sid); } catch (Throwable $e) { bz_debug_log('sso_token_login_init: remove shadow failed', ['err'=>$e->getMessage()]); }
+
+    // Expire buzz_sso cookie on shared domain and current host
+    $expiry = time() - 3600;
+    $domain = defined('BUZZ_COOKIE_DOMAIN') ? BUZZ_COOKIE_DOMAIN : '.buzzjuice.net';
+    if (PHP_VERSION_ID >= 70300) {
+        @setcookie(BUZZ_SSO_COOKIE, '', ['expires'=>$expiry,'path'=>'/','domain'=>$domain,'secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
+        @setcookie(BUZZ_SSO_COOKIE, '', ['expires'=>$expiry,'path'=>'/','secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
+    } else {
+        @setcookie(BUZZ_SSO_COOKIE, '', $expiry, '/', $domain, true, true);
+        @setcookie(BUZZ_SSO_COOKIE, '', $expiry, '/', '', true, true);
+    }
+    if (isset($_COOKIE[BUZZ_SSO_COOKIE])) unset($_COOKIE[BUZZ_SSO_COOKIE]);
+
+    // Destroy session and transient mapping
     $_SESSION = [];
     @session_unset();
     @session_destroy();
-    $transient_key = 'buzz_shadow_sid_' . $wp_sid;
-    delete_transient($transient_key);
-    bz_debug_log('wp_logout: session destroyed and cookie cleared', ['wp_sid'=>$wp_sid, 'shadow_sid'=>bz_shadow_session_id($wp_sid)]);
+    try {
+        $transient_key = 'buzz_shadow_sid_' . $wp_sid;
+        delete_transient($transient_key);
+    } catch (Throwable $e) {
+        bz_debug_log('sso_token_login_init: delete_transient threw', ['err'=>$e->getMessage()]);
+    }
 
-    // --- Cache-control headers ---
-    header('Expires: 0');
-    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-    header('Cache-Control: post-check=0, pre-check=0', false);
-    header('Pragma: no-cache');
+    bz_debug_log('sso_token_login_init: processed token logout', ['wp_sid'=>$wp_sid, 'shadow_sid'=>bz_shadow_session_id($wp_sid)]);
 
-    // Redirect to central shared logout proxy
+    // Redirect into central orchestrator so it can invalidate other platforms (orchestrator will detect from_wp)
     global $__buzz_sso_secret;
-    $secret = $__buzz_sso_secret ?: (defined('BUZZ_SSO_SECRET') ? BUZZ_SSO_SECRET : getenv('BUZZ_SSO_SECRET'));
-    $url = 'https://buzzjuice.net/shared/sso-logout.php?sso_secret=' . rawurlencode((string)$secret) . '&from_wp=1&logged_out=1';
+    $ssec = $__buzz_sso_secret ?: (defined('BUZZ_SSO_SECRET') ? BUZZ_SSO_SECRET : getenv('BUZZ_SSO_SECRET'));
+    $url = 'https://buzzjuice.net/shared/sso-logout.php?sso_secret=' . rawurlencode((string)$ssec) . '&from_wp=1&logged_out=1';
     wp_safe_redirect($url);
     exit;
-}, 10);
+}, 1);
 
+/*
 add_action('wp_head', function() {
     ?>
     <script>
@@ -566,38 +612,7 @@ add_action('wp_head', function() {
     </script>
     <?php
 });
-
-/* --------------------------- Admin debug endpoint --------------------------- */
-add_action('wp_logout', function () {
-    $wp_sid = session_id();
-    bz_remove_shadow_session($wp_sid);
-    // Expire buzz_sso cookie explicitly on logout
-    if (PHP_VERSION_ID >= 70300) {
-        setcookie(BUZZ_SSO_COOKIE, '', ['expires'=>time()-3600,'path'=>'/','domain'=>BUZZ_COOKIE_DOMAIN,'secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
-    } else {
-        setcookie(BUZZ_SSO_COOKIE, '', time()-3600, '/', BUZZ_COOKIE_DOMAIN, true, true);
-    }
-    $_SESSION = [];
-    @session_unset();
-    @session_destroy();
-    $transient_key = 'buzz_shadow_sid_' . $wp_sid;
-    delete_transient($transient_key);
-    bz_debug_log('wp_logout: session destroyed and cookie cleared', ['wp_sid'=>$wp_sid, 'shadow_sid'=>bz_shadow_session_id($wp_sid)]);
-
-    // Immediately clear browser cache
-    header('Expires: 0');
-    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-    header('Cache-Control: post-check=0, pre-check=0', false);
-    header('Pragma: no-cache');
-
-    // Redirect to central shared logout proxy (authorised by BUZZ_SSO_SECRET)
-    // Use BUZZ_SSO_SECRET if available (exposed earlier as $__buzz_sso_secret)
-    global $__buzz_sso_secret;
-    $secret = $__buzz_sso_secret ?: (defined('BUZZ_SSO_SECRET') ? BUZZ_SSO_SECRET : getenv('BUZZ_SSO_SECRET'));
-    $url = 'https://buzzjuice.net/shared/sso-logout.php?sso_secret=' . rawurlencode((string)$secret) . '&from_wp=1';
-    wp_safe_redirect($url);
-    exit;
-}, 10);
+*/
 
 /* ---------------- BuddyBoss redirect compatibility (unchanged) -- */
 add_action('plugins_loaded', function() {
