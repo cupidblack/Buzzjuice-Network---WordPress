@@ -1035,6 +1035,114 @@ if (php_sapi_name() !== 'cli' && basename(__FILE__) === basename($_SERVER['SCRIP
     }
 }
 
+/* --------------------------- Cache-clear & redirect helper --------------------------- */
+/**
+ * Emit a small HTML page + JS that:
+ *  - clears cookies for .buzzjuice.net
+ *  - clears caches, service workers, storage, indexedDB
+ *  - then navigates the browser to $redirect_to (absolute URL) when provided,
+ *    or to the WordPress homepage by default.
+ *
+ * Usage:
+ *   bz_clear_cache_after_logout_html(); // finalizes logout & redirects to https://buzzjuice.net/
+ *   bz_clear_cache_after_logout_html('https://buzzjuice.net/shared/sso-logout.php?sso_secret=...&from=wowonder&logged_out=1');
+ *
+ * Note: This function echoes HTML and exits the script.
+ */
+if (!function_exists('bz_clear_cache_after_logout_html')) {
+    /**
+     * Emit HTML/JS to clear client storage/caches/cookies and then redirect to $nextUrl.
+     *
+     * @param string $nextUrl Absolute URL to redirect to after clearing (default: site home).
+     * @param int    $delayMs Milliseconds fallback delay before forcing location change (default: 150)
+     */
+    function bz_clear_cache_after_logout_html(string $nextUrl = 'https://buzzjuice.net/', int $delayMs = 150) {
+        if (!headers_sent()) {
+            header('Content-Type: text/html; charset=utf-8');
+            header('Expires: 0');
+            header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+            header('Cache-Control: post-check=0, pre-check=0', false);
+            header('Pragma: no-cache');
+        }
+
+        $next = filter_var($nextUrl, FILTER_VALIDATE_URL) ? $nextUrl : 'https://buzzjuice.net/';
+        $delay = max(0, (int)$delayMs);
+        $sharedDomain = '.buzzjuice.net';
+
+        // JSON-encode values for safe inlining into JS
+        $safeNextJs = json_encode($next, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $safeDomainJs = json_encode($sharedDomain);
+        $safeDelayJs = json_encode($delay);
+
+        echo <<<HTML
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Signing out…</title>
+</head>
+<body>
+<script>
+(function(next, domain, delay){
+  try {
+    // Delete cookies for current host and shared domain
+    var cookies = (document.cookie || '').split('; ');
+    for (var i = 0; i < cookies.length; i++) {
+      var parts = cookies[i].split('=');
+      var name = parts.shift();
+      if (!name) continue;
+      // Attempt to remove cookie for both path variants and the shared domain
+      try { document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;"; } catch(e){}
+      try { document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;domain=" + domain + ";"; } catch(e){}
+      try { document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;domain=" + location.hostname + ";"; } catch(e){}
+    }
+
+    // Clear caches (if supported)
+    if ('caches' in window && caches.keys) {
+      caches.keys().then(function(names){ for (var n of names) caches.delete(n); }).catch(function(){});
+    }
+    // Unregister service workers
+    if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
+      navigator.serviceWorker.getRegistrations().then(function(regs){ for (var r of regs) r.unregister(); }).catch(function(){});
+    }
+    // Storage
+    try { localStorage.clear(); } catch(e) {}
+    try { sessionStorage.clear(); } catch(e) {}
+    // IndexedDB (best-effort)
+    try {
+      if (indexedDB && indexedDB.databases) {
+        indexedDB.databases().then(function(dbs){ dbs.forEach(function(db){ try { indexedDB.deleteDatabase(db.name); } catch(e){} }); }).catch(function(){});
+      }
+    } catch(e) {}
+
+  } catch(e) {
+    // Defensive - ignore errors during client cleanup
+  }
+
+  // Always navigate to next immediately (replace avoids history entry)
+  try { window.location.replace(next); } catch(e) { window.location.href = next; }
+  // Also set a fallback timed navigation to handle rare replace failures
+  setTimeout(function(){ try { window.location.href = next; } catch(e){} }, delay || 150);
+
+  // If page is shown from bfcache, force a reload that will re-run this script
+  window.onpageshow = function(ev) { if (ev && ev.persisted) { try { window.location.replace(next); } catch(e){} } };
+})({$safeNextJs}, {$safeDomainJs}, {$safeDelayJs});
+</script>
+
+<noscript><meta http-equiv="refresh" content="0;url={$next}" /></noscript>
+
+<h2>Signing out…</h2>
+<p>If you are not automatically redirected, <a href="{$next}">click here to continue</a>.</p>
+</body>
+</html>
+HTML;
+        exit;
+    }
+}
+
 /* --------------------------------------------------------------------------
  * End of file
  * -------------------------------------------------------------------------- */
