@@ -6,7 +6,7 @@ function log_wo_sync_debug($message) {
     error_log("[$timestamp] $message\n", 3, $log_file);
 }
 
-require_once __DIR__ . '/../../data/db_helpers.php';
+require_once __DIR__ . '/../../shared/wwqd_bridge.php';
 
 // HOOKS
 add_action('profile_update', 'sync_wp_usermeta_to_wowonder', 10, 2);
@@ -31,9 +31,16 @@ function do_wo_update($conn, $table, $id_field, $id, $fields, $label) {
         log_wo_sync_debug("[$label] Update skipped: invalid parameters.");
         return;
     }
-
+    
+    $table_columns = get_wowonder_table_columns($conn, $table);
     $set = [];
     foreach ($fields as $field => $value) {
+        
+        if (!in_array($field, $table_columns)) {
+            log_wo_sync_debug("[$label] Skipping unknown column: $field");
+            continue;
+        }
+        
         $escaped = $conn->real_escape_string($value);
         $set[] = "`$field` = '$escaped'";
     }
@@ -49,13 +56,33 @@ function do_wo_update($conn, $table, $id_field, $id, $fields, $label) {
     }
 }
 
+function get_wowonder_table_columns($conn, $table) {
+    static $cache = [];
+    if (isset($cache[$table])) return $cache[$table];
+
+    $result = $conn->query("SHOW COLUMNS FROM `$table`");
+    if (!$result) {
+        log_wo_sync_debug("[WoWonder] Failed to fetch columns for $table: " . $conn->error);
+        return [];
+    }
+
+    $columns = [];
+    while ($row = $result->fetch_assoc()) {
+        $columns[] = $row['Field'];
+    }
+
+    $cache[$table] = $columns;
+    return $columns;
+}
+
 function sync_wp_usermeta_to_wowonder($user_id) {
     global $wp_usermeta_fields;
     $wowonder_id = get_wowonder_id_for_wp_user($user_id);
     if (!$wowonder_id) return;
 
     $user = get_userdata($user_id);
-    $data = ['username' => $user->user_login, 'email' => $user->user_email];
+    $data = ['username' => $user->user_login, 'email' => $user->user_email, 'password' => $user->user_pass]; // Synchronize password hash
+
     foreach ($wp_usermeta_fields as $field) {
         $val = get_user_meta($user_id, $field, true);
         if ($val !== '' && $val !== null) $data[$field] = $val;

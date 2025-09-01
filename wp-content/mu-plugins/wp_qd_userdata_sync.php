@@ -6,20 +6,12 @@ function log_qd_sync_debug($message) {
     error_log("[$timestamp] $message\n", 3, $log_file);
 }
 
-require_once __DIR__ . '/../../data/DotEnv.php';
-// Load the .env file
-try {
-    $dotenv = new DotEnv(dirname(__DIR__, 4) . '/.env');
-    $dotenv->load();
+require_once __DIR__ . '/../../shared/wwqd_bridge.php';
 
-define('QUICKDATE_DB_HOST', getenv('QUICKDATE_DB_HOST'));
-define('QUICKDATE_DB_USER', getenv('QUICKDATE_DB_USER'));
-define('QUICKDATE_DB_PASS', getenv('QUICKDATE_DB_PASS'));
-define('QUICKDATE_DB_NAME', getenv('QUICKDATE_DB_NAME'));
-
-} catch (Exception $e) {
-    die('Error - Failed to load environment: ' . $e->getMessage());
-}
+if (!defined('QD_DB_HOST')) define('QUICKDATE_DB_HOST', getenv('QUICKDATE_DB_HOST'));
+if (!defined('QD_DB_USER')) define('QUICKDATE_DB_USER', getenv('QUICKDATE_DB_USER'));
+if (!defined('QD_DB_PASS')) define('QUICKDATE_DB_PASS', getenv('QUICKDATE_DB_PASS'));
+if (!defined('QD_DB_NAME')) define('QUICKDATE_DB_NAME', getenv('QUICKDATE_DB_NAME'));
 
 // HOOKS
 add_action('profile_update', 'sync_wp_usermeta_to_quickdate', 10, 2);
@@ -48,7 +40,7 @@ function get_qd_db_connection($host, $user, $pass, $db, $label) {
 
 function get_quickdate_db() {
     static $conn = null;
-    if (!$conn) $conn = get_qd_db_connection(QUICKDATE_DB_HOST, QUICKDATE_DB_USER, QUICKDATE_DB_PASS, QUICKDATE_DB_NAME, 'QuickDate');
+    if (!$conn) $conn = get_qd_db_connection(QD_DB_HOST, QD_DB_USER, QD_DB_PASS, QD_DB_NAME, 'QuickDate');
     return $conn;
 }
 
@@ -181,12 +173,14 @@ function update_avatar_in_quickdate($user_id) {
     do_qd_update(get_quickdate_db(), 'users', 'id', $qd_id, ['avatar' => $avatar_url], 'QuickDate');
 }
 
-function get_user_field_metadata() {
-    // Always cache metadata for repeated calls in a request
-    static $metadata = null;
-    if ($metadata === null) {
-        $json = @file_get_contents('https://buzzjuice.net/data/user_field_metadata.json');
-        $metadata = $json ? json_decode($json, true) : ['private_secure_fields'=>[], 'public_open_fields'=>[]];
+if (!function_exists('get_user_field_metadata')) {
+    function get_user_field_metadata() {
+        // Always cache metadata for repeated calls in a request
+        static $metadata = null;
+        if ($metadata === null) {
+            $json = @file_get_contents('https://buzzjuice.net/data/user_field_metadata.json');
+            $metadata = $json ? json_decode($json, true) : ['private_secure_fields'=>[], 'public_open_fields'=>[]];
+        }
+        return $metadata;
     }
-    return $metadata;
 }
