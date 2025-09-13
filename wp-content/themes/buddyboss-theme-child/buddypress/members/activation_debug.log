@@ -1,0 +1,13 @@
+[2025-07-28 08:36:02] Received activation key: NONE
+[2025-07-28 08:36:02] No activation key provided.
+[2025-07-28 08:36:02] Unexpected activation result: Empty or invalid.
+[2025-07-28 08:37:47] Received activation key: NONE
+[2025-07-28 08:37:47] No activation key provided.
+[2025-07-28 08:37:47] Unexpected activation result: Empty or invalid.
+[2025-07-28 08:37:55] Received activation key: NONE
+[2025-07-28 08:37:55] No activation key provided.
+[2025-07-28 08:37:55] Unexpected activation result: Empty or invalid.
+[2025-07-28 08:46:16] [Activation Debug] Activation key extracted from path: fISKmUhIiJMkFZ8Ad1y7gCLwBOPgtMnx
+[2025-07-28 08:46:16] [Activation Debug] Attempting to activate signup with key: fISKmUhIiJMkFZ8Ad1y7gCLwBOPgtMnx
+[2025-07-28 08:46:16] [Activation Debug] Activation failed. Error code: already_active | Message: The user is already active.
+[2025-07-28 08:46:31] [Activation Debug] No activation key found in the request.

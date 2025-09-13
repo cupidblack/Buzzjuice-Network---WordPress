@@ -77,6 +77,8 @@ class BB_Social_Provider_Twitter extends BB_SSO_Provider_OAuth {
 				'client_secret' => '',
 			)
 		);
+
+		add_filter( 'bb_sso_register_signup_fields_not_found', array( $this, 'bb_sso_register_signup_fields_not_found' ) );
 	}
 
 	/**
@@ -234,6 +236,18 @@ class BB_Social_Provider_Twitter extends BB_SSO_Provider_OAuth {
 		if ( null !== $this->client ) {
 			$this->client->delete_login_persistent_data();
 		}
+
+		// Clear code verifier after successful authentication.
+		\BBSSO\Persistent\BB_SSO_Persistent::delete( $this->id . '_code_verifier' );
+
+		// Clear session cookie after successful authentication.
+		$storage      = new \BBSSO\Persistent\Storage\BB_SSO_Storage_Session();
+		$session_name = $storage->get_session_name();
+
+		if ( isset( $_COOKIE[ $session_name ] ) ) {
+			setcookie( $session_name, '', time() - 3600, COOKIEPATH ? COOKIEPATH : '/', COOKIE_DOMAIN );
+			unset( $_COOKIE[ $session_name ] );
+		}
 	}
 
 	/**
@@ -345,6 +359,40 @@ class BB_Social_Provider_Twitter extends BB_SSO_Provider_OAuth {
 		}
 
 		return $this->client;
+	}
+
+	/**
+	 * Adds a message to the registration form if the Twitter provider has error.
+	 *
+	 * @since 2.6.90
+	 *
+	 * @param string $message The existing message to modify.
+	 *
+	 * @return string The modified message.
+	 */
+	public function bb_sso_register_signup_fields_not_found( $message ) {
+		if ( 'twitter' === $this->id && isset( \BBSSO\BB_SSO_Notices::$notices['info'] ) ) {
+			$message = sprintf(
+				/** Translators: %1$s: Error message */
+				'<div class="bb-sso-reg-error"><p>%1$s </p></div>',
+				current( \BBSSO\BB_SSO_Notices::$notices['info'] )
+			);
+		}
+
+		return $message;
+	}
+
+	/**
+	 * Connects the user to the social provider.
+	 *
+	 * @since 2.6.90
+	 */
+	public function connect() {
+		// Clear any existing session data for Twitter.
+		\BBSSO\Persistent\BB_SSO_Persistent::delete( $this->id . '_auth_user_data' );
+
+		// Continue with normal authentication.
+		parent::connect();
 	}
 }
 

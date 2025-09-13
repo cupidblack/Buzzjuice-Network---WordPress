@@ -215,15 +215,6 @@ class BB_SSO_REST {
 					$email = $provider->get_auth_user_data_by_auth_options( 'email', $access_token );
 				}
 				if ( empty( $email ) ) {
-					// Throw error: Email is required.
-					$email_msg = apply_filters(
-						'bb_sso_register_email_not_found',
-						sprintf(
-						/* translators: %s: provider label */
-							__( 'Email address could not be identified. Please share the email used for your %s account to register.', 'buddyboss-pro' ),
-							$provider->get_label()
-						)
-					);
 					$response->set_data(
 						array(
 							'response' => 'error',
@@ -235,7 +226,14 @@ class BB_SSO_REST {
 					$wordpress_user_id = email_exists( $email );
 				}
 				if ( false !== $wordpress_user_id ) {
-					if ( $provider->link_user_to_provider_identifier( $wordpress_user_id, $social_user_id ) ) {
+					$first_name = '';
+					$last_name  = '';
+					if ( 'apple' === $provider->get_id() && ! empty( $access_token_decoded ) ) {
+						$apple_user_data = $this->bb_get_user_names_from_social_table( $provider->get_id(), $social_user_id, $access_token_decoded );
+						$first_name      = $apple_user_data['first_name'];
+						$last_name       = $apple_user_data['last_name'];
+					}
+					if ( $provider->link_user_to_provider_identifier( $wordpress_user_id, $social_user_id, false, $first_name, $last_name ) ) {
 						$provider->trigger_sync( $wordpress_user_id, $access_token, 'login', true );
 
 						$provider->log_login_date( $wordpress_user_id );
@@ -283,11 +281,28 @@ class BB_SSO_REST {
 					$allow_signup            = $bb_sso_user->validate_signup( $email );
 					$allow_signup['message'] = '';
 					if ( ! $allow_signup['allow_signup'] ) {
+						// If Apple, remove field labels based on available data from the social table and access token data.
+						if ( 'apple' === $request['provider'] && ! empty( $access_token_decoded ) ) {
+							$apple_user_data = $this->bb_get_user_names_from_social_table( $get_provider->get_id(), $social_user_id, $access_token_decoded );
+
+							// Remove field labels based on available data.
+							if ( ! empty( $apple_user_data['first_name'] ) ) {
+								unset( $allow_signup['require_fields_label'][1] ); // Remove First Name.
+								unset( $allow_signup['require_fields_label'][3] ); // Remove Nickname if we have first name.
+							}
+							if ( ! empty( $apple_user_data['last_name'] ) ) {
+								unset( $allow_signup['require_fields_label'][2] ); // Remove Last Name.
+								unset( $allow_signup['require_fields_label'][3] ); // Remove Nickname if we have last name.
+							}
+						}
 						// Get the labels from the $fields_labels array.
 						// For signup_email and signup_email_confirm, we need to get the label from the account_details group.
-						$all_fields_labels = array_map( function ( $item ) {
-							return is_array( $item ) && isset( $item['label'] ) ? $item['label'] : $item;
-						}, $allow_signup['require_fields_label'] );
+						$all_fields_labels = array_map(
+							function ( $item ) {
+								return is_array( $item ) && isset( $item['label'] ) ? $item['label'] : $item;
+							},
+							$allow_signup['require_fields_label']
+						);
 
 						// Throw error: Registration with required fields.
 						$signup_fields_msg = apply_filters(
@@ -296,9 +311,15 @@ class BB_SSO_REST {
 							/* translators: %1$s: required fields list, %2$s: required fields list */
 								'<div class="bb-sso-reg-error"><p>%1$s </p>%2$s</div>',
 								esc_html__( 'Please fill in the required fields to complete your registration:', 'buddyboss-pro' ),
-								'<ul><li>' . implode( '</li><li>', array_map( function ( $label ) {
-									return '<strong>' . esc_html( $label ) . '</strong>';
-								}, $all_fields_labels ) ) . '</li></ul>'
+								'<ul><li>' . implode(
+									'</li><li>',
+									array_map(
+										function ( $label ) {
+											return '<strong>' . esc_html( $label ) . '</strong>';
+										},
+										$all_fields_labels
+									)
+								) . '</li></ul>'
 							)
 						);
 
@@ -388,6 +409,48 @@ class BB_SSO_REST {
 							$prefill_fields['field_2'] = $provider->get_auth_user_data_by_auth_options( 'last_name', $access_token );
 						}
 
+						// If Apple, remove required fields based on available data from the social table and access token data.
+						if ( 'apple' === $get_provider->get_id() && ! empty( $access_token_decoded ) ) {
+							$apple_user_data = $this->bb_get_user_names_from_social_table( $get_provider->get_id(), $social_user_id, $access_token_decoded );
+							// Create array of fields to remove based on available data.
+							$fields_to_remove = array();
+							if ( ! empty( $apple_user_data['first_name'] ) ) {
+								$prefill_fields['field_1'] = $apple_user_data['first_name'];
+								$fields_to_remove[]        = 'field_1';
+								$fields_to_remove[]        = 'field_3';
+							}
+							if ( ! empty( $apple_user_data['last_name'] ) ) {
+								$prefill_fields['field_2'] = $apple_user_data['last_name'];
+								$fields_to_remove[]        = 'field_2';
+								$fields_to_remove[]        = 'field_3';
+							}
+							if ( ! empty( $prefill_fields['field_1'] ) || ! empty( $prefill_fields['field_2'] ) ) {
+								$field_3 = $prefill_fields['field_1'] . $prefill_fields['field_2'];
+								if ( ! bb_enable_additional_sso_name() ) {
+									$bb_autogenerate_user_prefix = apply_filters( 'bb_sso_autogenerate_user_prefix', '' );
+									$field_3                     = function_exists( 'bb_generate_user_random_profile_slugs' ) ? bb_generate_user_random_profile_slugs( 1, $bb_autogenerate_user_prefix ) : '';
+									if ( ! empty( $field_3 ) ) {
+										$field_3 = current( $field_3 );
+									} else {
+										$field_3 = sanitize_user( $bb_autogenerate_user_prefix . md5( uniqid( wp_rand() ) ), true );
+									}
+								}
+								$prefill_fields['field_3'] = sanitize_user( $field_3 );
+							}
+
+							// Remove fields in one go if we have any to remove.
+							if ( ! empty( $fields_to_remove ) ) {
+								$required_fields = array_values(
+									array_filter(
+										$required_fields,
+										function ( $field ) use ( $fields_to_remove ) {
+											return ! in_array( $field['id'], $fields_to_remove );
+										}
+									)
+								);
+							}
+						}
+
 						$data['required_field'] = $required_fields;
 						if ( ! empty( $data['required_field'] ) ) {
 							$url_components = parse_url( $redirect_url );
@@ -435,10 +498,22 @@ class BB_SSO_REST {
 						$first_name = $provider->get_auth_user_data_by_auth_options( 'first_name', $access_token );
 						$last_name  = $provider->get_auth_user_data_by_auth_options( 'last_name', $access_token );
 						$name       = $provider->get_auth_user_data_by_auth_options( 'name', $access_token );
+
+						if ( 'apple' === $get_provider->get_id() && ! empty( $access_token_decoded ) ) {
+							$apple_user_data = $this->bb_get_user_names_from_social_table( $get_provider->get_id(), $social_user_id, $access_token_decoded );
+							$first_name      = $apple_user_data['first_name'];
+							$last_name       = $apple_user_data['last_name'];
+							$name            = sanitize_user( strtolower( $first_name ) . strtolower( $last_name ), true );
+						}
 					}
 					if ( empty( $name ) ) {
 						$bb_autogenerate_user_prefix = apply_filters( 'bb_sso_autogenerate_user_prefix', '' );
-						$name                        = sanitize_user( $bb_autogenerate_user_prefix . md5( uniqid( wp_rand() ) ), true );
+						$name                        = function_exists( 'bb_generate_user_random_profile_slugs' ) ? bb_generate_user_random_profile_slugs( 1, $bb_autogenerate_user_prefix ) : '';
+						if ( ! empty( $name ) ) {
+							$name = current( $name );
+						} else {
+							$name = sanitize_user( $bb_autogenerate_user_prefix . md5( uniqid( wp_rand() ) ), true );
+						}
 					}
 					$user_data = array(
 						'user_login'   => $name,
@@ -454,7 +529,7 @@ class BB_SSO_REST {
 					}
 					$wordpress_user_id = wp_insert_user( $user_data );
 					if ( ! is_wp_error( $wordpress_user_id ) && $wordpress_user_id ) {
-						if ( $provider->link_user_to_provider_identifier( $wordpress_user_id, $social_user_id, true ) ) {
+						if ( $provider->link_user_to_provider_identifier( $wordpress_user_id, $social_user_id, true, $first_name, $last_name ) ) {
 							$provider->trigger_sync( $wordpress_user_id, $access_token_data, 'register', true );
 
 							// BuddyPress - add register activity to accounts registered with social login.
@@ -500,6 +575,13 @@ class BB_SSO_REST {
 				}
 			} else {
 				$data = $this->generate_token( (int) $user, $device_token );
+
+				if ( 'apple' === $provider->get_id() && ! empty( $access_token_decoded ) ) {
+					$apple_user_data = $this->bb_get_user_names_from_social_table( $provider->get_id(), $social_user_id, $access_token_decoded );
+					$first_name      = $apple_user_data['first_name'];
+					$last_name       = $apple_user_data['last_name'];
+					$provider->link_user_to_provider_identifier( (int) $user, $social_user_id, false, $first_name, $last_name );
+				}
 
 				$provider->log_login_date( (int) $user );
 
@@ -567,7 +649,7 @@ class BB_SSO_REST {
 			$data = $jwt->generate_jwt_base( $user, true, false, $token_args );
 
 			if ( ! empty( $device_token ) && isset( $data['user_id'] ) && ! empty( $data['user_id'] ) ) {
-				if ( function_exists( 'bbapp_notifications' ) ) {
+				if ( function_exists( 'bbapp_notifications' ) && ! empty( $data['access_token'] ) ) {
 					bbapp_notifications()->register_device_for_user( $data['user_id'], $device_token, $data['access_token'] );
 				}
 			}
@@ -765,6 +847,54 @@ class BB_SSO_REST {
 			);
 			$response->set_data( $new_response );
 		}
+	}
+
+	/**
+	 * Get user's first and last name from social table.
+	 *
+	 * @since 2.7.00
+	 *
+	 * @param string $provider_id          The provider identifier.
+	 * @param string $social_identifier    The social identifier for the user.
+	 * @param array  $access_token_decoded The decoded access token.
+	 *
+	 * @return array An array containing first_name and last_name.
+	 */
+	private function bb_get_user_names_from_social_table( $provider_id, $social_identifier, $access_token_decoded ) {
+		global $wpdb;
+		$names = array(
+			'first_name' => '',
+			'last_name'  => '',
+		);
+
+		// First try to get from access token data if available.
+		if ( 'apple' === $provider_id && ! empty( $access_token_decoded['user'] ) && bb_enable_additional_sso_name() ) {
+			$names['first_name'] = ! empty( $access_token_decoded['user']['name']['firstName'] ) ?
+			$access_token_decoded['user']['name']['firstName'] : '';
+			$names['last_name']  = ! empty( $access_token_decoded['user']['name']['lastName'] ) ?
+			$access_token_decoded['user']['name']['lastName'] : '';
+		}
+
+		// If names are still empty, check the database.
+		if ( ( empty( $names['first_name'] ) || empty( $names['last_name'] ) ) && ! empty( $social_identifier ) ) {
+			$table_prefix = function_exists( 'bp_core_get_table_prefix' ) ? bp_core_get_table_prefix() : $wpdb->base_prefix;
+			$table_name   = $table_prefix . 'bb_social_sign_on_users';
+
+			$user_data = $wpdb->get_row(
+				$wpdb->prepare(
+					"SELECT first_name, last_name FROM {$table_name} WHERE type = %s AND identifier = %s",
+					$provider_id,
+					$social_identifier
+				)
+			);
+
+			if ( ! empty( $user_data ) ) {
+				$names['first_name'] = ! empty( $user_data->first_name ) ? $user_data->first_name : $names['first_name'];
+				$names['last_name']  = ! empty( $user_data->last_name ) ? $user_data->last_name : $names['last_name'];
+			}
+		}
+
+		return $names;
 	}
 }
 

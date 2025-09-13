@@ -27,10 +27,14 @@ function the_dramatist_custom_login_css() {
     h1.wp-login-logo {
         justify-self: center;
     }
-    
-    .login.bb-login #login > h1 > a {
-        height: 1;
+    			.login h1 a,
+			.login .wp-login-logo a {
+			max-height: 64px;
     }
+    
+    body.login.login-split-page #login h1 a {
+    margin-left: auto;
+}
     
     </style>';
 }
@@ -108,3 +112,46 @@ add_action('bp_messages_screen_conversation', function() {
         }
     }
 });
+
+
+
+/**
+ * @snippet       Disable "You cannot add another ___" Woo Error Message
+ * @how-to        businessbloomer.com/woocommerce-customization
+ * @author        Rodolfo Melogli, Business Bloomer
+ * @compatible    WooCommerce 8
+ * @community     https://businessbloomer.com/club/
+ */
+ 
+add_filter( 'woocommerce_add_to_cart_sold_individually_found_in_cart', 'bbloomer_no_message_if_already_found_in_cart' );
+ 
+function bbloomer_no_message_if_already_found_in_cart( $found ) {
+   if ( $found ) {
+      throw new Exception();
+   }
+   return $found;
+}
+
+
+
+add_action( 'before_woocommerce_init', function() {
+    if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+        // Use the absolute path to the main plugin file
+        $plugin_file = WP_PLUGIN_DIR . '/learndash-woocommerce/learndash_woocommerce.php';
+        if ( file_exists( $plugin_file ) ) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
+                'custom_order_tables',
+                $plugin_file,
+                true
+            );
+        }
+    }
+} );
+
+/*
+add_action('login_init', function () {
+    if ( is_user_logged_in() ) {
+        wp_safe_redirect( home_url('/') );
+        exit;
+    }
+});*/

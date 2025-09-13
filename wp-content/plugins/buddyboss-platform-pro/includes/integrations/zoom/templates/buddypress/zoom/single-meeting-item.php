@@ -9,7 +9,7 @@
 ?>
 <div class="meeting-item-container" data-id="<?php bp_zoom_meeting_id(); ?>" data-meeting-id="<?php bp_zoom_meeting_zoom_meeting_id(); ?>" data-is-recurring="<?php echo ( 'meeting_occurrence' === bp_get_zoom_meeting_zoom_type() || bp_get_zoom_meeting_recurring() ) ? '1' : '0'; ?>" <?php echo 'meeting_occurrence' === bp_get_zoom_meeting_zoom_type() ? 'data-occurrence-id="' . esc_attr( bp_get_zoom_meeting_occurrence_id() ) . '"' : ''; ?>>
 	<div class="bb-title-wrap">
-		<a href="#" class="bp-back-to-meeting-list"><span class="bb-icon-l bb-icon-angle-left"></span></a>
+		<a href="#" class="bp-back-to-meeting-list" aria-label="<?php esc_attr_e( 'Back to meeting list', 'buddyboss-pro' ); ?>"><span class="bb-icon-l bb-icon-angle-left"></span></a>
 		<div>
 			<h2 class="bb-title">
 				<?php bp_zoom_meeting_title(); ?>
@@ -28,7 +28,7 @@
 		</div>
 		<?php if ( bp_zoom_groups_can_user_manage_zoom( bp_loggedin_user_id(), bp_get_current_group_id() ) && bp_zoom_groups_can_user_manage_meeting( bp_get_zoom_meeting_id() ) ) : ?>
 			<div class="meeting-actions">
-				<a href="#" class="meeting-actions-anchor">
+				<a href="#" class="meeting-actions-anchor" aria-label="<?php esc_attr_e( 'More options', 'buddyboss-pro' ); ?>">
 					<i class="bb-icon-f bb-icon-ellipsis-v"></i>
 				</a>
 				<div class="meeting-actions-list bb_more_dropdown">

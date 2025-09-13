@@ -177,7 +177,7 @@ class BBoss_License_Helper {
 			array(
 				'headers'     => array(
 					"cache-control" => "no-cache",
-					"postman-token" => "b131698c-451b-1218-bbbd-07e0a9ea34bb",
+					"postman-token" => "f1fb4002-bca7-488e-b3a4-7c67e635ef21",
 				),
 				'body'        => $params,
 				'timeout'     => 50,

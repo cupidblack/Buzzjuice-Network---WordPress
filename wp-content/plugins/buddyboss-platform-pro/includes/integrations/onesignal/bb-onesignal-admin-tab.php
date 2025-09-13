@@ -361,7 +361,7 @@ class BB_OneSignal_Admin_Integration_Tab extends BP_Admin_Integration_tab {
 		?>
 		<div class="password-toggle">
 			<input name="bb-onesignal-rest-api" id="bb-onesignal-rest-api" type="password" value="<?php echo esc_attr( bb_onesignal_rest_api_key() ); ?>" aria-label="<?php esc_html_e( 'Rest API Key', 'buddyboss-pro' ); ?>" required />
-			<button type="button" class="button button-secondary bb-hide-pw hide-if-no-js" data-toggle="0">
+			<button type="button" class="button button-secondary bb-hide-pw hide-if-no-js" data-toggle="0" aria-label="<?php esc_attr_e( 'Toggle', 'buddyboss-pro' ); ?>">
 				<span class="bb-icon bb-icon-eye-small" aria-hidden="true"></span>
 			</button>
 		</div>

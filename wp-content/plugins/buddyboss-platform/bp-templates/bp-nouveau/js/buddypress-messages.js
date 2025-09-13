@@ -3807,8 +3807,6 @@ window.bp = window.bp || {};
 					{
 						placeholder: '',
 						minimumInputLength: 1,
-						dropdownCssClass: 'bb-select-dropdown bb-compose-input',
-						containerCssClass: 'bb-select-container',
 						language: {
 							errorLoading: function() {
 								return bp_select2.i18n.errorLoading;
@@ -3892,6 +3890,25 @@ window.bp = window.bp || {};
 						}
 					}
 				);
+
+				// Apply CSS classes after initialization
+				$input.on('select2:open', function() {
+					// Add class to dropdown
+					$('.select2-dropdown').addClass('bb-select-dropdown bb-compose-input');
+					
+					// Add aria-label to search field for accessibility.
+					setTimeout( function() {
+						$( '.select2-search__field' ).attr( 'aria-label', BP_Nouveau.messages.i18n.search_recipients );
+					}, 0 );
+				});
+				
+				// Add aria-label to search field after initialization (for initial load).
+				setTimeout( function() {
+					$( '.select2-search__field' ).attr( 'aria-label', BP_Nouveau.messages.i18n.search_recipients );
+				}, 100 );
+				
+				// Add class to container immediately after initialization
+				$input.next('.select2-container').addClass('bb-select-container');
 
 				// Add element into the Arrdata array.
 				$input.on(

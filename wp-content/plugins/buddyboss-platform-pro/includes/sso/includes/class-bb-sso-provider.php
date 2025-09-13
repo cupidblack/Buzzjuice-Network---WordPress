@@ -642,13 +642,22 @@ abstract class BB_SSO_Provider extends BB_SSO_Provider_Dummy {
 	 * optionally showing a success notice.
 	 *
 	 * @since 2.6.30
+	 * @since 2.6.90 Added new param to redirect to specific page.
 	 *
-	 * @param bool $notice Optional. Whether to show a notice on redirect. Default is false.
+	 * @param bool   $notice Optional. Whether to show a notice on redirect. Default is false.
+	 * @param string $action Action for SSO redirection.
 	 *
 	 * @return void
 	 */
-	public function redirect_to_last_location( $notice = false ) {
+	public function redirect_to_last_location( $notice = false, $action = '' ) {
 		$url = $this->get_last_location_redirect_to();
+
+		if ( 'login' === $action ) {
+			$current_user = wp_get_current_user();
+			if ( ! empty( $current_user ) ) {
+				$url = bb_login_redirect( $url, $url, $current_user );
+			}
+		}
 
 		if ( $notice ) {
 			$url = BB_SSO::enable_notice_for_url( $url );
@@ -733,10 +742,14 @@ abstract class BB_SSO_Provider extends BB_SSO_Provider_Dummy {
 	 */
 	public function link_user_to_provider_identifier( $user_id, $provider_identifier, $is_register = false, $first_name = '', $last_name = '' ) {
 		global $wpdb;
+		if ( empty( $provider_identifier ) ) {
+			bp_core_add_message( __( 'Provider identifier is empty', 'buddyboss-pro' ), 'error' );
+			return false;
+		}
 		$connected_provider_id = ! empty( $user_id ) ? $this->get_provider_identifier_by_user_id( $user_id ) : null;
 		if ( null !== $connected_provider_id ) {
 			if ( $connected_provider_id === $provider_identifier ) {
-				// This provider already linked to this user
+				// This provider already linked to this user.
 				return true;
 			}
 
@@ -776,8 +789,8 @@ abstract class BB_SSO_Provider extends BB_SSO_Provider_Dummy {
 				);
 
 				if ( 'apple' === $this->db_id ) {
-					$update_data['first_name'] = $fetch_user_data->first_name;
-					$update_data['last_name']  = $fetch_user_data->last_name;
+					$update_data['first_name'] = ! empty( $fetch_user_data->first_name ) ? $fetch_user_data->first_name : $first_name;
+					$update_data['last_name']  = ! empty( $fetch_user_data->last_name ) ? $fetch_user_data->last_name : $last_name;
 				} else {
 					$update_data['first_name'] = $first_name;
 					$update_data['last_name']  = $last_name;
@@ -836,12 +849,29 @@ abstract class BB_SSO_Provider extends BB_SSO_Provider_Dummy {
 			 */
 			// Update existing entry when linking.
 			if ( $fetch_user_data ) {
+				$updated_first_name = $fetch_user_data->first_name;
+				$updated_last_name  = $fetch_user_data->last_name;
+				// If Apple, update the first_name and last_name if they are empty when linking.
+				if (
+					'apple' === $this->db_id &&
+					(
+						empty( $fetch_user_data->first_name ) ||
+						empty( $fetch_user_data->last_name )
+					)
+				) {
+					if ( empty( $fetch_user_data->first_name ) ) {
+						$updated_first_name = $first_name;
+					}
+					if ( empty( $fetch_user_data->last_name ) ) {
+						$updated_last_name = $last_name;
+					}
+				}
 				$wpdb->update(
 					$this->table_name,
 					array(
 						'wp_user_id' => $user_id,
-						'first_name' => $fetch_user_data->first_name,
-						'last_name'  => $fetch_user_data->last_name,
+						'first_name' => $updated_first_name,
+						'last_name'  => $updated_last_name,
 						'link_date'  => current_time( 'mysql' ),
 					),
 					array(

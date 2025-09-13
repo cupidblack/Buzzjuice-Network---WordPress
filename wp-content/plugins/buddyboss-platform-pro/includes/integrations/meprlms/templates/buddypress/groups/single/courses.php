@@ -20,9 +20,6 @@ if ( ! $group_id ) {
 	return;
 }
 
-// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-echo bb_meprlms_get_course_search_form();
-
 $options                   = get_option( 'mpcs-options' );
 $paged                     = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; // phpcs:ignore
 $per_page                  = ( get_query_var( 'per_page' ) ) ? get_query_var( 'per_page' ) : (int) helpers\Options::val( $options, 'courses-per-page', 10 ); // phpcs:ignore
@@ -63,6 +60,25 @@ if ( get_query_var( 's' ) ) {
 }
 
 $bb_meprlms_groups = bb_load_meprlms_group()->get( $args );
+
+if ( ! function_exists( 'bb_enable_content_counts' ) || bb_enable_content_counts() ) {
+	$count = ! empty( $bb_meprlms_groups['total'] ) ? $bb_meprlms_groups['total'] : 0;
+	?>
+	<div class="bb-item-count">
+		<?php
+		/* translators: %d is the courses count */
+		printf(
+			wp_kses( _n( '<span class="bb-count">%d</span> Course', '<span class="bb-count">%d</span> Courses', $count, 'buddyboss-pro' ), array( 'span' => array( 'class' => true ) ) ),
+			$count
+		);
+		?>
+	</div>
+	<?php
+	unset( $count );
+}
+
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+echo bb_meprlms_get_course_search_form();
 
 if ( ! empty( $bb_meprlms_groups['courses'] ) && count( $bb_meprlms_groups['courses'] ) ) {
 	$courses       = $bb_meprlms_groups['courses'];

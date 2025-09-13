@@ -783,7 +783,7 @@ if ( ! function_exists( 'buddypanel_position_right' ) ) {
 
 		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
 		if ( ( $show_buddypanel || 3 === $header ) && $buddypanel_side && 'right' === $buddypanel_side && $buddypanel_toggle ) {
-			$toggle_panel = '<a href="#" class="bb-toggle-panel"><i class="bb-icon-l bb-icon-sidebar"></i></a>';
+			$toggle_panel = '<a href="#" class="bb-toggle-panel"><i class="bb-icon-l bb-icon-sidebar"></i><span class="screen-reader-text">' . esc_attr__( 'Toggle Side Panel', 'buddyboss-theme' ) . '</span></a>';
 			return $toggle_panel;
 		}
 	}
@@ -856,8 +856,9 @@ if ( ! function_exists( 'buddyboss_comment' ) ) {
 					/* translators: %s: Author related metas. */
 					__( '%s', 'buddyboss-theme' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.WP.I18n.NoEmptyStrings
 					sprintf(
-						'<cite class="fn comment-author"><a href="%s" rel="external nofollow ugc" class="url">%s</a></cite>',
+						'<cite class="fn comment-author"><a href="%s" rel="external nofollow ugc" class="url" aria-label="%s">%s</a></cite>',
 						empty( $user_link ) ? '' : esc_url( $user_link ),
+						esc_attr( get_comment_author( $comment ) ),
 						get_comment_author_link( $comment )
 					)
 				);
@@ -1839,6 +1840,10 @@ if ( ! function_exists( 'buddyboss_theme_sudharo_tapas' ) ) {
 	 * @since 1.6.0
 	 */
 	function buddyboss_theme_sudharo_tapas() {
+		static $is_cached = false;
+		if ( $is_cached ) {
+			return;
+		}
 		$saved_licenses = get_option( 'bboss_updater_saved_licenses' );
 		if ( is_multisite() ) {
 			$saved_site_licenses = get_site_option( 'bboss_updater_saved_licenses' );
@@ -1885,6 +1890,7 @@ if ( ! function_exists( 'buddyboss_theme_sudharo_tapas' ) ) {
 				delete_option( 'be5f330bbd49d6160ff4658ac3d219ee' );
 			}
 		}
+		$is_cached = true;
 	}
 
 	add_action( 'admin_init', 'buddyboss_theme_sudharo_tapas', 999999 );
@@ -2084,21 +2090,23 @@ if ( ! function_exists( 'bb_theme_elementor_topic_link_attribute_change' ) ) {
 }
 
 /**
- * Edit button alter href when elementor activity.
+ * Edit button alter href when elementor activity and allow only edit and delete option.
+ *
+ * @since BuddyBoss 2.8.00
  *
  * @param array $buttons     Array of Buttons visible on activity entry.
  * @param int   $activity_id Activity ID.
  *
  * @return mixed
- * @since BuddyBoss 1.5.1
  */
-function bb_theme_elementor_activity_edit_button( $buttons, $activity_id ) {
+function bb_theme_elementor_activity_bubble_buttons( $buttons, $activity_id ) {
 	global $bb_theme_elementor_activity;
 	if ( isset( $buttons['activity_edit'] ) && true === $bb_theme_elementor_activity ) {
 		$activity = new BP_Activity_Activity( $activity_id );
 
 		if ( ! empty( $activity->id ) ) {
-			$buttons['activity_edit']['button_attr']['href'] = bp_activity_get_permalink( $activity_id ) . 'edit';
+			$buttons['activity_edit']['button_attr']['href']   = bp_activity_get_permalink( $activity_id ) . 'edit';
+			$buttons['activity_edit']['button_attr']['target'] = '_blank';
 
 			$classes  = explode( ' ', $buttons['activity_edit']['button_attr']['class'] );
 			$edit_key = array_search( 'edit', $classes, true );
@@ -2109,9 +2117,15 @@ function bb_theme_elementor_activity_edit_button( $buttons, $activity_id ) {
 		}
 	}
 
+	if ( true === $bb_theme_elementor_activity ) {
+
+		// Keep only 'activity_edit' and 'activity_delete', remove everything else.
+		$buttons = array_intersect_key( $buttons, array_flip( array( 'activity_edit', 'activity_delete' ) ) );
+	}
+
 	return $buttons;
 }
-add_filter( 'bp_nouveau_get_activity_entry_buttons', 'bb_theme_elementor_activity_edit_button', 10, 2 );
+add_filter( 'bb_nouveau_get_activity_entry_bubble_buttons', 'bb_theme_elementor_activity_bubble_buttons', 10, 2 );
 
 /**
  * Output the privacy option inside an Elementor Activity Loop widget.

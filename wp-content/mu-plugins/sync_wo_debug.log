@@ -30,3 +30,29 @@
 [2025-07-31 15:08:15] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
 [2025-07-31 15:08:15] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
 [2025-07-31 15:20:30] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-05 12:02:19] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-05 12:09:14] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-05 12:13:36] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-05 12:14:31] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-05 12:15:03] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-06 23:40:48] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-07 10:04:13] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-07 10:08:10] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-07 10:39:20] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-08 13:55:11] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-08 14:03:33] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-08 14:05:30] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-08 14:13:12] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-10 02:49:36] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-11 02:52:28] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-11 02:52:28] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-12 19:18:10] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-15 22:38:50] [WoWonder] Update failed: Unknown column 'wo_user_id' in 'SET'
+[2025-08-15 23:01:44] [WoWonder] Skipping unknown column: wo_user_id
+[2025-08-15 23:11:22] [WoWonder] Skipping unknown column: wo_user_id
+[2025-08-15 23:13:17] [WoWonder] Skipping unknown column: wo_user_id
+[2025-08-18 07:32:49] [WoWonder] Skipping unknown column: wo_user_id
+[2025-08-29 22:34:55] [WoWonder] Skipping unknown column: qd_user_id
+[2025-08-29 22:34:55] [WoWonder] Skipping unknown column: wo_user_id
+[2025-08-29 22:40:04] [WoWonder] Skipping unknown column: qd_user_id
+[2025-08-29 22:40:04] [WoWonder] Skipping unknown column: wo_user_id

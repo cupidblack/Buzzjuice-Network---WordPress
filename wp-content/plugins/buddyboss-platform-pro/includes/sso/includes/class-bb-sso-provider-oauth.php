@@ -513,6 +513,16 @@ abstract class BB_SSO_Provider_OAuth extends BB_SSO_Provider {
 	public function bb_sso_app_authentication() {
 		if ( isset( $_REQUEST['bb_app_redirect_schema'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$provider = ! empty( $_REQUEST['bb_social_login'] ) ? $_REQUEST['bb_social_login'] : ''; // phpcs:ignore
+
+			// For Microsoft, we need to get the provider from the request url.
+			if (
+				empty( $provider ) &&
+				isset( $_SERVER['REQUEST_URI'] ) &&
+				false !== strpos( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), '/bb-social-login/v1/microsoft/redirect_uri' )
+			) {
+				$provider = 'microsoft';
+			}
+
 			if (
 				empty( $provider ) ||
 				! isset( BB_SSO::$providers[ $provider ] )
@@ -522,7 +532,7 @@ abstract class BB_SSO_Provider_OAuth extends BB_SSO_Provider {
 
 			$provider_class = BB_SSO::$providers[ $provider ];
 
-			if ( 'twitter' === $provider ) {
+			if ( 'twitter' === $provider || 'microsoft' === $provider ) {
 				$redirect_uri = $_REQUEST['bb_app_redirect_schema']; // phpcs:ignore
 				$code         = ! empty( $_REQUEST['code'] ) ? $_REQUEST['code'] : ''; // phpcs:ignore
 				$state        = ! empty( $_REQUEST['state'] ) ? $_REQUEST['state'] : ''; // phpcs:ignore

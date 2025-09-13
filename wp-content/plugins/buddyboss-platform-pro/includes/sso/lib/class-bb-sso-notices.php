@@ -29,7 +29,7 @@ class BB_SSO_Notices {
 	 *
 	 * @var array
 	 */
-	private static $notices;
+	public static $notices;
 
 	/**
 	 * Instance of the class.
@@ -191,7 +191,7 @@ class BB_SSO_Notices {
 								'bb_trigger_toast_message',
 								[
 									'',
-									'<?php echo esc_html( $message ); ?>',
+									'<?php echo wp_kses_post( $message ); ?>',
 									'<?php echo esc_html( $type ); ?>',
 									null,
 									true

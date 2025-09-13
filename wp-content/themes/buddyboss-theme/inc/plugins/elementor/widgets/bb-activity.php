@@ -697,7 +697,13 @@ class BBP_Activity extends Widget_Base {
 											$activity_popup_title = sprintf( esc_html__( '%s\'s Post', 'buddyboss-theme' ), bp_core_get_user_displayname( bp_get_activity_user_id() ) );
 											?>
 											<li class="<?php bp_activity_css_class(); ?> elementor-activity-item" id="activity-<?php echo esc_attr( $bp_activity_id ); ?>" data-bp-activity-id="<?php echo esc_attr( $bp_activity_id ); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bp-activity="<?php ( function_exists('bp_nouveau_edit_activity_data') ) ? bp_nouveau_edit_activity_data() : ''; ?>" data-activity-popup-title='<?php echo empty( $activity_popup_title ) ? '' : esc_html( $activity_popup_title ); ?>'>
-
+												<span <?php echo $this->get_render_attribute_string( 'actions' ); ?>>
+													<?php
+														if ( function_exists( 'bb_nouveau_activity_entry_bubble_buttons' ) ) {
+															bb_nouveau_activity_entry_bubble_buttons();
+														}
+													?>
+												</span>
 												<div class="bp-activity-head">
 													<?php if ( $settings['switch_avatar'] ) : ?>
 														<div class="activity-avatar item-avatar">

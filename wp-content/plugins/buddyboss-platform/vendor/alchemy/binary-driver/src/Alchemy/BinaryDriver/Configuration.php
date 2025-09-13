@@ -8,26 +8,22 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-//BlueCrownR&D
 namespace BuddyBossPlatform\Alchemy\BinaryDriver;
 
-class Configuration implements ConfigurationInterface, \ArrayAccess, \IteratorAggregate
+class Configuration implements ConfigurationInterface
 {
     private $data;
-
     public function __construct(array $data = array())
     {
         $this->data = $data;
     }
-
     /**
      * {@inheritdoc}
      */
-    public function getIterator(): \Traversable
+    public function getIterator()
     {
         return new \ArrayIterator($this->data);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -35,7 +31,6 @@ class Configuration implements ConfigurationInterface, \ArrayAccess, \IteratorAg
     {
         return isset($this->data[$key]) ? $this->data[$key] : $default;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -44,15 +39,13 @@ class Configuration implements ConfigurationInterface, \ArrayAccess, \IteratorAg
         $this->data[$key] = $value;
         return $this;
     }
-
     /**
      * {@inheritdoc}
      */
-    public function has($key): bool
+    public function has($key)
     {
         return \array_key_exists($key, $this->data);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -62,43 +55,38 @@ class Configuration implements ConfigurationInterface, \ArrayAccess, \IteratorAg
         unset($this->data[$key]);
         return $value;
     }
-
     /**
      * {@inheritdoc}
      */
-    public function all(): array
+    public function all()
     {
         return $this->data;
     }
-
     /**
      * {@inheritdoc}
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset)
     {
         return $this->has($offset);
     }
-
     /**
      * {@inheritdoc}
      */
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->get($offset);
     }
-
     /**
      * {@inheritdoc}
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value)
     {
         $this->set($offset, $value);
     }
-
     /**
      * {@inheritdoc}
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset)
     {
         $this->remove($offset);
     }

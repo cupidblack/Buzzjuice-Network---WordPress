@@ -151,4 +151,56 @@ class BB_Social_Provider_Twitter_Client extends BB_SSO_Oauth2 {
 
 		return $http_args;
 	}
+
+	/**
+	 * Sends a GET request to the specified API endpoint.
+	 *
+	 * @since 2.6.90
+	 *
+	 * @param string       $path     The API path to append to the endpoint URL.
+	 * @param array        $data     (Optional) The data to include in the request. Defaults to an empty array.
+	 * @param string|false $endpoint (Optional) The full API endpoint URL. Defaults to the class property
+	 *                               $endpoint_rest_api.
+	 *
+	 * @throws Exception If the request fails or the response is unexpected.
+	 * @return array The response body decoded as an associative array.
+	 */
+	public function get( $path, $data = array(), $endpoint = false ) {
+
+		$http_args = array(
+			'timeout'    => 15,
+			'user-agent' => 'WordPress',
+			'body'       => array_merge( $this->default_rest_params, $data ),
+		);
+		if ( ! $endpoint ) {
+			$endpoint = $this->endpoint_rest_api;
+		}
+		$request = wp_remote_get( $endpoint . $path, $this->extend_http_args( $this->extend_all_http_args( $http_args ) ) );
+
+		if ( is_wp_error( $request ) ) {
+
+			throw new Exception( esc_html( $request->get_error_message() ) );
+		} elseif ( wp_remote_retrieve_response_code( $request ) !== 200 ) {
+
+			$this->error_from_response( json_decode( wp_remote_retrieve_body( $request ), true ) );
+		}
+
+		$result = json_decode( wp_remote_retrieve_body( $request ), true );
+
+		if ( ! is_array( $result ) ) {
+			throw new Exception(
+				sprintf(
+				/* translators: %s: The response body. */
+					esc_html__( 'Unexpected response: %s', 'buddyboss-pro' ),
+					wp_remote_retrieve_body( $request )
+				)
+			);
+		}
+
+		if ( 429 === wp_remote_retrieve_response_code( $request ) ) {
+			\BBSSO\BB_SSO_Notices::add_error( esc_html__( 'Rate limit exceeded. Please try again in a few minutes.', 'buddyboss-pro' ), 'info' );
+		}
+
+		return $result;
+	}
 }

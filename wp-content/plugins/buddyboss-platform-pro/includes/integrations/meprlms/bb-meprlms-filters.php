@@ -28,6 +28,7 @@ add_filter( 'template_redirect', 'bb_meprlms_template_redirect', PHP_INT_MAX );
 add_filter( 'bp_activity_pre_transition_post_type_status', 'bb_meprlms_activity_pre_transition_post_type_status', 10, 4 );
 add_filter( 'mpcs_account_nav_courses_output', 'bb_meprlms_account_remove_my_courses_link', PHP_INT_MAX );
 add_action( 'add_meta_boxes', 'bb_meprlms_course_add_meta_boxes', 50 );
+add_filter( 'bb_readylaunch_left_sidebar_middle_content', 'bb_readylaunch_middle_content_meprlms_courses', 20, 1 );
 
 /**
  * Function to exclude MemberpressLMS CPT from Activity setting screen.
@@ -426,4 +427,48 @@ function bb_meprlms_course_add_meta_boxes() {
 			}
 		}
 	}
+}
+
+/**
+ * Function to get the user enrolled course or all courses.
+ *
+ * This function retrieves the courses a user is enrolled in if the MeprLMS integration is enabled.
+ * It fetches the courses for the logged-in user and includes the course title, permalink, and thumbnail.
+ *
+ * @since 2.7.50
+ *
+ * @param array $args Array of arguments.
+ *
+ * @return array $args User enrolled courses.
+ */
+function bb_readylaunch_middle_content_meprlms_courses( $args = array() ) {
+	if ( bb_meprlms_enable() ) {
+		$course_data['integration'] = 'meprlms';
+		if ( $args['has_sidebar_data'] && $args['is_sidebar_enabled_for_courses'] ) {
+			$user_id = bp_displayed_user_id();
+			if ( ! empty( $user_id ) ) {
+				$courses = bb_meprlms_get_user_courses( bp_loggedin_user_id(), '', 0, 5 );
+			} else {
+				$courses = bb_meprlms_get_courses( array( 'posts_per_page' => 5 ) );
+			}
+			if ( ! empty( $courses->posts ) ) {
+				foreach ( $courses->posts as $post ) {
+					if ( has_post_thumbnail( $post->ID ) ) {
+						$thumbnail_url = get_the_post_thumbnail( $post->ID, apply_filters( 'mpcs_course_thumbnail_size', 'mpcs-course-thumbnail' ), array( 'class' => 'img-responsive' ) );
+					} else {
+						$thumbnail_url = '<img src="' . esc_url( bb_meprlms_integration_url( '/assets/images/course-placeholder.jpg' ) ) . '" class="img-responsive" alt="" />';
+					}
+
+					$course_data['items'][ $post->ID ] = array(
+						'title'     => get_the_title( $post->ID ),
+						'permalink' => get_the_permalink( $post->ID ),
+						'thumbnail' => $thumbnail_url,
+					);
+				}
+			}
+		}
+		$args['courses'] = $course_data;
+	}
+
+	return $args;
 }

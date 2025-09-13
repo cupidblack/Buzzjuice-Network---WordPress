@@ -42,7 +42,7 @@
 
 					var option_percentage = 0;
 					if ( total_votes ) {
-						 option_percentage = Math.round(( option.total_votes / total_votes ) * 100, 2 );
+						 option_percentage = Math.round(( option.total_votes / total_votes ) * 10000 ) / 100;
 					} #>
 					<div class="bb-activity-poll-option {{more_class}}">
 						<#
@@ -98,7 +98,7 @@
 							<span class="bb-poll-option-state">
 								<# if ( option_percentage ) { #>{{option_percentage}}<# } else { #>0<# } #>%
 							</span>
-							<a href="#" class="<# if ( option_percentage ) { #> bb-poll-option-view-state  <# } else { #> bb-poll-no-vote <# } #>" data-opt_id="<# if ( option.id ) { #>{{option.id}}<# } else { #> {{index}} <# } #>"><i class="bb-icon-angle-right"></i></a>
+							<a href="#" class="<# if ( option_percentage ) { #> bb-poll-option-view-state  <# } else { #> bb-poll-no-vote <# } #>" data-opt_id="<# if ( option.id ) { #>{{option.id}}<# } else { #> {{index}} <# } #>" aria-label="<?php esc_attr_e( 'View State', 'buddyboss-pro' ); ?>"><i class="bb-icon-angle-right"></i></a>
 						</div>
 						<#
 						if (

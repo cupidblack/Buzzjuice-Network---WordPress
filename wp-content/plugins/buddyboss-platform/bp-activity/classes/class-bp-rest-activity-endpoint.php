@@ -239,6 +239,7 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 	 * @apiParam {String=stream,threaded,false} [display_comments=false] No comments by default, stream for within stream display, threaded for below each activity item.
 	 * @apiParam {Array=public,loggedin,onlyme,friends,media} [privacy] Privacy of the activity.
 	 * @apiParam {String=activity,group} [pin_type] Show pin activity of feed type.
+	 * @apiParam {Number} [topic_id] Limit result set to items with a specific topic ID.
 	 */
 	public function get_items( $request ) {
 		global $bp;
@@ -264,6 +265,7 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 			'filter'            => array(),
 			'pin_type'          => $request['pin_type'],
 			'status'            => ( ! empty( $request['activity_status'] ) ? $request['activity_status'] : bb_get_activity_published_status() ),
+			'topic_id'          => $request['topic_id'],
 		);
 
 		if ( empty( $args['display_comments'] ) || 'false' === $args['display_comments'] ) {
@@ -343,7 +345,7 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 			$args['show_hidden'] = true;
 		}
 
-		$args['scope'] = $this->bp_rest_activity_default_scope(
+		$args['scope'] = self::bp_rest_activity_default_scope(
 			$args['scope'],
 			( $request['user_id'] ? $request['user_id'] : 0 ),
 			$args['group_id'],
@@ -1066,7 +1068,7 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 			add_filter( 'bp_activity_at_name_do_notifications', '__return_true' );
 
 			bp_activity_at_name_send_emails( $activity );
-	
+
 			if ( bp_is_active( 'groups' ) && 'groups' === $activity->component ) {
 				$group_id = ! empty( $activity->item_id ) ? $activity->item_id : 0;
 				bb_subscription_send_subscribe_group_notifications(
@@ -3071,7 +3073,7 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 			'description'       => __( 'Order by a specific parameter.', 'buddyboss' ),
 			'default'           => '',
 			'type'              => 'string',
-			'enum'              => array( 'id', 'include' ),
+			'enum'              => array( 'id', 'include', 'date_recorded', 'date_updated' ),
 			'sanitize_callback' => 'sanitize_key',
 		);
 
@@ -3102,7 +3104,7 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 		$params['scope'] = array(
 			'description'       => __( 'Limit result set to items with a specific scope.', 'buddyboss' ),
 			'type'              => 'string',
-			'enum'              => array( 'just-me', 'friends', 'groups', 'favorites', 'mentions', 'following' ),
+			'enum'              => array( 'just-me', 'friends', 'groups', 'favorites', 'mentions', 'following', 'unanswered' ),
 			'sanitize_callback' => 'sanitize_text_field',
 			'validate_callback' => 'rest_validate_request_arg',
 		);
@@ -3266,15 +3268,18 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 	 *
 	 * @return string
 	 */
-	public function bp_rest_activity_default_scope( $scope = 'all', $user_id = 0, $group_id = 0, $component = '', $primary_id = 0 ) {
+	public static function bp_rest_activity_default_scope( $scope = 'all', $user_id = 0, $group_id = 0, $component = '', $primary_id = 0 ) {
 		$new_scope = array();
 
 		if (
 			bp_loggedin_user_id()
 			&& (
-				'all' === $scope
-				|| empty( $scope )
-				|| 'just-me' === $scope
+				'all' === $scope ||
+				empty( $scope ) ||
+				(
+					'just-me' === $scope &&
+					empty( $user_id )
+				)
 			)
 		) {
 			if ( bp_is_active( 'groups' ) && ( ! empty( $group_id ) || ( ! empty( $component ) && 'groups' === $component && ! empty( $primary_id ) ) ) ) {
@@ -3284,10 +3289,7 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 
 				if (
 					empty( $user_id ) ||
-					(
-						bp_loggedin_user_id() === $user_id &&
-						( ! function_exists( 'bp_is_activity_tabs_active' ) || ! bp_is_activity_tabs_active() )
-					)
+					bp_loggedin_user_id() === $user_id
 				) {
 					if ( empty( $user_id ) ) {
 						$new_scope[] = 'public';
@@ -3431,7 +3433,7 @@ class BP_REST_Activity_Endpoint extends WP_REST_Controller {
 		if ( 'groups' === $activity->component ) {
 			$activity_item_id = $activity->secondary_item_id;
 		}
-		
+
 		// Generate link preview for the forums.
 		if (
 			bp_is_active( 'forums' ) &&

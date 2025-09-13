@@ -50,6 +50,9 @@ class BB_Platform_Pro_Core {
 		// Load Schedule Posts.
 		$this->load_schedule_posts();
 
+		// Load Activity Topics.
+		$this->load_activity_topics();
+
 		// Load Platform Settings.
 		$this->load_platform_settings();
 
@@ -250,5 +253,26 @@ class BB_Platform_Pro_Core {
 		 * @since 2.6.00
 		 */
 		do_action( 'bb_platform_pro_core_polls_included' );
+	}
+
+	/**
+	 * Load activity topics files.
+	 *
+	 * @since 2.7.40
+	 */
+	private function load_activity_topics() {
+		$bb_platform_pro = bb_platform_pro();
+
+		$file = "{$bb_platform_pro->topics_dir}/bb-topics-loader.php";
+		if ( file_exists( $file ) ) {
+			require $file;
+		}
+
+		/**
+		 * Fires after the loading activity topics.
+		 *
+		 * @since 2.7.40
+		 */
+		do_action( 'bb_platform_pro_core_activity_topics_included' );
 	}
 }

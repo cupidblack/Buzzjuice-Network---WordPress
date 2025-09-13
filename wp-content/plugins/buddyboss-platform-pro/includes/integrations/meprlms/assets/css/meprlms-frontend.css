@@ -808,6 +808,12 @@ body:has(.mepr-checkout-container), body:has(.mepr-account-container) {
 	margin-bottom: 1.3rem;
 }
 
+@media screen and (min-width: 768px) {
+	.bb-item-count + #bb_meprlms_courses_search_form {
+		margin-top: -50px;
+	}
+}
+
 .user-courses .bb-lms-pagination,
 .groups.courses .bb-lms-pagination {
 	display: flex;

@@ -84,7 +84,7 @@ get_header();
 						<input type="text" name="s" class="form-input"
 								placeholder="<?php esc_html_e( 'Find a course', 'buddyboss-pro' ); ?>"
 								value="<?php echo esc_attr( $search ); ?>">
-						<button class="btn input-group-btn"><i class="bb-icon-l bb-icon-search"></i></button>
+						<button class="btn input-group-btn" aria-label="<?php esc_attr_e( 'Search', 'buddyboss-pro' ); ?>"><i class="bb-icon-l bb-icon-search"></i></button>
 					</div>
 				</form>
 

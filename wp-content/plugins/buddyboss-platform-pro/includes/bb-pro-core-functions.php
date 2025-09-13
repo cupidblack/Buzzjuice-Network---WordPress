@@ -18,7 +18,6 @@ defined( 'ABSPATH' ) || exit;
  */
 function bbp_pro_is_license_valid() {
 	return true;
-
 	$server_name = ! empty( $_SERVER['SERVER_NAME'] ) ? wp_unslash( $_SERVER['SERVER_NAME'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
 	$whitelist_domain = array(
@@ -411,11 +410,36 @@ function bb_telemetry_platform_pro_data( $bb_telemetry_data ) {
 			'bb-meprlms',
 			'bboss_updater_saved_licenses',
 			'bb-sso-reg-options',
+			'bb-pro-cover-profile-width',
+			'bb-pro-cover-profile-height',
+			'bb-pro-cover-group-width',
+			'bb-pro-cover-group-height',
+			'bb-enable-group-activity-topics',
+			'bb-group-activity-topics-options',
 		)
 	);
 
 	// Added those options that are not available in the option table.
 	$bb_telemetry_data['bb_platform_pro_version'] = bb_platform_pro()->version;
+
+	if (
+		function_exists( 'bb_topics_manager_instance' ) &&
+		function_exists( 'bb_is_enabled_activity_topics' ) &&
+		bb_is_enabled_activity_topics() &&
+		function_exists( 'bb_is_enabled_group_activity_topics' ) &&
+		bb_is_enabled_group_activity_topics()
+	) {
+		$group_topics_count = bb_topics_manager_instance()->bb_get_topics(
+			array(
+				'item_type'   => 'groups',
+				'count_total' => true,
+				'per_page'    => 1,
+			)
+		);
+		if ( isset( $group_topics_count['total'] ) ) {
+			$bb_telemetry_data['bb_enabled_topic_group_count'] = $group_topics_count['total'];
+		}
+	}
 
 	// Fetch options from the database.
 	$bp_prefix = $wpdb->base_prefix;
@@ -462,4 +486,15 @@ function bb_pro_active_integrations( $integrations ) {
 	$integrations['bb-meprlms']  = class_exists( 'memberpress\courses\helpers\Courses' ) && function_exists( 'bb_meprlms_enable' ) && bb_meprlms_enable();
 
 	return $integrations;
+}
+
+/**
+ * Get the BuddyBoss Platform version required for the topic.
+ *
+ * @since [BBVERSION}
+ *
+ * @return string
+ */
+function bb_platform_topics_version() {
+	return '2.8.80';
 }

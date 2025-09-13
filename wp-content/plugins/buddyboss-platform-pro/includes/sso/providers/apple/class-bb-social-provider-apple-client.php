@@ -156,6 +156,10 @@ class BB_Social_Provider_Apple_Client extends BB_SSO_Oauth2 {
 	 */
 	public function authenticate() {
 		if ( isset( $_POST['code'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			// Validate state to prevent CSRF attacks.
+			if ( ! $this->validate_state() ) {
+				throw new BB_SSO_Exception( esc_html__( 'Unable to validate CSRF state', 'buddyboss-pro' ) );
+			}
 
 			$http_args = array(
 				'timeout'    => 15,
@@ -196,9 +200,21 @@ class BB_Social_Provider_Apple_Client extends BB_SSO_Oauth2 {
 
 			/*
 			 * Apple sends the name and email in the $_POST the very first time the user authorizes the App!
+			 * However the email found here, shouldn't be used as the posted data is not signed by Apple!
 			 */
-			if ( ! empty( $_POST['user'] ) ) { // phpcs:ignore
-				$access_token_data['user'] = json_decode( stripslashes( $_POST['user'] ), true ); // phpcs:ignore
+			if ( ! empty( $_POST['user'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+				$user_data = json_decode( wp_unslash( $_POST['user'] ), true ); // phpcs:ignore
+				if ( ! empty( $user_data['name'] ) ) {
+					$first_name = ! empty( $user_data['name']['firstName'] ) ? sanitize_text_field( $user_data['name']['firstName'] ) : '';
+					if ( $first_name ) {
+						$access_token_data['user']['name']['firstName'] = $first_name;
+					}
+
+					$last_name = ! empty( $user_data['name']['lastName'] ) ? sanitize_text_field( $user_data['name']['lastName'] ) : '';
+					if ( $last_name ) {
+						$access_token_data['user']['name']['lastName'] = $last_name;
+					}
+				}
 			}
 
 			$access_token_data['created'] = time();

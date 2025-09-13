@@ -82,43 +82,43 @@ class BP_Activity_oEmbed_Extension extends BP_Core_oEmbed_Extension {
 	 * @param  string $url The URL to check.
 	 * @return int|bool Activity ID on success; boolean false on failure.
 	 */
-//BlueCrownR&D
 	protected function validate_url_to_item_id( $url ) {
-		// Check if root profiles are enabled and get the domain.
-		$domain = bp_core_enable_root_profiles() ? bp_get_root_domain() : bp_get_members_directory_permalink();
+		if ( bp_core_enable_root_profiles() ) {
+			$domain = bp_get_root_domain();
+		} else {
+			$domain = bp_get_members_directory_permalink();
+		}
 
-		// Validate if the URL starts with the expected domain.
-		if ( strpos( $url, $domain ) !== 0 ) {
+		// Check the URL to see if this is a single activity URL.
+		if ( 0 !== strpos( $url, $domain ) ) {
 			return false;
 		}
 
-		// Validate if the URL contains the activity slug.
-		if ( strpos( $url, '/' . bp_get_activity_slug() . '/' ) === false ) {
+		// Check for activity slug.
+		if ( false === strpos( $url, '/' . bp_get_activity_slug() . '/' ) ) {
 			return false;
 		}
 
-		// Trim and sanitize the URL.
+		// Do more checks.
 		$url = trim( untrailingslashit( $url ) );
 
-		// Extract the activity ID from the URL.
-		$activity_id = (int) substr( $url, strrpos( $url, '/' ) + 1 );
+		// Grab the activity ID.
+		$activity_id = (int) substr(
+			$url,
+			strrpos( $url, '/' ) + 1
+		);
 
-		// Validate the activity ID.
-		if ( empty( $activity_id ) || $activity_id <= 0 ) {
-			return false;
+		if ( ! empty( $activity_id ) ) {
+			// Check if activity item still exists.
+			$activity = new BP_Activity_Activity( $activity_id );
+
+			// Okay, we're good to go!
+			if ( ! empty( $activity->component ) && 0 === (int) $activity->is_spam ) {
+				return $activity_id;
+			}
 		}
 
-		// Check if the activity item exists and is not marked as spam.
-		$activity = bp_activity_get_specific( array(
-			'activity_ids' => $activity_id,
-			'spam'         => 'ham_only', // Only fetch non-spam activities.
-		) );
-
-		if ( empty( $activity['activities'] ) ) {
-			return false;
-		}
-
-		return $activity_id;
+		return false;
 	}
 
 	/**
@@ -151,35 +151,10 @@ class BP_Activity_oEmbed_Extension extends BP_Core_oEmbed_Extension {
 	 * @param  int $item_id The activity ID.
 	 * @return string
 	 */
-	//BlueCrownR&D
 	protected function set_fallback_html( $item_id ) {
-		// Validate the activity ID.
-		if ( empty( $item_id ) || ! is_numeric( $item_id ) || $item_id <= 0 ) {
-			error_log( "Invalid activity ID: $item_id" );
-			return '';
-		}
-
-		// Fetch the activity object.
-		$activity = bp_activity_get_specific( array(
-			'activity_ids' => $item_id,
-			'spam'         => 'ham_only', // Only fetch non-spam activities.
-		) );
-
-		// Check if the activity exists.
-		if ( empty( $activity['activities'] ) || ! isset( $activity['activities'][0] ) ) {
-			error_log( "Activity not found for ID: $item_id" );
-			return '';
-		}
-
-		$activity = $activity['activities'][0];
-
-		// Safely retrieve activity properties.
-		$mentionname = bp_activity_do_mentions() && ! empty( $activity->user_id )
-			? ' (@' . bp_activity_get_user_mentionname( $activity->user_id ) . ')'
-			: '';
-		$date = ! empty( $activity->date_recorded )
-			? date_i18n( get_option( 'date_format' ), strtotime( $activity->date_recorded ) )
-			: '';
+		$activity    = new BP_Activity_Activity( $item_id );
+		$mentionname = bp_activity_do_mentions() ? ' (@' . bp_activity_get_user_mentionname( $activity->user_id ) . ')' : '';
+		$date        = date_i18n( get_option( 'date_format' ), strtotime( $activity->date_recorded ) );
 
 		// Make sure we can use some activity functions that depend on the loop.
 		$GLOBALS['activities_template']           = new stdClass();

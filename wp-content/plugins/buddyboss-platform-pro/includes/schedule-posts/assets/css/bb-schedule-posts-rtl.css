@@ -89,6 +89,12 @@ body:not(.buddyboss-theme) .bb-schedule-post_dropdown_section .bb-schedule-post_
 	display: block;
 }
 
+.bb-schedule-post_dropdown_section .bb-schedule-post_dropdown_list.is_open.is_bottom {
+	bottom: 100%;
+	top: inherit;
+	margin-bottom: 8px;
+}
+
 .bb-schedule-post_dropdown_section .bb-schedule-post_dropdown_list ul {
 	margin: 0;
 	padding: 0;

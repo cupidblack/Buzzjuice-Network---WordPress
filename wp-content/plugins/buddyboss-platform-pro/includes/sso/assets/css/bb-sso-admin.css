@@ -362,6 +362,11 @@
 	width: 100%;
 }
 
+.bb-modal-panel .form-fields .field-input label {
+	display: block;
+	padding-bottom: 5px;
+}
+
 .bb-modal-panel .form-fields .form-field {
 	margin-bottom: 5px;
 }

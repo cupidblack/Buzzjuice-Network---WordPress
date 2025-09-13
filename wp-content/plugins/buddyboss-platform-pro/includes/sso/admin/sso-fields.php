@@ -172,8 +172,82 @@ if ( function_exists( 'bbapp' ) ) {
 	);
 }
 
+$microsoft_fields = array(
+	'label'  => __( 'Microsoft', 'buddyboss-pro' ),
+	'fields' => array(
+		'web' => array(
+			'sub_fields' => array(
+				array(
+					'id'    => 'client_id',
+					'name'  => __( 'Application (client) ID', 'buddyboss-pro' ),
+					'type'  => 'text',
+					'value' => BB_SSO::get_provider_setting( 'microsoft', 'client_id' ),
+				),
+				array(
+					'id'    => 'client_secret',
+					'name'  => __( 'Client Secret', 'buddyboss-pro' ),
+					'type'  => 'text',
+					'value' => BB_SSO::get_provider_setting( 'microsoft', 'client_secret' ),
+				),
+				array(
+					'id'      => 'tenant',
+					'name'    => __( 'Audience', 'buddyboss-pro' ),
+					'type'    => 'radio',
+					'value'   => BB_SSO::get_provider_setting( 'microsoft', 'tenant' ),
+					'options' => array(
+						'organizations' => __( 'Accounts in any organizational directory (Any Azure AD directory - Multitenant)', 'buddyboss-pro' ),
+						'common'        => __( 'Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)', 'buddyboss-pro' ),
+						'consumers'     => __( 'Personal Microsoft accounts only', 'buddyboss-pro' ),
+						'custom_tenant' => __( 'Only users in an organizational directory from a particular Azure AD tenant:', 'buddyboss-pro' ) . '<input type="text" id="custom_tenant_value" name="custom_tenant_value" value="' . BB_SSO::get_provider_setting( 'microsoft', 'custom_tenant_value' ) . '" data-old-value="' . BB_SSO::get_provider_setting( 'microsoft', 'custom_tenant_value' ) . '" />',
+					),
+				),
+				array(
+					'id'      => 'prompt',
+					'name'    => __( 'Authorization Prompt', 'buddyboss-pro' ),
+					'type'    => 'radio',
+					'value'   => BB_SSO::get_provider_setting( 'microsoft', 'prompt' ),
+					'options' => array(
+						'select_account' => __( 'Display account select modal', 'buddyboss-pro' ),
+						'login'          => __( 'Force user to enter login credentials on each login', 'buddyboss-pro' ),
+						''               => __( 'Display authorization and authentication dialog only when necessary', 'buddyboss-pro' ),
+					),
+				),
+				array(
+					'id'       => '',
+					'name'     => __( 'Callback URI / Redirect URL', 'buddyboss-pro' ),
+					'type'     => 'text',
+					'value'    => BB_SSO::$allowed_providers['microsoft']->get_redirect_uri_for_auth_flow(),
+					'disabled' => true,
+				),
+				array(
+					'id'          => 'information',
+					'name'        => '',
+					'type'        => 'information',
+					'description' => sprintf(
+						__( 'To create an app, <a href="%1$s" target="_blank">%2$s</a>.<br />To learn how to create an app, <a href="%3$s" target="_blank">%4$s</a>', 'buddyboss-pro' ),
+						'https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade',
+						__( 'Click here', 'buddyboss-pro' ),
+						esc_url(
+							bp_get_admin_url(
+								add_query_arg(
+									array(
+										'page'    => 'bp-help',
+										'article' => 127919,
+									),
+									'admin.php'
+								)
+							)
+						),
+						__( 'View Tutorial', 'buddyboss-pro' )
+					),
+				),
+			),
+		),
+	),
+);
+
 return array(
-	'facebook' => array(
+	'facebook'  => array(
 		'label'  => __( 'Facebook', 'buddyboss-pro' ),
 		'fields' => array(
 			'web' => array(
@@ -225,8 +299,9 @@ return array(
 			),
 		),
 	),
-	'google'   => $google_fields,
-	'twitter'  => array(
+	'google'    => $google_fields,
+	'microsoft' => $microsoft_fields,
+	'twitter'   => array(
 		'label'  => __( 'X', 'buddyboss-pro' ),
 		'fields' => array(
 			'web' => array(
@@ -282,7 +357,7 @@ return array(
 			),
 		),
 	),
-	'linkedin' => array(
+	'linkedin'  => array(
 		'label'  => __( 'LinkedIn', 'buddyboss-pro' ),
 		'fields' => array(
 			'web' => array(
@@ -334,7 +409,7 @@ return array(
 			),
 		),
 	),
-	'apple'    => array(
+	'apple'     => array(
 		'label'  => __( 'Apple', 'buddyboss-pro' ),
 		'fields' => array(
 			'web' => array(

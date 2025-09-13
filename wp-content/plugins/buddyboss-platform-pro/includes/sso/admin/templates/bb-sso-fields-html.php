@@ -18,7 +18,7 @@
 			</h2>
 		</div>
 		<div class="bb-hello-close">
-			<button type="button" class="close-modal button">
+			<button type="button" class="close-modal button" aria-label="<?php esc_attr_e( 'Close', 'buddyboss-pro' ); ?>">
 				<i class="bb-icon-f bb-icon-times"></i>
 			</button>
 		</div>

@@ -172,26 +172,7 @@ class BB_MeprLMS_Profile {
 		$accessible_courses_slug     = $this->accessible_courses_slug;
 		$loggedin_user_id            = bp_loggedin_user_id();
 		$user_same                   = empty( $displayed_user_id ) || $displayed_user_id === $loggedin_user_id;
-		$accessible_courses          = bb_meprlms_get_user_courses( $displayed_user_id );
-		$user_courses_count          = $accessible_courses ? $accessible_courses->found_posts : 0;
-
-		// Only grab count if we're on a user page.
-		if ( bp_is_user() ) {
-			$class = ( 0 === $user_courses_count ) ? 'no-count' : 'count';
-
-			$nav_name = sprintf(
-				/* translators: %s: Courses count for the current user */
-				__( '%1$s %2$s', 'buddyboss-pro' ),
-				$courses_label,
-				sprintf(
-					'<span class="%s">%s</span>',
-					esc_attr( $class ),
-					$user_courses_count
-				)
-			);
-		} else {
-			$nav_name = $courses_label;
-		}
+		$nav_name                    = $courses_label;
 
 		bp_core_new_nav_item(
 			array(

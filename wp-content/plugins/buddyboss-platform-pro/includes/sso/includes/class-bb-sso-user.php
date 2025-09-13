@@ -137,6 +137,11 @@ class BB_SSO_User {
 						),
 						'success'
 					);
+				} elseif ( 'twitter' === $this->provider->get_id() && isset( BB_SSO_Notices::$notices['info'] ) ) {
+					bp_core_add_message(
+						current( BB_SSO_Notices::$notices['info'] ),
+						'info'
+					);
 				} else {
 					bp_core_add_message(
 						sprintf(
@@ -594,16 +599,13 @@ class BB_SSO_User {
 			! empty( $signup_fields ) &&
 			(
 				! bb_enable_additional_sso_name() ||
-				(
-					! empty( $first_name ) &&
-					! empty( $last_name )
-				)
+				! empty( $first_name )
 			)
 		) {
 			if ( in_array( $first_name_id, $signup_fields, true ) ) {
 				$signup_fields = array_diff( $signup_fields, array( $first_name_id ) );
 			}
-			if ( in_array( $last_name_id, $signup_fields, true ) ) {
+			if ( ! empty( $last_name ) && in_array( $last_name_id, $signup_fields, true ) ) {
 				$signup_fields = array_diff( $signup_fields, array( $last_name_id ) );
 			}
 			if ( in_array( $nickname_id, $signup_fields, true ) ) {
@@ -674,7 +676,11 @@ class BB_SSO_User {
 			$errors = new WP_Error();
 			foreach ( $valid_error as $key => $msg ) {
 				$errors->add( $key, $msg );
-				bp_core_add_message( $errors->get_error_message(), 'success' );
+				$icon = 'success';
+				if ( 'twitter' === $provider_id && isset( \BBSSO\BB_SSO_Notices::$notices['info'] ) ) {
+					$icon = 'info';
+				}
+				\BBSSO\BB_SSO_Notices::add_error( $errors->get_error_message(), $icon );
 			}
 
 			$query_string = array();
@@ -828,7 +834,7 @@ class BB_SSO_User {
 	 */
 	public function redirect_to_last_location_login( $notice = false ) {
 
-		$this->provider->redirect_to_last_location( $notice );
+		$this->provider->redirect_to_last_location( $notice, 'login' );
 	}
 
 	/**
@@ -1068,21 +1074,39 @@ class BB_SSO_User {
 
 			return false;
 		}
+		$provider_user_id    = empty( $this->get_auth_user_data( 'id' ) ) ? ( ! empty( $_GET['identifier'] ) ? sanitize_text_field( wp_unslash( $_GET['identifier'] ) ) : '' ) : $this->get_auth_user_data( 'id' );
+		$provider_first_name = $this->get_auth_user_data( 'first_name' );
+		$provider_last_name  = $this->get_auth_user_data( 'last_name' );
+		if ( ! empty( $provider_user_id ) ) {
+			global $wpdb;
+			$provider_user_data = $wpdb->get_row(
+				$wpdb->prepare(
+					'SELECT first_name, last_name FROM `' . $this->provider->table_name . '` WHERE type = %s AND identifier = %s',
+					array(
+						$this->provider->get_id(),
+						$provider_user_id,
+					)
+				)
+			);
+
+			if ( ! empty( $provider_user_data ) ) {
+				$provider_first_name = $provider_user_data->first_name;
+				$provider_last_name  = $provider_user_data->last_name;
+			}
+		}
 		if ( bb_enable_additional_sso_name() ) {
-			$first_name = $this->get_auth_user_data( 'first_name' );
-			if ( ! empty( $first_name ) ) {
-				update_user_meta( $user_id, 'billing_first_name', $first_name );
+			if ( ! empty( $provider_first_name ) ) {
+				update_user_meta( $user_id, 'billing_first_name', $provider_first_name );
 			}
 
-			$last_name = $this->get_auth_user_data( 'last_name' );
-			if ( ! empty( $last_name ) ) {
-				update_user_meta( $user_id, 'billing_last_name', $last_name );
+			if ( ! empty( $provider_last_name ) ) {
+				update_user_meta( $user_id, 'billing_last_name', $provider_last_name );
 			}
 		}
 
 		update_user_option( $user_id, 'default_password_nag', true, true );
 
-		$this->provider->link_user_to_provider_identifier( $user_id, $this->get_auth_user_data( 'id' ), true, $this->get_auth_user_data( 'first_name' ), $this->get_auth_user_data( 'last_name' ) );
+		$this->provider->link_user_to_provider_identifier( $user_id, $provider_user_id, true, $provider_first_name, $provider_last_name );
 
 		do_action( 'bb_sso_registration_store_extra_input', $user_id, $this->user_extra_data );
 

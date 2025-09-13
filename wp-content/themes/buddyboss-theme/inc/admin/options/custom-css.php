@@ -434,8 +434,9 @@ if ( ! function_exists( 'boss_generate_option_css' ) ) {
 					height: <?php echo $header_height; ?>px;
 				}
 
-				#learndash-content .lms-topic-sidebar-wrapper .lms-topic-sidebar-data {
-					height: calc(90vh - <?php echo $header_height; ?>px);
+				#learndash-content .lms-topic-sidebar-wrapper .lms-topic-sidebar-data,
+				.lifter-topic-sidebar-wrapper .lifter-topic-sidebar-data {
+					height: calc(90vh - <?php echo esc_attr( $header_height ); ?>px);
 				}
 			}
 

@@ -47,7 +47,7 @@
                 <span class='tooltip-persistent-container'>
                         <span class='help-tip'></span>
                         <span class="tooltip-persistent">
-                            <?php _e( 'You can find the license key for your product by going to the <a href="https://www.buddyboss.com/my-account/?tab=mysubscriptions" target="_blank" rel="noopener" >My Subscriptions</a> page in your account area.', 'buddyboss-theme' ); ?>
+                            <?php _e( 'You can find the license key for your product by going to the <a href="https://my.buddyboss.com/my-account/?tab=mysubscriptions" target="_blank" rel="noopener" >My Subscriptions</a> page in your account area.', 'buddyboss-theme' ); ?>
                         </span>
                     </span>
             </td>

@@ -193,6 +193,17 @@ add_action( 'bp_before_member_activity_content', 'bb_emojionearea_add_popup_temp
 
 add_filter( 'bp_ajax_querystring', 'bb_activity_directory_set_pagination', 20, 2 );
 
+// Clear activity parent cache when activity is deleted or saved.
+add_action( 'bp_activity_after_delete', 'bb_clear_activity_parent_cache' );
+add_action( 'bp_activity_after_save', 'bb_clear_activity_parent_cache' );
+add_action( 'bp_activity_after_delete', 'bb_clear_activity_comment_parent_cache' );
+add_action( 'bp_activity_after_save', 'bb_clear_activity_comment_parent_cache' );
+add_action( 'bp_activity_after_delete', 'bb_clear_activity_all_comment_parent_caches' );
+add_action( 'bp_init', 'bb_load_activity_topics_manager' );
+
+add_action( 'bp_activity_after_save', 'bb_activity_save_topic_data', 2, 1 );
+add_filter( 'bp_activity_get_join_sql', 'bb_activity_unanswered_only_join_sql_filter', 11, 2 );
+
 /** Functions *****************************************************************/
 
 /**
@@ -476,7 +487,7 @@ function bp_activity_at_name_filter( $content, $activity_id = 0 ) {
 		if ( ! empty( $content_matches[1] ) ) {
 			foreach ( $content_matches[1] as $replacement ) {
 				$unique_index                  = '#BPAN' . $replace_count . '#';
-				$replacements[ $unique_index ] = $replacement;
+				$replacements[ $unique_index ] = str_replace( "\xef\xbb\xbf", '', $replacement );
 				$content                       = str_replace( $replacement, $unique_index, $content );
 				$replace_count++;
 			}
@@ -485,7 +496,7 @@ function bp_activity_at_name_filter( $content, $activity_id = 0 ) {
 
 	// Linkify the mentions with the username.
 	foreach ( (array) $usernames as $user_id => $username ) {
-		$replacement = "<a class='bp-suggestions-mention' href='{{mention_user_id_" . $user_id . "}}' rel='nofollow'>@$username</a>";
+		$replacement = "<a class='bp-suggestions-mention' data-bb-hp-profile='" . esc_attr( $user_id ) . "' href='{{mention_user_id_" . $user_id . "}}' rel='nofollow'>@$username</a>";
 		if ( false === strpos( $content, $replacement ) ) {
 			// Pattern for cases with existing <a>@mention</a> or @mention.
 			$pattern = '/(?<=[^A-Za-z0-9\_\/\.\-\*\+\=\%\$\#\?]|^)@' . preg_quote( $username, '/' ) . '(?!\/)|<a[^>]*>@' . preg_quote( $username, '/' ) . '<\/a>/';
@@ -532,7 +543,7 @@ function bp_activity_at_name_filter_updates( $activity ) {
 	if ( ! empty( $usernames ) ) {
 		// Replace @mention text with userlinks.
 		foreach ( (array) $usernames as $user_id => $username ) {
-			$replacement = "<a class='bp-suggestions-mention' href='{{mention_user_id_" . $user_id . "}}' rel='nofollow'>@$username</a>";
+			$replacement = "<a class='bp-suggestions-mention' data-bb-hp-profile='" . esc_attr( $user_id ) . "' href='{{mention_user_id_" . $user_id . "}}' rel='nofollow'>@$username</a>";
 			if ( false === strpos( $activity->content, $replacement ) ) {
 				// Pattern for cases with existing <a>@mention</a> or @mention.
 				$pattern           = '/(?<=[^A-Za-z0-9\_\/\.\-\*\+\=\%\$\#\?]|^)@' . preg_quote( $username, '/' ) . '(?!\/)|<a[^>]*>@' . preg_quote( $username, '/' ) . '<\/a>/';
@@ -930,6 +941,11 @@ function bp_activity_heartbeat_last_recorded( $response = array(), $data = array
 
 	if ( ! empty( $data['bp_activity_last_recorded_search_terms'] ) && empty( $activity_latest_args['search_terms'] ) ) {
 		$activity_latest_args['search_terms'] = addslashes( $data['bp_activity_last_recorded_search_terms'] );
+	}
+
+	// Add topic id to fetch activity by topic.
+	if ( ! empty( $data['bp_heartbeat']['topic_id'] ) && empty( $activity_latest_args['topic_id'] ) ) {
+		$activity_latest_args['topic_id'] = $data['bp_heartbeat']['topic_id'];
 	}
 
 	$newest_activities      = array();
@@ -1507,8 +1523,8 @@ add_filter( 'bp_activity_set_mentions_scope_args', 'bp_activity_filter_mentions_
  *
  * @since BuddyBoss 1.0.0
  *
- * @param array|string $qs The querystring for the BP loop.
- * @param str          $object The current object for the querystring.
+ * @param array|string $qs     The querystring for the BP loop.
+ * @param string       $object The current object for the querystring.
  *
  * @return array|string Modified querystring
  */
@@ -3596,7 +3612,6 @@ add_action( 'bp_start_following', 'bb_send_email_to_follower' );
  * @param int    $activity_id ID of the activity item being updated.
  */
 function bb_activity_at_name_send_emails( $content, $user_id, $activity_id ) {
-	add_filter( 'bp_activity_at_name_do_notifications', '__return_true' );
 	$activity = new BP_Activity_Activity( $activity_id );
 	bp_activity_at_name_send_emails( $activity );
 }
@@ -3612,7 +3627,6 @@ function bb_activity_at_name_send_emails( $content, $user_id, $activity_id ) {
  * @param bool   $activity_id Whether or not the activity recording succeeded.
  */
 function bb_group_activity_at_name_send_emails( $content, $user_id, $group_id, $activity_id ) {
-	add_filter( 'bp_activity_at_name_do_notifications', '__return_true' );
 	$activity = new BP_Activity_Activity( $activity_id );
 	bp_activity_at_name_send_emails( $activity );
 }
@@ -3796,4 +3810,299 @@ function bb_activity_directory_set_pagination( $querystring, $object ) {
 	$querystring['per_page'] = bb_get_load_activity_per_request();
 
 	return http_build_query( $querystring );
+}
+
+/**
+ * Filter the members loop on a followers page.
+ *
+ * @since BuddyBoss 2.8.20
+ *
+ * @param array|string $qs     The querystring for the BP loop.
+ * @param string       $object The current object for the querystring.
+ *
+ * @return array|string Modified querystring
+ */
+function bb_add_member_followers_scope_filter( $qs, $object ) {
+	// not on the members object? stop now!
+	if ( 'members' !== $object ) {
+		return $qs;
+	}
+
+	// members directory
+	if ( ! bp_is_user() && bp_is_members_directory() ) {
+		$qs_args = bp_parse_args( $qs );
+		// check if members scope is followers before manipulating.
+		if ( isset( $qs_args['scope'] ) && 'followers' === $qs_args['scope'] ) {
+			$qs .= '&include=' . bp_get_follower_ids(
+				array(
+					'user_id' => bp_loggedin_user_id(),
+				)
+			);
+		}
+	}
+
+	return $qs;
+}
+add_filter( 'bp_ajax_querystring', 'bb_add_member_followers_scope_filter', 20, 2 );
+
+/**
+ * Clear activity parent cache for one or more activities.
+ *
+ * @since BuddyBoss 2.8.20
+ *
+ * @param BP_Activity_Activity|array $activities Activity object or array of objects.
+ *
+ * @return void
+ */
+function bb_clear_activity_parent_cache( $activities ) {
+
+	// Early bail if no activities provided.
+	if ( empty( $activities ) ) {
+		return;
+	}
+
+	// Get activity IDs based on input type.
+	$activity_ids = array();
+	if ( is_object( $activities ) && $activities instanceof BP_Activity_Activity ) {
+		$activity_ids = array( $activities->id );
+	} elseif ( is_array( $activities ) ) {
+		$activity_ids = wp_parse_id_list( wp_list_pluck( $activities, 'id' ) );
+	}
+
+	// Clear cache for each activity ID.
+	if ( ! empty( $activity_ids ) ) {
+		foreach ( $activity_ids as $activity_id ) {
+			wp_cache_delete( 'bb_activity_parent_' . $activity_id, 'bb_activity_parents' );
+		}
+	}
+}
+
+/**
+ * Clear activity comment parent cache.
+ *
+ * @since BuddyBoss 2.8.20
+ *
+ * @param BP_Activity_Activity|array $activities Activity object or array of objects.
+ *
+ * @return void
+ */
+function bb_clear_activity_comment_parent_cache( $activities ) {
+	global $wpdb, $bp;
+
+	// Early bail if no activities provided.
+	if ( empty( $activities ) ) {
+		return;
+	}
+
+	// Get activity IDs based on input type.
+	$activity_ids = array();
+	if ( is_object( $activities ) && $activities instanceof BP_Activity_Activity ) {
+		$activity_ids = array( $activities->id );
+	} elseif ( is_array( $activities ) ) {
+		$activity_ids = wp_parse_id_list( wp_list_pluck( $activities, 'id' ) );
+	}
+
+	// Clear cache for each activity ID.
+	if ( ! empty( $activity_ids ) ) {
+		foreach ( $activity_ids as $activity_id ) {
+			$main_activity_id = $wpdb->get_var(
+				$wpdb->prepare(
+					"SELECT item_id FROM {$bp->activity->table_name} WHERE id = %d",
+					$activity_id
+				)
+			);
+			if ( $main_activity_id ) {
+				wp_cache_delete(
+					'bb_activity_comment_parent_' . $activity_id . '_' . $main_activity_id,
+					'bb_activity_comment_parents'
+				);
+			}
+		}
+	}
+}
+
+/**
+ * Clear all activity comment parent caches for a main activity.
+ *
+ * @since BuddyBoss 2.8.20
+ *
+ * @param array $activities Array of activities.
+ *
+ * @return void
+ */
+function bb_clear_activity_all_comment_parent_caches( $activities ) {
+	global $wpdb, $bp;
+
+	// Early bail if no activities provided.
+	if ( empty( $activities ) ) {
+		return;
+	}
+
+	$activity_ids = wp_parse_id_list( wp_list_pluck( $activities, 'id' ) );
+
+	// Clear cache for each activity ID.
+	if ( ! empty( $activity_ids ) ) {
+		foreach ( $activity_ids as $activity_id ) {
+			$comment_ids = $wpdb->get_col(
+				$wpdb->prepare(
+					"SELECT id FROM {$bp->activity->table_name}
+					WHERE item_id = %d AND type = 'activity_comment'",
+					$activity_id
+				)
+			);
+
+			if ( ! empty( $comment_ids )) {
+
+				// Clear cache for each comment.
+				foreach ( $comment_ids as $comment_id ) {
+					wp_cache_delete(
+						'bb_activity_comment_parent_' . $comment_id . '_' . $activity_id,
+						'bb_activity_comment_parents'
+					);
+				}
+			}
+		}
+	}
+}
+
+/**
+ * Initialize the Activity Topics Manager.
+ * This ensures we only load the manager when needed.
+ *
+ * @since BuddyBoss 2.8.80
+ *
+ * @return void True if the activity topics manager is loaded, false otherwise.
+ */
+function bb_load_activity_topics_manager() {
+	// Only load if activity topics are enabled.
+	if ( ! bb_is_enabled_activity_topics() ) {
+		return;
+	}
+
+	bb_activity_topics_manager_instance();
+}
+
+/**
+ * Save topic data for the activity.
+ *
+ * @since BuddyBoss 2.8.80
+ *
+ * @param object $activity The activity object.
+ *
+ * @return void
+ */
+function bb_activity_save_topic_data( $activity ) {
+
+	if ( ! bb_is_enabled_activity_topics() ) {
+		return;
+	}
+
+	if ( ! isset( $_POST['topic_id'] ) ) {
+		return;
+	}
+
+	$skip_component = ! in_array( $activity->component, array( 'groups', 'activity' ), true );
+
+	/**
+	 * Filter to skip saving topic data based on activity component.
+	 *
+	 * @since BuddyBoss 2.10.0
+	 *
+	 * @param bool   $skip_component Whether to skip saving topic data for the component.
+	 * @param object $activity       The activity object.
+	 */
+	$skip_component = apply_filters( 'bb_activity_save_topic_data_component_skip', $skip_component, $activity );
+	if ( $skip_component ) {
+		return;
+	}
+
+	$skip_type = isset( $activity->type ) ? 'activity_update' !== $activity->type : true;
+
+	/**
+	 * Filter to skip saving topic data based on a activity type.
+	 *
+	 * @since BuddyBoss 2.10.0
+	 *
+	 * @param bool   $skip_type Whether to skip saving topic data for the type.
+	 * @param object $activity  The activity object.
+	 */
+	$skip_type = apply_filters( 'bb_activity_save_topic_data_type_skip', $skip_type, $activity );
+	if ( $skip_type ) {
+		return;
+	}
+
+	$topic_id = intval( $_POST['topic_id'] );
+	if ( bb_is_activity_topic_required() && empty( $topic_id ) ) {
+		return;
+	}
+
+	$item_id = isset( $_POST['group_id'] ) ? intval( $_POST['group_id'] ) : 0;
+
+	// Add/update the activity topic relationship.
+	bb_activity_topics_manager_instance()->bb_add_activity_topic_relationship(
+		array(
+			'topic_id'    => $topic_id,
+			'activity_id' => $activity->id,
+			'component'   => $activity->component,
+			'item_id'     => $item_id,
+		)
+	);
+}
+
+/**
+ * Add LEFT JOIN for unanswered activities filter.
+ * This replaces the NOT EXISTS clause with a more performant LEFT JOIN approach.
+ *
+ * @since BuddyBoss 2.11.0
+ *
+ * @param string $join_sql   The JOIN SQL to be filtered.
+ * @param array  $r          The arguments passed to BP_Activity_Activity::get().
+ *
+ * @return string Modified JOIN SQL.
+ */
+function bb_activity_unanswered_only_join_sql_filter( $join_sql, $r ) {
+	// Only add the join when unanswered_only is enabled.
+	if ( ! empty( $r['filter']['unanswered_only'] ) ) {
+		global $bp;
+
+		// Join conditions array.
+		$join_conditions['uac.item_id'] = 'uac.item_id = a.id';
+		$join_conditions['uac.type']    = "uac.type = 'activity_comment'";
+
+		// Add spam filter conditions to the subquery.
+		if ( ! empty( $r['spam'] ) ) {
+			if ( 'ham_only' === $r['spam'] ) {
+				$join_conditions['uac.is_spam'] = 'uac.is_spam = 0';
+			} elseif ( 'spam_only' === $r['spam'] ) {
+				$join_conditions['uac.is_spam'] = 'uac.is_spam = 1';
+			} else {
+				$join_conditions['uac.is_spam'] = 'uac.is_spam = ""';
+			}
+		}
+
+		/**
+		 * Filter the join conditions for unanswered activities.
+		 *
+		 * @since BuddyBoss 2.11.0
+		 *
+		 * @param array  $join_conditions The join conditions to be filtered.
+		 * @param array  $r               The arguments passed to BP_Activity_Activity::get().
+		 */
+		$join_conditions    = apply_filters( 'bb_activity_unanswered_only_join_conditions', $join_conditions, $r );
+		$join_condition_sql = join( ' AND ', $join_conditions );
+
+		$join_sql .= " LEFT JOIN {$bp->activity->table_name} uac ON {$join_condition_sql} ";
+
+		/**
+		 * Filter the join SQL for unanswered activities.
+		 *
+		 * @since BuddyBoss 2.11.0
+		 *
+		 * @param string $join_sql The join SQL to be filtered.
+		 * @param array  $r        The arguments passed to BP_Activity_Activity::get().
+		 */
+		$join_sql = apply_filters( 'bb_activity_get_unanswered_only_join_sql', $join_sql, $r );
+	}
+
+	return $join_sql;
 }

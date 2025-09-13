@@ -181,6 +181,10 @@ function bbp_pro_version_updater() {
 			bbp_pro_update_to_2_6_41();
 		}
 
+		if ( $raw_db_version < 320 ) {
+			bbp_pro_update_to_2_6_81();
+		}
+
 		if ( $raw_db_version !== $current_db ) {
 			if ( function_exists( 'bb_pro_reaction_migration' ) ) {
 				bb_pro_reaction_migration();
@@ -553,4 +557,107 @@ function bb_pro_sso_remove_attachments_callback() {
 
 	// Re-register the background jobs until the result is empty.
 	bb_pro_background_remove_sso_attachments();
+}
+
+/**
+ * Update migration for a version 2.6.90.
+ * Removes empty identifiers from social sign-on users table.
+ *
+ * @since 2.6.90
+ */
+function bbp_pro_update_to_2_6_81() {
+	global $bb_background_updater;
+
+	// Check if migration already ran.
+	$is_already_run = get_transient( 'bb_pro_remove_empty_sso_identifiers' );
+	if ( $is_already_run ) {
+		return;
+	}
+
+	// Schedule background task.
+	$bb_background_updater->data(
+		array(
+			'type'     => 'remove_empty_sso_identifiers',
+			'group'    => 'bb_pro_remove_empty_identifiers',
+			'priority' => 3,
+			'callback' => 'bb_pro_remove_empty_sso_identifiers_callback',
+			'args'     => array(),
+		)
+	);
+
+	$bb_background_updater->save()->schedule_event();
+
+	// Set transient to prevent duplicate scheduling.
+	set_transient( 'bb_pro_remove_empty_sso_identifiers', true, HOUR_IN_SECONDS );
+}
+
+/**
+ * Background callback to remove empty identifiers from social sign-on users table.
+ * Processes records in batches for better performance.
+ *
+ * @since 2.6.90
+ */
+function bb_pro_remove_empty_sso_identifiers_callback() {
+	global $wpdb;
+
+	// Set batch size.
+	$batch_size = apply_filters( 'bb_pro_remove_empty_identifiers_batch_size', 100 );
+
+	// Get the table name.
+	$table_name = $wpdb->base_prefix . 'bb_social_sign_on_users';
+
+	// Delete records with empty or NULL identifiers in batches.
+	$deleted = $wpdb->query(
+		$wpdb->prepare(
+			"DELETE FROM `{$table_name}` 
+			WHERE identifier IS NULL 
+			OR identifier = ''
+			LIMIT %d",
+			$batch_size
+		)
+	);
+
+	// If records were deleted, schedule another run.
+	if ( $deleted >= $batch_size ) {
+		bb_pro_background_remove_empty_identifiers();
+	}
+}
+
+/**
+ * Schedule another background job to remove empty identifiers if needed.
+ *
+ * @since 2.6.81
+ */
+function bb_pro_background_remove_empty_identifiers() {
+	global $bb_background_updater, $wpdb;
+
+	$table_name = $bb_background_updater::$table_name;
+
+	// Check existing background jobs.
+	$total_bg = $wpdb->get_row(
+		$wpdb->prepare(
+			"SELECT count(DISTINCT id) as total FROM {$table_name} 
+			WHERE `type` = %s AND `group` = %s",
+			'remove_empty_sso_identifiers',
+			'bb_pro_remove_empty_identifiers'
+		)
+	);
+
+	// Limit concurrent jobs.
+	if ( ! empty( $total_bg->total ) && $total_bg->total > 4 ) {
+		return;
+	}
+
+	// Schedule another run.
+	$bb_background_updater->data(
+		array(
+			'type'     => 'remove_empty_sso_identifiers',
+			'group'    => 'bb_pro_remove_empty_identifiers',
+			'priority' => 5,
+			'callback' => 'bb_pro_remove_empty_sso_identifiers_callback',
+			'args'     => array(),
+		)
+	);
+
+	$bb_background_updater->save()->schedule_event();
 }

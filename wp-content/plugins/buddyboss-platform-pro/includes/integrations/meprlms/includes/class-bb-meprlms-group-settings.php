@@ -110,7 +110,7 @@ class BB_MeprLMS_Group_Settings extends BP_Group_Extension {
 	public function bb_meprlms_admin_settings_screen_save( $group_id = 0 ) {
 
 		// Bail if not a POST action or manage tab is disabled.
-		if ( ! bp_is_post_request() || ( ! current_user_can( 'administrator' ) && ! bb_meprlms_manage_tab() ) ) {
+		if ( ! bp_is_post_request() || ! bb_meprlms_manage_tab() ) {
 			return;
 		}
 
@@ -404,7 +404,7 @@ class BB_MeprLMS_Group_Settings extends BP_Group_Extension {
 	 * @return void
 	 */
 	public function bb_meprlms_save_group_settings( $group_id, $post ) {
-		if ( ! current_user_can( 'administrator' ) && ! bb_meprlms_manage_tab() ) {
+		if ( ! bb_meprlms_manage_tab() ) {
 			return;
 		}
 

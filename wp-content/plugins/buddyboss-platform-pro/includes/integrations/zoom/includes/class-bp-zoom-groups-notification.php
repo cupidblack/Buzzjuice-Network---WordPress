@@ -188,8 +188,9 @@ class BP_Zoom_Groups_Notification extends BP_Core_Notification_Abstract {
 		}
 
 		if ( property_exists( $meeting, 'start_date_utc' ) && ! empty( $meeting->start_date_utc ) ) {
-			$start_date = new DateTime( $meeting->start_date_utc, new DateTimeZone( $meeting->timezone ) );
-			$start_date = $start_date->format( 'd-m-Y' );
+			// Convert UTC timestamp directly to WordPress date time format.
+			$date       = wp_date( bp_core_date_format(), strtotime( $meeting->start_date_utc ), new DateTimeZone( $meeting->timezone ) ) . __( ' at ', 'buddyboss-pro' ) . wp_date( bp_core_date_format( true, false ), strtotime( $meeting->start_date_utc ), new DateTimeZone( $meeting->timezone ) );
+			$start_date = esc_html( $date ) . ( ! empty( $meeting->timezone ) ? ' (' . esc_html( bp_zoom_get_timezone_label( $meeting->timezone ) ) . ')' : '' );
 		}
 
 		if ( 'web_push' === $screen ) {

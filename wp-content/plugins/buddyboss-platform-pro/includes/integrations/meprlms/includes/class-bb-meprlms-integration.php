@@ -175,8 +175,23 @@ class BB_MeprLMS_Integration extends BP_Integration {
 	 * @since 2.6.30
 	 */
 	public function enqueue_scripts_styles() {
+		// On the admin, get the group id out of the $_GET params.
+		if (
+			! ( // Edit group page.
+				is_admin() &&
+				isset( $_GET['page'] ) &&
+				'bp-groups' === $_GET['page'] &&
+				! empty( $_GET['gid'] )
+			) &&
+			! bp_is_group_admin_page() && // Manage group page.
+			! ( bp_is_group_create() && bp_is_group_creation_step( 'courses' ) ) // create group page.
+		) {
+			return;
+		}
+
 		$min     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		$rtl_css = is_rtl() ? '-rtl' : '';
+
 		wp_enqueue_script( 'bp-select2' );
 		wp_enqueue_style( 'bp-select2' );
 		wp_enqueue_style( 'bb-meprlms-admin', bb_meprlms_integration_url( '/assets/css/bb-meprlms-admin' . $rtl_css . $min . '.css' ), false, buddypress()->version );

@@ -83,7 +83,7 @@ $hide_select_course = ! $is_course_enable ? 'bb-hide' : '';
 		?>
 	</div>
 	<?php
-	if ( bb_meprlms_manage_tab() || current_user_can( 'administrator' ) ) {
+	if ( bb_meprlms_manage_tab() ) {
 		?>
 		<div class="bb-course-activity-selection <?php echo esc_attr( $hide_select_course ); ?>">
 			<?php

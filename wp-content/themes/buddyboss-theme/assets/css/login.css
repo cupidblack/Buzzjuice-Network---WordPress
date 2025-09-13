@@ -5796,3 +5796,22 @@ div.bb-sso-container .bb-sso-button-default {
   color: var(--bb-secondary-button-text-regular);
   border-radius: var(--bb-button-radius);
 }
+
+#wfls-prompt-overlay {
+  z-index: 10;
+  padding: 0;
+}
+#wfls-prompt-overlay #wfls-prompt-wrapper {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+#wfls-prompt-overlay .wfls-remember-device-wrapper #wfls-remember-device {
+  vertical-align: middle;
+  height: 1rem;
+  width: 1rem;
+  margin-left: 1px;
+}
+
+#loginform > .cf-turnstile {
+  margin-left: 0;
+}

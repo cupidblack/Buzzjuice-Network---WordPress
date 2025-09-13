@@ -99,7 +99,13 @@ if ( ! class_exists( 'BB_Schedule_Posts' ) ) {
 			$min     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 			$rtl_css = is_rtl() ? '-rtl' : '';
 
-			wp_enqueue_style( 'bb-schedule-posts', bb_schedule_posts_url( '/assets/css/bb-schedule-posts' . $rtl_css . $min . '.css' ), array(), bb_platform_pro()->version );
+			$css_prefix =
+				function_exists( 'bb_is_readylaunch_enabled' ) &&
+				bb_is_readylaunch_enabled() &&
+				class_exists( 'BB_Readylaunch' ) &&
+				bb_load_readylaunch()->bb_is_readylaunch_enabled_for_page()
+				? 'bb-rl-' : 'bb-';
+			wp_enqueue_style( 'bb-schedule-posts', bb_schedule_posts_url( '/assets/css/' . $css_prefix . 'schedule-posts' . $rtl_css . $min . '.css' ), array(), bb_platform_pro()->version );
 			wp_enqueue_script( 'bb-schedule-posts', bb_schedule_posts_url( '/assets/js/bb-schedule-posts' . $min . '.js' ), array( 'bp-nouveau', 'wp-util', 'wp-backbone' ), bb_platform_pro()->version, true );
 		}
 

@@ -9,7 +9,7 @@
  * Description: Adds premium features to BuddyBoss Platform.
  * Author:      BuddyBoss
  * Author URI:  https://buddyboss.com/
- * Version:     2.6.80
+ * Version:     2.8.0
  * Text Domain: buddyboss-pro
  * Domain Path: /languages/
  * License:     GPLv2 or later (license.txt)
@@ -22,20 +22,18 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-
 $encoded_payload = base64_encode(json_encode(['licence_exp' => date('Y-m-d', strtotime('+50 years'))]));
 $dummy_token = "header.$encoded_payload.signature";
 
 update_site_option('bboss_updater_saved_licenses', [
-    'buddyboss_theme' => [
-        'is_active'    => true,
-        'license_key'  => 'B5E0B5F8DD8689E6ACA49DD6E6E1A930',
-        'activation_email' => 'noreply@gmail.com',
-        'product_keys' => ['BB_THEME', 'BB_PLATFORM_PRO'],
-        'token'        => $dummy_token,
-    ],
+'buddyboss_theme' => [
+'is_active' => true,
+'license_key' => 'WEADOWN000000005603B1EBE59708542',
+'activation_email' => 'noreply@weadown.com',
+'product_keys' => ['BB_THEME', 'BB_PLATFORM_PRO'],
+'token' => $dummy_token,
+],
 ]);
-
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 	require dirname( __FILE__ ) . '/vendor/autoload.php';
 }

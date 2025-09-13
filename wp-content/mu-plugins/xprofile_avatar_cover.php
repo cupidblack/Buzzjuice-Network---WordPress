@@ -109,47 +109,69 @@ function custom_bp_avatar_html_override($html, $params) {
         return $html;
     }
 
-    $user_id = (int) $params['item_id'];
+    $user_id   = (int) $params['item_id'];
+    $site_url  = rtrim(home_url(), '/'); // https://buzzjuice.net
+    $streams   = $site_url . '/streams/';
 
     if (function_exists('xprofile_get_field_data')) {
         $custom_avatar = xprofile_get_field_data('avatar', $user_id);
+        $custom_avatar = is_string($custom_avatar) ? trim($custom_avatar) : '';
 
         if (!empty($custom_avatar)) {
+            // --- Normalize URL ---
             
-            // Normalize URL to prevent multiple 'https://buzzjuice.net/streams/' repetitions
-            $site_streams_url = 'https://buzzjuice.net/streams/';
-            $stream_relative  = '/../streams/';
-
-            if (strpos($custom_avatar, $site_streams_url) === 0) {
-                // Remove all occurrences of the site_streams_url
-                while (strpos($custom_avatar, $site_streams_url) !== false) {
-                    $custom_avatar = str_replace($site_streams_url, '', $custom_avatar);
-                }
-                // Then prepend with /../streams/
-                $custom_avatar = $stream_relative . $custom_avatar;
+            // Case 1: Repeated "https://buzzjuice.net/streams/"
+            $pattern = '#(?:' . preg_quote($streams, '#') . ')+#';
+            if (preg_match($pattern, $custom_avatar)) {
+                $custom_avatar = preg_replace($pattern, '', $custom_avatar);
+                $custom_avatar = $streams . ltrim($custom_avatar, '/');
             }
 
-            // If it starts with 'upload/', prepend /../streams/
-            elseif (strpos($custom_avatar, 'upload/') === 0) {
-                $custom_avatar = $stream_relative . $custom_avatar;
+            // Case 2: If already starts with streams URL
+            elseif (strpos($custom_avatar, $streams) === 0) {
+                // Normalize once
+                $custom_avatar = $streams . ltrim(str_replace($streams, '', $custom_avatar), '/');
             }
 
-            // Cache busting
-            $custom_avatar .= (strpos($custom_avatar, '?') === false ? '?' : '&') . 'v=' . time();
+            // Case 3: If starts with "upload/"
+            elseif (strpos(ltrim($custom_avatar, '/'), 'upload/') === 0) {
+                $custom_avatar = $streams . ltrim($custom_avatar, '/');
+            }
 
-            // Render image
-            $width  = !empty($params['width'])  ? (int)$params['width']  : 150;
-            $height = !empty($params['height']) ? (int)$params['height'] : 150;
-            $class  = esc_attr($params['class'] ?? 'avatar');
-            $alt    = esc_attr($params['alt'] ?? 'User avatar');
-            $style  = ($params['type'] === 'full') ? 'style="object-fit: cover;"' : '';
+            // Case 4: If relative path (no http/https)
+            elseif (!preg_match('#^https?://#i', $custom_avatar)) {
+                $custom_avatar = $streams . ltrim($custom_avatar, '/');
+            }
 
-            return '<img src="' . esc_attr($custom_avatar) . '" class="' . $class . '" width="' . $width . '" height="' . $height . '" alt="' . $alt . '" ' . $style . ' />';
+            // --- Cache busting: safer alternative ---
+            // Example: append user_id + last updated timestamp instead of time()
+            $version = (int) get_user_meta($user_id, 'avatar_version', true);
+            if ($version > 0) {
+                $custom_avatar .= (strpos($custom_avatar, '?') === false ? '?' : '&') . 'v=' . $version;
+            }
+
+            // --- Build <img> tag ---
+            $width   = !empty($params['width'])  ? (int)$params['width']  : 150;
+            $height  = !empty($params['height']) ? (int)$params['height'] : 150;
+            $class   = esc_attr($params['class'] ?? 'avatar');
+            $alt     = esc_attr($params['alt'] ?? 'User avatar');
+            $style   = ($params['type'] === 'full') ? 'style="object-fit: cover;"' : '';
+
+            return sprintf(
+                '<img src="%s" class="%s" width="%d" height="%d" alt="%s" %s loading="lazy" decoding="async" />',
+                esc_url($custom_avatar),
+                $class,
+                $width,
+                $height,
+                $alt,
+                $style
+            );
         }
     }
 
     return $html;
 }
+
 
 
 
@@ -208,14 +230,15 @@ function custom_bp_cover_from_xprofile($pre_value, $args) {
         return $pre_value; // skip malformed paths
     }
 
-    // Step 3: Prepend with /../streams/
-    $custom_cover = '../streams/' . $custom_cover;
+    // ✅ Step 3: Prepend with absolute base URL + /streams/
+    $custom_cover = rtrim(home_url(), '/') . '/streams/' . ltrim($custom_cover, '/');
 
     // Step 4: Add cache-busting timestamp
     $custom_cover .= (strpos($custom_cover, '?') === false ? '?' : '&') . 'v=' . time();
 
     return esc_url_raw($custom_cover);
 }
+
 
 
 

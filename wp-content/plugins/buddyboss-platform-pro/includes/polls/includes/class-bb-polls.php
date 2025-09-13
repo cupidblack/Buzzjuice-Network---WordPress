@@ -273,7 +273,13 @@ class BB_Polls {
 			bb_platform_pro()->version,
 			true
 		);
-		wp_enqueue_style( 'bb-polls-style', bb_polls_url( '/assets/css/bb-polls' . $rtl_css . $min . '.css' ), array(), bb_platform_pro()->version );
+		$css_prefix =
+			function_exists( 'bb_is_readylaunch_enabled' ) &&
+			bb_is_readylaunch_enabled() &&
+			class_exists( 'BB_Readylaunch' ) &&
+			bb_load_readylaunch()->bb_is_readylaunch_enabled_for_page()
+			? 'bb-rl-' : 'bb-';
+		wp_enqueue_style( 'bb-polls-style', bb_polls_url( '/assets/css/' . $css_prefix . 'polls' . $rtl_css . $min . '.css' ), array(), bb_platform_pro()->version );
 
 		wp_localize_script(
 			'bb-poll-script',

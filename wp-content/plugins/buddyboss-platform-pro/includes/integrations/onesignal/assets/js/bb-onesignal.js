@@ -133,6 +133,14 @@ var bb_player_id = '';
 						oneSignal_options.subdomainName = bb_onesignal_vars.subDomainName;
 					}
 
+					// Set prompt options before initialization
+					if ( parseInt( bb_onesignal_vars.is_soft_prompt_enabled ) > 0 ) {
+						oneSignal_options.promptOptions                  = {};
+						oneSignal_options.promptOptions.actionMessage    = bb_onesignal_vars.actionMessage;
+						oneSignal_options.promptOptions.acceptButtonText = bb_onesignal_vars.acceptButtonText;
+						oneSignal_options.promptOptions.cancelButtonText = bb_onesignal_vars.cancelButtonText;
+					}
+
 					window.OneSignal.init( window._oneSignalInitOptions );
 
 					window.OneSignal.setExternalUserId( bb_onesignal_vars.prompt_user_id );
@@ -351,11 +359,6 @@ var bb_player_id = '';
 					parseInt( bb_onesignal_vars.prompt_user_id ) > 0
 				) {
 					if ( parseInt( bb_onesignal_vars.is_soft_prompt_enabled ) > 0 ) {
-						window._oneSignalInitOptions.promptOptions                  = {};
-						window._oneSignalInitOptions.promptOptions.actionMessage    = bb_onesignal_vars.actionMessage;
-						window._oneSignalInitOptions.promptOptions.acceptButtonText = bb_onesignal_vars.acceptButtonText;
-						window._oneSignalInitOptions.promptOptions.cancelButtonText = bb_onesignal_vars.cancelButtonText;
-
 						window.OneSignal.showSlidedownPrompt();
 					} else {
 						window.OneSignal.showNativePrompt();

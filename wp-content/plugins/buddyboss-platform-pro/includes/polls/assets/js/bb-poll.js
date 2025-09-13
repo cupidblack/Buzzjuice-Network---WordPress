@@ -1,5 +1,5 @@
 /* jshint browser: true */
-/* global wp, bp, BP_Nouveau, _, Backbone, bbPollsVars */
+/* global wp, bp, BP_Nouveau, _, Backbone, bbPollsVars, BBTopicsManager */
 window.wp = window.wp || {};
 window.bp = window.bp || {};
 
@@ -47,8 +47,8 @@ window.bp = window.bp || {};
 		 * [addListeners description]
 		 */
 		addListeners: function () {
-			$( '#bp-nouveau-activity-form' ).on( 'click', '.post-elements-buttons-item.post-poll', this.showPollForm.bind( this ) );
-			$( '#bp-nouveau-activity-form' ).on( 'click', '.bb-activity-poll-cancel, .bb-activity-poll_modal .bb-model-close-button', this.hidePollForm.bind( this ) );
+			$( '#bp-nouveau-activity-form, #bb-rl-activity-form' ).on( 'click', '.post-elements-buttons-item.post-poll', this.showPollForm.bind( this ) );
+			$( '#bp-nouveau-activity-form, #bb-rl-activity-form' ).on( 'click', '.bb-activity-poll-cancel, .bb-activity-poll_modal .bb-model-close-button', this.hidePollForm.bind( this ) );
 			$( document ).on( 'keyup', '.bb-activity-poll-new-option-input', this.validateNewOption.bind( this ) );
 			$( document ).on( 'click', '.bb-activity-option-submit', this.submitNewOption.bind( this ) );
 			$( document ).on( 'click', '.bb-activity-poll-see-more-link', this.seeMoreOptions.bind( this ) );
@@ -197,7 +197,7 @@ window.bp = window.bp || {};
 
 			}
 
-			$( '.whats-new-form-footer' ).find( '.bb-poll-form .bb-action-popup' ).show();
+			$( '[class*="whats-new-form-footer"]' ).find( '.bb-poll-form .bb-action-popup' ).show();
 		},
 
 		hidePollForm: function ( e ) {
@@ -221,7 +221,8 @@ window.bp = window.bp || {};
 				}
 			}
 			$( e.currentTarget ).closest( '.bb-action-popup' ).hide();
-			$( e.currentTarget ).closest( '.whats-new-form-footer' ).find( '.post-poll.active' ).removeClass( 'active' );
+			var form_footer =  $( e.currentTarget ).closest( '.whats-new-form-footer' ).length ? $( e.currentTarget ).closest( '.whats-new-form-footer' ) : $( e.currentTarget ).closest( '.bb-rl-whats-new-form-footer' );
+			form_footer.find( '.post-poll.active' ).removeClass( 'active' );
 			// Reset Activity Form Media action.
 			window.activityMediaAction = null;
 		},
@@ -424,6 +425,7 @@ window.bp = window.bp || {};
 		},
 
 		closeVoteState: function ( e ) {
+			e.preventDefault();
 			var $target     = $( e.currentTarget );
 			var $statePopup = $target.closest( '#bb-poll-view' ).find( '#bb-activity-poll-state_modal' );
 			$statePopup.find( '.bb-action-popup-content .bb-action-popup-content-dynamic' ).html( '' );
@@ -527,7 +529,11 @@ window.bp = window.bp || {};
 								activity.poll.options     = response.data.all_options;
 
 								var activityPollEntry = new bp.Views.ActivityPollEntry( response.data );
-								$( '#activity-' + activtyId + ' .bb-activity-poll_block' ).html( activityPollEntry.render().el );
+								var activityItem = $( '#activity-' + activtyId ).length ? $( '#activity-' + activtyId + ' .bb-activity-poll_block' ) : $( '#bb-rl-activity-' + activtyId + ' .bb-activity-poll_block' );
+
+								if ( activityItem.length ) {
+									activityItem.replaceWith( activityPollEntry.render().el );
+								}
 
 								$target.parents( '.activity-item' ).attr( 'data-bp-activity', JSON.stringify( activity ) );
 							}
@@ -639,7 +645,28 @@ window.bp = window.bp || {};
 							model.set( 'poll', pollObject );
 							model.set( 'poll_id', response.data.id );
 
-							$( '#whats-new-form' ).removeClass( 'focus-in--empty' );
+							// Validate topic content with poll.
+							if (
+								! _.isUndefined( BP_Nouveau.activity.params.topics ) &&
+								! _.isUndefined( BP_Nouveau.activity.params.topics.bb_is_enabled_activity_topics ) &&
+								BP_Nouveau.activity.params.topics.bb_is_enabled_activity_topics &&
+								! _.isUndefined( BP_Nouveau.activity.params.topics.bb_is_activity_topic_required ) &&
+								BP_Nouveau.activity.params.topics.bb_is_activity_topic_required &&
+								'undefined' !== typeof BBTopicsManager &&
+								'undefined' !== typeof BBTopicsManager.bbTopicValidateContent
+							) {
+								BBTopicsManager.bbTopicValidateContent( {
+									self         : this,
+									selector     : $( '#whats-new-form' ),
+									validContent : true,
+									class        : 'focus-in--empty',
+									data         : model.attributes,
+									action       : 'poll_form_submitted'
+								} );
+							} else {
+								$( '#whats-new-form' ).removeClass( 'focus-in--empty' );
+							}
+
 							$( event.target ).closest( '#bb-activity-poll-form_modal' ).hide();
 							window.activityMediaAction = null;
 							pollForm.find( '#bb-poll-allow-multiple-answer .bb-action-popup-content > .bp-feedback' ).removeClass( 'active' );

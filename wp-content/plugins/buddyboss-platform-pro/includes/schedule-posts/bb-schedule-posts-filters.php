@@ -15,6 +15,11 @@ add_filter( 'bp_rest_platform_settings', 'bb_rest_schedule_posts_platform_settin
 add_filter( 'bb_is_enabled_activity_schedule_posts', 'bb_is_enabled_activity_schedule_posts_filter', 999 );
 add_filter( 'bp_core_get_js_strings', 'bb_schedule_posts_localize_scripts', 11 );
 add_filter( 'bb_is_enabled_activity_schedule_posts', 'bb_is_enabled_activity_schedule_posts_admin_only', PHP_INT_MAX );
+add_filter( 'bp_rest_activity_get_items_permissions_check', 'bb_rest_activity_get_items_schedule_posts_permissions_check', 10, 2 );
+add_filter( 'bp_rest_activity_get_item_permissions_check', 'bb_rest_activity_get_item_schedule_posts_permissions_check', 10, 2 );
+add_filter( 'bp_rest_activity_update_item_permissions_check', 'bb_rest_activity_update_item_schedule_posts_permissions_check', 10, 2 );
+add_filter( 'bp_rest_activity_delete_item_permissions_check', 'bb_rest_activity_delete_item_schedule_posts_permissions_check', 10, 2 );
+
 
 /**
  * Add schedule posts settings into API.
@@ -125,6 +130,199 @@ function bb_is_enabled_activity_schedule_posts_admin_only( $retval ) {
 
 	if ( bp_current_user_can( 'administrator' ) ) {
 		return true;
+	}
+
+	return $retval;
+}
+
+/**
+ * Permissions check for the scheduled posts.
+ *
+ * @since 2.8.0
+ *
+ * @param bool|WP_Error   $retval  The return value.
+ * @param WP_REST_Request $request The request object.
+ *
+ * @return bool|WP_Error
+ */
+function bb_rest_activity_get_items_schedule_posts_permissions_check( $retval, $request ) {
+	$activity_status = $request->get_param( 'activity_status' );
+
+	if (
+		empty( $activity_status ) ||
+		bb_get_activity_scheduled_status() !== $activity_status
+	) {
+		return $retval;
+	}
+
+	// If the user is not logged in, return false.
+	if ( ! is_user_logged_in() ) {
+		return new WP_Error(
+			'bp_rest_authorization_required',
+			__( 'Sorry, Restrict access to only logged-in members.', 'buddyboss-pro' ),
+			array(
+				'status' => rest_authorization_required_code(),
+			)
+		);
+	}
+
+	$user_id = $request->get_param( 'user_id' );
+	if ( bp_loggedin_user_id() !== $user_id ) {
+		return new WP_Error(
+			'bp_rest_forbidden',
+			__( 'You are not allowed to view scheduled posts for this user.', 'buddyboss-pro' ),
+			array( 'status' => rest_authorization_required_code() )
+		);
+	}
+
+	return $retval;
+}
+
+/**
+ * Permissions check for the scheduled posts item.
+ *
+ * @since 2.8.0
+ *
+ * @param bool|WP_Error   $retval  The return value.
+ * @param WP_REST_Request $request The request object.
+ *
+ * @return bool|WP_Error
+ */
+function bb_rest_activity_get_item_schedule_posts_permissions_check( $retval, $request ) {
+	$activity_id = $request->get_param( 'id' );
+	if ( empty( $activity_id ) ) {
+		return $retval;
+	}
+
+	$activity = new BP_Activity_Activity( $activity_id );
+
+	if (
+		empty( $activity->id ) ||
+		bb_get_activity_scheduled_status() !== $activity->status
+	) {
+		return $retval;
+	}
+
+	// If the user is not logged in, return false.
+	if ( ! is_user_logged_in() ) {
+		return new WP_Error(
+			'bp_rest_authorization_required',
+			__( 'Sorry, Restrict access to only logged-in members.', 'buddyboss-pro' ),
+			array(
+				'status' => rest_authorization_required_code(),
+			)
+		);
+	}
+
+	$user_id = $activity->user_id;
+	if ( bp_loggedin_user_id() !== $user_id ) {
+		return new WP_Error(
+			'bp_rest_authorization_required',
+			__( 'You are not allowed to view scheduled posts for this user.', 'buddyboss-pro' ),
+			array(
+				'status' => rest_authorization_required_code(),
+			)
+		);
+	}
+
+	return $retval;
+}
+
+/**
+ * Permissions check for updating scheduled post item.
+ *
+ * @since 2.8.0
+ *
+ * @param bool|WP_Error   $retval  The return value.
+ * @param WP_REST_Request $request The request object.
+ *
+ * @return bool|WP_Error
+ */
+function bb_rest_activity_update_item_schedule_posts_permissions_check( $retval, $request ) {
+	$activity_id = $request->get_param( 'id' );
+	if ( empty( $activity_id ) ) {
+		return $retval;
+	}
+
+	$activity = new BP_Activity_Activity( $activity_id );
+
+	if (
+		empty( $activity->id ) ||
+		bb_get_activity_scheduled_status() !== $activity->status
+	) {
+		return $retval;
+	}
+
+	// If the user is not logged in, return false.
+	if ( ! is_user_logged_in() ) {
+		return new WP_Error(
+			'bp_rest_authorization_required',
+			__( 'Sorry, Restrict access to only logged-in members.', 'buddyboss-pro' ),
+			array(
+				'status' => rest_authorization_required_code(),
+			)
+		);
+	}
+
+	$user_id = $activity->user_id;
+	if ( bp_loggedin_user_id() !== $user_id ) {
+		return new WP_Error(
+			'bp_rest_authorization_required',
+			__( 'You are not allowed to update scheduled posts for this user.', 'buddyboss-pro' ),
+			array(
+				'status' => rest_authorization_required_code(),
+			)
+		);
+	}
+
+	return $retval;
+}
+
+/**
+ * Permissions check for deleting scheduled post item.
+ *
+ * @since 2.8.0
+ *
+ * @param bool|WP_Error   $retval  The return value.
+ * @param WP_REST_Request $request The request object.
+ *
+ * @return bool|WP_Error
+ */
+function bb_rest_activity_delete_item_schedule_posts_permissions_check( $retval, $request ) {
+	$activity_id = $request->get_param( 'id' );
+	if ( empty( $activity_id ) ) {
+		return $retval;
+	}
+
+	$activity = new BP_Activity_Activity( $activity_id );
+
+	if (
+		empty( $activity->id ) ||
+		bb_get_activity_scheduled_status() !== $activity->status
+	) {
+		return $retval;
+	}
+
+	// If the user is not logged in, return false.
+	if ( ! is_user_logged_in() ) {
+		return new WP_Error(
+			'bp_rest_authorization_required',
+			__( 'Sorry, Restrict access to only logged-in members.', 'buddyboss-pro' ),
+			array(
+				'status' => rest_authorization_required_code(),
+			)
+		);
+	}
+
+	$user_id = $activity->user_id;
+	if ( bp_loggedin_user_id() !== $user_id ) {
+		return new WP_Error(
+			'bp_rest_authorization_required',
+			__( 'You are not allowed to delete scheduled posts for this user.', 'buddyboss-pro' ),
+			array(
+				'status' => rest_authorization_required_code(),
+			)
+		);
 	}
 
 	return $retval;

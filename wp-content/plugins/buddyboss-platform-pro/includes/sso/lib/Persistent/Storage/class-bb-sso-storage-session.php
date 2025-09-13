@@ -143,4 +143,15 @@ class BB_SSO_Storage_Session extends BB_SSO_Storage_Abstract {
 			}
 		}
 	}
+
+	/**
+	 * Gets the session name.
+	 *
+	 * @since 2.6.90
+	 *
+	 * @return string The session name.
+	 */
+	public function get_session_name() {
+		return $this->session_name;
+	}
 }

@@ -22,10 +22,10 @@
                 <h2><?php _e( 'Manual Connect', 'buddyboss-theme' ); ?></h2>
                 <p>
                 <li>
-					<?php printf( __( 'Log into %s', 'buddyboss-theme' ), '<a href="https://www.buddyboss.com/wp-admin">BuddyBoss.com</a>' ); ?>
+					<?php printf( __( 'Log into %s', 'buddyboss-theme' ), '<a href="https://my.buddyboss.com/wp-admin">BuddyBoss.com</a>' ); ?>
                 </li>
                 <li>
-					<?php printf( __( 'Go to your %s', 'buddyboss-theme' ), '<a href="https://www.buddyboss.com/my-account/">Account</a>' ); ?>
+					<?php printf( __( 'Go to your %s', 'buddyboss-theme' ), '<a href="https://my.buddyboss.com/my-account/">Account</a>' ); ?>
                 </li>
                 <li>
 					<?php _e( 'Go to the "Subscriptions" tab', 'buddyboss-theme' ); ?>

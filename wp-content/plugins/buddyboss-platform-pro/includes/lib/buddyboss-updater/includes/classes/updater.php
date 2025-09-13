@@ -384,7 +384,7 @@ if ( ! class_exists( 'BBoss_Updates_Helper' ) ) {
 			$request_args = array(
 				'id'            => $this->plugin_id,
 				'slug'          => $this->plugin_slug,
-				'version'       => ( isset( $plugin_info->checked ) && array_key_exists( $this->plugin_path, $plugin_info->checked ) ) ? $plugin_info->checked[ $this->plugin_path ] : 0, // Current version
+				'version'       => ( isset( $plugin_info->checked ) ) ? $plugin_info->checked[ $this->plugin_path ] : 0, // Current version
 				'licence_stats' => bb_pro_get_license_stats( $this->plugin_path ),
 			);
 

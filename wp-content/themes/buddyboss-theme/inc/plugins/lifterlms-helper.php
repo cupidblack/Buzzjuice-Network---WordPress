@@ -1969,7 +1969,7 @@ if ( ! class_exists( '\BuddyBossTheme\LifterLMSHelper' ) ) {
                         <h5 style="color:red; display:none" id="review_text_error">
 							<?php _e( 'Review Text is required.', 'buddyboss-theme' ); ?>
                         </h5>
-						<?php wp_nonce_field( 'submit_review', 'submit_review_nonce_code' ); ?>
+						<?php wp_nonce_field( 'llms-review', 'llms_review_nonce' ); ?>
                         <input name="action" value="submit_review" type="hidden">
                         <input name="post_ID" value="<?php echo get_the_ID(); ?>" type="hidden" id="post_ID">
                         <span class="review_leave">

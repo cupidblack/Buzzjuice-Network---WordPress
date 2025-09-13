@@ -1,9 +1,15 @@
+/**
+ * W E A D O W N . C O M
+ * ---- weadown.com ----
+ */
+
+
 === BuddyBoss Platform Pro ===
 Contributors: buddyboss
 Requires at least: 4.9.1
-Tested up to: 6.7.2
+Tested up to: 6.8.1
 Requires PHP: 5.6.20
-Stable tag: 2.6.80
+Stable tag: 2.8.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,6 +37,61 @@ To run BuddyBoss Platform Pro, we recommend your host supports:
 5. Activate 'BuddyBoss Platform Pro' from your Plugins page.
 
 == Changelog ==
+
+= 2.8.0 =
+* Bug: Activity - Added permission checks to Scheduled Posts API endpoints to prevent users from accessing other users scheduled posts
+* Bug: Core -  Fixed accessibility issues across Platform and Theme for improved usability
+* Bug: Core - Fixed PHP 8.4 warnings and removed extra database queries for better stability and performance
+
+= 2.7.70 =
+* Bug: ReadyLaunch - Fixed minor UI and functional issues
+
+= 2.7.61 =
+* Bug: Core - Fixed an error in version 2.7.60
+
+= 2.7.60 =
+* Bug: Activity - Fixed an issue where the schedule post dropdown menu was not fully visible, causing options to overflow or become inaccessible
+* Bug: Groups - Fixed misalignment of the Zoom integration field style in group settings when vertical group navigation is enabled in the latest BuddyBoss theme
+
+= 2.7.50 =
+* New Feature! ReadyLaunch - launch your community with our new built in page template
+* Bug: Core - Fixed incorrect URL in the Manual Connect section on the License Keys admin page
+
+= 2.7.40 =
+* New Feature! – Added Activity Topics for categorizing and filtering posts in activity feeds and groups
+
+= 2.7.30 =
+* Bug: Activity - Fixed issue where the News Feed filter changed unexpectedly when opening the "View Scheduled Posts" popup
+* Bug: Zoom - Fixed issue about the Zoom notifications weren’t clickable
+* Bug: Zoom - Fixed issue where Zoom meeting notifications does not show correct date and time
+
+= 2.7.21 =
+* Bug: Social Login - Fixed an issue where social registration redirected to the signup form when a required custom profile field was added
+
+= 2.7.20 =
+* Bug: MemberPress - Fixed an issue where file size and file type were not displaying on the MemberPress LMS / Resources page in both the web and app
+* Bug: Social Login - Fixed an issue where related admin CSS and JS were being enqueued on all admin pages by ensuring they load only on relevant pages
+* Bug: Zoom - Fixed an issue where the Meeting and Webinar pages were broken when the Group navigation menu was set to vertical
+
+= 2.7.10 =
+* Enhancement: Login - Added Microsoft Social login support for the web
+* Bug: Core - Fixed Vulnerability issues
+
+= 2.7.01 =
+* Bug: Learndash - Resolved a code conflict in the “LearnDash Report” section
+
+= 2.7.00 =
+* Bug: Core - Fixed Vulnerability issues
+* Bug: Login - Fixed an issue where Apple's social login did not return the first and last name during subsequent authentications in the iOS app
+* Bug: Notifications - Fixed an issue where the Soft Prompt custom message was not working for the "Web Push Notification"
+
+= 2.6.90 =
+* Enhancement: Added new settings to allow admins to enable or disable member and group counts on the Members and Groups directory pages
+* Bug: Groups - Fixed an issue where saving or updating groups failed with a nonce verification error when MemberPress courses were active
+* Bug: Social Login - Fixed an issue where invited users were unable to use Social Login, as it did not recognise accounts created through invitations
+* Bug: Social Login - Fixed an issue where Twitter login redirected users to the registration page instead of logging them in when an account with the same email already existed
+* Bug: Social Login - Fixed an issue where Google SSO login redirection was not functioning as per the settings in the Redirection section
+* Bug: Zoom - Added missing instructions for the invitation scope in the Zoom App Wizard
 
 = 2.6.80 =
 * Bug: Social Login - Fixed warning messages related to Social Login

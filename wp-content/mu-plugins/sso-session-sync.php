@@ -510,11 +510,10 @@ add_action('init', function () {
 
 /* --------------------------- Admin debug endpoint --------------------------- */
 
-// Add login_init hook to accept an orchestrator-generated WP logout URL or one-time token.
-// If a platform redirected the browser to wp-login.php?action=logout&sso_one_time=... we will
-// validate the one-time token and perform immediate SSO cleanup and redirect to the orchestrator.
-// This lets platforms obtain a server-generated token and redirect users to WP logout without nonce.
-
+/**
+ * Add login_init hook to process orchestrator-issued WP logout token (sso_one_time).
+ * This enables platform-initiated WP logout with no confirmation screen.
+ */
 add_action('login_init', function() {
     // Only act when action=logout and sso_one_time present
     if (empty($_GET['action']) || $_GET['action'] !== 'logout') return;
@@ -589,6 +588,49 @@ add_action('login_init', function() {
     exit;
 }, 1);
 
+/**
+ * Add wp_logout hook to trigger orchestrator-initiated Single Log Out when WP user logs out.
+ * This ensures WP always cleans up, then triggers cascade.
+ */
+add_action('wp_logout', function() {
+    if (session_status() !== PHP_SESSION_ACTIVE) { @session_start(); }
+    $wp_sid = session_id();
+
+    try { bz_remove_shadow_session($wp_sid); } catch (Throwable $e) { bz_debug_log('wp_logout: remove shadow failed', ['err'=>$e->getMessage()]); }
+
+    // Expire buzz_sso cookie on shared domain and current host
+    $expiry = time() - 3600;
+    $domain = defined('BUZZ_COOKIE_DOMAIN') ? BUZZ_COOKIE_DOMAIN : '.buzzjuice.net';
+    if (PHP_VERSION_ID >= 70300) {
+        @setcookie(BUZZ_SSO_COOKIE, '', ['expires'=>$expiry,'path'=>'/','domain'=>$domain,'secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
+        @setcookie(BUZZ_SSO_COOKIE, '', ['expires'=>$expiry,'path'=>'/','secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
+    } else {
+        @setcookie(BUZZ_SSO_COOKIE, '', $expiry, '/', $domain, true, true);
+        @setcookie(BUZZ_SSO_COOKIE, '', $expiry, '/', '', true, true);
+    }
+    if (isset($_COOKIE[BUZZ_SSO_COOKIE])) unset($_COOKIE[BUZZ_SSO_COOKIE]);
+
+    // Destroy session and transient mapping
+    $_SESSION = [];
+    @session_unset();
+    @session_destroy();
+    try {
+        $transient_key = 'buzz_shadow_sid_' . $wp_sid;
+        delete_transient($transient_key);
+    } catch (Throwable $e) {
+        bz_debug_log('wp_logout: delete_transient threw', ['err'=>$e->getMessage()]);
+    }
+
+    bz_debug_log('wp_logout: processed WP-side logout', ['wp_sid'=>$wp_sid, 'shadow_sid'=>bz_shadow_session_id($wp_sid)]);
+
+    // Redirect into orchestrator for SLO chain (fallback: cabin=home triggers chain)
+    global $__buzz_sso_secret;
+    $ssec = $__buzz_sso_secret ?: (defined('BUZZ_SSO_SECRET') ? BUZZ_SSO_SECRET : getenv('BUZZ_SSO_SECRET'));
+    $url = 'https://buzzjuice.net/shared/sso-logout.php?cabin=home';
+    wp_safe_redirect($url);
+    exit;
+}, 10);
+
 /*
 add_action('wp_head', function() {
     ?>
@@ -653,32 +695,17 @@ function bluecrown_bb_login_redirect($redirect_to, $request, $user) {
  * - Validates/sanitizes `redirect_to` to prevent open redirects.
  * - Uses core helpers (wp_logout_url, wp_safe_redirect).
  */
-add_action('check_admin_referer', function ($action, $result) {
-    // We only care about the logout flow, and only if the user is actually logged in.
-    if ($action !== 'logout' || $action !== 'log-out' || !is_user_logged_in()) {
-        return;
+
+add_action('check_admin_referer', 'logout_without_confirm', 10, 2);
+function logout_without_confirm($action, $result)
+{
+    /**
+     * Allow logout without confirmation
+     */
+    if ($action == "log-out" && !isset($_GET['_wpnonce'])) {
+        $redirect_to = isset($_REQUEST['redirect_to']) ? $_REQUEST['redirect_to'] : 'https://buzzjuice.net';
+        $location = str_replace('&amp;', '&', wp_logout_url($redirect_to));
+        header("Location: $location");
+        exit;
     }
-
-    // If a nonce is present, let WP handle it normally (this means: no confirm screen).
-    if (isset($_GET['_wpnonce']) && is_string($_GET['_wpnonce']) && $_GET['_wpnonce'] !== '') {
-        return;
-    }
-
-    // Build a safe post-logout landing URL.
-    // 1) prefer ?redirect_to= if provided (and valid)
-    // 2) otherwise fall back to the homepage
-    $raw_redirect_to = isset($_REQUEST['redirect_to']) ? (string) $_REQUEST['redirect_to'] : '';
-    $fallback        = home_url('/');
-
-    // Validate against allowed hosts (defaults to your site). If invalid, WP returns $fallback.
-    $redirect_to = wp_validate_redirect($raw_redirect_to, $fallback);
-
-    // Generate a fresh, nonce-protected logout URL that will immediately log the user out.
-    // wp_logout_url() will include the nonce and preserve our validated redirect_to.
-    $logout_url = wp_logout_url($redirect_to);
-
-    // Send a safe redirect to the nonce'd logout URL.
-    nocache_headers(); // avoid caching of this transitional response
-    wp_safe_redirect($logout_url, 302);
-    exit;
-}, 10, 2);
+}

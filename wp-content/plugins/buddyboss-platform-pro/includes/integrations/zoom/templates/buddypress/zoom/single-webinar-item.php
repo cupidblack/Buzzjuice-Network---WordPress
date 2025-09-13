@@ -9,7 +9,7 @@
 ?>
 <div class="webinar-item-container" data-id="<?php bp_zoom_webinar_id(); ?>" data-webinar-id="<?php bp_zoom_webinar_zoom_webinar_id(); ?>" data-is-recurring="<?php echo ( 'webinar_occurrence' === bp_get_zoom_webinar_zoom_type() || bp_get_zoom_webinar_recurring() ) ? '1' : '0'; ?>" <?php echo 'webinar_occurrence' === bp_get_zoom_webinar_zoom_type() ? 'data-occurrence-id="' . esc_attr( bp_get_zoom_webinar_occurrence_id() ) . '"' : ''; ?>>
 	<div class="bb-title-wrap">
-		<a href="#" class="bp-back-to-webinar-list"><span class="bb-icon-l bb-icon-angle-left"></span></a>
+		<a href="#" class="bp-back-to-webinar-list" aria-label="<?php esc_attr_e( 'Back to webinar list', 'buddyboss-pro' ); ?>"><span class="bb-icon-l bb-icon-angle-left"></span></a>
 		<div>
 			<h2 class="bb-title">
 				<?php bp_zoom_webinar_title(); ?>
@@ -28,7 +28,7 @@
 		</div>
 		<?php if ( bp_zoom_groups_can_user_manage_zoom( bp_loggedin_user_id(), bp_get_current_group_id() ) && bp_zoom_groups_can_user_manage_webinar( bp_get_zoom_webinar_id() ) ) : ?>
 			<div class="webinar-actions">
-				<a href="#" class="webinar-actions-anchor">
+				<a href="#" class="webinar-actions-anchor" aria-label="<?php esc_attr_e( 'More options', 'buddyboss-pro' ); ?>">
 					<i class="bb-icon-f bb-icon-ellipsis-v"></i>
 				</a>
 				<div class="webinar-actions-list bb_more_dropdown">

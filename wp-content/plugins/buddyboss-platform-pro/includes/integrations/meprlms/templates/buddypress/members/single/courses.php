@@ -25,13 +25,29 @@ if ( class_exists( 'BB_MeprLMS_Profile' ) ) {
 
 $displayed_user_id = bp_displayed_user_id();
 
-echo bb_meprlms_get_course_search_form();
-
 if ( 'instructor-courses' === $current_course_subtab ) {
 	$courses = bb_meprlms_get_instructor_courses( $displayed_user_id );
 } else {
 	$courses = bb_meprlms_get_user_courses( $displayed_user_id );
 }
+
+if ( ! function_exists( 'bb_enable_content_counts' ) || bb_enable_content_counts() ) {
+	$count = ! empty( $courses->posts ) ? $courses->found_posts : 0;
+	?>
+	<div class="bb-item-count">
+		<?php
+		/* translators: %d is the courses count */
+		printf(
+			wp_kses( _n( '<span class="bb-count">%d</span> Course', '<span class="bb-count">%d</span> Courses', $count, 'buddyboss-pro' ), array( 'span' => array( 'class' => true ) ) ),
+			$count
+		);
+		?>
+	</div>
+	<?php
+	unset( $count );
+}
+
+echo bb_meprlms_get_course_search_form();
 
 if ( ! empty( $courses->posts ) ) {
 	?>
@@ -39,7 +55,7 @@ if ( ! empty( $courses->posts ) ) {
 	<div class="columns mpcs-cards">
 
 	<?php
-		ob_start();
+	ob_start();
 	foreach ( $courses->posts as $post ) { // Standard WordPress loop.
 		setup_postdata( $post );
 		$course           = new models\Course( $post->ID );

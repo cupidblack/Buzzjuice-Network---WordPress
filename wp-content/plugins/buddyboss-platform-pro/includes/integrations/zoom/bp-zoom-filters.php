@@ -237,7 +237,7 @@ function bb_zoom_rest_account_settings_notifications( $fields ) {
 function bb_zoom_group_notification_linkable( $retval, $notification ) {
 
 	if (
-		'groups' !== $notification->component_name &&
+		'groups' !== $notification->component_name ||
 		! in_array(
 			$notification->component_action,
 			array(

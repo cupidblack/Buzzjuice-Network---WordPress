@@ -64,10 +64,10 @@ $scheduled_date_string                  = wp_json_encode( $scheduled_date_data )
 	data-bb-scheduled-time='<?php echo esc_attr( $scheduled_date_string ); ?>'>
 
 	<div class="bb-activity-schedule-actions">
-		<a href="#" class="bb-activity-schedule-action bb-activity-schedule_edit">
+		<a href="#" class="bb-activity-schedule-action bb-activity-schedule_edit" aria-label="<?php esc_attr_e( 'Edit', 'buddyboss-pro' ); ?>">
 			<i class="bb-icon-l bb-icon-pencil"></i>
 		</a>
-		<a href="#" class="bb-activity-schedule-action bb-activity-schedule_delete">
+		<a href="#" class="bb-activity-schedule-action bb-activity-schedule_delete" aria-label="<?php esc_attr_e( 'Delete', 'buddyboss-pro' ); ?>">
 			<i class="bb-icon-l bb-icon-trash"></i>
 		</a>
 	</div>

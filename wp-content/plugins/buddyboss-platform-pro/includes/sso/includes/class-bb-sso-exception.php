@@ -22,7 +22,7 @@ class BB_SSO_Exception extends Exception {
 	 * @param int            $code     The Exception code.
 	 * @param Throwable|null $previous The previous exception used for the exception chaining.
 	 */
-	public function __construct( $message = '', $code = 0, Throwable $previous = null ) {
+	public function __construct( $message = '', $code = 0, ?Throwable $previous = null ) {
 		$message = sanitize_text_field( $message );
 		parent::__construct( $message, $code, $previous );
 	}

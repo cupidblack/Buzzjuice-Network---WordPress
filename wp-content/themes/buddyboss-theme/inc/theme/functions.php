@@ -441,6 +441,7 @@ function buddyboss_theme_scripts() {
 				'facebook_label'        => esc_html__( 'Share on Facebook', 'buddyboss-theme' ),
 				'twitter_label'         => esc_html__( 'Post on X', 'buddyboss-theme' ),
 				'more_menu_title'       => esc_html__( 'Menu Items', 'buddyboss-theme' ),
+				'more_menu_options'     => esc_html__( 'More options', 'buddyboss-theme' ),
 				'translation'           => array(
 					'comment_posted'      => esc_html__( 'Your comment has been posted.', 'buddyboss-theme' ),
 					'comment_btn_loading' => esc_html__( 'Please Wait...', 'buddyboss-theme' ),
@@ -617,6 +618,7 @@ if ( ! function_exists( 'bb_buddypanel_menu_atts' ) ) {
 				$atts['data-balloon-pos'] = 'right';
 			}
 			$atts['data-balloon'] = $item->title;
+			$atts['aria-label']   = $item->title;
 		}
 
 		/**
@@ -760,12 +762,12 @@ function buddyboss_panel_menu_counters( $args, $item ) {
 	) {
 		$count = 0;
 		$class = '';
-		if ( ! $item->menu_item_parent && function_exists( 'bp_is_active' ) ) {
-			if ( bp_is_active( 'messages' ) && trailingslashit( $item->url ) === trailingslashit( bp_loggedin_user_domain() . bp_get_messages_slug() ) ) {
+		if ( apply_filters( 'buddyboss_theme_panel_menu_counters', true, $item ) && function_exists( 'bp_is_active' ) ) {
+			if ( bp_is_active( 'notifications' ) && trailingslashit( $item->url ) === trailingslashit( bp_loggedin_user_domain() . bp_get_notifications_slug() ) ) {
+				$count = bp_notifications_get_unread_notification_count( bp_loggedin_user_id() );
+			} elseif ( bp_is_active( 'messages' ) && trailingslashit( $item->url ) === trailingslashit( bp_loggedin_user_domain() . bp_get_messages_slug() ) ) {
 				$count = messages_get_unread_count( bp_loggedin_user_id() );
 				$class = 'bb-messages-inbox-unread-count';
-			} elseif ( bp_is_active( 'notifications' ) && trailingslashit( $item->url ) === trailingslashit( bp_loggedin_user_domain() . bp_get_notifications_slug() ) ) {
-				$count = bp_notifications_get_unread_notification_count( bp_loggedin_user_id() );
 			} elseif ( bp_is_active( 'friends' ) && trailingslashit( $item->url ) === trailingslashit( bp_loggedin_user_domain() . bp_get_friends_slug() . '/requests/' ) ) {
 				$count = count( friends_get_friendship_request_user_ids( bp_loggedin_user_id() ) );
 			} elseif ( bp_is_active( 'groups' ) && trailingslashit( $item->url ) === trailingslashit( bp_core_get_user_domain( bp_loggedin_user_id() ) . bp_get_groups_slug() . '/invites' ) ) {
@@ -1261,19 +1263,11 @@ function bb_wc_setup() {
  *
  * @return string
  */
-//BlueCrownR&D
 function textToColor( $text ) {
 	$code    = dechex( crc32( trim( $text ) ) );
 	$hexcode = substr( $code, 0, 6 );
-	$rgb = hex_2_RGB('#' . $hexcode);
-
-// Check if $rgb is valid before proceeding.
-if ( is_array( $rgb ) && isset( $rgb['red'], $rgb['green'], $rgb['blue'] ) ) {
-    $hsv = RGB_2_HSV( $rgb['red'], $rgb['green'], $rgb['blue'] );
-} else {
-    // Handle invalid hex color gracefully.
-    $hsv = array( 'H' => 0, 'S' => 0, 'V' => 0 ); // Default fallback HSV values.
-}
+	$rgb     = hex_2_RGB( '#' . $hexcode );
+	$hsv     = RGB_2_HSV( $rgb['red'], $rgb['green'], $rgb['blue'] );
 	// Transform the color tone to darker if lighter.
 	if ( $hsv['S'] < 40 ) {
 		$hsv['S'] = 40;

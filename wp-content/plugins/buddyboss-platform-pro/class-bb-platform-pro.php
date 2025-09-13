@@ -123,8 +123,8 @@ if ( ! class_exists( 'BB_Platform_Pro' ) ) {
 		 * @since 1.0.0
 		 */
 		private function setup_globals() {
-			$this->version        = '2.6.80';
-			$this->db_version     = 315;
+			$this->version        = '2.8.0';
+			$this->db_version     = 320;
 			$this->db_version_raw = (int) bp_get_option( '_bbp_pro_db_version' );
 
 			// root directory.
@@ -155,6 +155,10 @@ if ( ! class_exists( 'BB_Platform_Pro' ) ) {
 			// Schedule posts.
 			$this->schedule_posts_dir = $this->plugin_dir . 'includes/schedule-posts';
 			$this->schedule_posts_url = $this->plugin_url . 'includes/schedule-posts';
+
+			// Topics.
+			$this->topics_dir = $this->plugin_dir . 'includes/topics';
+			$this->topics_url = $this->plugin_url . 'includes/topics';
 
 			// Platform Settings.
 			$this->platform_settings_dir = $this->plugin_dir . 'includes/platform-settings';
@@ -213,6 +217,7 @@ if ( ! class_exists( 'BB_Platform_Pro' ) ) {
 				$this->plugin_dir . "/includes/reactions/includes/class-{$class}.php",
 				$this->plugin_dir . "/includes/polls/includes/class-{$class}.php",
 				$this->plugin_dir . "/includes/schedule-posts/includes/class-{$class}.php",
+				$this->plugin_dir . "/includes/topics/includes/class-{$class}.php",
 			);
 
 			$integration_dir = $this->integration_dir;

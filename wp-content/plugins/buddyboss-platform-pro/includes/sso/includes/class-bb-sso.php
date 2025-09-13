@@ -346,6 +346,7 @@ class BB_SSO {
 				add_filter( 'bb_nouveau_signup_field_class', 'BB_SSO::bb_sso_signup_field_css_class', 10, 2 );
 				add_action( 'bp_signup_pre_validate', 'BB_SSO::bb_sso_signup_pre_validate' );
 				add_action( 'user_register', 'BB_SSO::bb_sso_sync', 50 );
+				add_action( 'template_notices', 'BB_SSO::bb_sso_register_template_notices', 10, 1 );
 			}
 
 			require_once bb_sso_path() . 'includes/class-bb-sso-avatar.php';
@@ -561,11 +562,26 @@ class BB_SSO {
 	 * Outputs scripts for the page, including localized strings and options.
 	 *
 	 * @since 2.6.30
+	 * @since 2.7.20
+	 * Added new param $hook to enqueue the script only on the BuddyPress settings page.
+	 *
+	 * @param string $hook The current admin page hook.
 	 */
-	public static function bb_sso_scripts() {
+	public static function bb_sso_scripts( $hook ) {
+		if ( is_admin() && false === strpos( $hook, 'bp-settings' ) ) {
+			return;
+		}
 		$min     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		$rtl_css = is_rtl() ? '-rtl' : '';
-		wp_enqueue_style( 'bb-sso-login', bb_sso_url( '/assets/css/bb-sso-login' . $rtl_css . $min . '.css' ), array(), bb_platform_pro()->version );
+
+		$css_prefix =
+			function_exists( 'bb_is_readylaunch_enabled' ) &&
+			bb_is_readylaunch_enabled() &&
+			class_exists( 'BB_Readylaunch' ) &&
+			bb_load_readylaunch()->bb_is_readylaunch_enabled_for_page()
+			? 'bb-rl-' : 'bb-';
+		wp_enqueue_style( 'bb-sso-login', bb_sso_url( '/assets/css/' . $css_prefix . 'sso-login' . $rtl_css . $min . '.css' ), array(), bb_platform_pro()->version );
+
 		wp_enqueue_script( 'bb-sso', bb_sso_url( '/assets/js/bb-sso' . $min . '.js' ), array(), bb_platform_pro()->version, true );
 		$localized_strings = array(
 			'redirect_overlay_title'    => __( 'Hold On', 'buddyboss-pro' ),
@@ -999,109 +1015,13 @@ class BB_SSO {
 	 *                otherwise, returns an empty string.
 	 */
 	public static function render_link_and_unlink_buttons( $args = array() ) {
-		$defaults = array(
-			'heading'   => '',
-			'link'      => true,
-			'unlink'    => true,
-			'align'     => 'left',
-			'providers' => false,
-			'style'     => 'default',
-		);
 
-		// Parse the incoming arguments with the defaults.
-		$parsed_args = wp_parse_args( $args, $defaults );
+		// Add the container style to the arguments to be used in the template as a private variable.
+		$args['container_style'] = self::$styles;
 
-		// Extract parsed arguments for easier access.
-		$link      = $parsed_args['link'];
-		$unlink    = $parsed_args['unlink'];
-		$align     = $parsed_args['align'];
-		$providers = $parsed_args['providers'];
-		$style     = $parsed_args['style'];
-
-		if ( count( self::$enabled_providers ) && is_user_logged_in() ) {
-
-			$style = ! empty( $style ) ? $style : 'default';
-			$align = ! empty( $align ) ? $align : 'left';
-			/**
-			 * We shouldn't allow the icon style for Link and Unlink buttons
-			 */
-			if ( 'icon' === $style ) {
-				$style = 'default';
-			}
-
-			if ( $unlink ) {
-				// Filter to disable unlinking social accounts.
-				$is_unlink_allowed = apply_filters( 'bb_sso_allow_unlink', true );
-				if ( ! $is_unlink_allowed ) {
-					$unlink = false;
-				}
-			}
-
-			if ( ! empty( $providers ) && is_array( $providers ) ) {
-				$enabled_providers = array();
-				foreach ( $providers as $provider ) {
-					if ( $provider && isset( self::$enabled_providers[ $provider->get_id() ] ) ) {
-						$enabled_providers[ $provider->get_id() ] = $provider;
-					}
-				}
-			} else {
-				$enabled_providers = self::$enabled_providers;
-			}
-
-			if ( ! empty( $enabled_providers ) && count( $enabled_providers ) ) {
-				$social_accounts_html = '';
-				ob_start();
-				foreach ( $enabled_providers as $provider ) {
-					$connected = '';
-					if ( $provider->is_current_user_connected() ) {
-						$connected = esc_html__( 'Connected', 'buddyboss-pro' );
-						if ( $unlink ) {
-							$buttons = $provider->get_unlink_button();
-						}
-					} elseif ( $link ) {
-						$buttons = $provider->get_link_button();
-					}
-					?>
-					<div class="bb-sso-container-buttons bb-sso-container-buttons--client">
-						<div class="bb-sso-option">
-							<div class="bb-sso-button bb-sso-button-default bb-sso-button--client bb-sso-button-google">
-								<div class="bb-sso-button-auth">
-									<div class="bb-sso-button-svg-container">
-										<?php
-										echo wp_kses(
-											$provider->bb_sso_get_svg(),
-											bb_sso_allowed_tags()
-										);
-										?>
-									</div>
-									<div class="bb-sso-label"><?php echo esc_html( $provider->get_label() ); ?></div>
-									<?php
-									if ( ! empty( $connected ) ) {
-										?>
-										<div class="bb-sso-status"><?php echo esc_html( $connected ); ?></div>
-										<?php
-									}
-									?>
-								</div>
-								<div class="bb-sso-option-actions">
-									<?php
-									if ( ! empty( $buttons ) ) {
-										echo wp_kses_post( $buttons );
-									}
-									?>
-								</div>
-							</div>
-						</div>
-					</div>
-					<?php
-				}
-				$social_accounts_html .= ob_get_clean();
-
-				return '<div class="bb-sso-container ' . self::$styles[ $style ]['container'] . '"' . ( 'fullwidth' !== $style ? ' data-align="' . esc_attr( $align ) . '"' : '' ) . '>' . $social_accounts_html . '</div>';
-			}
-		}
-
-		return '';
+		ob_start();
+		bp_get_template_part( 'members/single/settings/sso-links', null, $args );
+		return ob_get_clean();
 	}
 
 	/**
@@ -1377,9 +1297,14 @@ class BB_SSO {
 		}
 		$bb_sso_notice = isset( $_GET['bb-sso-notice'] ) ? (int) $_GET['bb-sso-notice'] : 0;
 		if (
-			isset( $_GET['signup_email'] ) &&
-			isset( $_GET['signup_email_confirm'] ) &&
-			1 === $bb_sso_notice
+			(
+				isset( $_GET['signup_email'] ) &&
+				1 === $bb_sso_notice
+			) ||
+			(
+				isset( $_GET['bp-invites'] ) &&
+				'accept-member-invitation' === $_GET['bp-invites']
+			)
 		) {
 			return;
 		}
@@ -1573,6 +1498,15 @@ class BB_SSO {
 							$ids_arranged['callback_url'] = self::$allowed_providers['apple']->get_redirect_uri_for_auth_flow();
 						}
 						break;
+					case 'microsoft':
+						$ids_arranged['microsoft_client_id']     = $serialized_provider_options['client_id'];
+						$ids_arranged['microsoft_client_secret'] = $serialized_provider_options['client_secret'];
+						$ids_arranged['microsoft_tenant']        = $serialized_provider_options['tenant'];
+						$ids_arranged['microsoft_prompt']        = $serialized_provider_options['prompt'];
+						if ( 'custom_tenant' === $serialized_provider_options['tenant'] ) {
+							$ids_arranged['microsoft_custom_tenant_value'] = $serialized_provider_options['custom_tenant_value'];
+						}
+						break;
 					default:
 						$ids_arranged = array();
 				}
@@ -1616,8 +1550,15 @@ class BB_SSO {
 	 * and localizes variables for use in the scripts.
 	 *
 	 * @since 2.6.30
+	 * @since 2.7.20
+	 * Added new param $hook to enqueue the script only on the BuddyPress settings page.
+	 *
+	 * @param string $hook The current admin page hook.
 	 */
-	public static function bb_sso_admin_enqueue() {
+	public static function bb_sso_admin_enqueue( $hook ) {
+		if ( false === strpos( $hook, 'bp-settings' ) ) {
+			return;
+		}
 		$min     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		$rtl_css = is_rtl() ? '-rtl' : '';
 		wp_enqueue_style( 'bb-sso-admin', bb_sso_url( '/assets/css/bb-sso-admin' . $rtl_css . $min . '.css' ), array(), bb_platform_pro()->version );
@@ -1875,6 +1816,45 @@ class BB_SSO {
 		$bb_sso_user = new BB_SSO_User( $provider, array() );
 		$register    = $bb_sso_user->register_complete( $user_id, true );
 		if ( true === $register ) {
+
+			// Save xprofile field data from the registration form.
+			if ( bp_verify_nonce_request( 'bp_new_signup' ) && bp_is_active( 'xprofile' ) && ! empty( $_POST['signup_profile_field_ids'] ) ) { // phpcs:ignore WordPress.Security
+
+				$profile_type_field_id = 0;
+				if ( function_exists( 'bp_get_xprofile_member_type_field_id' ) ) {
+					$profile_type_field_id = bp_get_xprofile_member_type_field_id();
+				}
+
+				// Let's compact any profile field info into an array.
+				$profile_field_ids = explode( ',', sanitize_text_field( wp_unslash( $_POST['signup_profile_field_ids'] ) ) ); // phpcs:ignore WordPress.Security
+
+				// Loop through the posted fields formatting any datebox values then validate the field.
+				foreach ( (array) $profile_field_ids as $field_id ) {
+					if ( isset( $_POST[ 'field_' . $field_id ] ) ) { // phpcs:ignore WordPress.Security
+						if ( is_array( $_POST[ 'field_' . $field_id ] ) ) { // phpcs:ignore WordPress.Security
+							$field_value = array_map( 'sanitize_text_field', wp_unslash( $_POST[ 'field_' . $field_id ] ) ); // phpcs:ignore WordPress.Security
+						} else {
+							$field_value = sanitize_text_field( wp_unslash( $_POST[ 'field_' . $field_id ] ) ); // phpcs:ignore WordPress.Security
+						}
+
+						// Save xprofile field data.
+						$res = xprofile_set_field_data( $field_id, $user_id, $field_value );
+
+						// When the field is the member type field.
+						if ( ! empty( $res ) && ! empty( $profile_type_field_id ) && $profile_type_field_id === (int) $field_id ) {
+
+							// Get the member type key.
+							$member_type_key = get_post_meta( $field_value, '_bp_member_type_key', true );
+
+							// Now set the member type using the key.
+							if ( ! empty( $member_type_key ) ) {
+								bp_set_member_type( $user_id, $member_type_key );
+							}
+						}
+					}
+				}
+			}
+
 			BB_SSO_Avatar::get_instance()->update_avatar( $provider, $user_id, \BBSSO\Persistent\BB_SSO_Persistent::get( $identifier . '_user_avatar' ) );
 			$bb_sso_user->do_auto_login( $user_id );
 			\BBSSO\Persistent\BB_SSO_Persistent::delete( $identifier . '_user_avatar' );
@@ -1913,5 +1893,26 @@ class BB_SSO {
 		}
 
 		return $messages;
+	}
+
+	/**
+	 * Adds custom info messages to the register messages.
+	 *
+	 * @since 2.7.10
+	 */
+	public static function bb_sso_register_template_notices() {
+		if ( function_exists( 'bp_is_register_page' ) && bp_is_register_page() && isset( \BBSSO\BB_SSO_Notices::$notices ) ) {
+			foreach ( \BBSSO\BB_SSO_Notices::$notices as $type => $notices ) {
+				if ( ! empty( $notices ) ) {
+					echo '<aside class="bp-feedback bp-messages bp-template-notice ' . esc_attr( $type ) . '">';
+					echo '<span class="bp-icon" aria-hidden="true"></span>';
+					foreach ( $notices as $error ) {
+						echo wp_kses_post( $error ) . '<br>';
+					}
+					echo '</aside>';
+				}
+			}
+			\BBSSO\BB_SSO_Notices::clear();
+		}
 	}
 }

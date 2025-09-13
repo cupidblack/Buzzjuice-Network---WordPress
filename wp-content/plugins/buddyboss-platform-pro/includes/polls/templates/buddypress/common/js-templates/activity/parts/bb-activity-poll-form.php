@@ -29,7 +29,7 @@
 										<# } #>
 									</span>
 								</h4>
-								<a class="bb-close-action-popup bb-model-close-button" href="#">
+								<a class="bb-close-action-popup bb-model-close-button" href="#" aria-label="<?php esc_attr_e( 'Close', 'buddyboss-pro' ); ?>">
 									<span class="bb-icon-l bb-icon-times"></span>
 								</a>
 							</header>
@@ -58,7 +58,7 @@
 												}
 												#>
 												<input type="text" name="bb-poll-question-option[{{index}}]" class="bb-poll-question_option" placeholder="<?php esc_html_e( 'Option', 'buddyboss-pro' ); ?>" value="{{option.option_title}}" maxlength="50" data-opt_id="<# if ( option.id ) { #>{{option.id}}<# } else { #> {{index}} <# } #>" {{fieldDisable}}>
-												<a href="#" class="bb-poll-edit-option_remove"><span class="bb-icon-l bb-icon-times"></span></a>
+												<a href="#" class="bb-poll-edit-option_remove" aria-label="<?php esc_attr_e( 'Remove option', 'buddyboss-pro' ); ?>"><span class="bb-icon-l bb-icon-times"></span></a>
 											</div>
 										<# }) #>
 									<# } else { #>

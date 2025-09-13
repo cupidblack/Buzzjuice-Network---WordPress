@@ -39,7 +39,7 @@ window.bb = window.bb || {};
 			 */
 			addListeners: function () {
 				$( document ).on( 'click', '.bb-box-item-edit--sso', this.bbSSOConnectionStep );
-				$( document ).on( 'click', '.close-modal, #sso_cancel', this.bbSSOConnectionStepClose );
+				$( document ).on( 'click', '.bb-hello-sso .close-modal, .bb-hello-sso #sso_cancel', this.bbSSOConnectionStepClose );
 				$( document ).on( 'keyup', '.bb-hello-sso input[type="text"], .bb-hello-sso input[type="radio"]', this.enableSaveChangesButton );
 				$( document ).on( 'click', '#sso_submit', this.bbSSOSubmit );
 				$( document ).on( 'change', '.sso-enable, .sso-disable', this.bbSSOEnable );

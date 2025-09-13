@@ -603,7 +603,12 @@ if ( ! function_exists( 'buddyboss_theme_add_typography_field_default_fonts' ) )
  */
 if ( ! function_exists( 'buddyboss_theme_plugin_update_notice' ) ) {
 	function buddyboss_theme_plugin_update_notice() {
-		if ( function_exists( 'buddypress' ) && version_compare( BP_PLATFORM_VERSION, '1.4.0', '<' ) ) {
+
+		if (
+			function_exists( 'buddypress' ) &&
+			defined( 'BP_PLATFORM_VERSION' ) &&
+			version_compare( BP_PLATFORM_VERSION, '1.4.0', '<' )
+		) {
 			$class   = 'notice notice-error';
 			$message = __( 'Please update BuddyBoss Platform to v1.4.0 to maintain compatibility with BuddyBoss Theme. Some icons in your theme will look wrong until you update.', 'buddyboss-theme' );
 			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );

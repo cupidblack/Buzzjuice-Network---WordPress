@@ -1,0 +1,15 @@
+[13-Sep-2025 06:46:20 UTC] PHP Warning:  require_once(/home/koware/public_html/buzzjuice.net/data/db_helpers.php): Failed to open stream: No such file or directory in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-status-incoming.php on line 4
+[13-Sep-2025 06:46:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/koware/public_html/buzzjuice.net/data/db_helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-status-incoming.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-status-incoming.php on line 4
+[13-Sep-2025 06:46:21 UTC] PHP Warning:  require_once(/home/koware/public_html/buzzjuice.net/data/db_helpers.php): Failed to open stream: No such file or directory in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-sync-incoming.php on line 9
+[13-Sep-2025 06:46:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/koware/public_html/buzzjuice.net/data/db_helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-sync-incoming.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-sync-incoming.php on line 9
+[13-Sep-2025 06:46:22 UTC] PHP Warning:  require_once(/home/koware/public_html/buzzjuice.net/data/db_helpers.php): Failed to open stream: No such file or directory in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-wp-ww.php on line 4
+[13-Sep-2025 06:46:22 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/koware/public_html/buzzjuice.net/data/db_helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-wp-ww.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/koware/public_html/buzzjuice.net/wp-content/mu-plugins/temp/snc_msg-wp-ww.php on line 4
