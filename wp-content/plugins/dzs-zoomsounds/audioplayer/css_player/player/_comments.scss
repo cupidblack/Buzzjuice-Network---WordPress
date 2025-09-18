@@ -1,0 +1,62 @@
+$size_scrub: 50px;
+*[class*="audioplayer"] .the-comments {
+  display: none;
+}
+
+$color_comments_bg: #444343;
+$color_comments_bg_darker: #1d1d1d;
+$color_comments_inverse_bg: #dedede;
+
+$comments_color: #a8a6a6;
+
+
+
+
+
+
+
+body .audioplayer.scrubbar-loaded, .zoomsounds-external-scrubbar.scrubbar-loaded {
+  .comments-holder:not(.a) {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+.dzs-button-dzsap {
+
+
+  border: 0;
+
+
+  text-transform: uppercase;
+  padding: 8px 15px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+
+
+  background-color: $color_comments_bg_darker;
+  color: $comments_color;
+
+  margin-left: 9px;
+
+  font-size: 11px;
+
+  border-radius: 5px;
+
+  font-weight: bold;
+
+
+  cursor: pointer;
+
+  $transition-property: background, color;
+  $transition-duration: 0.3s;
+  $transition-timing: linear;
+
+
+  @include apply_transition($transition-property, $transition-duration, $transition-timing);
+
+  &:hover {
+
+    background-color: rgba(69, 68, 68, 0.5);
+  }
+}

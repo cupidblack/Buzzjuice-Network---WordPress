@@ -1,0 +1,30 @@
+@import "../../TOKENS";
+
+.extra-btns-con {
+  position: relative;
+
+  .stats-btn {
+    top: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+
+
+    $transition-property: opacity, visibility;
+    $transition-duration: $ANIMATION_DURATION;
+    $transition-timing: ease-out;
+    @include apply_transition($transition-property, $transition-duration, $transition-timing);
+  }
+}
+
+.audioplayer:hover ~ .extra-btns-con, .extra-btns-con:hover {
+
+  .stats-btn {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+
+}

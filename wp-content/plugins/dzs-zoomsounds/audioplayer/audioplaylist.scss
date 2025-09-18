@@ -1,0 +1,186 @@
+/*
+ * Author: Audio Player with Playlist
+ * Website: https://digitalzoomstudio.net/
+ * Portfolio: https://bit.ly/nM4R6u
+ * Version: 3.00
+ * */
+
+@import "TOKENS";
+
+
+
+
+$color_bg: #464545;
+$color_main: #aaaaaa;
+$color_main_hover: #dddddd;
+$color_highlight: #ae1919;
+
+$color_player_but: #444444;
+
+
+$size_scrub: 50px;
+$size_scrub_reflect: 15px;
+
+$thumb_size: 130px;
+
+
+/* -- SKIN-default styling END */
+
+
+
+
+
+
+
+
+
+
+
+
+/* -- END SKIN-justthumbandbutton styling */
+
+
+
+
+
+
+
+
+$color_bg: #eaeaea;
+$color_text: #222222;
+
+@import "css_playlist/controls/buttons";
+
+
+
+
+
+
+/* ==========SKIN-justthumbandbutton styling ENDD */
+
+/*===========
+=================================
+===========
+======================
+Audio Gallery
+=================================
+*/
+
+
+@import "css_playlist/zoomsounds_nav";
+
+
+@import "css_playlist/playlist/dzsap_layouts";
+
+
+
+$nav_margin: 5px;
+
+
+
+
+/* ==========SKIN-justthumbandbutton styling ENDD */
+
+/*===========
+=================================
+===========
+======================
+Audio Gallery
+=================================
+*/
+
+
+
+
+@import "css_playlist/playlist/dzsap_layouts";
+
+
+
+.from-wc_generate_player {
+  .meta-artist-con {
+    display: none !important;
+  }
+}
+
+$nav_margin: 5px;
+
+
+
+
+
+
+@import "css_playlist/mode_showall";
+
+$transition-property: all;
+$transition-duration: 0.3s;
+$transition-timing: ease-out;
+
+
+
+
+
+
+
+
+$color_bg: #db4343;
+$color_text: #eee;
+
+
+
+
+
+
+/*
+
+dzs tooltips
+
+arrow-top,
+arrow-bottom
+ -- align-left
+ -- align-center (js)
+ -- align-top
+
+arrow-left,
+arrow-right
+ -- align-top
+ -- align-center (js)
+ -- align-bottom
+
+
+custom css3 effects
+
+*see about custom animation
+
+*/
+
+
+
+
+
+.extra-btns-con {
+
+  margin-top: 5px;
+}
+
+
+
+
+@import "css_playlist/general";
+
+
+
+
+@import "css_playlist/compatibility";
+
+
+
+@import "css_playlist/playlist";
+
+
+/* skin-wave simple END */
+
+@import "css_playlist/miscButtons";
+@import "css_playlist/responsive";
+@import "css_playlist/controls/embed";
+
+

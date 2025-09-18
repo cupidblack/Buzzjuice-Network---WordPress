@@ -1,0 +1,63 @@
+
+.audioplayer.skin-wave.skinvariation-wave-righter {
+
+  .playbuttons-con {
+    float: none;
+    flex: 1 0 0;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+
+    padding-left: 10px;
+    margin-left: 10px;
+  }
+
+}
+
+@media all and (max-width: 770px) {
+  .audioplayer.skin-wave.skinvariation-wave-righter {
+    line-height: 1;
+
+    .scrubbar:not(.ceva) {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 20px;
+
+      left: -10px;
+      width: calc(100% + 20px);
+      top: -30px;
+
+      .scrub-bg, .scrub-prog {
+        background-color: #807073;
+
+        canvas {
+          display: none;
+        }
+      }
+
+      .scrub-prog {
+        background-color: #00a99d;
+      }
+
+      .curr-time, .total-time {
+
+        display: none;
+      }
+    }
+
+    .ap-controls {
+      .ap-controls-left {
+        flex: 3;
+
+        .meta-artist-con {
+          max-width: 500px;
+        }
+      }
+    }
+  }
+}

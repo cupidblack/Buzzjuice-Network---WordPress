@@ -1,0 +1,79 @@
+@import "../TOKENS";
+
+.audioplayer.skin-wave.skinvariation-wave-grey {
+
+
+  &, .audioplayer-inner {
+
+
+  }
+
+  $h: 90px;
+
+  .audioplayer-inner {
+
+    height: $h;
+    background-color: #aaaaaa;
+
+    .the-thumb {
+      border-radius: 0;
+    }
+
+    .has-player-full-height {
+      height: $h;
+      display: flex;
+      align-items: center;
+
+      margin-left: 10px;
+
+      background-color: #999;
+
+      .just-icon-icon:first-child {
+        margin-left: 15px;
+      }
+
+      .just-icon-icon {
+        margin-right: 15px;
+
+        color: #444;
+
+        &:hover {
+          color: $color_highlight
+        }
+      }
+    }
+
+    .the-thumb-con {
+      width: $h;
+      height: $h;
+    }
+
+    .scrubbar {
+      height: 55px;
+    }
+  }
+
+  .meta-artist-con {
+    max-width: 150px;
+  }
+
+  .first-line, .second-line {
+    color: #443f3f;
+  }
+
+  .first-line {
+    font-size: 18px;
+
+  }
+
+  .second-line {
+    font-size: 13px;
+  }
+
+  &.skin-wave-mode-small {
+    .ap-controls {
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+}

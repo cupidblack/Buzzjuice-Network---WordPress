@@ -1,0 +1,36 @@
+
+.wp-block{
+  .wp-content-media-buttons{
+    display: none;
+  }
+  &.is-selected{
+
+    .wp-content-media-buttons{
+      display: block;
+    }
+
+  }
+}
+
+
+.field-and-button-container{
+  display: flex;
+  gap: 15px;
+}
+
+
+.center-it{
+  @include centerit();
+}
+
+.dzs-big-input:not(.a){
+  padding: 15px;
+  line-height: 1;
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+*+.dzs-label{
+  margin-left: 3px;
+  display: inline-block;
+}

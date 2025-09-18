@@ -1,0 +1,559 @@
+{
+  "artistname": {
+    "name": "artistname",
+    "type": "text",
+    "title": "Artist Title ( line 1 )",
+    "sidenote": "title to appear on the left top",
+    "context": "content",
+    "default": "default",
+    "category": "main"
+  },
+  "the_post_title": {
+    "name": "the_post_title",
+    "type": "text",
+    "title": "Song Title",
+    "only_for": [
+      "sliders_admin"
+    ],
+    "sidenote": "the title of the song",
+    "category": "main"
+  },
+  "config": {
+    "name": "config",
+    "type": "select",
+    "category": "main",
+    "title": "Audio Player Configuration",
+    "sidenote": "the audio player configuration , can be edited in ZoomSounds &gt; Player Configurations {[dzsapEditConfigLink]}",
+    "choices": "{{window--dzsap_gutenberg_player_configs}}",
+    "default": "default",
+    "it_is_for": [
+      "shortcode_generator",
+      "elementor"
+    ]
+  },
+  "type": {
+    "name": "type",
+    "type": "select",
+    "select_type": "opener-listbuttons",
+    "title": "Type",
+    "sidenote": "select the type of media",
+    "default": "",
+    "choices": [
+      {
+        "label": "Detect",
+        "value": "detect"
+      },
+      {
+        "label": "Self Hosted",
+        "value": "audio"
+      },
+      {
+        "label": "shoutcast",
+        "value": "shoutcast"
+      }
+    ],
+    "choices_html": [
+      "<span class=\"option-con\"><img src=\"http:\/\/192.168.0.107:81\/wp2\/wp-content\/plugins\/dzs-zoomsounds\/admin\/\/img\/type_audio.png\"\/><span class=\"option-label\">Auto detect<\/span><\/span>",
+      "<span class=\"option-con\"><img src=\"http:\/\/192.168.0.107:81\/wp2\/wp-content\/plugins\/dzs-zoomsounds\/admin\/\/img\/type_audio.png\"\/><span class=\"option-label\">Self Hosted<\/span><\/span>",
+      "<span class=\"option-con\"><img src=\"http:\/\/192.168.0.107:81\/wp2\/wp-content\/plugins\/dzs-zoomsounds\/admin\/\/img\/type_radio.png\"\/><span class=\"option-label\">Radio Station<\/span><\/span>"
+    ],
+    "category": "main"
+  },
+
+  "type_normal_stream_type": {
+    "name": "type_normal_stream_type",
+    "type": "select",
+    "title": "Stream type",
+    "sidenote": "it can be shoutcast or icecast if you select it",
+    "category": "misc",
+    "options": [
+      {
+        "label": "Normal",
+        "value": ""
+      },
+      {
+        "label": "Icecast",
+        "value": "icecast"
+      },
+      {
+        "label": "Shoutcast",
+        "value": "shoutcast"
+      }
+    ],
+    "default": "off",
+    "react_type": "string"
+  },
+  "item_source": {
+    "name": "item_source",
+    "type": "attach",
+    "upload_type": "audio",
+    "no_preview": "on",
+    "title": "Source",
+    "upload_btn_extra_classes": "main-source-upload",
+    "sidenote": "link to mp3 or soundcloud link",
+    "category": "main"
+  },
+  "item_thumb": {
+    "name": "item_thumb",
+    "type": "attach",
+    "upload_type": "image",
+    "title": "Thumbnail",
+    "sidenote": "select a thumbnail for the song",
+    "sidenote-2": "input <strong>none<\/strong> to force no thumbnail",
+    "category": "main"
+  },
+  "post_content": {
+    "name": "post_content",
+    "type": "textarea",
+    "extra_type": "WYSIWYG",
+    "upload_type": "image",
+    "title": "Description",
+    "sidenote": "this description will appear if the <strong>Info button<\/strong> is enabled in the Player Configuration",
+    "category": "main"
+  },
+  "misc-layouter-1": {
+    "type": "dzs_row",
+    "category": "misc",
+    "it_is_for": "shortcode_generator"
+  },
+  "misc-layouter-2": {
+    "type": "dzs_col_md_6",
+    "category": "misc",
+    "it_is_for": "shortcode_generator"
+  },
+  "playfrom": {
+    "name": "playfrom",
+    "type": "text",
+    "category": "misc",
+    "title": "Play from",
+    "sidenote": "choose a number of seconds from which the track to play from ( for example if set &quot;70&quot; then the track will start to play from 1 minute and 10 seconds ) or input &quot;last&quot; for the track to play at the last position where it was."
+  },
+  "play_in_footer_player": {
+    "name": "play_in_footer_player",
+    "type": "select",
+    "category": "misc",
+    "title": "Play in footer player",
+    "sidenote": "optional - play this track in the footer player ( footer player must be setuped on the page )",
+    "choices": [
+      {
+        "label": "Default",
+        "value": "default"
+      },
+      {
+        "label": "Inline",
+        "value": "off"
+      },
+      {
+        "label": "In footer",
+        "value": "on"
+      }
+    ]
+  },
+  "misc-layouter-3": {
+    "type": "dzs_col_md_6_end",
+    "category": "misc",
+    "it_is_for": "shortcode_generator"
+  },
+  "misc-layouter-4": {
+    "type": "dzs_col_md_6",
+    "category": "misc",
+    "it_is_for": "shortcode_generator"
+  },
+  "enable_download_button": {
+    "name": "enable_download_button",
+    "type": "select",
+    "class": " dzs-dependency-field",
+    "category": "misc",
+    "title": "Enable Download Button",
+    "sidenote": "optional - Enable Download Button for this track",
+    "choices": [
+      {
+        "label": "Disable",
+        "value": "off"
+      },
+      {
+        "label": "Enable",
+        "value": "on"
+      }
+    ]
+  },
+  "enable_downloads_counter": {
+    "name": "enable_downloads_counter",
+    "type": "select",
+    "default": "off",
+    "class": " dzs-dependency-field",
+    "category": "misc",
+    "title": "Enable Download Counter",
+    "sidenote": "optional - Enable Download Counter for this track",
+    "choices": [
+      {
+        "label": "Disable",
+        "value": "off"
+      },
+      {
+        "label": "Enable",
+        "value": "on"
+      }
+    ]
+  },
+  "download_custom_link_enable": {
+    "name": "download_custom_link_enable",
+    "type": "select",
+    "category": "misc",
+    "class": "dzs-dependency-field",
+    "title": "Enable custom download link",
+    "sidenote": "enable a custom download link for the button ( input below ) ",
+    "choices": [
+      {
+        "label": "Disable",
+        "value": "off"
+      },
+      {
+        "label": "Enable",
+        "value": "on"
+      }
+    ]
+  },
+  "download_custom_link": {
+    "name": "download_custom_link",
+    "type": "text",
+    "category": "misc",
+    "title": "Custom Link Download",
+    "sidenote": "a custom link for the download button - clicknig it will go to this link if set, if it is not set then it will just download the track",
+    "dependency": {
+      "0": {
+        "element": "download_custom_link_enable",
+        "value": [
+          "on"
+        ]
+      },
+      "1": {
+        "element": "download_custom_link_enable",
+        "value": [
+          "on"
+        ]
+      },
+      "relation": "OR"
+    }
+  },
+  "misc-layouter-5": {
+    "type": "dzs_col_md_6_end",
+    "category": "misc",
+    "it_is_for": "shortcode_generator"
+  },
+  "misc-layouter-6": {
+    "type": "dzs_row_end",
+    "category": "misc",
+    "it_is_for": "shortcode_generator"
+  },
+  "item_extra_classes_player": {
+    "name": "item_extra_classes_player",
+    "type": "text",
+    "category": "extra_html",
+    "title": "Extra Classes",
+    "sidenote": "extra html classes applied to the player"
+  },
+  "replace_menu_songname": {
+    "name": "replace_menu_songname",
+    "type": "text",
+    "category": "extra_html",
+    "title": "Menu song name",
+    "sidenote": "Leave nothing in the field for default artist name ( your author name ); input <strong>none<\/strong> for nothing in the field, or input a custom name"
+  },
+  "replace_menu_artistname": {
+    "name": "replace_menu_artistname",
+    "type": "custom_html",
+    "category": "extra_html",
+    "only_for": [
+      "sliders_admin"
+    ],
+    "title": "Menu artist name",
+    "custom_html": "<h3>add custom buttons to player<\/h3><div class=\"player-mockup\"><img class=\"the-img fullwidth\" src=\"http:\/\/192.168.0.107:81\/wp2\/wp-content\/plugins\/dzs-zoomsounds\/assets\/svg\/skin_wave.svg\"\/><div class=\"bottom-right-buttons-area\"><\/div><div class=\"bottom-buttons-area\"><\/div><\/div>"
+  },
+  "misc-layouter-7": {
+    "type": "dzs_row",
+    "category": "extra_html",
+    "it_is_for": "shortcode_generator"
+  },
+  "misc-layouter-8": {
+    "type": "dzs_col_md_6",
+    "category": "extra_html",
+    "it_is_for": "shortcode_generator"
+  },
+  "extrahtml_in_bottom_controls_from_player": {
+    "name": "extrahtml_in_bottom_controls_from_player",
+    "type": "textarea",
+    "category": "extra_html",
+    "extraattr": " style=\"width: 100%; \"",
+    "title": "Extra HTML in Bottom Controls",
+    "sidenote": "extra html on the in the bottom controls, leave nothing here and the content will come from the player configuration, if you have set anything here<br><strong>demo content: <\/strong>[player_button style=\"btn-zoomsounds\" background_color=\"#86ccb6\" color=\"#ffffff\" label=\"Twitter\" icon=\"fa-twitter\" link=\"#\"]"
+  },
+  "misc-layouter-9": {
+    "type": "dzs_col_md_6_end",
+    "category": "extra_html",
+    "it_is_for": "shortcode_generator"
+  },
+  "misc-layouter-10": {
+    "type": "dzs_col_md_6",
+    "category": "extra_html",
+    "it_is_for": "shortcode_generator"
+  },
+  "extrahtml_in_float_right_from_player": {
+    "name": "extrahtml_in_float_right_from_player",
+    "type": "textarea",
+    "category": "extra_html",
+    "title": "Extra HTML in Right Controls",
+    "sidenote": "extra html on the in the bottom controls, leave nothing here and the content will come from the player configuration, if you have set anything here<br><strong>demo content: <\/strong>[player_button style=\"player-but\" label=\"Twitter Profile\" icon=\"fa-twitter\" link=\"#\"] "
+  },
+  "misc-layouter-11": {
+    "type": "dzs_col_md_6_end",
+    "category": "extra_html",
+    "it_is_for": "shortcode_generator"
+  },
+  "misc-layouter-12": {
+    "type": "dzs_row_end",
+    "category": "extra_html",
+    "it_is_for": "shortcode_generator"
+  },
+  "cover": {
+    "name": "cover",
+    "type": "image",
+    "title": "Cover",
+    "sidenote": "cover image to show before video play",
+    "context": "content",
+    "default": "",
+    "category": "",
+    "it_is_for": "shortcode_generator"
+  },
+  "autoplay": {
+    "name": "autoplay",
+    "type": "select",
+    "extra_type": "switcher",
+    "title": "Autoplay",
+    "sidenote": "autoplay the song",
+    "context": "content",
+    "options": [
+      {
+        "label": "Off",
+        "value": "off"
+      },
+      {
+        "label": "On",
+        "value": "on"
+      }
+    ],
+    "default": "off",
+    "category": "main",
+    "it_is_for": "shortcode_generator"
+  },
+  "loop": {
+    "name": "loop",
+    "type": "select",
+    "title": "Loop",
+    "extra_type": "switcher",
+    "sidenote": "loop the song on end",
+    "context": "content",
+    "options": [
+      {
+        "label": "Off",
+        "value": "off"
+      },
+      {
+        "label": "On",
+        "value": "on"
+      }
+    ],
+    "default": "off",
+    "category": "main",
+    "it_is_for": "shortcode_generator"
+  },
+  "open_in_ultibox": {
+    "name": "open_in_ultibox",
+    "type": "select",
+    "class": "dzs-dependency-field",
+    "title": "Open in Ultibox?",
+    "sidenote": "open the current player in a lightbox",
+    "context": "content",
+    "options": [
+      {
+        "label": "Off",
+        "value": "off"
+      },
+      {
+        "label": "On",
+        "value": "on"
+      }
+    ],
+    "default": "off",
+    "category": "misc",
+    "it_is_for": "shortcode_generator"
+  },
+  "enable_likes": {
+    "name": "enable_likes",
+    "type": "select",
+    "title": "Enable Likes ? ",
+    "extra_type": "switcher",
+    "sidenote": "enable like count and button",
+    "sidenote-2": "you need to have a id to link the player to in the database for the views, likes, etc to be recorded",
+    "sidenote-2-class": "notice-for-playerid warning",
+    "context": "content",
+    "options": [
+      {
+        "label": "Off",
+        "value": "off"
+      },
+      {
+        "label": "On",
+        "value": "on"
+      }
+    ],
+    "default": "off",
+    "category": "counters",
+    "it_is_for": [
+      "shortcode_generator",
+      "elementor"
+    ]
+  },
+  "enable_views": {
+    "name": "enable_views",
+    "type": "select",
+    "title": "Enable Play Count ? ",
+    "extra_type": "switcher",
+    "sidenote": "enable play count ",
+    "sidenote-2": "you need to have a id to link the player to in the database for the views, likes, etc to be recorded",
+    "sidenote-2-class": "notice-for-playerid warning",
+    "context": "content",
+    "options": [
+      {
+        "label": "Off",
+        "value": "off"
+      },
+      {
+        "label": "On",
+        "value": "on"
+      }
+    ],
+    "default": "off",
+    "category": "counters",
+    "it_is_for": [
+      "shortcode_generator",
+      "elementor"
+    ]
+  },
+  "enable_rates": {
+    "name": "enable_rates",
+    "type": "select",
+    "extra_type": "switcher",
+    "title": "Enable Ratings ? ",
+    "sidenote": "enable ratings counter ",
+    "sidenote-2": "you need to have a id to link the player to in the database for the views, likes, etc to be recorded",
+    "sidenote-2-class": "notice-for-playerid warning",
+    "context": "content",
+    "options": [
+      {
+        "label": "Off",
+        "value": "off"
+      },
+      {
+        "label": "On",
+        "value": "on"
+      }
+    ],
+    "default": "off",
+    "category": "counters",
+    "it_is_for": [
+      "shortcode_generator",
+      "elementor"
+    ]
+  },
+  "itunes_link": {
+    "name": "itunes_link",
+    "type": "text",
+    "title": "iTunes Link",
+    "sidenote": "input an optional link to the itunes track page",
+    "context": "content",
+    "default": "",
+    "category": "counters",
+    "it_is_for": [
+      "shortcode_generator",
+      "elementor"
+    ]
+  },
+  "playerid": {
+    "name": "playerid",
+    "type": "text",
+    "title": "Link to ID",
+    "sidenote": "you need to link to a player id",
+    "class": "dzs-dependency-field",
+    "context": "content",
+    "default": "",
+    "category": "",
+    "it_is_for": "shortcode_generator"
+  },
+  "wrapper_image": {
+    "name": "wrapper_image",
+    "type": "attach",
+    "library_type": "image",
+    "upload_type": "image",
+    "class": "",
+    "input_extra_classes": " dzs-dependency-field",
+    "title": "Wrapper Image",
+    "sidenote": "The source, input a mp4 or a youtube link or a youtube id or a vimeo link or a vimeo id",
+    "context": "content",
+    "category": "misc",
+    "default": "",
+    "prefer_id": "on"
+  },
+  "wrapper_image_type": {
+    "name": "wrapper_image_type",
+    "type": "select",
+    "title": "Wrapper Image Type",
+    "context": "content",
+    "category": "misc",
+    "options": [
+      {
+        "label": "Wide Image Wrapper",
+        "value": "zoomsounds-wrapper-bg-center"
+      },
+      {
+        "label": "Rectangle Image Wrapper",
+        "value": "zoomsounds-wrapper-bg-bellow"
+      },
+      {
+        "label": "No wrapper",
+        "value": "zoomsounds-no-wrapper"
+      }
+    ],
+    "default": "zoomsounds-no-wrapper",
+    "dependency": {
+      "0": {
+        "element": "wrapper_image",
+        "value": [
+          "anything_but_blank"
+        ]
+      },
+      "1": {
+        "element": "wrapper_image",
+        "value": [
+          "anything_but_blank"
+        ]
+      },
+      "relation": "or"
+    }
+  },
+  "productid": {
+    "name": "productid",
+    "type": "text",
+    "category": "misc",
+    "title": "Linked product id",
+    "sidenote": "link a product id to the zoomsounds item"
+  },
+  "artistname_link": {
+    "name": "artistname_link",
+    "type": "text",
+    "default": "",
+    "category": "misc",
+    "title": "Artist name link",
+    "sidenote": "optional link for artist name"
+  }
+}

@@ -1,0 +1,12 @@
+.dzs-gutenberg--inspector-setting label:not(.a) {
+  display: block;
+  margin-bottom: 5px;
+}
+.dzs-gutenberg--inspector-setting .render-song-selector:last-child {
+  margin-bottom: 10px;
+}
+.dzs-gutenberg--inspector-setting + .dzs-gutenberg--inspector-setting {
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=blockFactory.css.map */

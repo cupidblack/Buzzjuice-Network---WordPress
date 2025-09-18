@@ -1,0 +1,11 @@
+
+
+@media all and (max-width: 770px) {
+  .slider-clipper{
+    &[class*='layout']{
+      .audioplayer:not(.a):not(.a):not(.a):not(.a){
+        width: 100%;
+      }
+    }
+  }
+}

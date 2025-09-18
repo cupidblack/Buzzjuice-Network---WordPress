@@ -1,0 +1,22 @@
+
+
+html body .zoomsounds-add-tocart-btn:not(.a) {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  color: #fff9f9;
+
+  background-color: transparent;
+  cursor: pointer;
+
+  padding: 10px 15px;
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:first-child {
+
+    margin-left: 25px;
+  }
+}

@@ -1,0 +1,17 @@
+
+
+$transition-property: visibility, opacity;
+$transition-duration: 0.3s;
+$transition-timing: ease-out;
+
+
+$color_bg: rgba(20, 20, 20, 0.9);
+$color_txt: #eeeeee;
+
+
+.dzstooltip--inner{
+  font-size: 13px;
+}
+
+
+@import "tooltip-close/tooltip-close";

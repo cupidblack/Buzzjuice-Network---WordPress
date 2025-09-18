@@ -1,0 +1,4716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: dzsap\n"
+"POT-Creation-Date: 2022-04-06 02:10+0300\n"
+"PO-Revision-Date: 2022-04-06 02:38+0300\n"
+"Last-Translator: Radu Zoom\n"
+"Language-Team: zoomit\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_html__\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: admin/sliderexport_config.php:5
+msgid ""
+"Please note that this feature uses the last saved data. Unsaved changes will "
+"not be exported."
+msgstr ""
+
+#: admin/sliders_admin.php:37 admin/sliders_admin.php:151
+#: admin/sliders_admin.php:432 admin/sliders_admin.php:1034
+#: admin/sliders_admin.php:1204 class_parts/item-meta.php:15
+#: inc/gutenberg/block_player.js:126 inc/php/DZSZoomSoundsHelper.php:3517
+#: inc/php/DzsapAdmin.php:742 inc/php/DzsapWooCommerce.php:406
+#: inc/php/deprecated.php:261 inc/php/dzs-shared/admin_termMetas.php:31
+#: shortcodegenerator/generator_player.php:172
+msgid "Upload"
+msgstr "Subir"
+
+#: admin/sliders_admin.php:92 class_parts/vpconfig.php:23
+#: shortcodegenerator/generator_player.php:224
+#, fuzzy
+msgid "General"
+msgstr "Ajustes generales"
+
+#: admin/sliders_admin.php:971 class_parts/admin-page-mainoptions.php:895
+msgid "Appearance"
+msgstr "Apariencia"
+
+#: admin/sliders_admin.php:972
+msgid "Menu"
+msgstr ""
+
+#: admin/sliders_admin.php:973
+#, fuzzy
+msgid "Play Options"
+msgstr "Opciones de Guardado"
+
+#: admin/sliders_admin.php:974
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Widget.php:29
+msgid "Counters"
+msgstr ""
+
+#: audioplayer/audioplayer.js:1
+msgid ".dzsap-sticktobottom-placeholder"
+msgstr ""
+
+#: audioplayer/audioplayer.js:1
+msgid "body"
+msgstr ""
+
+#: class-dzsap.php:146
+msgid "Miscellaneous"
+msgstr ""
+
+#: class-dzsap.php:147 inc/php/deprecated.php:329 inc/php/deprecated.php:411
+#, fuzzy
+msgid "Extra HTML"
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/admin-page-about.php:33
+msgid "Welcome to"
+msgstr ""
+
+#: class_parts/admin-page-about.php:38
+msgid ""
+"\r\n"
+"            Congratulations! You are about to use the most powerful audio "
+"player."
+msgstr ""
+
+#: class_parts/admin-page-about.php:42
+#, fuzzy
+msgid "Gallery Admin"
+msgstr "Opciones de Administrador"
+
+#: class_parts/admin-page-about.php:44
+#, fuzzy
+msgid "Knowledge base"
+msgstr "Base"
+
+#: class_parts/admin-page-about.php:46
+#: class_parts/admin-page-audioPlayerConfigs.php:55
+#: class_parts/admin-page-mainoptions.php:13
+#: inc/php/deprecated-sliders-admin.php:61
+msgid "Documentation"
+msgstr "Documentación"
+
+#: class_parts/admin-page-about.php:62
+msgid "Intro"
+msgstr ""
+
+#: class_parts/admin-page-about.php:77
+msgid ""
+"Want a nifty, cutting-edge, retina-ready, responsive html5 audio player for "
+"your site ? ZoomSounds is the perfect candidate. With nine skins to fit "
+"every brand, multiple layout for the wave skin, only one format required to "
+"function, ZoomSounds is the perfect choice for an audio player."
+msgstr ""
+
+#: class_parts/admin-page-about.php:82
+msgid ""
+"Supports self hosted mp3 / m4a / wav, youtube and mp3 shoutcast radio "
+"stations. You can also embed SoundCloud songs just by inputing their link in "
+"the shortcode generator – that easy. You just need a soundcloud account and "
+"api key ( you can request that on their site ) ."
+msgstr ""
+
+#: class_parts/admin-page-about.php:93
+msgid "Create Galleries"
+msgstr ""
+
+#: class_parts/admin-page-about.php:115
+msgid ""
+"This is how easy it is to create new galleries. Just add your items, choose "
+"your settings, and embed the gallery into any page. "
+msgstr ""
+
+#: class_parts/admin-page-about.php:120
+msgid ""
+"Multiple options like menu position, display mode, video description style, "
+"video items sorting can be chosen for each gallery. And options like "
+"looping, autoplay, cover images can be chosen for each individual item"
+msgstr ""
+
+#: class_parts/admin-page-about.php:130
+#, fuzzy
+msgid "Audio Showcase"
+msgstr "Tabla Audio Wave"
+
+#: class_parts/admin-page-about.php:147
+msgid ""
+"For creating video items with their own page and comments, you can use the "
+"custom video items page. These items have multiple layouts and can be added "
+"to any page via the awesome Video Showcase shortcode generator"
+msgstr ""
+
+#: class_parts/admin-page-about.php:151
+#, php-format
+msgid ""
+"You can even allow your visitors to upload videos from youtube or self "
+"hosted if the %sVideo Portal%s addon is installed"
+msgstr ""
+
+#: class_parts/admin-page-about.php:161
+#, fuzzy
+msgid "Shortcode Generator"
+msgstr "Generador de Shortcode"
+
+#: class_parts/admin-page-about.php:175
+msgid ""
+"ZoomSounds is very easy to use - it is based on shortcodes but you do not "
+"need to remember any shortcodes - the included shortcode generator makes "
+"life easy by getting a visual interface for selecting / customizing settings "
+"of the gallery."
+msgstr ""
+
+#: class_parts/admin-page-about.php:199 class_parts/admin-page-about.php:268
+msgid "Activate"
+msgstr ""
+
+#: class_parts/admin-page-about.php:244
+#: class_parts/admin-page-autoupdater.php:50
+#, fuzzy
+msgid "Disable Key"
+msgstr "Deshabilitar"
+
+#: class_parts/admin-page-about.php:256
+msgid "Unlock "
+msgstr ""
+
+#: class_parts/admin-page-about.php:258
+msgid ""
+" for premium benefits like one click sample galleries install and autoupdate."
+msgstr ""
+
+#: class_parts/admin-page-about.php:262
+#: class_parts/admin-page-autoupdater.php:59
+#, fuzzy
+msgid "Purchase Code"
+msgstr "Comprar lightbox"
+
+#: class_parts/admin-page-about.php:264
+#: class_parts/admin-page-autoupdater.php:61
+#, php-format
+msgid "You can %sfind it here%s "
+msgstr ""
+
+#: class_parts/admin-page-about.php:284
+msgid "Current Version"
+msgstr ""
+
+#: class_parts/admin-page-about.php:288
+msgid "Latest Version"
+msgstr ""
+
+#: class_parts/admin-page-about.php:303
+#: class_parts/admin-page-autoupdater.php:69
+msgid "Update"
+msgstr ""
+
+#: class_parts/admin-page-about.php:328
+#, fuzzy
+msgid "One click sample data"
+msgstr "Eliminar datos de ejemplo"
+
+#: class_parts/admin-page-about.php:333
+msgid ""
+"Want to import some sample content from the zoomsounds demo ? Shortcode "
+"generator comes to your help with sample data. The sample data tab allows "
+"for quick one click import of some demos for both playlists and players."
+msgstr ""
+
+#: class_parts/admin-page-about.php:343
+#: class_parts/admin-page-mainoptions.php:1183
+msgid "System Check"
+msgstr ""
+
+#: class_parts/admin-page-about.php:347 class_parts/admin-page-about.php:363
+#: class_parts/admin-page-about.php:377 class_parts/admin-page-about.php:392
+#: class_parts/admin-page-mainoptions.php:1209
+#: class_parts/admin-page-mainoptions.php:1218
+#: class_parts/admin-page-mainoptions.php:1226
+#: class_parts/admin-page-mainoptions.php:1234
+msgid "Support"
+msgstr ""
+
+#: class_parts/admin-page-about.php:352 class_parts/admin-page-about.php:368
+#: class_parts/admin-page-about.php:382 class_parts/admin-page-about.php:397
+#: inc/php/DZSZoomSoundsHelper.php:131
+msgid "supported"
+msgstr ""
+
+#: class_parts/admin-page-about.php:355 class_parts/admin-page-about.php:371
+#: class_parts/admin-page-about.php:385 class_parts/admin-page-about.php:400
+#: inc/php/DZSZoomSoundsHelper.php:133
+msgid "not supported"
+msgstr ""
+
+#: class_parts/admin-page-about.php:410
+msgid "Server Communication"
+msgstr ""
+
+#: class_parts/admin-page-about.php:417
+#: class_parts/admin-page-mainoptions.php:1245
+msgid "PHP Version"
+msgstr ""
+
+#: class_parts/admin-page-about.php:436
+msgid "Got it! Lets go."
+msgstr ""
+
+#: class_parts/admin-page-audioPlayerConfigs.php:33
+#, fuzzy
+msgid "Import config"
+msgstr "Importar diseño"
+
+#: class_parts/admin-page-audioPlayerConfigs.php:48
+#: inc/php/deprecated-sliders-admin.php:52
+#, fuzzy
+msgid "ZoomSounds Admin"
+msgstr "Opciones de Administrador"
+
+#: class_parts/admin-page-audioPlayerConfigs.php:52
+#: inc/php/deprecated-sliders-admin.php:58
+#, fuzzy
+msgid "You need javascript for this."
+msgstr "le permite mostrar publicaciones privadas"
+
+#: class_parts/admin-page-audioPlayerConfigs.php:62
+#: inc/php/deprecated-sliders-admin.php:95
+#: inc/php/part-generate-legacy-sliderstructure.php:9
+msgid "ID"
+msgstr "ID"
+
+#: class_parts/admin-page-audioPlayerConfigs.php:63
+#: inc/php/DZSZoomSoundsHelper.php:2174 inc/sliders-admin/SlidersAdmin.php:287
+#: inc/sliders-admin/SlidersAdmin.php:312
+#: inc/sliders-admin/SlidersAdmin.php:324
+#: inc/sliders-admin/SlidersAdmin.php:336
+#, fuzzy
+msgid "Edit"
+msgstr "Editar el diseño"
+
+#: class_parts/admin-page-audioPlayerConfigs.php:64
+#: inc/php/view-functions/view-determine-html-areas.php:168
+msgid "Embed"
+msgstr ""
+
+#: class_parts/admin-page-audioPlayerConfigs.php:65
+msgid "Export"
+msgstr ""
+
+#: class_parts/admin-page-audioPlayerConfigs.php:66
+msgid "Duplicate"
+msgstr ""
+
+#: class_parts/admin-page-audioPlayerConfigs.php:92
+#, fuzzy
+msgid "Add Configuration"
+msgstr "Configuración"
+
+#: class_parts/admin-page-audioPlayerConfigs.php:95
+#: inc/php/deprecated-sliders-admin.php:131
+#: inc/sliders-admin/SlidersAdmin.php:380
+#: inc/sliders-admin/SlidersAdmin.php:393
+#, fuzzy
+msgid "Loading..."
+msgstr "Cargando"
+
+#: class_parts/admin-page-audioPlayerConfigs.php:102
+#, fuzzy
+msgid "Save All Configs"
+msgstr "Todo"
+
+#: class_parts/admin-page-audioPlayerConfigs.php:104
+#, fuzzy
+msgid "Save Config"
+msgstr "Opciones de Guardado"
+
+#: class_parts/admin-page-mainoptions.php:8
+#, fuzzy
+msgid "ZoomSounds Main Settings"
+msgstr "icono principal de la categoría"
+
+#: class_parts/admin-page-mainoptions.php:18
+#, fuzzy
+msgid "Gallery Generator"
+msgstr " Generador de Shortcode de Galería"
+
+#: class_parts/admin-page-mainoptions.php:23
+#, fuzzy
+msgid "Player Generator"
+msgstr "Generador de filtros"
+
+#: class_parts/admin-page-mainoptions.php:28
+#, fuzzy
+msgid "Wave Generator"
+msgstr "Generador de filtros"
+
+#: class_parts/admin-page-mainoptions.php:40
+#, fuzzy
+msgid "Search..."
+msgstr "Buscar"
+
+#: class_parts/admin-page-mainoptions.php:58
+msgid "Search a track for waves check"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:62
+#, fuzzy
+msgid "Search tracks"
+msgstr "Buscar"
+
+#: class_parts/admin-page-mainoptions.php:72
+msgid "Database"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:72
+#: class_parts/admin-page-mainoptions.php:1411
+#: class_parts/admin-page-mainoptions.php:1414
+msgid "version"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:72
+msgid "please repair from SYSTEM CHECK menu"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:90
+#: inc/php/DZSZoomSoundsHelper.php:1859
+msgid "Settings"
+msgstr "Ajustes"
+
+#: class_parts/admin-page-mainoptions.php:100
+#, fuzzy
+msgid "Enable Global Footer Player"
+msgstr "reproducir los zoomsounds en el reproductor de pie de página"
+
+#: class_parts/admin-page-mainoptions.php:107
+#: class_parts/admin-page-mainoptions.php:182
+#: class_parts/admin-page-mainoptions.php:351
+#: class_parts/admin-page-mainoptions.php:571
+#: class_parts/admin-page-mainoptions.php:597
+#: class_parts/options_array_player.php:8
+#: class_parts/options_array_player.php:23 configs/config-main-options.php:398
+#: configs/config-player-config.php:8 configs/config-player-config.php:24
+#: configs/options-item-meta.php:7 configs/playlist-options.php:4
+#: configs/playlist-options.php:240
+msgid "Off"
+msgstr "Desactivado"
+
+#: class_parts/admin-page-mainoptions.php:130
+#: configs/config-main-options.php:121
+msgid "this will output the footer player on the whole site."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:145 class_parts/vpconfig.php:543
+msgid "Normalize "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:153 class_parts/vpconfig.php:556
+msgid "Normalize Waves"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:157 class_parts/vpconfig.php:560
+msgid "Do not normalize"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:168 class_parts/vpconfig.php:573
+msgid ""
+"normalize the waves to look like they have continuity , or disable "
+"normalizing to make the waveforms follow the real sound"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:174
+msgid "Allow Download Only for Registered Users "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:186
+#: class_parts/admin-page-mainoptions.php:575
+#: class_parts/admin-page-mainoptions.php:601
+#: class_parts/options_array_player.php:12
+#: class_parts/options_array_player.php:19 configs/config-main-options.php:402
+#: configs/config-player-config.php:12 configs/config-player-config.php:20
+#: configs/options-item-meta.php:11 configs/playlist-options.php:8
+msgid "On"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:201
+msgid "allow the download tab only for registered users"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:216
+msgid "Exclude audio items from Search"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:222
+#, fuzzy
+msgid "Include"
+msgstr ""
+"%sadvertencia: %s esta no es la forma de incluir el diseño de la tienda en "
+"una página, por favor lea %sdocs%s"
+
+#: class_parts/admin-page-mainoptions.php:226
+msgid "Exclude"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:242
+#: configs/config-main-options.php:140
+msgid "select a class to restrict downloads too"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:247
+msgid "SoundCloud API Key"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:256
+msgid ""
+"You can get one by going to <a href=\"https://soundcloud.com/you/apps/new"
+"\">here</a> and registering a new app. The api key wil lbe the client ID you "
+"get at the end."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:260
+#, fuzzy
+msgid "Play Remember Time"
+msgstr "Tiempo de Animación"
+
+#: class_parts/admin-page-mainoptions.php:270
+#: class_parts/admin-page-mainoptions.php:556
+msgid ""
+"plays are regitered by ip - you can specify a time ( in minutes ) at which "
+"plays are remembers. after this time - a new play can be registered for the "
+"same ip"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:273
+msgid "Like Markup Part 1"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:282
+#: class_parts/admin-page-mainoptions.php:296
+#: class_parts/admin-page-mainoptions.php:310
+#: class_parts/admin-page-mainoptions.php:324
+msgid "Replace with any html. Default is - "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:287
+#, fuzzy
+msgid "Plays Markup"
+msgstr "Zoomsounds reproduce"
+
+#: class_parts/admin-page-mainoptions.php:301
+msgid "Like Markup Part 2"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:315
+msgid "Rates Markup"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:344
+msgid "Replace default wordpress audio shortcode"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:374
+msgid ""
+"select a audio player configuration with which to replace the default "
+"wordpress player"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:388
+msgid "Extra arguments for default audio shortcode"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:391
+msgid "in json format"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:392
+#, fuzzy
+msgid "for example enter: "
+msgstr "Introduzca un valor para este campo"
+
+#: class_parts/admin-page-mainoptions.php:393
+#, fuzzy
+msgid "for showing likes, or enter: "
+msgstr "Introduzca un valor para este campo"
+
+#: class_parts/admin-page-mainoptions.php:394
+#, fuzzy
+msgid "for enabling likes AND plays"
+msgstr "Me gusta de Zoomsounds"
+
+#: class_parts/admin-page-mainoptions.php:401
+#, fuzzy
+msgid "Play default shortcode in footer player"
+msgstr "Reproducir player zoomsounds en el reproductor de pie de página ? "
+
+#: class_parts/admin-page-mainoptions.php:419
+msgid ""
+"only if a player configuration is selected for the default player, then this "
+"will play in the footer player"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:436
+#, fuzzy
+msgid "WooCommerce "
+msgstr "Reemplace la página de categoría de woocommerce con este shortcode"
+
+#: class_parts/admin-page-mainoptions.php:441
+#, fuzzy
+msgid "Single product"
+msgstr ""
+"Si el producto está disponible para su compra, entonces conducirá "
+"directamente al pago (pago de un sólo producto)"
+
+#: class_parts/admin-page-mainoptions.php:444
+msgid "Single Product ZoomSounds Preview"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:456
+msgid ""
+"this will output a preview player in the woocommerce product page if a track "
+"is set in the zoomsounds settings of the product."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:461
+#, fuzzy
+msgid "Product Player Position"
+msgstr "Posición"
+
+#: class_parts/admin-page-mainoptions.php:470
+#: class_parts/admin-page-mainoptions.php:517
+#, fuzzy
+msgid "Top of product"
+msgstr "Arriba"
+
+#: class_parts/admin-page-mainoptions.php:474
+#: class_parts/admin-page-mainoptions.php:521
+#, fuzzy
+msgid "Overlay product image"
+msgstr "Imagen del Producto"
+
+#: class_parts/admin-page-mainoptions.php:478
+#: class_parts/admin-page-mainoptions.php:525
+#, fuzzy
+msgid "Below product"
+msgstr "Imagen del Producto"
+
+#: class_parts/admin-page-mainoptions.php:486
+msgid ""
+"this will output a preview player in the woocommerce single product page if "
+"a track is set in the zoomsounds settings of the product."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:489
+#, fuzzy
+msgid "Loop product"
+msgstr "Enlace del producto"
+
+#: class_parts/admin-page-mainoptions.php:492
+msgid "Loop Product ZoomSounds Preview"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:504
+#: class_parts/admin-page-mainoptions.php:533
+#: class_parts/admin-page-mainoptions.php:583
+msgid ""
+"this will output a preview player in the woocommerce shop page if a track is "
+"set in the zoomsounds settings of the product."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:508
+#, fuzzy
+msgid "Product Loop Position"
+msgstr "Posición"
+
+#: class_parts/admin-page-mainoptions.php:546
+#, fuzzy
+msgid "Custom Wrapper Selector"
+msgstr "Atributo Personalizado"
+
+#: class_parts/admin-page-mainoptions.php:559
+#, fuzzy
+msgid "General WooCommerce Players"
+msgstr "Ajustes generales"
+
+#: class_parts/admin-page-mainoptions.php:562
+#, fuzzy
+msgid "Play in Sticky Player ? "
+msgstr "reproducir los zoomsounds en el reproductor de pie de página"
+
+#: class_parts/admin-page-mainoptions.php:588
+msgid "Try to hide real url"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:608
+msgid ""
+"( beta ) try to hide real url and deny access for direct download - will "
+"DISABLE seeking the mp3 progress"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:613
+msgid "Single Product ZoomSounds Preview - Optional shortcode"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:624
+#: configs/config-main-options.php:442
+msgid ""
+"you can input here shortcode to replace the main player in woocommerce "
+"product ie -"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:632
+msgid "Samples Times Reflect"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:641
+#, fuzzy
+msgid "Part of Real Track"
+msgstr "Bien inmueble"
+
+#: class_parts/admin-page-mainoptions.php:645
+#, fuzzy
+msgid "Part of Preview Track"
+msgstr "Previsualizar"
+
+#: class_parts/admin-page-mainoptions.php:652
+msgid ""
+"this controls wheter the sample time start / end reflect the part of the "
+"real track or the preview track"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:675
+#, fuzzy
+msgid "Translate"
+msgstr "Traducir AÑADIR AL CARRITO"
+
+#: class_parts/admin-page-mainoptions.php:682
+msgid ""
+"Note that integral translation of the plugin can be done by installing the "
+"WPML plugin. Or by using PO Edit and modifying the core wordpress language. "
+"We provide next only a few strings to be translated, for convenience:"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:689
+#, fuzzy
+msgid "Translate \"Buy\""
+msgstr "Traducir AÑADIR AL CARRITO"
+
+#: class_parts/admin-page-mainoptions.php:697
+#, fuzzy
+msgid "Translate \"Title\""
+msgstr "Título"
+
+#: class_parts/admin-page-mainoptions.php:706
+#, fuzzy
+msgid "Translate \"Play\""
+msgstr "Traducir AÑADIR AL CARRITO"
+
+#: class_parts/admin-page-mainoptions.php:713
+#, fuzzy
+msgid "Translate \"Free Download\""
+msgstr "Gratis"
+
+#: class_parts/admin-page-mainoptions.php:722
+#, fuzzy
+msgid "Translate \"Register to download\""
+msgstr "Traducir AÑADIR AL CARRITO"
+
+#: class_parts/admin-page-mainoptions.php:732
+msgid "Register to download - opens in new window"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:766
+msgid "Keyboard"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:772
+#, php-format
+msgid ""
+"keyboard controls setup: %s %s escape key - %s space key - %s \n"
+"                        left key - %s\n"
+"                        right key - %s\n"
+"                        up key - %s\n"
+"                        down key - %s\n"
+"                        you can input something like this %s also\n"
+"                        "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:793
+#, fuzzy
+msgid "Play / pause code"
+msgstr "pausa metoda"
+
+#: class_parts/admin-page-mainoptions.php:802
+msgid "Step forward key code"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:809
+msgid "Step back key code"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:818
+msgid "Back amount in seconds"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:827
+msgid "Previous track"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:829
+msgid ""
+"either enable Play Single Players One After Another on the Page in Developer "
+"Settings, or enable the sticky player playlist in Player configurations - "
+"for this to work"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:835
+#, fuzzy
+msgid "Next track"
+msgstr "Siguiente"
+
+#: class_parts/admin-page-mainoptions.php:844
+#, fuzzy
+msgid "Show tooltips"
+msgstr "Mostrar Overflow"
+
+#: class_parts/admin-page-mainoptions.php:863
+msgid "Play triggers step back"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:912
+#, fuzzy
+msgid "Wave Form Options"
+msgstr "Tabla Audio Wave"
+
+#: class_parts/admin-page-mainoptions.php:914 class_parts/vpconfig.php:284
+#, fuzzy
+msgid "Waveform BG Color"
+msgstr "Color"
+
+#: class_parts/admin-page-mainoptions.php:916
+#, php-format
+msgid "you can input a gradient by inputing %s with your colors"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:928 class_parts/vpconfig.php:292
+#, fuzzy
+msgid "Waveform Progress Color"
+msgstr "Color"
+
+#: class_parts/admin-page-mainoptions.php:947
+msgid "Multiplier"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:957
+msgid ""
+"If your waveformes come out a little flat and need some amplifying, you can "
+"increase this value ."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:962
+#, fuzzy
+msgid "Waveform Style"
+msgstr "Solo la Forma de Onda"
+
+#: class_parts/admin-page-mainoptions.php:969 class_parts/vpconfig.php:769
+msgid "Extra CSS"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:996
+msgid "Social"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1025
+#, fuzzy
+msgid "Meta"
+msgstr "Meta Personalizada"
+
+#: class_parts/admin-page-mainoptions.php:1033
+#, fuzzy
+msgid "Enable Meta Options for ... "
+msgstr "Habilitar"
+
+#: class_parts/admin-page-mainoptions.php:1052
+#, fuzzy
+msgid " post"
+msgstr "Estado de la publicación"
+
+#: class_parts/admin-page-mainoptions.php:1057
+#, fuzzy
+msgid " page"
+msgstr "Reemplazar la página de categoría de woocommerce"
+
+#: class_parts/admin-page-mainoptions.php:1069
+msgid " "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1076
+#, php-format
+msgid "allows for %s meta options for these post types"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1098
+#: class_parts/admin-page-mainoptions.php:1127
+#: class_parts/admin-page-mainoptions.php:1156
+#, php-format
+msgid "Optional Meta Box %s Label"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1106
+#: class_parts/admin-page-mainoptions.php:1135
+#: class_parts/admin-page-mainoptions.php:1164
+msgid ""
+"place a optional meta box label - that can be replaced with in the "
+"zoomsounds extra html"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1188
+msgid "Audit Waveforms"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1213
+msgid "translation support"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1222
+msgid "zip making for album download support"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1230
+#: class_parts/admin-page-mainoptions.php:1239
+msgid "for making youtube / vimeo api calls"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1254
+msgid "the install php version, 5.4 or greater required for facebook api"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1259
+#: class_parts/admin-page-mainoptions.php:1264
+msgid "Server Information"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1268
+msgid "getenv(\"HOME\")"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1272
+msgid "ABSPATH"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1276
+msgid "site_url()"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1282
+msgid "server info"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1287
+msgid "Permissions check"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1308
+#: class_parts/admin-page-mainoptions.php:1332
+#: class_parts/admin-page-mainoptions.php:1356
+#: class_parts/admin-page-mainoptions.php:1377
+msgid "allowed"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1311
+#: class_parts/admin-page-mainoptions.php:1335
+#: class_parts/admin-page-mainoptions.php:1359
+#: class_parts/admin-page-mainoptions.php:1380
+msgid "not allowed"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1392
+#, fuzzy
+msgid "Analytics table status"
+msgstr "Tabla"
+
+#: class_parts/admin-page-mainoptions.php:1403
+#, fuzzy
+msgid "table not installed"
+msgstr "Tabla"
+
+#: class_parts/admin-page-mainoptions.php:1405
+#, fuzzy
+msgid "table ok"
+msgstr "Tabla"
+
+#: class_parts/admin-page-mainoptions.php:1414
+msgid "please repair"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1418
+#, fuzzy
+msgid "repair table"
+msgstr "Tabla"
+
+#: class_parts/admin-page-mainoptions.php:1421
+msgid "check last 10 rows"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1448
+msgid "check if the analytics table exists"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1454
+msgid "Backup log"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1493
+msgid "Amazon s3"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1500
+msgid "AWS Support"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1540
+msgid "Update installed."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1543
+#: inc/php/DZSZoomSoundsHelper.php:1305
+#, fuzzy
+msgid "ZipArchive class not found."
+msgstr "Diseño no encontrado"
+
+#: class_parts/admin-page-mainoptions.php:1562
+#, fuzzy
+msgid "Enable AWS Support"
+msgstr "Habilitar"
+
+#: class_parts/admin-page-mainoptions.php:1572
+#, fuzzy
+msgid "enable aws support"
+msgstr "Habilitar"
+
+#: class_parts/admin-page-mainoptions.php:1581
+msgid "Key"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1587
+#, fuzzy, php-format
+msgid "tutorial %shere%s"
+msgstr "%s píxeles"
+
+#: class_parts/admin-page-mainoptions.php:1603
+msgid "Secret"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1620
+msgid "Region code"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1627
+#, php-format
+msgid "region code ( ie. %s ) - full list %shere%s"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1643
+msgid "Bucket"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1656
+#, fuzzy
+msgid "install aws"
+msgstr "Cómo instalar"
+
+#: class_parts/admin-page-mainoptions.php:1674
+msgid "Developer"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1696
+#, fuzzy
+msgid "Wave Generating Notice"
+msgstr "Tabla Audio Wave"
+
+#: class_parts/admin-page-mainoptions.php:1704
+msgid ""
+"display the wave generating notice - or else the notice will not show but "
+"the wave forms will still generate"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1709
+msgid "Safe Binding?"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1719
+msgid ""
+"the galleries admin can use a complex ajax backend to ensure fast editing, "
+"but this can cause limitation issues on php servers. Turn this to on if you "
+"want a faster editing experience ( and if you have less then 20 videos "
+"accross galleries ) "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1722
+msgid "Do Not Use Caching"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1731
+msgid "use caching for vimeo / youtube api ( recommended - on )"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1736
+msgid "Force File Get Contents"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1745
+msgid ""
+"sometimes curl will not work for retrieving youtube user name / playlist - "
+"try enabling this option if so..."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1750
+msgid "Hide Audio Items from menu"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1763
+#, fuzzy
+msgid "hide the items"
+msgstr "Ocultar Overflow"
+
+#: class_parts/admin-page-mainoptions.php:1768
+msgid "Force Refresh Size Every 1000ms"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1777
+msgid ""
+"sometimes sizes need to be recalculated ( for example if you use the gallery "
+"in tabs )"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1782
+#, fuzzy
+msgid "Enable Powerpress Support"
+msgstr "Habilitar"
+
+#: class_parts/admin-page-mainoptions.php:1790
+#: class_parts/admin-page-mainoptions.php:1805
+msgid "replace the current powerpress player with zoomsounds "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1796
+msgid " try to read category data "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1815
+msgid "Javascript Init Timeout"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1823
+msgid "place a timeout for initializing the player ( in ms ) "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1836
+msgid "Precision"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1844
+msgid "higher is more precise, but occupies more storage space"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1857
+#, fuzzy
+msgid "Extra Javascript"
+msgstr "Extra"
+
+#: class_parts/admin-page-mainoptions.php:1860
+msgid "extra javascript on page load"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1879
+msgid "Save Options"
+msgstr "Opciones de Guardado"
+
+#: class_parts/admin-page-mainoptions.php:1892
+#, fuzzy
+msgid "Analyze track data"
+msgstr "Generar datos de atributos"
+
+#: class_parts/admin-page-mainoptions.php:1904
+msgid "Analyze wave data or generate wave data for a single track."
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1909
+#: class_parts/ajax_load_charts_html.php:14
+#: class_parts/ajax_load_charts_html.php:103
+#: class_parts/ajax_load_charts_html.php:171 class_parts/analytics.php:37
+#: class_parts/analytics.php:85
+#, fuzzy
+msgid "Track"
+msgstr ""
+"seleccione una miniatura para el video (se puede generar automáticamente si "
+"se trata de Vimeo o YouTube)"
+
+#: class_parts/admin-page-mainoptions.php:1909
+#, fuzzy
+msgid "Id"
+msgstr "ID"
+
+#: class_parts/admin-page-mainoptions.php:1928
+msgid "get track by id or source"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1932
+msgid "Get pcm from url"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1946
+msgid "( donor mp3 ) ( optional ) get pcm data from another mp3 url"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1949
+#, fuzzy
+msgid "Get Track Data"
+msgstr "Generar datos de atributos"
+
+#: class_parts/admin-page-mainoptions.php:1961
+msgid "Flash"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:1961
+msgid "Tool"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:2012
+msgid "copy the text from above in the box below to overwrite pcm data"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:2013
+#, php-format
+msgid ""
+"in order to save the pcm data fro mthe flash tool, click the text above and "
+"press %s ( %s ) "
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:2013
+#, fuzzy
+msgid "Select All"
+msgstr "Todo"
+
+#: class_parts/admin-page-mainoptions.php:2017
+msgid "PCM"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:2017
+#, fuzzy
+msgid "Data"
+msgstr "Datos del Plugin"
+
+#: class_parts/admin-page-mainoptions.php:2031
+msgid "Save PCM Data From Textarea"
+msgstr ""
+
+#: class_parts/admin-page-mainoptions.php:2046
+#, fuzzy
+msgid "Delete Plugin Data"
+msgstr "eliminar algunos datos del plugin"
+
+#: class_parts/admin-page-mainoptions.php:2051
+#, fuzzy
+msgid "Delete plugin data"
+msgstr "eliminar algunos datos del plugin"
+
+#: class_parts/admin-page-mainoptions.php:2061
+#: class_parts/ajax_load_charts_html.php:386
+#, fuzzy
+msgid "Delete waveform data"
+msgstr "Eliminar datos de ejemplo"
+
+#: class_parts/admin-page-mainoptions.php:2071
+#, fuzzy
+msgid "Delete total times"
+msgstr "Eliminar"
+
+#: class_parts/ajax_load_charts_html.php:14 class_parts/analytics.php:37
+msgid "Views"
+msgstr ""
+
+#: class_parts/ajax_load_charts_html.php:14
+#: class_parts/ajax_load_charts_html.php:240 class_parts/analytics.php:37
+#, fuzzy
+msgid "Likes"
+msgstr "Me gusta de Zoomsounds"
+
+#: class_parts/ajax_load_charts_html.php:69
+#: class_parts/ajax_load_charts_html.php:250
+#: class_parts/ajax_load_charts_html.php:265
+msgid "Today"
+msgstr ""
+
+#: class_parts/ajax_load_charts_html.php:103
+msgid "Minutes watched"
+msgstr ""
+
+#: class_parts/ajax_load_charts_html.php:144
+#: class_parts/ajax_load_charts_html.php:319
+msgid "This month"
+msgstr ""
+
+#: class_parts/ajax_load_charts_html.php:171
+#, fuzzy
+msgid "Number of plays"
+msgstr "Número"
+
+#: class_parts/ajax_load_charts_html.php:243
+#, fuzzy
+msgid "Plays"
+msgstr "Zoomsounds reproduce"
+
+#: class_parts/ajax_load_charts_html.php:285
+#: class_parts/ajax_load_charts_html.php:301
+msgid "This Week"
+msgstr ""
+
+#: class_parts/ajax_load_charts_html.php:334
+msgid "this month"
+msgstr ""
+
+#: class_parts/ajax_load_charts_html.php:381
+#, fuzzy
+msgid "Delete stats"
+msgstr "Eliminar"
+
+#: class_parts/analytics.php:85
+#, fuzzy
+msgid "Downloads"
+msgstr "No hay descargas restantes"
+
+#: class_parts/extras_featured.php:7 class_parts/extras_featured.php:8
+msgid "DZS Video Gallery Settings"
+msgstr ""
+
+#: class_parts/extras_featured.php:15
+#, fuzzy
+msgid "Featured Gallery"
+msgstr " Generador de Shortcode de Galería"
+
+#: class_parts/extras_featured.php:29
+msgid "Set a featured gallery. Only for certain themes"
+msgstr ""
+
+#: class_parts/item-meta.php:222
+msgid "optional meta set in settings"
+msgstr ""
+
+#: class_parts/options_array_player.php:29
+#: class_parts/options_array_player.php:60
+#: class_parts/options_array_player.php:196 class_parts/vpconfig.php:405
+#: class_parts/vpconfig.php:445 class_parts/vpconfig.php:552
+#: class_parts/vpconfig.php:660 configs/options-item-meta.php:18
+#: configs/options-item-meta.php:226 configs/playlist-options.php:33
+#: configs/playlist-options.php:43 configs/playlist-options.php:71
+#: configs/playlist-options.php:145 inc/php/DzsapAdmin.php:473
+#: inc/php/part-generate-legacy-sliderstructure.php:38
+msgid "Default"
+msgstr "Predeterminado"
+
+#: class_parts/options_array_player.php:33 class_parts/vpconfig.php:227
+#: class_parts/vpconfig.php:357 configs/options-item-meta.php:26
+msgid "Detect"
+msgstr ""
+
+#: class_parts/options_array_player.php:40
+#, fuzzy
+msgid "Auto Detect"
+msgstr "Trading automático"
+
+#: class_parts/options_array_player.php:44
+#, fuzzy
+msgid "Audio"
+msgstr "Onda de audio"
+
+#: class_parts/options_array_player.php:53 configs/options-item-meta.php:42
+msgid "Radio Station"
+msgstr ""
+
+#: class_parts/options_array_player.php:87 configs/options-item-meta.php:646
+#, fuzzy
+msgid "Wide Image Wrapper"
+msgstr "Imagen"
+
+#: class_parts/options_array_player.php:91 configs/options-item-meta.php:650
+#, fuzzy
+msgid "Rectangle Image Wrapper"
+msgstr "Rectángulo"
+
+#: class_parts/options_array_player.php:127 configs/options-item-meta.php:138
+#: inc/gutenberg/gutenberg-player.reactpack.js:48 inc/php/deprecated.php:140
+#, fuzzy
+msgid "Source"
+msgstr "seleccione la fuente principal"
+
+#: class_parts/options_array_player.php:128
+msgid "The source, input a mp3 or a youtube link"
+msgstr ""
+
+#: class_parts/options_array_player.php:139 configs/options-item-meta.php:123
+#: inc/php/deprecated.php:64
+msgid "Type"
+msgstr "Tipo"
+
+#: class_parts/options_array_player.php:140
+msgid ""
+"leave the type to default for the player to decide wheter it is a souncloud "
+"link of a self hosted mp3"
+msgstr ""
+
+#: class_parts/options_array_player.php:150 configs/options-item-meta.php:111
+#, fuzzy
+msgid "Audio Player Configuration"
+msgstr "Configuración del Reproductor"
+
+#: class_parts/options_array_player.php:152 configs/options-item-meta.php:112
+#, php-format
+msgid ""
+"the audio player configuration , can be edited in %s > Player Configurations"
+msgstr ""
+
+#: class_parts/options_array_player.php:161 configs/options-item-meta.php:148
+#: inc/php/deprecated.php:237
+#, fuzzy
+msgid "Thumbnail"
+msgstr "Altura de Miniatura"
+
+#: class_parts/options_array_player.php:162
+#, fuzzy
+msgid "a thumbnail for the song"
+msgstr "Altura de Miniatura"
+
+#: class_parts/options_array_player.php:163 configs/options-item-meta.php:150
+#, php-format
+msgid "input %snone%s to force no thumbnail"
+msgstr ""
+
+#: class_parts/options_array_player.php:171 configs/options-item-meta.php:462
+#, fuzzy
+msgid "Cover"
+msgstr "Espacio de cubierta"
+
+#: class_parts/options_array_player.php:172 configs/options-item-meta.php:463
+msgid "cover image to show before video play"
+msgstr ""
+
+#: class_parts/options_array_player.php:180 configs/options-item-meta.php:477
+#: configs/playlist-options.php:415
+#: inc/php/part-generate-legacy-sliderstructure.php:186
+msgid "Autoplay"
+msgstr ""
+
+#: class_parts/options_array_player.php:181
+msgid "autoplay the videos"
+msgstr ""
+
+#: class_parts/options_array_player.php:190 class_parts/vpconfig.php:142
+#: configs/config-player-config.php:621 configs/options-item-meta.php:490
+msgid "Loop"
+msgstr ""
+
+#: class_parts/options_array_player.php:191
+msgid "loop the video on end"
+msgstr ""
+
+#: class_parts/options_array_player.php:200
+msgid "Always"
+msgstr ""
+
+#: class_parts/options_array_player.php:209
+#, fuzzy
+msgid "Extra Classes to the Player"
+msgstr "Clases Extra"
+
+#: class_parts/options_array_player.php:210
+msgid ""
+"enter a extra css class for the player for example, entering \"with-bottom-"
+"shadow\" will create a shadow underneath the player"
+msgstr ""
+
+#: class_parts/options_array_player.php:217 configs/options-item-meta.php:88
+#, fuzzy
+msgid "Artist Title"
+msgstr "Título"
+
+#: class_parts/options_array_player.php:217
+#, fuzzy, php-format
+msgid "( line %s )"
+msgstr "Una línea"
+
+#: class_parts/options_array_player.php:218
+#: class_parts/options_array_player.php:226 configs/options-item-meta.php:89
+msgid "title to appear on the left top"
+msgstr ""
+
+#: class_parts/options_array_player.php:225 configs/options-item-meta.php:101
+#, fuzzy
+msgid "Song Title"
+msgstr "Título"
+
+#: class_parts/options_array_player.php:233 configs/options-item-meta.php:507
+msgid "Open in Ultibox?"
+msgstr ""
+
+#: class_parts/options_array_player.php:234 configs/options-item-meta.php:508
+msgid "open the current player in a lightbox"
+msgstr ""
+
+#: class_parts/options_array_player.php:242
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Playlist_Widget.php:23
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Widget.php:19
+#: inc/php/vc/part-vcintegration.php:108
+#, fuzzy
+msgid "Content"
+msgstr "anexar al contenido - "
+
+#: class_parts/options_array_player.php:243
+msgid ""
+"description to appear if the info button is enabled in video player "
+"configurations"
+msgstr ""
+
+#: class_parts/options_array_player.php:251 configs/options-item-meta.php:588
+#, fuzzy
+msgid "Link to ID"
+msgstr "ID"
+
+#: class_parts/options_array_player.php:252 configs/options-item-meta.php:589
+msgid "you need to link to a player id"
+msgstr ""
+
+#: class_parts/options_array_player.php:261 configs/options-item-meta.php:522
+#, fuzzy
+msgid "Enable Likes ? "
+msgstr "Habilitar"
+
+#: class_parts/options_array_player.php:262 configs/options-item-meta.php:524
+msgid "enable like count and button"
+msgstr ""
+
+#: class_parts/options_array_player.php:263
+#: class_parts/options_array_player.php:276
+#: class_parts/options_array_player.php:290 configs/options-item-meta.php:525
+#: configs/options-item-meta.php:543 configs/options-item-meta.php:559
+msgid ""
+"you need to have a id to link the player to in the database for the views, "
+"likes, etc to be recorded"
+msgstr ""
+
+#: class_parts/options_array_player.php:274 configs/options-item-meta.php:540
+#, fuzzy
+msgid "Enable Play Count ? "
+msgstr "Habilitar"
+
+#: class_parts/options_array_player.php:275 configs/options-item-meta.php:542
+#, fuzzy
+msgid "enable play count "
+msgstr "Habilitar"
+
+#: class_parts/options_array_player.php:288
+#, fuzzy
+msgid "Enable Download Button ? "
+msgstr "Habilitar"
+
+#: class_parts/options_array_player.php:289
+msgid "enable a download button for this item"
+msgstr ""
+
+#: class_parts/options_array_player.php:300
+#, fuzzy
+msgid "Enable Downloads Counter ? "
+msgstr "Habilitar"
+
+#: class_parts/options_array_player.php:301
+msgid "enable a download counter for this item"
+msgstr ""
+
+#: class_parts/options_array_player.php:310
+#, fuzzy
+msgid "Download Link"
+msgstr "Enlace a..."
+
+#: class_parts/options_array_player.php:311
+msgid "if no link is set then the button will just download the track"
+msgstr ""
+
+#: class_parts/options_array_player.php:319
+#, fuzzy
+msgid "Link Label"
+msgstr "Etiqueta izquierda"
+
+#: class_parts/options_array_player.php:320
+msgid ""
+"If link button is enabled in the player configurations, then you can set a "
+"link here"
+msgstr ""
+
+#: class_parts/options_array_player.php:331 configs/options-item-meta.php:574
+#, fuzzy
+msgid "iTunes Link"
+msgstr "Enlace a..."
+
+#: class_parts/options_array_player.php:332 configs/options-item-meta.php:575
+msgid "input an optional link to the itunes track page"
+msgstr ""
+
+#: class_parts/options_array_player.php:344 configs/options-item-meta.php:626
+#, fuzzy
+msgid "Wrapper Image"
+msgstr "Imagen"
+
+#: class_parts/options_array_player.php:345 configs/options-item-meta.php:627
+msgid ""
+"The source, input a mp4 or a youtube link or a youtube id or a vimeo link or "
+"a vimeo id"
+msgstr ""
+
+#: class_parts/options_array_player.php:355 configs/options-item-meta.php:640
+#, fuzzy
+msgid "Wrapper Image Type"
+msgstr "Tipo"
+
+#: class_parts/options_array_player.php:365
+#, fuzzy
+msgid "Play Externally ?"
+msgstr "Sólo el botón de reproducción"
+
+#: class_parts/options_array_player.php:370
+msgid "No"
+msgstr ""
+
+#: class_parts/options_array_player.php:374
+#, fuzzy
+msgid "Play in Footer"
+msgstr "Reproductor en el pie de página si está disponible"
+
+#: class_parts/options_array_player.php:384 configs/options-item-meta.php:356
+msgid "Extra Classes"
+msgstr "Clases Extra"
+
+#: class_parts/options_array_player.php:385
+#, fuzzy
+msgid "some extra classes"
+msgstr ""
+"[avanzado] algunas clases extra que desees agregar al elemento del portafolio"
+
+#: class_parts/options_array_player.php:403 configs/options-item-meta.php:700
+msgid "Is amazon s3 file"
+msgstr ""
+
+#: class_parts/options_array_player.php:404 configs/options-item-meta.php:701
+msgid "it's a amazon s3 private file"
+msgstr ""
+
+#: class_parts/options_array_player.php:410 configs/options-item-meta.php:706
+msgid "no"
+msgstr ""
+
+#: class_parts/options_array_player.php:414 configs/options-item-meta.php:710
+msgid "yes"
+msgstr ""
+
+#: class_parts/vpconfig.php:28
+#, fuzzy
+msgid "Config ID"
+msgstr "ID"
+
+#: class_parts/vpconfig.php:30
+#: inc/php/part-generate-legacy-sliderstructure.php:11
+#, fuzzy
+msgid "Choose an unique id."
+msgstr "ID"
+
+#: class_parts/vpconfig.php:34
+#, fuzzy
+msgid "Audio Player Skin"
+msgstr "Skin"
+
+#: class_parts/vpconfig.php:68
+msgid "Minimal"
+msgstr ""
+
+#: class_parts/vpconfig.php:68 class_parts/vpconfig.php:71
+#: class_parts/vpconfig.php:74 class_parts/vpconfig.php:77
+#: class_parts/vpconfig.php:80 class_parts/vpconfig.php:83
+#: class_parts/vpconfig.php:86
+#, fuzzy
+msgid "skin"
+msgstr "Skin"
+
+#: class_parts/vpconfig.php:71
+msgid "Minion"
+msgstr ""
+
+#: class_parts/vpconfig.php:74
+#, fuzzy
+msgid "Thumb and button"
+msgstr "Botón"
+
+#: class_parts/vpconfig.php:77
+msgid "Steel"
+msgstr ""
+
+#: class_parts/vpconfig.php:80
+msgid "Redlights"
+msgstr ""
+
+#: class_parts/vpconfig.php:83
+#, fuzzy
+msgid "Custom controls"
+msgstr "Personalizado"
+
+#: class_parts/vpconfig.php:86
+#, fuzzy
+msgid "Custom html"
+msgstr "entrada html personalizada"
+
+#: class_parts/vpconfig.php:110
+#, fuzzy
+msgid "Extra HTML in Player"
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/vpconfig.php:112
+msgid ""
+"enable a embed button for visitors to be able the embed the player on their "
+"sites."
+msgstr ""
+
+#: class_parts/vpconfig.php:116
+#, fuzzy
+msgid "Enable Embed Button"
+msgstr "Habilitar"
+
+#: class_parts/vpconfig.php:118 class_parts/vpconfig.php:228
+#: class_parts/vpconfig.php:239 class_parts/vpconfig.php:358
+#: configs/config-player-config.php:44 configs/config-player-config.php:65
+#: configs/config-player-config.php:85 configs/config-player-config.php:105
+#: configs/config-player-config.php:126 configs/config-player-config.php:146
+#: configs/config-player-config.php:165 configs/config-player-config.php:184
+#: configs/config-player-config.php:203 configs/config-player-config.php:223
+#: configs/config-player-config.php:242 configs/config-player-config.php:261
+#: configs/config-player-config.php:280 configs/config-player-config.php:300
+#: configs/config-player-config.php:319 configs/config-player-config.php:338
+#: configs/config-player-config.php:357 configs/config-player-config.php:376
+#: configs/config-player-config.php:395 configs/config-player-config.php:433
+#: configs/config-player-config.php:454 configs/config-player-config.php:473
+#: configs/config-player-config.php:492 configs/config-player-config.php:511
+#: configs/config-player-config.php:530 configs/config-player-config.php:549
+#: configs/config-player-config.php:568 configs/config-player-config.php:587
+#: configs/config-player-config.php:607 configs/options-item-meta.php:265
+#: configs/options-item-meta.php:285 configs/options-item-meta.php:304
+#: configs/playlist-options.php:119 configs/playlist-options.php:349
+#: configs/playlist-options.php:371 configs/playlist-options.php:408
+#: configs/playlist-options.php:423 configs/playlist-options.php:448
+#: configs/playlist-options.php:486 configs/playlist-options.php:504
+#: configs/playlist-options.php:522 configs/playlist-options.php:540
+msgid "Disable"
+msgstr "Deshabilitar"
+
+#: class_parts/vpconfig.php:119
+#, fuzzy
+msgid "In player controls"
+msgstr "Reproductor ZoomSounds"
+
+#: class_parts/vpconfig.php:120
+#, fuzzy
+msgid "Below player"
+msgstr "Reproductor Completo"
+
+#: class_parts/vpconfig.php:121
+msgid "In multisharer"
+msgstr ""
+
+#: class_parts/vpconfig.php:123
+msgid ""
+"enable a embed button for visitors to be able the embed the player on their "
+"sites. ( for multisharer, enable multisharer button below ) "
+msgstr ""
+
+#: class_parts/vpconfig.php:130
+#, fuzzy
+msgid "Hover to Play"
+msgstr "Reproducción normal"
+
+#: class_parts/vpconfig.php:135
+msgid "zoomsounds offers the possibility to play tracks on hover"
+msgstr ""
+
+#: class_parts/vpconfig.php:147
+msgid "Loop the track on song end"
+msgstr ""
+
+#: class_parts/vpconfig.php:150
+#, fuzzy
+msgid "Preload Method"
+msgstr "pausa metoda"
+
+#: class_parts/vpconfig.php:156
+msgid ""
+"none - preload no info / metadata - preload only metadata ( total time and "
+"thumbnail ) / auto - preload the whole track "
+msgstr ""
+
+#: class_parts/vpconfig.php:159
+#, fuzzy
+msgid "Cue Media"
+msgstr "Añadir medios"
+
+#: class_parts/vpconfig.php:164
+msgid ""
+"settings this to OFF will not load the media at all, not even the metadata"
+msgstr ""
+
+#: class_parts/vpconfig.php:167 inc/php/deprecated.php:248
+#, fuzzy
+msgid "Play From"
+msgstr "Reproducción normal"
+
+#: class_parts/vpconfig.php:169
+msgid ""
+"This is a default setting, it can be changed individually per item ( it will "
+"be overwritten if set ) . - choose a number of seconds from which the track "
+"to play from ( for example if set \"70\" then the track will start to play "
+"from 1 minute and 10 seconds ) or input \"last\" for the track to play at "
+"the last position where it was."
+msgstr ""
+
+#: class_parts/vpconfig.php:174
+#, fuzzy
+msgid "Default Volume"
+msgstr "Predeterminado"
+
+#: class_parts/vpconfig.php:176
+msgid ""
+"number / set the default volume 0-1 or \"last\" for the last known volume"
+msgstr ""
+
+#: class_parts/vpconfig.php:189
+msgid "Enable Info Button in Player"
+msgstr ""
+
+#: class_parts/vpconfig.php:194
+msgid "deprecated - use universal share instead "
+msgstr ""
+
+#: class_parts/vpconfig.php:201
+msgid "Enable Universal Share in Player"
+msgstr ""
+
+#: class_parts/vpconfig.php:206
+msgid "enable a button that brings up a lightbox with all share options"
+msgstr ""
+
+#: class_parts/vpconfig.php:213
+msgid "Pause when other player is playing"
+msgstr ""
+
+#: class_parts/vpconfig.php:215
+msgid "pause when other is playing"
+msgstr ""
+
+#: class_parts/vpconfig.php:216
+#, fuzzy
+msgid "player is not affected"
+msgstr "Configuración del Reproductor"
+
+#: class_parts/vpconfig.php:218
+msgid ""
+"normally if another player has started playing, the current playing one will "
+"pause, you can disable this option here "
+msgstr ""
+
+#: class_parts/vpconfig.php:225
+#, fuzzy
+msgid "Player Navigation"
+msgstr "Reproductor ZoomSounds"
+
+#: class_parts/vpconfig.php:229 class_parts/vpconfig.php:359
+msgid "Force On"
+msgstr ""
+
+#: class_parts/vpconfig.php:231
+msgid ""
+"show or not the left and right arrows alongside the play button - leave "
+"default for the player to auto detect if it needs them"
+msgstr ""
+
+#: class_parts/vpconfig.php:237
+msgid "Sticky player playlist button"
+msgstr ""
+
+#: class_parts/vpconfig.php:240 configs/config-player-config.php:48
+#: configs/config-player-config.php:69 configs/config-player-config.php:89
+#: configs/config-player-config.php:109 configs/config-player-config.php:130
+#: configs/config-player-config.php:150 configs/config-player-config.php:169
+#: configs/config-player-config.php:188 configs/config-player-config.php:207
+#: configs/config-player-config.php:227 configs/config-player-config.php:246
+#: configs/config-player-config.php:265 configs/config-player-config.php:284
+#: configs/config-player-config.php:304 configs/config-player-config.php:323
+#: configs/config-player-config.php:342 configs/config-player-config.php:361
+#: configs/config-player-config.php:380 configs/config-player-config.php:399
+#: configs/config-player-config.php:437 configs/config-player-config.php:458
+#: configs/config-player-config.php:477 configs/config-player-config.php:496
+#: configs/config-player-config.php:515 configs/config-player-config.php:534
+#: configs/config-player-config.php:553 configs/config-player-config.php:572
+#: configs/config-player-config.php:591 configs/config-player-config.php:611
+#: configs/options-item-meta.php:269 configs/options-item-meta.php:289
+#: configs/options-item-meta.php:308 configs/playlist-options.php:123
+#: configs/playlist-options.php:353 configs/playlist-options.php:375
+#: configs/playlist-options.php:404 configs/playlist-options.php:427
+#: configs/playlist-options.php:444 configs/playlist-options.php:490
+#: configs/playlist-options.php:508 configs/playlist-options.php:526
+#: configs/playlist-options.php:544
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Widget.php:130
+msgid "Enable"
+msgstr "Habilitar"
+
+#: class_parts/vpconfig.php:242
+msgid "show a playlist button in the footer player"
+msgstr ""
+
+#: class_parts/vpconfig.php:256
+msgid "Colors"
+msgstr ""
+
+#: class_parts/vpconfig.php:260
+#, fuzzy
+msgid "General Colors"
+msgstr "Ajustes generales"
+
+#: class_parts/vpconfig.php:265
+#, fuzzy
+msgid "Color UI"
+msgstr "Color"
+
+#: class_parts/vpconfig.php:265 class_parts/vpconfig.php:274
+msgid "Leave blank for default. Or select a color."
+msgstr ""
+
+#: class_parts/vpconfig.php:269
+#, fuzzy
+msgid "Color UI Alternate"
+msgstr "Color"
+
+#: class_parts/vpconfig.php:269
+msgid ""
+"for some button skins like Button Style - there is a need for an alternate "
+"color"
+msgstr ""
+
+#: class_parts/vpconfig.php:274
+#, fuzzy
+msgid "Highlight Color"
+msgstr "Color"
+
+#: class_parts/vpconfig.php:277
+#, fuzzy
+msgid "Waveform Colors"
+msgstr "Solo la Forma de Onda"
+
+#: class_parts/vpconfig.php:308
+msgid "Styling"
+msgstr "Estilo"
+
+#: class_parts/vpconfig.php:314
+#, fuzzy
+msgid "Animate Play Pause"
+msgstr "pausa metoda"
+
+#: class_parts/vpconfig.php:320
+msgid "fade animation on play / pause"
+msgstr ""
+
+#: class_parts/vpconfig.php:333
+msgid "Enable Footer Close Button"
+msgstr ""
+
+#: class_parts/vpconfig.php:338
+#, fuzzy
+msgid "only for footer players"
+msgstr "Reproductor en el pie de página si está disponible"
+
+#: class_parts/vpconfig.php:344
+#, fuzzy
+msgid "Disable Scrubbar"
+msgstr "Deshabilitar"
+
+#: class_parts/vpconfig.php:349
+#, fuzzy
+msgid "disable the scrubbar / wave"
+msgstr "Deshabilitar"
+
+#: class_parts/vpconfig.php:355
+#, fuzzy
+msgid "Disable Volume"
+msgstr "Deshabilitar"
+
+#: class_parts/vpconfig.php:361
+msgid ""
+"disable the volume bar if set to \"on\". set to skin default when \"default"
+"\" is set."
+msgstr ""
+
+#: class_parts/vpconfig.php:384
+msgid "Dynamic Waves"
+msgstr ""
+
+#: class_parts/vpconfig.php:389
+msgid "*only on skin-wave - dynamic waves that act on volume change"
+msgstr ""
+
+#: class_parts/vpconfig.php:397 configs/config-main-options.php:161
+#, fuzzy
+msgid "Waveform Mode"
+msgstr "Solo la Forma de Onda"
+
+#: class_parts/vpconfig.php:409 class_parts/vpconfig.php:427
+#: configs/config-main-options.php:147 configs/config-main-options.php:163
+#: inc/php/DzsapAdmin.php:23
+msgid "Image"
+msgstr "Imagen"
+
+#: class_parts/vpconfig.php:413 class_parts/vpconfig.php:428
+#: configs/config-main-options.php:151 configs/config-main-options.php:163
+msgid "Canvas"
+msgstr ""
+
+#: class_parts/vpconfig.php:417 configs/config-main-options.php:155
+#, fuzzy
+msgid "Line"
+msgstr "Una línea"
+
+#: class_parts/vpconfig.php:426 configs/config-main-options.php:163
+#, fuzzy
+msgid "this is the wave style "
+msgstr "Onda de audio"
+
+#: class_parts/vpconfig.php:427 configs/config-main-options.php:163
+msgid "is just a image png that must be generated from the backend"
+msgstr ""
+
+#: class_parts/vpconfig.php:428 configs/config-main-options.php:163
+msgid ""
+"is a new and more immersive mode to show the waves. you can control color "
+"more easily, reflection size and wave bars number"
+msgstr ""
+
+#: class_parts/vpconfig.php:437 configs/config-main-options.php:196
+#, fuzzy
+msgid "Reflection Size"
+msgstr "Tamaño de la Miniatura"
+
+#: class_parts/vpconfig.php:449 configs/config-main-options.php:181
+msgid "None"
+msgstr ""
+
+#: class_parts/vpconfig.php:453 class_parts/vpconfig.php:621
+#: configs/config-main-options.php:109 configs/config-main-options.php:185
+#: configs/options-item-meta.php:202
+msgid "Normal"
+msgstr "Normal"
+
+#: class_parts/vpconfig.php:457 configs/config-main-options.php:189
+msgid "Big"
+msgstr ""
+
+#: class_parts/vpconfig.php:466 configs/config-main-options.php:198
+msgid "the waveform bars size / the number of bars on screen"
+msgstr ""
+
+#: class_parts/vpconfig.php:481
+#, fuzzy
+msgid "Waves Number"
+msgstr "Número"
+
+#: class_parts/vpconfig.php:495
+#, php-format
+msgid ""
+"%s - %s default global option %s\r\n"
+"                            %s - %s pixel %s\r\n"
+"                            %s - %s pixels %s\r\n"
+"                            %s - %s pixels %s\r\n"
+"                            %s - means that there will be the number of "
+"waves that you set - for example 100 means 100 waves\r\n"
+"                            "
+msgstr ""
+
+#: class_parts/vpconfig.php:518
+msgid "Waves Bar Spacing"
+msgstr ""
+
+#: class_parts/vpconfig.php:534
+msgid ""
+"spacing between bars - leave nothing here and this will come from global"
+msgstr ""
+
+#: class_parts/vpconfig.php:579
+#, fuzzy
+msgid "Enable Spectrum"
+msgstr "Habilitar"
+
+#: class_parts/vpconfig.php:584
+msgid ""
+"only on skin-wave - enable a realtime spectrum analyzer instead of the "
+"static generated waveform / the file must be on the same server for security "
+"issues"
+msgstr ""
+
+#: class_parts/vpconfig.php:585
+msgid "important"
+msgstr ""
+
+#: class_parts/vpconfig.php:585
+msgid "only use audios hosted on your own server"
+msgstr ""
+
+#: class_parts/vpconfig.php:589
+msgid "Timer indicators are static"
+msgstr ""
+
+#: class_parts/vpconfig.php:594
+msgid "make the timing indicators static ( not move )"
+msgstr ""
+
+#: class_parts/vpconfig.php:600
+#, fuzzy
+msgid "Enable Reflect"
+msgstr "Habilitar"
+
+#: class_parts/vpconfig.php:605
+msgid "*only on skin-wave - enable a small reflection of the waves / spectrum"
+msgstr ""
+
+#: class_parts/vpconfig.php:608
+#, fuzzy
+msgid "Enable Commenting"
+msgstr "Habilitar"
+
+#: class_parts/vpconfig.php:613
+msgid "*only on skin-wave - enable time-based commenting"
+msgstr ""
+
+#: class_parts/vpconfig.php:619
+#, fuzzy
+msgid "Skin layout"
+msgstr "Skin"
+
+#: class_parts/vpconfig.php:622
+msgid "Slick"
+msgstr ""
+
+#: class_parts/vpconfig.php:623
+msgid "Alternate"
+msgstr ""
+
+#: class_parts/vpconfig.php:624
+msgid "Big Wavo"
+msgstr ""
+
+#: class_parts/vpconfig.php:625
+#, fuzzy
+msgid "Just Wave"
+msgstr "Onda de audio"
+
+#: class_parts/vpconfig.php:630
+#, fuzzy
+msgid "Mode normal"
+msgstr "Normal"
+
+#: class_parts/vpconfig.php:633
+#, fuzzy
+msgid "Mode slick"
+msgstr "Modo de diseño"
+
+#: class_parts/vpconfig.php:636
+#, fuzzy
+msgid "Mode alternate"
+msgstr "Modo de diseño"
+
+#: class_parts/vpconfig.php:639
+#, fuzzy
+msgid "Mode big wavo"
+msgstr "Modo de diseño"
+
+#: class_parts/vpconfig.php:642
+#, fuzzy
+msgid "Just wave"
+msgstr "Onda de audio"
+
+#: class_parts/vpconfig.php:645
+msgid "choose the normal or slick theming"
+msgstr ""
+
+#: class_parts/vpconfig.php:650
+#, fuzzy
+msgid "Wave Mode"
+msgstr "Onda de audio"
+
+#: class_parts/vpconfig.php:652
+msgid "Bar"
+msgstr ""
+
+#: class_parts/vpconfig.php:653
+#, fuzzy
+msgid "Wave ( reflecto )"
+msgstr "Onda de audio"
+
+#: class_parts/vpconfig.php:655
+msgid "choose a bar type format or a wave for the waveform style"
+msgstr ""
+
+#: class_parts/vpconfig.php:658
+#, fuzzy
+msgid "Button Style"
+msgstr "Estilo de botón"
+
+#: class_parts/vpconfig.php:661
+msgid "Aspect Noir"
+msgstr ""
+
+#: class_parts/vpconfig.php:662
+msgid "Aspect Noir Filled"
+msgstr ""
+
+#: class_parts/vpconfig.php:663
+msgid "Aspect Noir Stroked"
+msgstr ""
+
+#: class_parts/vpconfig.php:668
+#, fuzzy
+msgid "Wave skin full"
+msgstr "Onda de audio"
+
+#: class_parts/vpconfig.php:672
+msgid "Aspect noir"
+msgstr ""
+
+#: class_parts/vpconfig.php:675
+msgid "Aspect noir filled"
+msgstr ""
+
+#: class_parts/vpconfig.php:678
+msgid "Aspect noir stroked"
+msgstr ""
+
+#: class_parts/vpconfig.php:681
+#, fuzzy
+msgid "only for skin-wave"
+msgstr "Onda de audio"
+
+#: class_parts/vpconfig.php:701
+msgid "Misc"
+msgstr ""
+
+#: class_parts/vpconfig.php:709
+#, fuzzy
+msgid "Extra Classes for Player"
+msgstr "Clases Extra"
+
+#: class_parts/vpconfig.php:711
+#, fuzzy
+msgid "extra classes include  "
+msgstr "Clases Extra"
+
+#: class_parts/vpconfig.php:725
+#, fuzzy
+msgid "Extra HTML After Artist"
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/vpconfig.php:727
+msgid "extra html on the rift of the artist field ( first line ) "
+msgstr ""
+
+#: class_parts/vpconfig.php:735 configs/options-item-meta.php:433
+#: inc/php/deprecated.php:365
+#, fuzzy
+msgid "Extra HTML in Right Controls"
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/vpconfig.php:737
+#, fuzzy
+msgid "extra html on the in the right controls "
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/vpconfig.php:745 configs/options-item-meta.php:406
+#, fuzzy
+msgid "Extra HTML in Bottom Controls"
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/vpconfig.php:747
+#, fuzzy
+msgid "extra html on the in the Bottom controls "
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/vpconfig.php:755 class_parts/vpconfig.php:757
+#, fuzzy
+msgid "Extra HTML in After Play Button"
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/vpconfig.php:762 class_parts/vpconfig.php:764
+#, fuzzy
+msgid "Extra HTML after Controls"
+msgstr "Botón personalizado - html adicional"
+
+#: class_parts/vpconfig.php:771
+#, fuzzy
+msgid "Extra CSS for this player configuration."
+msgstr "Configuración del Reproductor"
+
+#: class_parts/vpconfig.php:771
+#, fuzzy
+msgid "Use"
+msgstr "HTML personalizado - puede utilizar, por ejemplo"
+
+#: class_parts/vpconfig.php:771
+#, fuzzy
+msgid "for replacing the player configuration selector"
+msgstr "Configuración del Reproductor"
+
+#: class_parts/vpconfig.php:794
+#, fuzzy
+msgid "Refresh preview"
+msgstr "Previsualizar"
+
+#: configs/config-main-options.php:19
+msgid "Always Embed Scripts?"
+msgstr ""
+
+#: configs/config-main-options.php:21
+msgid ""
+"by default scripts and styles from this gallery are included only when "
+"needed for optimizations reasons, but you can choose to always use them "
+"( useful for when you are using a ajax theme that does not reload the whole "
+"page on url change )"
+msgstr ""
+
+#: configs/config-main-options.php:28
+msgid "Disable audio item indexing"
+msgstr ""
+
+#: configs/config-main-options.php:30
+msgid "disable google indexing on audio item page"
+msgstr ""
+
+#: configs/config-main-options.php:37
+#, fuzzy
+msgid "Enable Autobackup"
+msgstr "Habilitar"
+
+#: configs/config-main-options.php:39
+#, php-format
+msgid "enable auto backup % backups will be in %s folder"
+msgstr ""
+
+#: configs/config-main-options.php:46
+#, fuzzy
+msgid "Replace Playlist Shortcode"
+msgstr "Reemplace la página de categoría de woocommerce con este shortcode"
+
+#: configs/config-main-options.php:48
+msgid ""
+"replace the default wordpress audio playlist with a zoomsounds playlist "
+msgstr ""
+
+#: configs/config-main-options.php:55
+msgid "Enable Extra Stats / Delete button"
+msgstr ""
+
+#: configs/config-main-options.php:57
+msgid ""
+"enable auxiliarry stats / analytics / delete button under each songs to see "
+"the stats"
+msgstr ""
+
+#: configs/config-main-options.php:64
+#, fuzzy
+msgid "Activate Analytics Widget"
+msgstr "Widget de estilo en la barra lateral"
+
+#: configs/config-main-options.php:66
+msgid "views, likes, comments widget in the wordpress dashboard"
+msgstr ""
+
+#: configs/config-main-options.php:73
+msgid "Download Link links directly to file"
+msgstr ""
+
+#: configs/config-main-options.php:75
+#, fuzzy
+msgid "if set to on, download will not be forced"
+msgstr "Descargar"
+
+#: configs/config-main-options.php:82
+msgid "Force Autoplay When Coming From Shared Link"
+msgstr ""
+
+#: configs/config-main-options.php:84
+msgid ""
+"when your users click on the shared link, this will force autoplay for them"
+msgstr ""
+
+#: configs/config-main-options.php:91
+#, fuzzy
+msgid "Loop playlist ?"
+msgstr "Editar lista de reproducción desde "
+
+#: configs/config-main-options.php:93
+msgid "loop the playlist after reaching end"
+msgstr ""
+
+#: configs/config-main-options.php:100
+msgid "Play Single Players One After Another on the Page"
+msgstr ""
+
+#: configs/config-main-options.php:102
+msgid "Automatically identify all the single players in the page"
+msgstr ""
+
+#: configs/config-main-options.php:113
+#, fuzzy
+msgid "( Deprecated ! ) Legacy"
+msgstr "Habilitar heredado"
+
+#: configs/config-main-options.php:119
+#, fuzzy
+msgid "Playlists Mode"
+msgstr "Modo de diseño"
+
+#: configs/config-main-options.php:128
+#, fuzzy
+msgid "Pause"
+msgstr "pausa metoda"
+
+#: configs/config-main-options.php:132
+msgid "Stop"
+msgstr ""
+
+#: configs/config-main-options.php:138
+msgid "Pause method"
+msgstr "pausa metoda"
+
+#: configs/config-main-options.php:171
+msgid "Try to cache total time"
+msgstr ""
+
+#: configs/config-main-options.php:173
+msgid ""
+"try to cache the total time, so that the meta data does not need to be "
+"loaded in order to show track time"
+msgstr ""
+
+#: configs/config-main-options.php:205
+msgid "Try to get id3 thumbnail in frontend"
+msgstr ""
+
+#: configs/config-main-options.php:207
+msgid ""
+"thumbnail for tracks that have id3 will autogenerate in the backend. if you "
+"want to generate in the fronend too check this"
+msgstr ""
+
+#: configs/config-main-options.php:215
+#, fuzzy
+msgid "Disable Footer Player in Mobile"
+msgstr "reproducir los zoomsounds en el reproductor de pie de página"
+
+#: configs/config-main-options.php:217
+msgid ""
+"disable the footer player on mobile - so songs play directly in their "
+"container"
+msgstr ""
+
+#: configs/config-main-options.php:225
+msgid "Show only published Audio items in playlists"
+msgstr ""
+
+#: configs/config-main-options.php:227
+msgid "only audio items that are published are shown in playlists"
+msgstr ""
+
+#: configs/config-main-options.php:234
+#, fuzzy
+msgid "Track Downloads"
+msgstr "No hay descargas restantes"
+
+#: configs/config-main-options.php:236
+msgid "create table for tracking views / downloads / etc."
+msgstr ""
+
+#: configs/config-main-options.php:243 configs/config-main-options.php:245
+msgid "Use WordPress Database to Store Track Data"
+msgstr ""
+
+#: configs/config-main-options.php:252
+#, fuzzy
+msgid "Enable IE11 Compatibility"
+msgstr "Habilitar"
+
+#: configs/config-main-options.php:254
+msgid ""
+"if your users use ie11, you can use compatibilty mode, but the file size "
+"will increase"
+msgstr ""
+
+#: configs/config-main-options.php:262
+msgid "Async load script"
+msgstr ""
+
+#: configs/config-main-options.php:264
+msgid "you can load the script async, so it will not block page rendering"
+msgstr ""
+
+#: configs/config-main-options.php:271
+msgid "Defer load script"
+msgstr "espere script load"
+
+#: configs/config-main-options.php:273
+msgid "you can load the script defer, so it will not block page rendering"
+msgstr ""
+
+#: configs/config-main-options.php:280
+#, fuzzy
+msgid "Wave Generation"
+msgstr "Onda de audio"
+
+#: configs/config-main-options.php:282
+msgid "generate wave form or display placeholders ( off ) "
+msgstr ""
+
+#: configs/config-main-options.php:290
+msgid "Custom excerpt for zoomsounds audio posts archive page"
+msgstr ""
+
+#: configs/config-main-options.php:292
+msgid "delete this for switching to default theme excerpt"
+msgstr ""
+
+#: configs/config-main-options.php:300
+msgid "Hide ZoomSounds Generated Text from Excerpt"
+msgstr ""
+
+#: configs/config-main-options.php:302
+msgid "hide zoomsounds generated data from archive pages"
+msgstr ""
+
+#: configs/config-main-options.php:309
+#, fuzzy
+msgid "Waveform data autogenerate"
+msgstr "Solo la Forma de Onda"
+
+#: configs/config-main-options.php:311
+msgid "try to autogenerate the wave data"
+msgstr ""
+
+#: configs/config-main-options.php:318 inc/sliders-admin/SlidersAdmin.php:252
+msgid "Debug queries"
+msgstr ""
+
+#: configs/config-main-options.php:320
+msgid "debug queries"
+msgstr ""
+
+#: configs/config-main-options.php:327
+msgid "Repair Ajax Players"
+msgstr ""
+
+#: configs/config-main-options.php:329
+msgid "On ajax themes, players might need a reinitialization after ajax calls."
+msgstr ""
+
+#: configs/config-main-options.php:336
+#, fuzzy
+msgid "Repair Media Element"
+msgstr "Elemento"
+
+#: configs/config-main-options.php:338
+msgid ""
+"If the audio element used by zoomsounds is somehow replaced ( maybe "
+"conflicting with media element ) - you can use this to repair function "
+msgstr ""
+
+#: configs/config-main-options.php:345
+msgid "Convert Deprecated Gutenberg Players to New Players"
+msgstr ""
+
+#: configs/config-main-options.php:347
+msgid ""
+"The zoomsounds player has been deprecated - The ZoomSounds player must be "
+"used"
+msgstr ""
+
+#: configs/config-main-options.php:354
+#, fuzzy
+msgid "Disable bot source"
+msgstr "Deshabilitar"
+
+#: configs/config-main-options.php:356
+msgid ""
+"check for bot scrubing the site - if it is detected, do not show him the "
+"source field"
+msgstr ""
+
+#: configs/config-main-options.php:363
+#, fuzzy
+msgid "Show Notice - no media"
+msgstr "seleccione el tipo de medio"
+
+#: configs/config-main-options.php:365
+msgid "display when the audio cannot be loaded"
+msgstr ""
+
+#: configs/config-main-options.php:372
+#, fuzzy
+msgid "Rewrite categories slug"
+msgstr "Categorías"
+
+#: configs/config-main-options.php:374
+msgid "categories slug for the audio items categories archive page"
+msgstr ""
+
+#: configs/config-main-options.php:381
+#, fuzzy
+msgid "Rewrite tags slug"
+msgstr "Intente cerrar etiquetas html no cerradas"
+
+#: configs/config-main-options.php:383
+msgid "tags slug for the audio items tags archive page"
+msgstr ""
+
+#: configs/config-main-options.php:390
+msgid "Rewrite sliders slug"
+msgstr ""
+
+#: configs/config-main-options.php:392
+msgid "sliders slug for the audio items tags archive page"
+msgstr ""
+
+#: configs/config-main-options.php:409
+msgid "Load local fontawesome"
+msgstr ""
+
+#: configs/config-main-options.php:417
+msgid "Automatic"
+msgstr ""
+
+#: configs/config-main-options.php:421
+msgid "By script"
+msgstr ""
+
+#: configs/config-main-options.php:428
+#, fuzzy
+msgid "Init player method"
+msgstr "Método de Paginación"
+
+#: configs/config-main-options.php:440
+#, fuzzy
+msgid "Audio Item - Page shortcode"
+msgstr "Reemplace la página de categoría de woocommerce con este shortcode"
+
+#: configs/config-main-options.php:450
+#, fuzzy
+msgid "Enable Analytics"
+msgstr "Habilitar"
+
+#: configs/config-main-options.php:459
+msgid "Track Users Country?"
+msgstr ""
+
+#: configs/config-main-options.php:461
+msgid "use geolocation to track users country"
+msgstr ""
+
+#: configs/config-main-options.php:468
+msgid "Track Statistic by User?"
+msgstr ""
+
+#: configs/config-main-options.php:470
+msgid "track views and minutes watched of each user"
+msgstr ""
+
+#: configs/config-main-options.php:480 configs/config-main-options.php:490
+msgid ""
+"you can input no share section, or leave default, or input custom share "
+"content"
+msgstr ""
+
+#: configs/config-main-options.php:500
+msgid "recommended to leave to default if you need embed code"
+msgstr ""
+
+#: configs/config-player-config.php:39
+#, fuzzy
+msgid "Player id"
+msgstr "ID"
+
+#: configs/config-player-config.php:39 configs/config-player-config.php:60
+#: configs/config-player-config.php:80 configs/config-player-config.php:100
+#: configs/config-player-config.php:121 configs/config-player-config.php:141
+#: configs/config-player-config.php:160 configs/config-player-config.php:179
+#: configs/config-player-config.php:198 configs/config-player-config.php:218
+#: configs/config-player-config.php:237 configs/config-player-config.php:256
+#: configs/config-player-config.php:275 configs/config-player-config.php:295
+#: configs/config-player-config.php:314 configs/config-player-config.php:333
+#: configs/config-player-config.php:352 configs/config-player-config.php:371
+#: configs/config-player-config.php:390 configs/config-player-config.php:428
+#: configs/config-player-config.php:449 configs/config-player-config.php:468
+#: configs/config-player-config.php:487 configs/config-player-config.php:506
+#: configs/config-player-config.php:525 configs/config-player-config.php:544
+#: configs/config-player-config.php:563 configs/config-player-config.php:582
+#: configs/config-player-config.php:602
+msgid "blocks"
+msgstr "bloques"
+
+#: configs/config-player-config.php:41 configs/config-player-config.php:62
+#: configs/config-player-config.php:82 configs/config-player-config.php:102
+#: configs/config-player-config.php:123 configs/config-player-config.php:143
+#: configs/config-player-config.php:162 configs/config-player-config.php:181
+#: configs/config-player-config.php:200 configs/config-player-config.php:220
+#: configs/config-player-config.php:239 configs/config-player-config.php:258
+#: configs/config-player-config.php:277 configs/config-player-config.php:297
+#: configs/config-player-config.php:316 configs/config-player-config.php:335
+#: configs/config-player-config.php:354 configs/config-player-config.php:373
+#: configs/config-player-config.php:392 configs/config-player-config.php:430
+#: configs/config-player-config.php:451 configs/config-player-config.php:470
+#: configs/config-player-config.php:489 configs/config-player-config.php:508
+#: configs/config-player-config.php:527 configs/config-player-config.php:546
+#: configs/config-player-config.php:565 configs/config-player-config.php:584
+#: configs/config-player-config.php:604 configs/options-item-meta.php:124
+#: configs/playlist-options.php:26
+msgid "select the type of media"
+msgstr "seleccione el tipo de medio"
+
+#: configs/config-player-config.php:60 configs/config-player-config.php:80
+#: configs/config-player-config.php:100 configs/config-player-config.php:121
+#: configs/config-player-config.php:141 configs/config-player-config.php:160
+#: configs/config-player-config.php:179 configs/config-player-config.php:198
+#: configs/config-player-config.php:218 configs/config-player-config.php:237
+#: configs/config-player-config.php:256 configs/config-player-config.php:275
+#: configs/config-player-config.php:295 configs/config-player-config.php:314
+#: configs/config-player-config.php:333 configs/config-player-config.php:352
+#: configs/config-player-config.php:371 configs/config-player-config.php:390
+#: configs/config-player-config.php:428 configs/config-player-config.php:449
+#: configs/config-player-config.php:468 configs/config-player-config.php:487
+#: configs/config-player-config.php:506 configs/config-player-config.php:525
+#: configs/config-player-config.php:544 configs/config-player-config.php:563
+#: configs/config-player-config.php:582 configs/config-player-config.php:602
+msgid "Enable legacy"
+msgstr "Habilitar heredado"
+
+#: configs/config-player-config.php:622 configs/options-item-meta.php:492
+#, fuzzy
+msgid "loop the song on end"
+msgstr "Ingresar el nombre de la canción"
+
+#: configs/config-player-config.php:634 configs/config-player-config.php:635
+msgid "Cue"
+msgstr ""
+
+#: configs/config-player-config.php:646 configs/config-player-config.php:647
+msgid "not for user setting"
+msgstr ""
+
+#: configs/main-options-default.php:90
+#, fuzzy
+msgid "Free Download"
+msgstr "Gratis"
+
+#: configs/options-item-meta.php:30 configs/options-item-meta.php:41
+msgid "Self Hosted"
+msgstr ""
+
+#: configs/options-item-meta.php:34
+msgid "shoutcast"
+msgstr ""
+
+#: configs/options-item-meta.php:40
+#, fuzzy
+msgid "Auto detect"
+msgstr "Trading automático"
+
+#: configs/options-item-meta.php:54
+msgid "soundcloud"
+msgstr ""
+
+#: configs/options-item-meta.php:59
+msgid "SoundCloud"
+msgstr ""
+
+#: configs/options-item-meta.php:88
+#, fuzzy
+msgid "( line 1 )"
+msgstr "Una línea"
+
+#: configs/options-item-meta.php:103
+#, fuzzy
+msgid "the title of the song"
+msgstr "Título"
+
+#: configs/options-item-meta.php:140
+#, fuzzy
+msgid "link to mp3 or soundcloud link"
+msgstr "Enlace al filtro"
+
+#: configs/options-item-meta.php:149
+#, fuzzy
+msgid "select a thumbnail for the song"
+msgstr "Subir canción"
+
+#: configs/options-item-meta.php:161
+#, fuzzy
+msgid "Description"
+msgstr "Descripción breve"
+
+#: configs/options-item-meta.php:162
+#, php-format
+msgid ""
+"this description will appear if the %sInfo button%s is enabled in the Player "
+"Configuration"
+msgstr ""
+
+#: configs/options-item-meta.php:187
+#, fuzzy
+msgid "Play from"
+msgstr "Reproducción normal"
+
+#: configs/options-item-meta.php:188 inc/php/deprecated.php:249
+msgid ""
+"choose a number of seconds from which the track to play from ( for example "
+"if set \"70\" then the track will start to play from 1 minute and 10 "
+"seconds ) or input \"last\" for the track to play at the last position where "
+"it was."
+msgstr ""
+
+#: configs/options-item-meta.php:196
+#, fuzzy
+msgid "Stream type"
+msgstr "Tipo"
+
+#: configs/options-item-meta.php:197
+msgid "it can be shoutcast or icecast if you select it"
+msgstr ""
+
+#: configs/options-item-meta.php:206
+msgid "Icecast"
+msgstr ""
+
+#: configs/options-item-meta.php:210
+msgid "Shoutcast"
+msgstr ""
+
+#: configs/options-item-meta.php:222 inc/php/deprecated.php:269
+#, fuzzy
+msgid "Play in footer player"
+msgstr "Reproducir player zoomsounds en el reproductor de pie de página ? "
+
+#: configs/options-item-meta.php:223
+msgid ""
+"optional - play this track in the footer player ( footer player must be "
+"setuped on the page )"
+msgstr ""
+
+#: configs/options-item-meta.php:230 configs/playlist-options.php:222
+msgid "Inline"
+msgstr "Inline"
+
+#: configs/options-item-meta.php:234
+#, fuzzy
+msgid "In footer"
+msgstr "Reproducir player zoomsounds en el reproductor de pie de página ? "
+
+#: configs/options-item-meta.php:261 inc/php/deprecated.php:279
+#, fuzzy
+msgid "Enable Download Button"
+msgstr "Habilitar"
+
+#: configs/options-item-meta.php:262 inc/php/deprecated.php:280
+msgid "optional - Enable Download Button for this track"
+msgstr ""
+
+#: configs/options-item-meta.php:281
+#, fuzzy
+msgid "Enable Download Counter"
+msgstr "Habilitar"
+
+#: configs/options-item-meta.php:282
+msgid "optional - Enable Download Counter for this track"
+msgstr ""
+
+#: configs/options-item-meta.php:300
+msgid "Enable custom download link"
+msgstr ""
+
+#: configs/options-item-meta.php:301
+msgid "enable a custom download link for the button ( input below ) "
+msgstr ""
+
+#: configs/options-item-meta.php:318 inc/php/deprecated.php:294
+#, fuzzy
+msgid "Custom Link Download"
+msgstr "Enlace a..."
+
+#: configs/options-item-meta.php:319 inc/php/deprecated.php:295
+msgid ""
+"a custom link for the download button - clicknig it will go to this link if "
+"set, if it is not set then it will just download the track"
+msgstr ""
+
+#: configs/options-item-meta.php:357
+msgid "extra html classes applied to the player"
+msgstr ""
+
+#: configs/options-item-meta.php:366
+#, fuzzy
+msgid "Menu song name"
+msgstr "Ingresar el nombre de la canción"
+
+#: configs/options-item-meta.php:367 configs/options-item-meta.php:376
+#: configs/options-item-meta.php:614
+msgid ""
+"Leave nothing in the field for default artist name ( your author name ); "
+"input "
+msgstr ""
+
+#: configs/options-item-meta.php:367 configs/options-item-meta.php:376
+#: configs/options-item-meta.php:614
+#, fuzzy
+msgid "for nothing in the field, or input a custom name"
+msgstr "Nombre del campo [Campos Personalizados Avanzados]"
+
+#: configs/options-item-meta.php:375
+#, fuzzy
+msgid "Menu artist name"
+msgstr "Nombre del Atributo"
+
+#: configs/options-item-meta.php:407 configs/options-item-meta.php:434
+msgid ""
+"extra html on the in the bottom controls, leave nothing here and the content "
+"will come from the player configuration, if you have set anything here"
+msgstr ""
+
+#: configs/options-item-meta.php:408 configs/options-item-meta.php:435
+#, fuzzy
+msgid "demo content: "
+msgstr "leer más contenido html"
+
+#: configs/options-item-meta.php:478
+#, fuzzy
+msgid "autoplay the song"
+msgstr "Subir canción"
+
+#: configs/options-item-meta.php:557
+#, fuzzy
+msgid "Enable Ratings ? "
+msgstr "Habilitar"
+
+#: configs/options-item-meta.php:558
+#, fuzzy
+msgid "enable ratings counter "
+msgstr "Habilitar"
+
+#: configs/options-item-meta.php:604
+#: inc/gutenberg/gutenberg-player.reactpack.js:77 inc/php/DzsapAdmin.php:889
+#: inc/php/deprecated.php:309
+#, fuzzy
+msgid "Song name"
+msgstr "Ingresar el nombre de la canción"
+
+#: configs/options-item-meta.php:605
+#, fuzzy
+msgid "replace song name or input "
+msgstr "Ingresar el nombre de la canción"
+
+#: configs/options-item-meta.php:605
+#, fuzzy
+msgid "for nothing in the field, or input a "
+msgstr "Nada"
+
+#: configs/options-item-meta.php:605
+msgid "for trying to get id3 tags"
+msgstr ""
+
+#: configs/options-item-meta.php:613 inc/gutenberg/block_player.js:205
+#: inc/gutenberg/gutenberg-player.reactpack.js:92
+#: inc/php/DzsapWooCommerce.php:547
+#, fuzzy
+msgid "Artist name"
+msgstr "Nombre del Autor"
+
+#: configs/options-item-meta.php:654
+msgid "No wrapper"
+msgstr ""
+
+#: configs/options-item-meta.php:680
+#, fuzzy
+msgid "Linked product id"
+msgstr "ID"
+
+#: configs/options-item-meta.php:681
+msgid "link a product id to the zoomsounds item"
+msgstr ""
+
+#: configs/options-item-meta.php:689
+#, fuzzy
+msgid "Link artist name"
+msgstr "Enlace a..."
+
+#: configs/options-item-meta.php:690
+msgid "artist name can link to a custom uri"
+msgstr ""
+
+#: configs/playlist-options.php:24
+#: inc/php/part-generate-legacy-sliderstructure.php:16
+#, fuzzy
+msgid "Gallery Skin"
+msgstr "Skin"
+
+#: configs/playlist-options.php:29 configs/playlist-options.php:42
+#, fuzzy
+msgid "Wave"
+msgstr "Onda de audio"
+
+#: configs/playlist-options.php:37 configs/playlist-options.php:44
+msgid "Aura"
+msgstr ""
+
+#: configs/playlist-options.php:56
+#, fuzzy
+msgid "Player Configuration"
+msgstr "Configuración del Reproductor"
+
+#: configs/playlist-options.php:57
+msgid ""
+"choose the player configuration > edit via zoomsounds > Player Configurations"
+msgstr ""
+
+#: configs/playlist-options.php:65
+#: inc/php/part-generate-legacy-sliderstructure.php:36
+#, fuzzy
+msgid "Mode"
+msgstr "Modo de diseño"
+
+#: configs/playlist-options.php:66
+#, fuzzy
+msgid "choose the gallery mode"
+msgstr "Modo de diseño"
+
+#: configs/playlist-options.php:75
+#, fuzzy
+msgid "Show all"
+msgstr "Todo"
+
+#: configs/playlist-options.php:84
+#, fuzzy
+msgid "Navigation method"
+msgstr "Método de Paginación"
+
+#: configs/playlist-options.php:85
+msgid "choose how the playlist scrolls"
+msgstr ""
+
+#: configs/playlist-options.php:90
+msgid "On mouse move"
+msgstr ""
+
+#: configs/playlist-options.php:94
+#, fuzzy
+msgid "No scroll necessary"
+msgstr "Desplazamiento infinito"
+
+#: configs/playlist-options.php:98
+#, fuzzy
+msgid "Normal scroll"
+msgstr "Normal"
+
+#: configs/playlist-options.php:113
+#, fuzzy
+msgid "Mode Showall Number"
+msgstr "Número"
+
+#: configs/playlist-options.php:114
+#, fuzzy
+msgid "display the number"
+msgstr "Display type"
+
+#: configs/playlist-options.php:139
+#, fuzzy
+msgid "Mode Showall Layout"
+msgstr "Modo de diseño"
+
+#: configs/playlist-options.php:140
+#, fuzzy
+msgid "Number of items per row"
+msgstr "Seleccionar Número de Elementos por página"
+
+#: configs/playlist-options.php:149
+#, fuzzy
+msgid "Two per row"
+msgstr "Dos Columnas"
+
+#: configs/playlist-options.php:153
+#, fuzzy
+msgid "Three per row"
+msgstr "Tres Columnas"
+
+#: configs/playlist-options.php:157
+#, fuzzy
+msgid "Four per row"
+msgstr "Cuatro Columnas"
+
+#: configs/playlist-options.php:172
+#: inc/php/part-generate-legacy-sliderstructure.php:96
+msgid "Linking"
+msgstr ""
+
+#: configs/playlist-options.php:173
+#, fuzzy
+msgid "choose the gallery skin"
+msgstr " Generador de Shortcode de Galería"
+
+#: configs/playlist-options.php:180
+#: inc/php/part-generate-legacy-sliderstructure.php:106
+msgid "Order by"
+msgstr "Ordenar por"
+
+#: configs/playlist-options.php:181
+#, fuzzy
+msgid "choose an order"
+msgstr "Ordenar por"
+
+#: configs/playlist-options.php:187
+msgid "Custom"
+msgstr "Personalizado"
+
+#: configs/playlist-options.php:191
+msgid "Random"
+msgstr ""
+
+#: configs/playlist-options.php:195
+#, fuzzy
+msgid "Ratings score"
+msgstr "Valoraciones"
+
+#: configs/playlist-options.php:199
+#, fuzzy
+msgid "Ratings number"
+msgstr "Valoraciones"
+
+#: configs/playlist-options.php:203
+#, fuzzy
+msgid "Alphabetical asceding"
+msgstr "Alfabéticamente"
+
+#: configs/playlist-options.php:207
+#, fuzzy
+msgid "Alphabetical descending"
+msgstr "Alfabéticamente"
+
+#: configs/playlist-options.php:215
+#, fuzzy
+msgid "Play target"
+msgstr "Enlazar a... "
+
+#: configs/playlist-options.php:217 configs/playlist-options.php:235
+msgid "choose if players play inline or play in the footer player"
+msgstr ""
+
+#: configs/playlist-options.php:226
+#, fuzzy
+msgid "Footer / sticky player"
+msgstr ""
+"asegúrese de que el Sticky Player para el pie de página esté habilitado en "
+"esa página"
+
+#: configs/playlist-options.php:234
+#, fuzzy
+msgid "Show embed playlist"
+msgstr "Editar lista de reproducción desde "
+
+#: configs/playlist-options.php:244
+msgid "Show social and share link"
+msgstr ""
+
+#: configs/playlist-options.php:248
+#, fuzzy
+msgid "Embed playlist code"
+msgstr "Editar lista de reproducción desde "
+
+#: configs/playlist-options.php:256
+msgid "Background Color"
+msgstr "Color de Fondo"
+
+#: configs/playlist-options.php:258
+msgid "for tag color "
+msgstr "para el color de la etiqueta "
+
+#: configs/playlist-options.php:263
+#, fuzzy
+msgid "Disable Player Navigation"
+msgstr "Deshabilitar"
+
+#: configs/playlist-options.php:265
+msgid "Disable arrows for gallery navigation on the player"
+msgstr ""
+
+#: configs/playlist-options.php:271
+#, fuzzy
+msgid "Enable background wrapper"
+msgstr "Habilitar"
+
+#: configs/playlist-options.php:273
+#, php-format
+msgid "Enable a background wrapper for all the gallery, as seen %shere%s"
+msgstr ""
+
+#: configs/playlist-options.php:282
+#: inc/php/part-generate-legacy-sliderstructure.php:126
+#, fuzzy
+msgid "Menu Position"
+msgstr "Posición"
+
+#: configs/playlist-options.php:283
+msgid "Menu Position if the mode allows it"
+msgstr ""
+
+#: configs/playlist-options.php:289
+msgid "Bottom"
+msgstr "Abajo"
+
+#: configs/playlist-options.php:293
+msgid "Top"
+msgstr "Arriba"
+
+#: configs/playlist-options.php:297
+#, fuzzy
+msgid "Hide"
+msgstr "Ocultar Overflow"
+
+#: configs/playlist-options.php:306
+#: inc/php/part-generate-legacy-sliderstructure.php:134
+msgid "Menu State"
+msgstr ""
+
+#: configs/playlist-options.php:307 configs/playlist-options.php:328
+#: inc/php/part-generate-legacy-sliderstructure.php:139
+msgid ""
+"If you set this to closed, you should enable the <strong>Menu State Button</"
+"strong> below. "
+msgstr ""
+
+#: configs/playlist-options.php:313
+#: inc/php/part-generate-legacy-sliderstructure.php:136
+msgid "Open"
+msgstr ""
+
+#: configs/playlist-options.php:317
+#: inc/php/part-generate-legacy-sliderstructure.php:137
+msgid "Closed"
+msgstr ""
+
+#: configs/playlist-options.php:327
+#: inc/php/part-generate-legacy-sliderstructure.php:142
+#, fuzzy
+msgid "Menu State Button"
+msgstr "Botón Ordenar"
+
+#: configs/playlist-options.php:338
+#: inc/php/part-generate-legacy-sliderstructure.php:149
+msgid "Facebook Share"
+msgstr ""
+
+#: configs/playlist-options.php:339
+#: inc/php/part-generate-legacy-sliderstructure.php:155
+msgid "enable a facebook share button in the menu "
+msgstr ""
+
+#: configs/playlist-options.php:345 configs/playlist-options.php:367
+#: configs/playlist-options.php:467
+#, fuzzy
+msgid "Auto"
+msgstr "Trading automático"
+
+#: configs/playlist-options.php:360
+#, fuzzy
+msgid "Like button"
+msgstr "Botón"
+
+#: configs/playlist-options.php:361
+#: inc/php/part-generate-legacy-sliderstructure.php:164
+msgid "enable a like button in the menu "
+msgstr ""
+
+#: configs/playlist-options.php:385
+#: inc/php/part-generate-legacy-sliderstructure.php:279
+#, fuzzy
+msgid "Menu Maximum Height"
+msgstr "máximo"
+
+#: configs/playlist-options.php:386
+#, php-format
+msgid "input a height in pixels / or input %s to show all menu items"
+msgstr ""
+
+#: configs/playlist-options.php:397
+#, fuzzy
+msgid "Cue First media"
+msgstr "Añadir medios"
+
+#: configs/playlist-options.php:435
+#, fuzzy
+msgid "Autoplay next"
+msgstr "Siguiente"
+
+#: configs/playlist-options.php:459
+#, fuzzy
+msgid "Playlist mode"
+msgstr "Modo de diseño"
+
+#: configs/playlist-options.php:460
+msgid "(beta)"
+msgstr ""
+
+#: configs/playlist-options.php:460
+msgid ""
+"setting this to on will enable autoplay next video on mobile - plus it will "
+"only use one player for the playlist"
+msgstr ""
+
+#: configs/playlist-options.php:471
+#, fuzzy
+msgid "One player"
+msgstr "Una Columna"
+
+#: configs/playlist-options.php:479
+#, fuzzy
+msgid "Enable play count"
+msgstr "Habilitar"
+
+#: configs/playlist-options.php:497
+#, fuzzy
+msgid "Enable downloads counter"
+msgstr "Habilitar"
+
+#: configs/playlist-options.php:515
+#, fuzzy
+msgid "Enable like count"
+msgstr "Habilitar"
+
+#: configs/playlist-options.php:533
+#, fuzzy
+msgid "Enable rating"
+msgstr "Habilitar"
+
+#: dzs_functions.php:164
+msgid "Read More"
+msgstr "Leer Más"
+
+#: dzs_functions.php:226
+msgid "read more"
+msgstr "leer más"
+
+#: dzs_functions.php:352
+msgid "Prev"
+msgstr "Anterior"
+
+#: dzs_functions.php:462
+msgid "Next"
+msgstr "Siguiente"
+
+#: dzs_functions.php:1229
+msgid "Add Media"
+msgstr "Añadir medios"
+
+#: inc/features/analytics/DzsApAnalytics.php:54
+msgid "Analytics"
+msgstr ""
+
+#: inc/gutenberg/block.js:27 inc/gutenberg/block_playlist.js:43
+#: inc/gutenberg/block_playlist.js:53 inc/gutenberg/block_playlist.js:114
+#: inc/php/DzsapWooCommerce.php:560 tinymce/popupiframe.php:44
+#, fuzzy
+msgid "Playlist"
+msgstr "Editar lista de reproducción desde "
+
+#: inc/gutenberg/block.js:71
+#, fuzzy
+msgid "Select gallery"
+msgstr "Seleccionar"
+
+#: inc/gutenberg/block_player.js:103
+#, fuzzy
+msgid "Player"
+msgstr "Reproducir player zoomsounds en el reproductor de pie de página ? "
+
+#: inc/gutenberg/block_player.js:103
+msgid "deprecated"
+msgstr ""
+
+#: inc/gutenberg/block_player.js:105
+#, fuzzy
+msgid "Powerful audio player"
+msgstr "Tabla Audio Wave"
+
+#: inc/gutenberg/block_player.js:112
+#, fuzzy
+msgid "Audio player"
+msgstr "Onda de audio"
+
+#: inc/gutenberg/block_player.js:113 inc/gutenberg/block_playlist.js:55
+msgid "Sound"
+msgstr "Sonido"
+
+#: inc/gutenberg/block_player.js:114
+#, fuzzy
+msgid "Song"
+msgstr "Subir canción"
+
+#: inc/gutenberg/block_player.js:129
+#: inc/gutenberg/gutenberg-block-factory/block-factory/js_common/CustomInspectorControls.js:131
+#: inc/gutenberg/js_dzsap/CustomInspectorControls.js:137
+msgid "Select another upload"
+msgstr "Selecciona otra carga"
+
+#: inc/gutenberg/block_player.js:132
+#: inc/gutenberg/gutenberg-block-factory/block-factory/js_common/CustomInspectorControls.js:30
+#: inc/gutenberg/js_dzsap/CustomInspectorControls.js:31
+msgid "Upload song"
+msgstr "Subir canción"
+
+#: inc/gutenberg/block_player.js:191
+msgid "Please replace with the new block -> "
+msgstr ""
+
+#: inc/gutenberg/block_player.js:191
+#, fuzzy
+msgid "The ZoomSounds Player ."
+msgstr "Reproductor ZoomSounds"
+
+#: inc/gutenberg/block_player.js:195
+#, fuzzy
+msgid "Zoomsounds Player ( deprecated )"
+msgstr "Reproductor ZoomSounds"
+
+#: inc/gutenberg/block_player.js:196
+#, fuzzy
+msgid "Song Name:"
+msgstr "Ingresar el nombre de la canción"
+
+#: inc/gutenberg/block_player.js:199 inc/gutenberg/block_playlist.js:130
+#: inc/php/deprecated.php:165 inc/php/deprecated.php:182
+#: tinymce/popupiframe.php:162
+msgid "here"
+msgstr "aqui"
+
+#: inc/gutenberg/block_player.js:210
+#, fuzzy
+msgid "Input artist name"
+msgstr "Ingresar el nombre de la canción"
+
+#: inc/gutenberg/block_player.js:218
+#, fuzzy
+msgid "Song source"
+msgstr "seleccione la fuente principal"
+
+#: inc/gutenberg/block_player.js:250
+#: inc/gutenberg/gutenberg-block-factory/block-factory/js_common/CustomInspectorControls.js:149
+#: inc/gutenberg/js_dzsap/CustomInspectorControls.js:156
+msgid "Input song name"
+msgstr "Ingresar el nombre de la canción"
+
+#: inc/gutenberg/block_player.js:268 inc/php/DzsapAdmin.php:853
+msgid "Player configuration"
+msgstr "Configuración del Reproductor"
+
+#: inc/gutenberg/block_player.js:283
+#, fuzzy
+msgid "edit configuration from"
+msgstr "Editar lista de reproducción desde "
+
+#: inc/gutenberg/block_playlist.js:45
+msgid "Powerful audio player playlist"
+msgstr ""
+
+#: inc/gutenberg/block_playlist.js:52 inc/php/DZSZoomSoundsHelper.php:2926
+#, fuzzy
+msgid "Audio gallery"
+msgstr "Onda de audio"
+
+#: inc/gutenberg/block_playlist.js:54
+#, fuzzy
+msgid "Zoomsounds"
+msgstr "Reproductor ZoomSounds"
+
+#: inc/gutenberg/block_playlist.js:112
+#, fuzzy
+msgid "Zoomsounds Playlist"
+msgstr "Editar lista de reproducción desde "
+
+#: inc/gutenberg/block_playlist.js:128
+msgid "Edit playlist from "
+msgstr "Editar lista de reproducción desde "
+
+#: inc/gutenberg/block_playlist.js:150
+msgid "Preview Expand"
+msgstr "Expandir Vista previa"
+
+#: inc/gutenberg/gutenberg-player.reactpack.js:46
+#, fuzzy
+msgid "Zoomsounds Player"
+msgstr "Reproductor ZoomSounds"
+
+#: inc/gutenberg/js_dzsap/SamplesHolder.js:18
+#, fuzzy
+msgid "One click Examples"
+msgstr "Importar ejemplos con un solo clic"
+
+#: inc/gutenberg/js_dzsap/SamplesHolder.js:19
+msgid "Import examples with one click"
+msgstr "Importar ejemplos con un solo clic"
+
+#: inc/php/DZSZoomSoundsHelper.php:351
+msgid "Buy"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:354
+#, fuzzy
+msgid "Play"
+msgstr "Reproducción normal"
+
+#: inc/php/DZSZoomSoundsHelper.php:357 widget.php:115
+msgid "Title"
+msgstr "Título"
+
+#: inc/php/DZSZoomSoundsHelper.php:360
+#, fuzzy
+msgid "Register to download"
+msgstr "Descargar"
+
+#: inc/php/DZSZoomSoundsHelper.php:1299
+msgid "Update succesful."
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:1360
+#: inc/php/deprecated-sliders-admin.php:128
+#, fuzzy
+msgid "Add Playlist"
+msgstr "Editar lista de reproducción desde "
+
+#: inc/php/DZSZoomSoundsHelper.php:1361
+#, fuzzy
+msgid "Add Player"
+msgstr "Reproductor Completo"
+
+#: inc/php/DZSZoomSoundsHelper.php:1362
+#, fuzzy
+msgid "Welcome to ZoomSounds Audio Player"
+msgstr "Reproductor ZoomSounds"
+
+#: inc/php/DZSZoomSoundsHelper.php:1363
+msgid ""
+"Players can be setup from the ZoomSounds Player Gutenberg block or the "
+"shortcode generator in the classic block, with the possibility to import "
+"players with one click."
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:1364
+msgid ""
+"Playlists can be setup from the ZoomSounds Playlist Gutenberg block or the "
+"shortcode generator in the classic block, with the possibility to import "
+"playlists with one click."
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:1365
+#, fuzzy
+msgid "Thank you for installing"
+msgstr "le permite mostrar publicaciones privadas"
+
+#: inc/php/DZSZoomSoundsHelper.php:1365
+msgid ""
+" you can create playlists from the Playlists menu, players configurations "
+"from the submenu here or just use custom data and tailor it to your needs."
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:1366
+msgid "Players"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:1367 inc/php/DZSZoomSoundsHelper.php:1843
+#: inc/php/DZSZoomSoundsHelper.php:1849
+msgid "Playlists"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:1843 inc/php/DzsapWooCommerce.php:389
+#, fuzzy
+msgid "ZoomSounds"
+msgstr "Reproductor ZoomSounds"
+
+#: inc/php/DZSZoomSoundsHelper.php:1854
+#, fuzzy
+msgid "Player Configs"
+msgstr "Reproductor ZoomSounds"
+
+#: inc/php/DZSZoomSoundsHelper.php:1859
+#, fuzzy
+msgid "ZoomSounds Settings"
+msgstr "Ajustes"
+
+#: inc/php/DZSZoomSoundsHelper.php:1865
+msgid "Autoupdater"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:1870
+#, fuzzy
+msgid "About ZoomSounds"
+msgstr "Me gusta de Zoomsounds"
+
+#: inc/php/DZSZoomSoundsHelper.php:1870
+msgid "About"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:2189
+msgid "Are you sure you want to delete this track ?"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:2189 inc/sliders-admin/SlidersAdmin.php:329
+msgid "Delete"
+msgstr "Eliminar"
+
+#: inc/php/DZSZoomSoundsHelper.php:2918
+#, fuzzy
+msgid "Audio Categories"
+msgstr "Categorías"
+
+#: inc/php/DZSZoomSoundsHelper.php:2921 widget.php:13 widget.php:15
+#, fuzzy
+msgid "Song tags"
+msgstr "Subir canción"
+
+#: inc/php/DZSZoomSoundsHelper.php:2925
+#, fuzzy
+msgid "Audio galleries"
+msgstr "Tabla Audio Wave"
+
+#: inc/php/DZSZoomSoundsHelper.php:2927
+#, fuzzy
+msgid "Search galleries"
+msgstr "Buscar"
+
+#: inc/php/DZSZoomSoundsHelper.php:2928
+#, fuzzy
+msgid "All galleries"
+msgstr "Todo"
+
+#: inc/php/DZSZoomSoundsHelper.php:2929 inc/php/DZSZoomSoundsHelper.php:2930
+#, fuzzy
+msgid "Parent gallery"
+msgstr " Generador de Shortcode de Galería"
+
+#: inc/php/DZSZoomSoundsHelper.php:2931
+#, fuzzy
+msgid "Edit gallery"
+msgstr "Editar el diseño"
+
+#: inc/php/DZSZoomSoundsHelper.php:2932
+#, fuzzy
+msgid "Update gallery"
+msgstr " Generador de Shortcode de Galería"
+
+#: inc/php/DZSZoomSoundsHelper.php:2933
+#, fuzzy
+msgid "Add playlist"
+msgstr "Editar lista de reproducción desde "
+
+#: inc/php/DZSZoomSoundsHelper.php:2934
+#, fuzzy
+msgid "New gallery name"
+msgstr " Generador de Shortcode de Galería"
+
+#: inc/php/DZSZoomSoundsHelper.php:2935
+msgid "Galleries"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:2949
+#, fuzzy
+msgid "Audio Playlists"
+msgstr "Tabla Audio Wave"
+
+#: inc/php/DZSZoomSoundsHelper.php:2971
+#, fuzzy
+msgid "Audio Items"
+msgstr "Onda de audio"
+
+#: inc/php/DZSZoomSoundsHelper.php:2971
+#, fuzzy
+msgid "Audio Item"
+msgstr "Item"
+
+#: inc/php/DZSZoomSoundsHelper.php:3038
+#, fuzzy
+msgid "XML Feed"
+msgstr "Feed"
+
+#: inc/php/DZSZoomSoundsHelper.php:3096
+#: inc/php/dzs-shared/admin_termMetas.php:103
+msgid "Enter a value for this field"
+msgstr "Introduzca un valor para este campo"
+
+#: inc/php/DZSZoomSoundsHelper.php:3238
+msgid "User already exists.  Password inherited."
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:3295
+msgid "Social Networks"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:3295
+msgid "SHARE ON"
+msgstr ""
+
+#: inc/php/DZSZoomSoundsHelper.php:3302
+#, fuzzy
+msgid "Share Link"
+msgstr "Enlace a..."
+
+#: inc/php/DZSZoomSoundsHelper.php:3309
+msgid "Embed Code"
+msgstr ""
+
+#: inc/php/DzsapAdmin.php:24
+msgid "image"
+msgstr "imagen"
+
+#: inc/php/DzsapAdmin.php:454
+msgid ""
+"These settings control the permalinks used for audio items. These settings "
+"only apply when <strong>not using \"default\" permalinks above</strong>."
+msgstr ""
+
+#: inc/php/DzsapAdmin.php:479
+#, fuzzy
+msgid "Product"
+msgstr "Imagen del Producto"
+
+#: inc/php/DzsapAdmin.php:486
+#, fuzzy
+msgid "Custom Base"
+msgstr "Base"
+
+#: inc/php/DzsapAdmin.php:490
+msgid ""
+"Enter a custom base to use. A base <strong>must</strong> be set or WordPress "
+"will use default instead."
+msgstr ""
+
+#: inc/php/DzsapAdmin.php:516
+msgid "Audio Items Permalink Base"
+msgstr ""
+
+#: inc/php/DzsapAdmin.php:632 inc/php/DzsapAdmin.php:633
+#: inc/php/DzsapAdmin.php:634 inc/php/DzsapAdmin.php:635
+#, fuzzy
+msgid "Footer Player Settings"
+msgstr "reproducir los zoomsounds en el reproductor de pie de página"
+
+#: inc/php/DzsapAdmin.php:639
+#, fuzzy
+msgid "ZoomSounds Waveforms"
+msgstr "Reproductor ZoomSounds"
+
+#: inc/php/DzsapAdmin.php:642 inc/php/DzsapAdmin.php:658
+#, fuzzy
+msgid "Audio Item Settings"
+msgstr "Ajustes"
+
+#: inc/php/DzsapAdmin.php:786
+#, fuzzy
+msgid "Enable Sticky Player"
+msgstr "Habilitar"
+
+#: inc/php/DzsapAdmin.php:823
+#, fuzzy
+msgid "Parent Player"
+msgstr "Reproductor Completo"
+
+#: inc/php/DzsapAdmin.php:829
+#, fuzzy
+msgid "Custom Media"
+msgstr "Añadir medios"
+
+#: inc/php/DzsapAdmin.php:836
+#, fuzzy
+msgid "Feed Type"
+msgstr "Feed"
+
+#: inc/php/DzsapAdmin.php:846
+msgid ""
+"Select parent player for the sticky player to await being played from the "
+"outside ( a track on the page or select custom media to set a custom mp3 to "
+"play directly in the sticky player."
+msgstr ""
+
+#: inc/php/DzsapAdmin.php:880
+#, fuzzy
+msgid "Featured Media"
+msgstr "Añadir medios"
+
+#: inc/php/DzsapAdmin.php:903
+#, fuzzy
+msgid "Media Type"
+msgstr "seleccione el tipo de medio"
+
+#: inc/php/DzsapAjaxHandler.php:228
+msgid "deleted cache total times"
+msgstr ""
+
+#: inc/php/DzsapAjaxHandler.php:231
+msgid "deleted total times error"
+msgstr ""
+
+#: inc/php/DzsapAjaxHandler.php:759
+#, fuzzy
+msgid "Item deleted"
+msgstr "Item"
+
+#: inc/php/DzsapAjaxHandler.php:781
+#, fuzzy
+msgid "Insert Name"
+msgstr "Insertar Shortcode"
+
+#: inc/php/DzsapAjaxHandler.php:1183
+#, fuzzy
+msgid "pcm data not valid"
+msgstr "Generar datos de atributos"
+
+#: inc/php/DzsapAjaxHandler.php:1834
+#, fuzzy
+msgid "Options saved"
+msgstr "Opciones de Administrador"
+
+#: inc/php/DzsapShowcase.php:29
+msgid "Back"
+msgstr ""
+
+#: inc/php/DzsapShowcase.php:78
+msgid "songs"
+msgstr ""
+
+#: inc/php/DzsapView.php:872
+msgid "Write a comment"
+msgstr ""
+
+#: inc/php/DzsapView.php:873
+#, fuzzy
+msgid "Your email"
+msgstr "seleccione su diseño"
+
+#: inc/php/DzsapView.php:874
+#, fuzzy
+msgid "Your display name"
+msgstr "Display type"
+
+#: inc/php/DzsapView.php:878
+msgid "Cancel"
+msgstr ""
+
+#: inc/php/DzsapView.php:879
+msgid "Submit"
+msgstr ""
+
+#: inc/php/DzsapView.php:883
+msgid "You need to be logged in to comment"
+msgstr ""
+
+#: inc/php/DzsapWooCommerce.php:406
+#, fuzzy
+msgid "Preview Track"
+msgstr "Previsualizar"
+
+#: inc/php/DzsapWooCommerce.php:429
+#, fuzzy
+msgid "Use for download"
+msgstr "Descargar"
+
+#: inc/php/DzsapWooCommerce.php:452
+#, fuzzy
+msgid "Waveform"
+msgstr "Solo la Forma de Onda"
+
+#: inc/php/DzsapWooCommerce.php:455
+#, fuzzy
+msgid "Regenerate Waveform"
+msgstr "Solo la Forma de Onda"
+
+#: inc/php/DzsapWooCommerce.php:474
+#, fuzzy
+msgid "Sample Time Start"
+msgstr "Tiempo de Animación"
+
+#: inc/php/DzsapWooCommerce.php:474
+msgid ""
+"If this is a sample ( you are not showing the full track, you can input a "
+"start time here ), leave 0 if not"
+msgstr ""
+
+#: inc/php/DzsapWooCommerce.php:490
+#, fuzzy
+msgid "Sample Time End"
+msgstr "Tiempo de Animación"
+
+#: inc/php/DzsapWooCommerce.php:490
+msgid ""
+"If this is a sample ( you are not showing the full track, you can input a "
+"end time here ), leave 0 if not"
+msgstr ""
+
+#: inc/php/DzsapWooCommerce.php:506
+#, fuzzy
+msgid "Sample Time Total"
+msgstr "Tiempo de Animación"
+
+#: inc/php/DzsapWooCommerce.php:506
+msgid "The total track duration  ( in seconds ) "
+msgstr ""
+
+#: inc/php/DzsapWooCommerce.php:520
+msgid "Subtitle"
+msgstr ""
+
+#: inc/php/DzsapWooCommerce.php:520
+msgid "The subtitle for some grid styles"
+msgstr ""
+
+#: inc/php/DzsapWooCommerce.php:534
+#, fuzzy
+msgid "Custom Link on Buy"
+msgstr "Personalizado"
+
+#: inc/php/DzsapWooCommerce.php:534
+msgid "Custom link on Buy button click"
+msgstr ""
+
+#: inc/php/DzsapWooCommerce.php:549
+#, php-format
+msgid "default will be the author name input %s for no author name"
+msgstr ""
+
+#: inc/php/DzsapWooCommerce.php:567
+#, fuzzy
+msgid "Generate playlist preview"
+msgstr "Generar"
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:52
+msgid "Track info"
+msgstr ""
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:59
+msgid "you can input a track source or id"
+msgstr ""
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:66
+msgid "track url"
+msgstr ""
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:71
+#, fuzzy
+msgid "id"
+msgstr "ID"
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:76
+#, fuzzy
+msgid "url id"
+msgstr "ID"
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:84
+msgid "Get wavedata"
+msgstr ""
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:100
+#, fuzzy
+msgid "Track meta"
+msgstr "Meta Personalizada"
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:110
+msgid "waiting init"
+msgstr ""
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:114
+#, fuzzy
+msgid "pcm data"
+msgstr "Generar datos de atributos"
+
+#: inc/php/admin-pages/page_wave_regenerate-functions.php:117
+msgid "submit"
+msgstr ""
+
+#: inc/php/admin/admin-echo-registeredUsersCapabilityMainOption.php:14
+msgid "Required user capability for download"
+msgstr ""
+
+#: inc/php/admin/admin-echo-registeredUsersCapabilityMainOption.php:30
+msgid "Subscriber ( lowest )"
+msgstr ""
+
+#: inc/php/admin/admin-echo-registeredUsersCapabilityMainOption.php:34
+msgid "Contributor"
+msgstr ""
+
+#: inc/php/admin/admin-echo-registeredUsersCapabilityMainOption.php:38
+#, fuzzy
+msgid "Author"
+msgstr "Nombre del Autor"
+
+#: inc/php/admin/admin-echo-registeredUsersCapabilityMainOption.php:60
+#, fuzzy
+msgid "Default roles"
+msgstr "Predeterminado"
+
+#: inc/php/admin/admin-echo-registeredUsersCapabilityMainOption.php:73
+msgid "Site Roles"
+msgstr ""
+
+#: inc/php/admin/admin-echo-registeredUsersCapabilityMainOption.php:92
+#, fuzzy
+msgid "Custom permissions"
+msgstr "Personalizado"
+
+#: inc/php/admin/admin-echo-registeredUsersCapabilityMainOption.php:107
+msgid "select a class to restrict downloads to"
+msgstr ""
+
+#: inc/php/admin/admin-systemCheck-wave-check-for-every-file.php:54
+#, fuzzy
+msgid "Regenerate waveform"
+msgstr "Solo la Forma de Onda"
+
+#: inc/php/ajax/ajax-download.php:33
+msgid "You do not have permission"
+msgstr ""
+
+#: inc/php/ajax/ajax-download.php:40
+#, fuzzy
+msgid "You need to register"
+msgstr "le permite mostrar publicaciones privadas"
+
+#: inc/php/ajax/ajax-download.php:61
+msgid "Extension not valid"
+msgstr ""
+
+#: inc/php/ajax/ajax-download.php:70
+msgid "Link needs an absolute path"
+msgstr ""
+
+#: inc/php/ajax/ajax-download.php:80
+msgid "You need to set media id"
+msgstr ""
+
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Playlist_Widget.php:44
+#, fuzzy
+msgid "Select a playlist"
+msgstr "Editar lista de reproducción desde "
+
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Playlist_Widget.php:69
+#: inc/php/inc-cornerstone/dzsap_playlist/definition.php:14
+#, fuzzy
+msgid "ZoomSounds Playlist"
+msgstr "Editar lista de reproducción desde "
+
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Widget.php:39
+msgid "Miscellanous"
+msgstr ""
+
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Widget.php:68
+#, fuzzy
+msgid "Custom Source Uri"
+msgstr "seleccione la fuente principal"
+
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Widget.php:69
+msgid "if you place anything here, it will replace the source field"
+msgstr ""
+
+#: inc/php/compatibilities/elementor/DZSAP_Elementor_Widget.php:162
+#: inc/php/inc-cornerstone/dzsap/definition.php:14
+#: inc/php/vc/part-vcintegration.php:104
+msgid "ZoomSounds Player"
+msgstr "Reproductor ZoomSounds"
+
+#: inc/php/deprecated-sliders-admin.php:7
+msgid "Whole Database"
+msgstr ""
+
+#: inc/php/deprecated-sliders-admin.php:11
+#, fuzzy
+msgid "Import Whole Database"
+msgstr "Importar ejemplos con un solo clic"
+
+#: inc/php/deprecated-sliders-admin.php:22
+msgid "Export Whole Database"
+msgstr ""
+
+#: inc/php/deprecated-sliders-admin.php:30 tinymce/popupiframe.php:123
+#: tinymce/popupiframe.php:195
+msgid "OR"
+msgstr ""
+
+#: inc/php/deprecated-sliders-admin.php:35
+#, fuzzy
+msgid "Single Slider"
+msgstr "Control deslizante"
+
+#: inc/php/deprecated-sliders-admin.php:40
+#, fuzzy
+msgid "Import a Single Slider"
+msgstr "Control deslizante"
+
+#: inc/php/deprecated-sliders-admin.php:137
+#, fuzzy
+msgid "Save All Galleries"
+msgstr "Todo"
+
+#: inc/php/deprecated-sliders-admin.php:138
+#, fuzzy
+msgid "Save Gallery"
+msgstr "Opciones de Guardado"
+
+#: inc/php/deprecated.php:72
+#, fuzzy
+msgid "Media File"
+msgstr "Añadir medios"
+
+#: inc/php/deprecated.php:75
+msgid "Link to a media file from your WordPress Media Library."
+msgstr ""
+
+#: inc/php/deprecated.php:81
+#, fuzzy
+msgid "SoundCloud Sound"
+msgstr "Sonido"
+
+#: inc/php/deprecated.php:84
+msgid ""
+"Stream SoundCloud sounds. Input the full link to the sound in the Source "
+"field. You will have to input your SoundCloud API Key into ZoomSounds > "
+"Settings."
+msgstr ""
+
+#: inc/php/deprecated.php:91
+msgid "ShoutCast Radio"
+msgstr ""
+
+#: inc/php/deprecated.php:94
+msgid ""
+"Insert a shoutcast radio address. It will have to stream in mpeg format. "
+"Input the address, example:  "
+msgstr ""
+
+#: inc/php/deprecated.php:100
+#, fuzzy
+msgid "YouTube"
+msgstr ""
+"seleccione una miniatura para el video (se puede generar automáticamente si "
+"se trata de Vimeo o YouTube)"
+
+#: inc/php/deprecated.php:103
+msgid "Input the YouTube video id. Warning - will not work on iOS."
+msgstr ""
+
+#: inc/php/deprecated.php:112
+#, fuzzy
+msgid "Self-Hosted Audio"
+msgstr "Tabla Audio Wave"
+
+#: inc/php/deprecated.php:115
+msgid ""
+"Only mp3 is mandatory. Browsers that cannot decode mp3 will use the included "
+"Flash Player backup . If you want full html5 player, you must set a ogg "
+"sound too."
+msgstr ""
+
+#: inc/php/deprecated.php:124
+#, fuzzy
+msgid "Inline Content"
+msgstr "Inline"
+
+#: inc/php/deprecated.php:127
+msgid ""
+"Insert in the <strong>Source</strong> field custom content ( ie. embed from "
+"a custom site )."
+msgstr ""
+
+#: inc/php/deprecated.php:143
+msgid ""
+"Below you will enter your audio file address. If it is a video from YouTube "
+"or Vimeo you just need to enter\n"
+"                the id of the video in the . The ID is the bolded part "
+"https://www.youtube.com/watch?v=<strong>j_w4Bi0sq_w</strong>.\n"
+"                If it is a local video you just need to write its location "
+"there or upload it through the Upload button ( .mp3 format )."
+msgstr ""
+
+#: inc/php/deprecated.php:162
+#, fuzzy
+msgid "Track ID"
+msgstr "ID"
+
+#: inc/php/deprecated.php:165 inc/php/deprecated.php:182
+msgid "Only for Private Soundcloud files. Guide on how to get the track_id - "
+msgstr ""
+
+#: inc/php/deprecated.php:179
+msgid "Secret Token"
+msgstr ""
+
+#: inc/php/deprecated.php:191
+msgid "Format"
+msgstr ""
+
+#: inc/php/deprecated.php:192
+msgid "Optional ogg / ogv file"
+msgstr ""
+
+#: inc/php/deprecated.php:192
+msgid "Only for the Video or Audio type"
+msgstr ""
+
+#: inc/php/deprecated.php:202
+#, fuzzy
+msgid "WaveForm Background Image"
+msgstr "Fondo"
+
+#: inc/php/deprecated.php:203 inc/php/deprecated.php:214
+#, fuzzy
+msgid "Optional waveform image / "
+msgstr "Imagen"
+
+#: inc/php/deprecated.php:203 inc/php/deprecated.php:214
+#, fuzzy
+msgid "Only for skin-wave"
+msgstr "Onda de audio"
+
+#: inc/php/deprecated.php:204
+#, fuzzy
+msgid "Auto Generate"
+msgstr ""
+"seleccione una miniatura para el video (se puede generar automáticamente si "
+"se trata de Vimeo o YouTube)"
+
+#: inc/php/deprecated.php:213
+#, fuzzy
+msgid "WaveForm Progress Image"
+msgstr "Imagen"
+
+#: inc/php/deprecated.php:224
+#, fuzzy
+msgid "Link To Media File"
+msgstr "Añadir medios"
+
+#: inc/php/deprecated.php:225
+msgid ""
+"you can link to a media file in order to have comment / rates - just input "
+"the id of the media here or "
+msgstr ""
+
+#: inc/php/deprecated.php:238
+#, fuzzy
+msgid "a thumbnail "
+msgstr "Altura de Miniatura"
+
+#: inc/php/deprecated.php:259
+#, fuzzy
+msgid "Background Image"
+msgstr "Fondo"
+
+#: inc/php/deprecated.php:260
+msgid ""
+"optional - choose a background image to appear ( needs a wrapper / read "
+"docs )"
+msgstr ""
+
+#: inc/php/deprecated.php:270
+msgid ""
+"optional - play this track in the footer player ( footer player must be "
+"setuped on the page ) "
+msgstr ""
+
+#: inc/php/deprecated.php:310
+#, php-format
+msgid ""
+"leave blank and zoomsounds will try to auto generate song name from mp3 id3 "
+"or from attached file meta. Or you can input %s to force no song name in the "
+"player"
+msgstr ""
+
+#: inc/php/deprecated.php:317
+#, fuzzy
+msgid "Extra HTML Options"
+msgstr "Botón personalizado - html adicional"
+
+#: inc/php/deprecated.php:331
+msgid "(1) extra html you may want underneath item"
+msgstr ""
+
+#: inc/php/deprecated.php:341
+#, fuzzy
+msgid "Extra HTML to the Left"
+msgstr "Botón personalizado - html adicional"
+
+#: inc/php/deprecated.php:343
+msgid "(2) extra html placed in the left of Like button"
+msgstr ""
+
+#: inc/php/deprecated.php:353
+#, fuzzy
+msgid "Extra HTML in Left Controls"
+msgstr "Botón personalizado - html adicional"
+
+#: inc/php/deprecated.php:355 inc/php/deprecated.php:367
+msgid "(3) extra html placed in the player&quot;s "
+msgstr ""
+
+#: inc/php/deprecated.php:376
+#: inc/php/part-generate-legacy-sliderstructure.php:121
+#, fuzzy
+msgid "Menu Options"
+msgstr "Opciones de Guardado"
+
+#: inc/php/deprecated.php:387
+#, fuzzy
+msgid "Artist Name"
+msgstr "Nombre del Autor"
+
+#: inc/php/deprecated.php:388
+msgid "an artist name if you include this item in a playlist"
+msgstr ""
+
+#: inc/php/deprecated.php:400
+#, fuzzy
+msgid "Song Name"
+msgstr "Ingresar el nombre de la canción"
+
+#: inc/php/deprecated.php:401
+#, fuzzy
+msgid "a song name"
+msgstr "Ingresar el nombre de la canción"
+
+#: inc/php/deprecated.php:412
+msgid "extra html you may want in the menu item"
+msgstr ""
+
+#: inc/php/gutenberg-functions.php:210 inc/php/gutenberg-functions.php:218
+#: inc/php/gutenberg-functions.php:225
+msgid "Placeholder"
+msgstr ""
+
+#: inc/php/inc-cornerstone/dzsap/defaults.php:34
+#: inc/php/inc-cornerstone/dzsap_playlist/defaults.php:34
+#, fuzzy
+msgid "Go to Link"
+msgstr "Enlace a..."
+
+#: inc/php/inc-cornerstone/dzsap_playlist/definition.php:55
+#, fuzzy
+msgid "Gallery id"
+msgstr "ID"
+
+#: inc/php/inc-cornerstone/dzsap_playlist/definition.php:56
+#, fuzzy
+msgid "Edit in ZoomSounds"
+msgstr "Editar lista de reproducción desde "
+
+#: inc/php/inc-cornerstone/dzsap_playlist/definition.php:59
+msgid "100"
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:7
+#, fuzzy
+msgid "General Options"
+msgstr "Ajustes generales"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:24
+#, fuzzy
+msgid "ZoomSounds Player Configuration"
+msgstr "Configuración del Reproductor"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:26
+#: inc/php/part-generate-legacy-sliderstructure.php:108
+msgid "default"
+msgstr "predeterminado"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:29
+msgid "setup these inside the <strong>ZoomSounds Player Configs</strong> admin"
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:29
+#, fuzzy
+msgid "Quick Edit "
+msgstr "Editar el diseño"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:39
+#, fuzzy
+msgid "Show All"
+msgstr "Todo"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:41
+#, php-format
+msgid "%sshow all%s lists the players one below the other "
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:78
+#, fuzzy
+msgid "Enable number indicator"
+msgstr "Habilitar"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:80
+#: inc/php/part-generate-legacy-sliderstructure.php:99
+#: inc/php/part-generate-legacy-sliderstructure.php:180
+#: inc/php/part-generate-legacy-sliderstructure.php:188
+#: inc/php/part-generate-legacy-sliderstructure.php:198
+#: inc/php/part-generate-legacy-sliderstructure.php:215
+#: inc/php/part-generate-legacy-sliderstructure.php:225
+#: inc/php/part-generate-legacy-sliderstructure.php:234
+#: inc/php/part-generate-legacy-sliderstructure.php:244
+msgid "on"
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:81
+#: inc/php/part-generate-legacy-sliderstructure.php:98
+#: inc/php/part-generate-legacy-sliderstructure.php:181
+#: inc/php/part-generate-legacy-sliderstructure.php:189
+#: inc/php/part-generate-legacy-sliderstructure.php:199
+#: inc/php/part-generate-legacy-sliderstructure.php:214
+#: inc/php/part-generate-legacy-sliderstructure.php:224
+#: inc/php/part-generate-legacy-sliderstructure.php:233
+#: inc/php/part-generate-legacy-sliderstructure.php:243
+#, fuzzy
+msgid "off"
+msgstr "Desactivado"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:83
+msgid "Disable arrows for gallery navigation on the player "
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:89
+msgid "Background"
+msgstr "Fondo"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:101
+msgid ""
+"when selecting a track in the menu the link will update to reflect the new "
+"track selected"
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:109
+msgid "random"
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:110
+#, fuzzy
+msgid "ratings"
+msgstr "Valoraciones"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:112
+msgid "random or drag and drop"
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:158
+#, fuzzy
+msgid "Like Button"
+msgstr "Botón"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:173
+#, fuzzy
+msgid "Autoplay Options"
+msgstr "Opciones de Administrador"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:178
+#, fuzzy
+msgid "Cue First Media"
+msgstr "Añadir medios"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:196
+#, fuzzy
+msgid "Autoplay Next"
+msgstr "Siguiente"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:207
+#, fuzzy
+msgid "Play / Like Settings"
+msgstr "Ajustes"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:212
+#, fuzzy
+msgid "Enable Play Count"
+msgstr "Habilitar"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:217
+msgid ""
+"enable play count - warning: the media file has to be attached to a library "
+"item ( the Link To Media field .. ) "
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:222
+#, fuzzy
+msgid "Enable Downloads Counter"
+msgstr "Habilitar"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:227
+msgid ""
+"enable download count - warning: the media file has to be attached to a "
+"library item ( the Link To Media field .. ) "
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:231
+#, fuzzy
+msgid "Enable Like Count"
+msgstr "Habilitar"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:236
+msgid ""
+"enable like count - warning: the media file has to be attached to a library "
+"item ( the Link To Media field .. ) "
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:241
+#, fuzzy
+msgid "Enable Rating"
+msgstr "Habilitar"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:246
+msgid ""
+"enable rating - warning: the media file has to be attached to a library item "
+"( the Link To Media field .. ) "
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:261
+#, fuzzy
+msgid "Force Dimensions"
+msgstr "Dimensiones"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:266
+#: tinymce/popupiframe.php:171
+#, fuzzy
+msgid "Force Width"
+msgstr "Ancho"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:268
+msgid "Force a fix width, leave blank for responsive mode "
+msgstr ""
+
+#: inc/php/part-generate-legacy-sliderstructure.php:271
+#: tinymce/popupiframe.php:177
+#, fuzzy
+msgid "Force Height"
+msgstr "Altura"
+
+#: inc/php/part-generate-legacy-sliderstructure.php:273
+msgid "Force a fix height, leave blank for default mode "
+msgstr ""
+
+#: inc/php/shortcodes.php:279
+msgid "You need to be logged in to have a wishlist."
+msgstr ""
+
+#: inc/php/shortcodes.php:337
+#, fuzzy
+msgid "Search tracks..."
+msgstr "Buscar"
+
+#: inc/php/shortcodes/shortcode-player.php:299
+msgid "Stats"
+msgstr ""
+
+#: inc/php/vc/part-vcintegration.php:10
+msgid "Date"
+msgstr "Fecha"
+
+#: inc/php/vc/part-vcintegration.php:16
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: inc/php/vc/part-vcintegration.php:20
+msgid "Descending"
+msgstr "Descendente"
+
+#: inc/php/view-functions/view-determine-html-areas.php:171
+msgid "Copy Embed"
+msgstr ""
+
+#: inc/php/view-parseItems/parse-items-functions.php:218
+#: inc/portal/showcase-functions.php:429
+msgid "by"
+msgstr ""
+
+#: inc/portal/showcase-functions.php:429
+msgid "Free"
+msgstr "Gratis"
+
+#: inc/sliders-admin/SlidersAdmin.php:82
+msgid "Editing "
+msgstr ""
+
+#: inc/sliders-admin/SlidersAdmin.php:86
+msgid "Saving"
+msgstr ""
+
+#: inc/sliders-admin/SlidersAdmin.php:149
+#, fuzzy
+msgid "Create New Item"
+msgstr "Item"
+
+#: inc/sliders-admin/SlidersAdmin.php:151
+#, fuzzy
+msgid "Add From Library"
+msgstr "Agregar al carrito"
+
+#: inc/sliders-admin/SlidersAdmin.php:170
+#, fuzzy
+msgid "Main Settings"
+msgstr "Ajustes"
+
+#: inc/sliders-admin/SlidersAdmin.php:218
+#: inc/sliders-admin/SlidersAdmin.php:221
+#: inc/sliders-admin/SlidersAdmin.php:239
+#, fuzzy
+msgid "Import folder"
+msgstr "Importar diseño"
+
+#: inc/sliders-admin/SlidersAdmin.php:234
+msgid ""
+"input the location of the folder that is storing the mp3s - for example the "
+"location of the zoomsounds plugin folder is "
+msgstr ""
+
+#: inc/sliders-admin/SlidersAdmin.php:269
+#, fuzzy
+msgid "Shortcode sample"
+msgstr "Eliminar datos de ejemplo"
+
+#: inc/sliders-admin/SlidersAdmin.php:282
+#, fuzzy
+msgid "Name"
+msgstr "el nombre de la propiedad Meta"
+
+#: inc/sliders-admin/SlidersAdmin.php:331
+#, fuzzy
+msgid "View"
+msgstr "Ver carrito"
+
+#: inc/sliders-admin/SlidersAdmin.php:332
+#, fuzzy
+msgid "Show more details"
+msgstr "Mostrar filtrado por"
+
+#: inc/sliders-admin/SlidersAdmin.php:338
+msgid "Slug"
+msgstr ""
+
+#: inc/sliders-admin/SlidersAdmin.php:370
+msgid "You can create playlists by pressing the Add Playlist button."
+msgstr ""
+
+#: inc/sliders-admin/SlidersAdmin.php:372
+#, fuzzy
+msgid "Hide all tips"
+msgstr "Ocultar Overflow"
+
+#: inc/sliders-admin/SlidersAdmin.php:373
+msgid "Confirm"
+msgstr ""
+
+#: inc/sliders-admin/SlidersAdmin.php:383
+#, fuzzy
+msgid "Import"
+msgstr "Importar diseño"
+
+#: shortcodegenerator/generator_player.php:57
+#, fuzzy
+msgid " Shortcode Generator"
+msgstr "Generador de Shortcode"
+
+#: shortcodegenerator/generator_player.php:286
+msgid "Examples"
+msgstr "Ejemplos"
+
+#: shortcodegenerator/generator_player.php:304
+#, fuzzy
+msgid "Submit Shortcode"
+msgstr "Shortcode"
+
+#: tinymce/popupiframe.php:44
+#, fuzzy
+msgid "shortcode generator"
+msgstr "Generador de Shortcode"
+
+#: tinymce/popupiframe.php:47
+#, fuzzy
+msgid "Import sample data"
+msgstr "Eliminar datos de ejemplo"
+
+#: tinymce/popupiframe.php:51
+msgid "You can generate an example from the preview"
+msgstr ""
+
+#: tinymce/popupiframe.php:69
+#, fuzzy
+msgid "Player with Wave and Comments"
+msgstr "Tabla Audio Wave"
+
+#: tinymce/popupiframe.php:75 tinymce/popupiframe.php:91
+#: tinymce/popupiframe.php:107
+msgid "Insert Shortcode"
+msgstr "Insertar Shortcode"
+
+#: tinymce/popupiframe.php:78 tinymce/popupiframe.php:94
+#: tinymce/popupiframe.php:110
+msgid "Install sample data first, to generate this example"
+msgstr ""
+
+#: tinymce/popupiframe.php:85
+msgid "Bottom Player with Grid Display"
+msgstr ""
+
+#: tinymce/popupiframe.php:101
+msgid "Audio Player with Custom Skin"
+msgstr ""
+
+#: tinymce/popupiframe.php:132
+#, fuzzy
+msgid "Select a Playlist to Insert"
+msgstr "Editar lista de reproducción desde "
+
+#: tinymce/popupiframe.php:162
+#, fuzzy
+msgid "Quick edit the gallery - "
+msgstr "Editar el diseño"
+
+#: tinymce/popupiframe.php:166
+msgid "Force sizes"
+msgstr ""
+
+#: tinymce/popupiframe.php:194
+#, fuzzy
+msgid "One Click Install Example"
+msgstr "Importar ejemplos con un solo clic"
+
+#: tinymce/popupiframe.php:196
+#, fuzzy
+msgid "Insert Gallery"
+msgstr "Insertar Shortcode"
+
+#: tinymce/popupiframe.php:203
+#, fuzzy
+msgid "Import Demo"
+msgstr "Importar diseño"
+
+#: tinymce/popupiframe.php:341
+msgid ""
+"You need to activate zoomsounds with purchase code before importing demos"
+msgstr ""

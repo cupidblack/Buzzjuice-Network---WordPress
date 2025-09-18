@@ -1,0 +1,16 @@
+
+.dzs-gutenberg--inspector-setting {
+  label:not(.a){
+    display: block;
+    margin-bottom: 5px;
+  }
+  .render-song-selector {
+    &:last-child {
+      margin-bottom: 10px;
+    }
+  }
+
+  &+.dzs-gutenberg--inspector-setting{
+    margin-top: 10px;
+  }
+}
